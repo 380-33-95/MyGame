@@ -14,7 +14,7 @@ public class Dvigatel{
 		)
 		{
 			System.out.println("i___Proverka "+(getKli()-7));
-			WorkBlok.Peremeshenie(getKli(), getKli()- 7);
+			WorkBlok.Peremeshenie(getKli(), (getKli()- 7));
 			setKli(getKli()+1);
 		}
 		else
@@ -56,7 +56,7 @@ public class Dvigatel{
 				&& Blok.BlokList.get(getKlv()).getStorona()==2
 		){
 			System.out.println("v___Proverka "+(getKlv()+7));
-			WorkBlok.Peremeshenie(getKlv(), getKlv() + 7);
+			WorkBlok.Peremeshenie(getKlv(), (getKlv() + 7));
 			setKlv(getKlv()-1);
 		}
 		else{
