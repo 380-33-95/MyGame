@@ -8,11 +8,11 @@ static int nc;
     public static void InfoKletka () {
 
         nc=getNC();
-    //        if (pc != nc) {
+
             if (nc >= 7 && nc <= 76) {
                 System.out.println();
 
-                System.out.printf("KLETKA POLE#%d -> index=%d health=%d forse=%d status=%d storona=%d",
+                System.out.printf("KLETKA POLE# %d -> index=%d health=%d forse=%d effect=%d storona=%d",
                         getNC(),
                         BlokList.get(nc).getIndex(),
                         BlokList.get(nc).getHealth(),
@@ -22,9 +22,9 @@ static int nc;
                 );
 
                 System.out.println();
-               // pc = nc;
+
             }
-   //     }
+
 
     }
 

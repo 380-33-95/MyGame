@@ -21,10 +21,10 @@ public class ClickSelector extends MyGdxGame{
 			}
 
 			if (getNC() >= 70 && getNC() <= 76
-					&& bufer.getIndex() > 0
-					&& BlokList.get(getNC()).getIndex() == 0
-					&& bufer.getEffect() == 0
-					&& bufer.getStorona()==1
+					& bufer.getIndex() > 0
+					& BlokList.get(getNC()).getIndex() == 0
+					& bufer.getEffect() == 0
+					& bufer.getStorona()==1
 				//   && !Vistrel.timerVistrelI.isRunning()
 			)
 			{

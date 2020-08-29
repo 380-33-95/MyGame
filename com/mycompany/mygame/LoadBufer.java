@@ -20,7 +20,7 @@ public class LoadBufer extends Blok {
 
 		System.out.println();
 
-		System.out.printf("KLETKA POLE#%s -> index=%d health=%d forse=%d status=%d storona=%d",
+		System.out.printf("KLETKA %s -> index=%d health=%d forse=%d effect=%d storona=%d",
 				" buffer",
 				BlokList.get(84).getIndex(),
 				BlokList.get(84).getHealth(),
