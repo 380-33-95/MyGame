@@ -8,18 +8,22 @@ public class Dvigatel{
 	public static void SdvigKletkaI() {
 
 		if(Blok.BlokList.get(getKli()-7).getIndex()==0
-				&& Blok.BlokList.get(getKli()).getEffect()==0
-		){
-			System.out.println("v___Proverka "+(getKli()-7));
+			&& Blok.BlokList.get(getKli()).getEffect()==0
+			&& Blok.BlokList.get(getKli()).getIndex()>0
+			&& Blok.BlokList.get(getKli()).getStorona()==1
+		)
+		{
+			System.out.println("i___Proverka "+(getKli()-7));
 			WorkBlok.Peremeshenie(getKli(), getKli()- 7);
 			setKli(getKli()+1);
 		}
-		else{
-			System.out.println("v___Proverka kontakta___"+(getKli()+7));
-			setKli(getKli()-1);
+		else
+		{
+			System.out.println("i___Proverka kontakta___"+(getKli()-7));
+			setKli(getKli()+1);
 		}
 
-		if (getKli()>6) {
+		if (getKli()<77) {
 
 			CiclSdvigI();
 
@@ -33,7 +37,7 @@ public class Dvigatel{
 
 	public static void CiclSdvigI() {
 
-		if(getKli()>6) {
+		if(getKli()<70) {
 
 			SdvigKletkaI();
 
@@ -47,7 +51,9 @@ public class Dvigatel{
 	public static void SdvigKletkaV() {
 
 		if(Blok.BlokList.get(getKlv()+7).getIndex()==0
-		&& Blok.BlokList.get(getKlv()).getEffect()==0
+				&& Blok.BlokList.get(getKlv()).getEffect()==0
+				&& Blok.BlokList.get(getKlv()).getIndex()>0
+				&& Blok.BlokList.get(getKlv()).getStorona()==2
 		){
 			System.out.println("v___Proverka "+(getKlv()+7));
 			WorkBlok.Peremeshenie(getKlv(), getKlv() + 7);
