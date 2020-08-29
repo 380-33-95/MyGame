@@ -17,10 +17,10 @@ public class HodVrag extends ClickSelector {
 
         Peremen.setOneClik(false);
 
-        Dvigatel.setKlv(69);
-
-       Dvigatel.CiclSdvigV();
-
+        if (Dvigatel.isCiclDvigatelV()) {
+            Dvigatel.setKlv(70);
+            Dvigatel.CiclSdvigV();
+        }
 
     }
 

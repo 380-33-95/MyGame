@@ -18,6 +18,8 @@ public class ClickSelector extends MyGdxGame{
 			)
 			{
 				HodIgrok.HodIgrokZamok();
+				Dvigatel.setCiclDvigatelI(false);
+				Dvigatel.setCiclDvigatelV(true);
 			}
 
 			if (getNC() >= 70 && getNC() <= 76
@@ -47,7 +49,10 @@ public class ClickSelector extends MyGdxGame{
 			)
 			{
 				HodVrag.HodVragZamok();
+				Dvigatel.setCiclDvigatelV(false);
+				Dvigatel.setCiclDvigatelI(true);
 			}
+
 			if(getNC()>=7 && getNC()<=13
 					&& bufer.getIndex() > 0
 					&& BlokList.get(getNC()).getIndex() == 0

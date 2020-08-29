@@ -16,12 +16,12 @@ public class HodIgrok extends ClickSelector {
 
 	   Peremen.setKodZamok(getNC());
 
+
+if (Dvigatel.isCiclDvigatelI()) {
+	Dvigatel.setKli(15);
+	Dvigatel.CiclSdvigI();
+}
 	   Peremen.setOneClik(false);
-
-	   Dvigatel.setKli(14);
-
-	   Dvigatel.CiclSdvigI();
-
 	 
    }
 
