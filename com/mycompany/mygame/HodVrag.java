@@ -20,6 +20,7 @@ public class HodVrag extends ClickSelector {
 
     public static void HodVragPole(){
         System.out.println("------------------------HodVragPole()");
+
         Peremen.setOneClik(true);
 
         WorkBlok.LoadPoleBlok();

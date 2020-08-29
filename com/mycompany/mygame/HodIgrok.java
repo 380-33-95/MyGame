@@ -32,7 +32,7 @@ public class HodIgrok extends ClickSelector {
 		   Peremen.setSmenaHoda(false);
    }
 
-    public static void DvigatelIgrok(int nc){
+   public static void DvigatelIgrok(int nc){
 
 
     }
