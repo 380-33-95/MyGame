@@ -85,7 +85,7 @@ public class WorkBlok extends Blok{
         }
 
         if(b01.getIndex()==0) {
-           LoadBlokFromBasa(1);
+           LoadBlokFromBasa(1,2);
 
         }
 
@@ -108,14 +108,14 @@ public class WorkBlok extends Blok{
         }
 
         if(b78.getIndex()==0) {
-			LoadBlokFromBasa(78);
+			LoadBlokFromBasa(78, 1);
 
         }
 
     }
 	
 
-    public static void LoadBlokFromBasa(int nb){
+    public static void LoadBlokFromBasa(int nb, int st){
         //0-index, 1-zdorovie, 2-sila, 3-effect, 4-moov  , 5-storona (1-igrok, 2-vrag), 6-boom,
 //	7-flag sabrosa v pole, 8-flag vistrel 9-*
 
@@ -127,6 +127,7 @@ public class WorkBlok extends Blok{
         BlokList.get(nb).setHealth(Koloda.Basakoloda[nv][1]);
         BlokList.get(nb).setForse(Koloda.Basakoloda[nv][2]);
         BlokList.get(nb).setEffect(Koloda.Basakoloda[nv][3]);
+        BlokList.get(nb).setStorona(st);
     }
 
 

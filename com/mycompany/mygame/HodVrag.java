@@ -14,6 +14,14 @@ public class HodVrag extends ClickSelector {
         WorkBlok.ObnulenieFinishV();
 
         Peremen.setKodZamok(getNC());
+
+        Peremen.setOneClik(false);
+
+        Dvigatel.setKlv(69);
+
+       Dvigatel.CiclSdvigV();
+
+
     }
 
 
@@ -33,7 +41,5 @@ public class HodVrag extends ClickSelector {
         
         
     }
-    public static void DvigatelVrag(int nc){
 
-    }
 }

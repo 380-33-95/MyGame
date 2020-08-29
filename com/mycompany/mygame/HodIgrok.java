@@ -14,6 +14,14 @@ public class HodIgrok extends ClickSelector {
 
 	   WorkBlok.ObnulenieFinishI();
 
+	   Peremen.setKodZamok(getNC());
+
+	   Peremen.setOneClik(false);
+
+	   Dvigatel.setKli(14);
+
+	   Dvigatel.CiclSdvigI();
+
 	 
    }
 

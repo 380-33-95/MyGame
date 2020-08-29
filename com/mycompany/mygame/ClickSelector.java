@@ -10,8 +10,9 @@ public class ClickSelector extends MyGdxGame{
 
 		if (getStatusMenu() == 1) { //BOJ
 
+		//////////////////////////////////////////////////////////////////////////////////////hod igroka
 
-			if ((getNC() >= 78 && getNC() <= 83)//////////////////////////////////////////////////////////////////////////////////////hod igroka
+			if ((getNC() >= 78 && getNC() <= 83)
 					&& Peremen.isSmenaHoda()
 				// && !Vistrel.timerVistrelI.isRunning()
 			)
