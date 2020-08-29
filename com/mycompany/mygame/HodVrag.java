@@ -15,31 +15,38 @@ public class HodVrag extends ClickSelector {
 
         Peremen.setKodZamok(getNC());
 
-        Peremen.setOneClik(false);
 
-        if (Dvigatel.isCiclDvigatelV()) {
-            Dvigatel.setKlv(70);
-            Dvigatel.CiclSdvigV();
+
+     //   Dvigatel.setKlv(69);
+
+     //  Dvigatel.CiclSdvigV();
+
+        if(Dvigatel.startCiclVrag) {
+            Dvigatel.startV = 70;
+            Dvigatel.StartCiclPoleVrag();
+            Dvigatel.startCiclVrag=false;
+            Dvigatel.StartCiclIgrok=true;
         }
+
 
     }
 
 
 
     public static void HodVragPole(){
+
         System.out.println("------------------------HodVragPole()");
 
-        Peremen.setOneClik(true);
-
         WorkBlok.LoadPoleBlok();
+
+        WorkBlok.ObnulenieBufer();
 
         ObnulenieKvadratZamok(Peremen.getKodZamok());
 
         WorkBlok.SdvigZamokV();
 
         Peremen.setSmenaHoda(true);
-        
-        
+
     }
 
 }

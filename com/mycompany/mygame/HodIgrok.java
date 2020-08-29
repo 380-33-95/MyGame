@@ -6,7 +6,7 @@ import static com.mycompany.mygame.WorkBlok.ObnulenieKvadratZamok;
 public class HodIgrok extends ClickSelector {
 
 
-   public static void HodIgrokZamok(){
+   public static void HodIgrokZamok() {
 
 	   WorkBlok.ObnulenieBufer();
 
@@ -16,32 +16,30 @@ public class HodIgrok extends ClickSelector {
 
 	   Peremen.setKodZamok(getNC());
 
+	   if (Dvigatel.StartCiclIgrok) {
+		   Dvigatel.startI = 13;
+		   Dvigatel.StartCiclPoleIgrok();
+		   Dvigatel.StartCiclIgrok=false;
+		   Dvigatel.startCiclVrag=true;
 
-if (Dvigatel.isCiclDvigatelI()) {
-	Dvigatel.setKli(15);
-	Dvigatel.CiclSdvigI();
-}
-	   Peremen.setOneClik(false);
-	 
+	   }
    }
 
-   public static void HodIgrokPole(int kod){
-	   
-       System.out.println("------------------------HodIgrokPole()");
+   public static void HodIgrokPole(){
+
+        System.out.println("------------------------HodIgrokPole()");
      
-		   Peremen.setOneClik(true);
+	    WorkBlok.LoadPoleBlok();
 
-		   WorkBlok.LoadPoleBlok();
+	    WorkBlok.ObnulenieBufer();
 
-		   ObnulenieKvadratZamok(Peremen.getKodZamok());
+		ObnulenieKvadratZamok(Peremen.getKodZamok());
 
-		   WorkBlok.SdvigZamokI();
+		WorkBlok.SdvigZamokI();
 
-		   Peremen.setSmenaHoda(false);
+		Peremen.setSmenaHoda(false);
+
+
    }
 
-   public static void DvigatelIgrok(int nc){
-
-
-    }
-}
+   }

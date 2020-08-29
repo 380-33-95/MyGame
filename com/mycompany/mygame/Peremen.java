@@ -99,8 +99,7 @@ public class Peremen extends MyGdxGame{
 	public static void setSmenaHoda(boolean smenaHoda) {
 		SmenaHoda = smenaHoda;
 		System.out.println("setHod="+SmenaHoda);
-		Peremen.setOneClik(true);
-	}
+		}
 
 
 	
@@ -183,18 +182,7 @@ private static int KodZamok;
 		KodBoom = kodBoom;
 	}
 		
-	private static boolean OneClik=true;
-	
-	public static boolean isOneClik() {
-				return OneClik;
-	}
-	
-	public static void setOneClik( boolean One) {
-		OneClik=One;
-	}
-	
-	
-	private static int Kadr;
+		private static int Kadr;
 	
 	public static int getKadr() {
 		return Kadr;

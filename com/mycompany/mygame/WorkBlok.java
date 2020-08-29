@@ -51,13 +51,10 @@ public class WorkBlok extends Blok{
         BlokList.get(pp).setKodBlok(0);
         BlokList.get(pp).setXl(0);
         BlokList.get(pp).setYl(0);
-        System.out.println("Obnulenie kvadrat pole" + pp);
-
-    }
+        }
 
     public static void ObnulenieBufer() {
 
-        System.out.println("Obnulenie Bufer");
 
         Blok.bufer.setForse(0);
         Blok.bufer.setHealth(0);
@@ -72,44 +69,33 @@ public class WorkBlok extends Blok{
 
     public static void SdvigZamokV() {
 
-        System.out.println("sdvig V");
-
         for (int sdi=-1; sdi<=3; sdi++) {
             int sdii=5-sdi;
-            	System.out.println("sdvig V="+sdii);
-            if(BlokList.get(sdii).getIndex()==0) {
-                		System.out.println("sdvig V2="+sdii);
-                WorkBlok.Peremeshenie(sdii-1, sdii);
-            }
 
+            if(BlokList.get(sdii).getIndex()==0) {
+                 WorkBlok.Peremeshenie(sdii-1, sdii);
+            }
         }
 
         if(b01.getIndex()==0) {
            LoadBlokFromBasa(1,2);
-
         }
-
     }
 
 	
 	
 	public static void SdvigZamokI() {
 
-        System.out.println("sdvig I");
-
         for (int sdi=-1; sdi<=3; sdi++) {
             int sdii=82-sdi;
-			System.out.println("sdvig I="+sdii);
-            if(BlokList.get(sdii).getIndex()==0) {
+	            if(BlokList.get(sdii).getIndex()==0) {
 				System.out.println("sdvig I2="+sdii);
                 WorkBlok.Peremeshenie(sdii-1, sdii);
             }
-
         }
 
         if(b78.getIndex()==0) {
 			LoadBlokFromBasa(78, 1);
-
         }
 
     }
@@ -120,9 +106,6 @@ public class WorkBlok extends Blok{
 //	7-flag sabrosa v pole, 8-flag vistrel 9-*
 
         int nv=(int) Generator.GenRand(Koloda.Basakoloda.length-1);
-
-        System.out.println("Load blok from Baza "+nv);
-
         BlokList.get(nb).setIndex(nv);
         BlokList.get(nb).setHealth(Koloda.Basakoloda[nv][1]);
         BlokList.get(nb).setForse(Koloda.Basakoloda[nv][2]);
@@ -133,7 +116,6 @@ public class WorkBlok extends Blok{
 
     public static void ObnulenieKvadratZamok (int pp) {
        if(pp>0) {
-           System.out.println("Obnulenie blok zamok "+ pp);
            BlokList.get(pp).setForse(0);
            BlokList.get(pp).setHealth(0);
            BlokList.get(pp).setStorona(0);
@@ -144,8 +126,7 @@ public class WorkBlok extends Blok{
            BlokList.get(pp).setYl(0);
            BlokList.get(pp).setX(0);
            BlokList.get(pp).setY(0);
-           System.out.println("Obnulenie kvadrat pole" + pp);
-       }
+            }
     }
 
 }

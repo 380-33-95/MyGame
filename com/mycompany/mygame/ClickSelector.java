@@ -14,30 +14,36 @@ public class ClickSelector extends MyGdxGame{
 
 			if ((getNC() >= 78 && getNC() <= 83)
 					&& Peremen.isSmenaHoda()
-				// && !Vistrel.timerVistrelI.isRunning()
+					// && !Vistrel.timerVistrelI.isRunning()
 			)
 			{
+
 				HodIgrok.HodIgrokZamok();
-				Dvigatel.setCiclDvigatelI(false);
-				Dvigatel.setCiclDvigatelV(true);
 			}
 
 			if (getNC() >= 70 && getNC() <= 76
 					&& bufer.getIndex() > 0
 					&& BlokList.get(getNC()).getIndex() == 0
 					&& bufer.getEffect() == 0
+					&& bufer.getStorona()==1
 				//   && !Vistrel.timerVistrelI.isRunning()
 			)
 			{
-            HodIgrok.HodIgrokPole(getNC());
+
+					HodIgrok.HodIgrokPole();
+
 			}
 
 			if (getNC()>=49 && getNC()<=69
 					&& bufer.getIndex() > 0
 					&& BlokList.get(getNC()).getIndex() == 0
-					&& bufer.getEffect() >0)
+					&& bufer.getEffect() >0
+					&& bufer.getStorona()==2
+			)
 			{
-				HodIgrok.HodIgrokPole(getNC());
+
+					HodIgrok.HodIgrokPole();
+
 			}
 
 
@@ -48,27 +54,32 @@ public class ClickSelector extends MyGdxGame{
 				//	 && !Vistrel.timerVistrelV.isRunning()
 			)
 			{
+
 				HodVrag.HodVragZamok();
-				Dvigatel.setCiclDvigatelV(false);
-				Dvigatel.setCiclDvigatelI(true);
 			}
 
 			if(getNC()>=7 && getNC()<=13
 					&& bufer.getIndex() > 0
 					&& BlokList.get(getNC()).getIndex() == 0
 					&& bufer.getEffect() == 0
+					&& bufer.getStorona()==2
 				//		 && !Vistrel.timerVistrelV.isRunning()
 			)
 			{ //pered boj vrag
-				HodVrag.HodVragPole();
+
+					HodVrag.HodVragPole();
+
 			}
 
 			if (getNC()>=14 && getNC()<=41
 					&& bufer.getIndex() > 0
 					&& BlokList.get(getNC()).getIndex() == 0
-					&& bufer.getEffect() >0)
+					&& bufer.getEffect() >0
+					&& bufer.getStorona()==2)
 			{
-				HodVrag.HodVragPole();
+
+					HodVrag.HodVragPole();
+
 			}
 
 		}//end BOJ

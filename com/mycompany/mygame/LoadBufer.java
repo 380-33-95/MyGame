@@ -5,8 +5,6 @@ public class LoadBufer extends Blok {
 
 	public static void LoadVBufer(int kzv){
 		
-		Peremen.setOneClik(false);
-
 
 		Blok.bufer.setForse(BlokList.get(kzv).getForse());
 		Blok.bufer.setHealth(BlokList.get(kzv).getHealth());

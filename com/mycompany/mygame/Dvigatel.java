@@ -1,117 +1,72 @@
 package com.mycompany.mygame;
 
-public class Dvigatel{
+public class Dvigatel {
 
-	private static int kli;
-	private static int klv;
-	
-	public static void SdvigKletkaI() {
+                public static int startV;
 
-		if(Blok.BlokList.get(getKli()-7).getIndex()==0
-			&& Blok.BlokList.get(getKli()).getEffect()==0
-			&& Blok.BlokList.get(getKli()).getIndex()>0
-			&& Blok.BlokList.get(getKli()).getStorona()==1
-		)
-		{
-			System.out.println("i___Proverka "+(getKli()-7));
-			WorkBlok.Peremeshenie(getKli(), getKli()- 7);
-			setKli(getKli()+1);
-		}
-		else
-		{
-			System.out.println("i___Proverka kontakta___"+(getKli()-7));
-			setKli(getKli()+1);
-		}
+                public static int startI;
 
-		if (getKli()<77) {
+                public static boolean startCiclVrag=true;
 
-			CiclSdvigI();
-
-		}
-
-		Peremen.setOneClik(false);
-
-	}
+                public  static boolean StartCiclIgrok=true;
 
 
+  //start from 69 for vrag
 
-	public static void CiclSdvigI() {
+    public static void StartCiclPoleVrag(){
+        if (startV>6){
+            SdvigPoleVrag();
+        }
+    }
 
-		if(getKli()<70) {
-
-			SdvigKletkaI();
-
-		}
-
-	}
-
-
-
-
-	public static void SdvigKletkaV() {
-
-		if(Blok.BlokList.get(getKlv()+7).getIndex()==0
-				&& Blok.BlokList.get(getKlv()).getEffect()==0
-				&& Blok.BlokList.get(getKlv()).getIndex()>0
-				&& Blok.BlokList.get(getKlv()).getStorona()==2
-		){
-			System.out.println("v___Proverka "+(getKlv()+7));
-			WorkBlok.Peremeshenie(getKlv(), getKlv() + 7);
-			setKlv(getKlv()-1);
-		}
-		else{
-			System.out.println("v___Proverka kontakta___"+(getKlv()+7));
-			setKlv(getKlv()-1);
-		}
-
-		if (getKlv()>6) {
-
-			CiclSdvigV();
-
-			}
-
-		Peremen.setOneClik(false);
-
-	}
-	
-	
-	
-	public static void CiclSdvigV() {
-
-		if(getKlv()>6) {
-
-		SdvigKletkaV();
-
-		}
-
-	}
+    public static void SdvigPoleVrag(){
+        startV--;
+        if (startV>6){
+            System.out.println(">V>"+startV);
+            if(Blok.BlokList.get(startV+7).getIndex()==0
+                    && Blok.BlokList.get(startV).getEffect()==0
+                    && Blok.BlokList.get(startV).getIndex()>0
+                    && Blok.BlokList.get(startV).getStorona()==2
+            )
+            {
+                System.out.println("i___Proverka "+(startV+7));
+                WorkBlok.Peremeshenie(startV, startV+ 7);
+            }
+            StartCiclPoleVrag();
+        }
+        else {
+            System.out.println("Cicl stopped to "+startV);
+        }
+    }
 
 
+    //start from 7 for igrok
 
+    public static void StartCiclPoleIgrok(){
+        if (startI<77){
+            SdvigPoleIgrok();
+        }
+    }
 
+    public static void SdvigPoleIgrok(){
+        startI++;
 
-
-
-
-
-
-
-	public static int getKli() {
-		return kli;
-	}
-
-	public static void setKli(int kli) {
-		Dvigatel.kli = kli;
-	}
-
-	public static int getKlv() {
-		return klv;
-	}
-
-	public static void setKlv(int klv) {
-		Dvigatel.klv = klv;
-
-	}
-	
+        if (startI<77){
+            System.out.println(">I>"+startI);
+            if(Blok.BlokList.get(startI-7).getIndex()==0
+                    && Blok.BlokList.get(startI).getEffect()==0
+                    && Blok.BlokList.get(startI).getIndex()>0
+                    && Blok.BlokList.get(startI).getStorona()==1
+            )
+            {
+                System.out.println("v___Proverka "+(startI-7));
+                WorkBlok.Peremeshenie(startI, startI-7);
+            }
+            StartCiclPoleIgrok();
+        }
+        else {
+            System.out.println("Cicl stopped to "+startI);
+        }
+    }
 
 }
