@@ -17,7 +17,6 @@ public class ClickSelector extends MyGdxGame{
 					// && !Vistrel.timerVistrelI.isRunning()
 			)
 			{
-
 				HodIgrok.HodIgrokZamok();
 			}
 
@@ -29,21 +28,17 @@ public class ClickSelector extends MyGdxGame{
 				//   && !Vistrel.timerVistrelI.isRunning()
 			)
 			{
-
 					HodIgrok.HodIgrokPole();
-
 			}
 
-			if (getNC()>=49 && getNC()<=69
+			if (getNC()>=42 && getNC()<=69
 					&& bufer.getIndex() > 0
 					&& BlokList.get(getNC()).getIndex() == 0
 					&& bufer.getEffect() >0
-					&& bufer.getStorona()==2
+					&& bufer.getStorona()==1
 			)
 			{
-
 					HodIgrok.HodIgrokPole();
-
 			}
 
 
@@ -54,7 +49,6 @@ public class ClickSelector extends MyGdxGame{
 				//	 && !Vistrel.timerVistrelV.isRunning()
 			)
 			{
-
 				HodVrag.HodVragZamok();
 			}
 
@@ -66,9 +60,7 @@ public class ClickSelector extends MyGdxGame{
 				//		 && !Vistrel.timerVistrelV.isRunning()
 			)
 			{ //pered boj vrag
-
 					HodVrag.HodVragPole();
-
 			}
 
 			if (getNC()>=14 && getNC()<=41
@@ -77,9 +69,7 @@ public class ClickSelector extends MyGdxGame{
 					&& bufer.getEffect() >0
 					&& bufer.getStorona()==2)
 			{
-
 					HodVrag.HodVragPole();
-
 			}
 
 		}//end BOJ

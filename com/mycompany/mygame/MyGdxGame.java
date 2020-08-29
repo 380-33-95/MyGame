@@ -62,13 +62,13 @@ public class MyGdxGame extends Blok implements ApplicationListener
 	static Vector3 Touch = new Vector3();
 
 	public static int shirKnopki=(WIDTH/7)*3;
-	public static int visKnopki=(HEIGHT/12)*1;
+	public static int visKnopki=(HEIGHT/12);
 
     public static int color;
 
 
 
-	{  //////////////initialisation
+	static {  //////////////initialisation
 
 		Test.TestTest();
 		setStatusMenu(0);
@@ -88,8 +88,6 @@ public class MyGdxGame extends Blok implements ApplicationListener
 
 		batch = new SpriteBatch();
 		atlas = new Texture("atlas.png");
-
-		//	IniBlok.InitBlok(); // initialisation bloks
 
         camera.update();
 
@@ -148,7 +146,7 @@ public class MyGdxGame extends Blok implements ApplicationListener
 
 
 					if (Gdx.input.justTouched()) {
-						//JustTouched.*;
+
 					ClickSelector.TouchPressed(
 						
 						IfJustTouched());

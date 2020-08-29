@@ -15,12 +15,6 @@ public class HodVrag extends ClickSelector {
 
         Peremen.setKodZamok(getNC());
 
-
-
-     //   Dvigatel.setKlv(69);
-
-     //  Dvigatel.CiclSdvigV();
-
         if(Dvigatel.startCiclVrag) {
             Dvigatel.startV = 70;
             Dvigatel.StartCiclPoleVrag();

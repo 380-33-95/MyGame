@@ -22,21 +22,17 @@ public class Dvigatel {
     public static void SdvigPoleVrag(){
         startV--;
         if (startV>6){
-            System.out.println(">V>"+startV);
-            if(Blok.BlokList.get(startV+7).getIndex()==0
+              if(Blok.BlokList.get(startV+7).getIndex()==0
                     && Blok.BlokList.get(startV).getEffect()==0
                     && Blok.BlokList.get(startV).getIndex()>0
                     && Blok.BlokList.get(startV).getStorona()==2
             )
             {
-                System.out.println("i___Proverka "+(startV+7));
-                WorkBlok.Peremeshenie(startV, startV+ 7);
+               WorkBlok.Peremeshenie(startV, startV+ 7);
             }
             StartCiclPoleVrag();
         }
-        else {
-            System.out.println("Cicl stopped to "+startV);
-        }
+
     }
 
 
@@ -52,21 +48,17 @@ public class Dvigatel {
         startI++;
 
         if (startI<77){
-            System.out.println(">I>"+startI);
-            if(Blok.BlokList.get(startI-7).getIndex()==0
+                    if(Blok.BlokList.get(startI-7).getIndex()==0
                     && Blok.BlokList.get(startI).getEffect()==0
                     && Blok.BlokList.get(startI).getIndex()>0
                     && Blok.BlokList.get(startI).getStorona()==1
             )
             {
-                System.out.println("v___Proverka "+(startI-7));
-                WorkBlok.Peremeshenie(startI, startI-7);
+                             WorkBlok.Peremeshenie(startI, startI-7);
             }
             StartCiclPoleIgrok();
         }
-        else {
-            System.out.println("Cicl stopped to "+startI);
-        }
+
     }
 
 }
