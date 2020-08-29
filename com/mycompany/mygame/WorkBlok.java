@@ -10,6 +10,7 @@ public class WorkBlok extends Blok{
         BlokList.get(vR).setHealth(BlokList.get(isS).getHealth());
         BlokList.get(vR).setForse(BlokList.get(isS).getForse());
         BlokList.get(vR).setStorona(BlokList.get(isS).getStorona());
+        BlokList.get(vR).setEffect(BlokList.get(isS).getEffect());
 
         ObnulenieKvadratPole(isS);
     }
@@ -106,7 +107,7 @@ public class WorkBlok extends Blok{
 //	7-flag sabrosa v pole, 8-flag vistrel 9-*
 
         int nv=(int) Generator.GenRand(Koloda.Basakoloda.length-1);
-        BlokList.get(nb).setIndex(nv);
+        BlokList.get(nb).setIndex(Koloda.Basakoloda[nv][0]);
         BlokList.get(nb).setHealth(Koloda.Basakoloda[nv][1]);
         BlokList.get(nb).setForse(Koloda.Basakoloda[nv][2]);
         BlokList.get(nb).setEffect(Koloda.Basakoloda[nv][3]);

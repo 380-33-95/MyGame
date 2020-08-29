@@ -21,17 +21,34 @@ public class Dvigatel {
 
     public static void SdvigPoleVrag(){
         startV--;
-        if (startV>6){
-              if(Blok.BlokList.get(startV+7).getIndex()==0
-                    && Blok.BlokList.get(startV).getEffect()==0
-                    && Blok.BlokList.get(startV).getIndex()>0
-                    && Blok.BlokList.get(startV).getStorona()==2
-            )
-            {
-               WorkBlok.Peremeshenie(startV, startV+ 7);
+
+        if ((startV>6) && (Blok.BlokList.get(startV).getIndex()>0)) {
+
+            //esli vperedi effect
+            if (Blok.BlokList.get(startV + 7).getIndex() > 0
+                    && Blok.BlokList.get(startV + 7).getEffect() > 0
+            ) {
+                System.out.println("effect!!!");
             }
-            StartCiclPoleVrag();
+
+            //esli vperedi object
+            if (Blok.BlokList.get(startV + 7).getIndex() > 0
+                    && Blok.BlokList.get(startV + 7).getStorona() == 1
+            ) {
+                System.out.println("stolknovenie to igrok!!!");
+            }
+
+            // esli vperedi pusto
+            if (Blok.BlokList.get(startV + 7).getIndex() == 0
+                    && Blok.BlokList.get(startV).getEffect() == 0
+                    && Blok.BlokList.get(startV).getIndex() > 0
+                    && Blok.BlokList.get(startV).getStorona() == 2
+            ) {
+                WorkBlok.Peremeshenie(startV, startV + 7);
+            }
+
         }
+        StartCiclPoleVrag();
 
     }
 
@@ -48,6 +65,24 @@ public class Dvigatel {
         startI++;
 
         if (startI<77){
+
+            //esli vperedi effect
+            if(Blok.BlokList.get(startI-7).getIndex()>0
+                    &&Blok.BlokList.get(startI-7).getEffect()>0
+            )
+            {
+                System.out.println("effect!!!");
+            }
+
+            //esli vperedi object
+            if(Blok.BlokList.get(startI-7).getIndex()>0
+                    &&Blok.BlokList.get(startI-7).getStorona()==2
+            )
+            {
+                System.out.println("stolknovenie!!!");
+            }
+
+            // esli vperedi pusto
                     if(Blok.BlokList.get(startI-7).getIndex()==0
                     && Blok.BlokList.get(startI).getEffect()==0
                     && Blok.BlokList.get(startI).getIndex()>0
