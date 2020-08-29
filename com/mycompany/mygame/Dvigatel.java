@@ -4,32 +4,32 @@ public class Dvigatel{
 
 	private static int kli;
 	private static int klv;
-	private static boolean ciclDvigatelI;
-	private static boolean ciclDvigatelV;
-
-
-
+	
 	public static void SdvigKletkaI() {
 
-		setKli(kli+1);
-
 		if(Blok.BlokList.get(getKli()-7).getIndex()==0
-			& Blok.BlokList.get(getKli()).getIndex()>0
-			& Blok.BlokList.get(getKli()).getEffect()==0
-			& Blok.BlokList.get(getKli()).getStorona()==1
+			&& Blok.BlokList.get(getKli()).getEffect()==0
+			&& Blok.BlokList.get(getKli()).getIndex()>0
+			&& Blok.BlokList.get(getKli()).getStorona()==1
 		)
 		{
-			System.out.println("i___Sdvig "+kli);
-			WorkBlok.Peremeshenie(getKli(), (getKli()- 7));
+			System.out.println("i___Proverka "+(getKli()-7));
+			WorkBlok.Peremeshenie(getKli(), getKli()- 7);
+			setKli(getKli()+1);
 		}
 		else
 		{
-			System.out.println("i___next___"+(getKli()-7));
+			System.out.println("i___Proverka kontakta___"+(getKli()-7));
+			setKli(getKli()+1);
 		}
 
-		if (getKli()<=76) {
-							CiclSdvigI();
+		if (getKli()<77) {
+
+			CiclSdvigI();
+
 		}
+
+		Peremen.setOneClik(false);
 
 	}
 
@@ -37,7 +37,7 @@ public class Dvigatel{
 
 	public static void CiclSdvigI() {
 
-		if(getKli()<=76) {
+		if(getKli()<70) {
 
 			SdvigKletkaI();
 
@@ -50,33 +50,39 @@ public class Dvigatel{
 
 	public static void SdvigKletkaV() {
 
-		setKlv(klv-1);
-
 		if(Blok.BlokList.get(getKlv()+7).getIndex()==0
-				& Blok.BlokList.get(getKlv()).getIndex()>0
-				& Blok.BlokList.get(getKlv()).getEffect()==0
-				& Blok.BlokList.get(getKlv()).getStorona()==2
-		)
-		{
+				&& Blok.BlokList.get(getKlv()).getEffect()==0
+				&& Blok.BlokList.get(getKlv()).getIndex()>0
+				&& Blok.BlokList.get(getKlv()).getStorona()==2
+		){
 			System.out.println("v___Proverka "+(getKlv()+7));
 			WorkBlok.Peremeshenie(getKlv(), getKlv() + 7);
+			setKlv(getKlv()-1);
 		}
 		else{
-			System.out.println("v___next___"+(getKlv()+7));
-			}
+			System.out.println("v___Proverka kontakta___"+(getKlv()+7));
+			setKlv(getKlv()-1);
+		}
 
-		if (getKlv()>=7) {
-							CiclSdvigV();
+		if (getKlv()>6) {
+
+			CiclSdvigV();
+
 			}
 
 		Peremen.setOneClik(false);
 
 	}
-
+	
+	
 	
 	public static void CiclSdvigV() {
 
+		if(getKlv()>6) {
+
 		SdvigKletkaV();
+
+		}
 
 	}
 
@@ -106,21 +112,6 @@ public class Dvigatel{
 		Dvigatel.klv = klv;
 
 	}
+	
 
-
-	public static boolean isCiclDvigatelI() {
-		return ciclDvigatelI;
-	}
-
-	public static void setCiclDvigatelI(boolean ciclDvigatelI) {
-		Dvigatel.ciclDvigatelI = ciclDvigatelI;
-	}
-
-	public static boolean isCiclDvigatelV() {
-		return ciclDvigatelV;
-	}
-
-	public static void setCiclDvigatelV(boolean ciclDvigatelV) {
-		Dvigatel.ciclDvigatelV = ciclDvigatelV;
-	}
 }
