@@ -22,7 +22,7 @@ public class Dvigatel {
     public static void SdvigPoleVrag(){
         startV--;
 
-        if ((startV>6) && (Blok.BlokList.get(startV).getIndex()>0)) {
+        if ((startV>6) && (Blok.BlokList.get(startV).getEffect()==0)) {
 
             //esli vperedi effect
             if (Blok.BlokList.get(startV + 7).getIndex() > 0
@@ -33,9 +33,13 @@ public class Dvigatel {
 
             //esli vperedi object
             if (Blok.BlokList.get(startV + 7).getIndex() > 0
+                    && Blok.BlokList.get(startV).getForse()>0
                     && Blok.BlokList.get(startV + 7).getStorona() == 1
-            ) {
+            )
+            {
                 System.out.println("stolknovenie to igrok!!!");
+                System.out.println("blok "+(startV+7)+" storona "+Blok.BlokList.get(startV + 7).getStorona()+" index " + Blok.BlokList.get(startV + 7).getIndex());
+                Stolknovenie.StolknoveniePole(startV);
             }
 
             // esli vperedi pusto
@@ -64,7 +68,7 @@ public class Dvigatel {
     public static void SdvigPoleIgrok(){
         startI++;
 
-        if (startI<77){
+        if ((startI<77)&& (Blok.BlokList.get(startI).getEffect()==0)){
 
             //esli vperedi effect
             if(Blok.BlokList.get(startI-7).getIndex()>0
@@ -76,10 +80,12 @@ public class Dvigatel {
 
             //esli vperedi object
             if(Blok.BlokList.get(startI-7).getIndex()>0
+                    && Blok.BlokList.get(startI).getForse()>0
                     &&Blok.BlokList.get(startI-7).getStorona()==2
             )
             {
                 System.out.println("stolknovenie!!!");
+                Stolknovenie.StolknoveniePole(startI);
             }
 
             // esli vperedi pusto
