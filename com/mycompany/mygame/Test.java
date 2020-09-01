@@ -6,7 +6,7 @@ public class Test {
 	
 	public static void TestTest() {
 
-		Peremen.setSmenaHoda(false);
+	//	Peremen.setSmenaHoda(false);
 	
 //	Kopirovanie.LoadKolodaPole(49, 7, 0);
 //	Kopirovanie.LoadKolodaPole(42, 7, 0);

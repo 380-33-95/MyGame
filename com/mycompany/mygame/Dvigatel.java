@@ -8,7 +8,7 @@ public class Dvigatel {
 
                 public static boolean startCiclVrag=true;
 
-                public  static boolean StartCiclIgrok=true;
+                public  static boolean startCiclIgrok=true;
 
 
   //start from 69 for vrag
@@ -34,12 +34,11 @@ public class Dvigatel {
             //esli vperedi object
             if (Blok.BlokList.get(startV + 7).getIndex() > 0
                     && Blok.BlokList.get(startV).getForse()>0
-                    && Blok.BlokList.get(startV + 7).getStorona() == 1
+                    && Blok.BlokList.get(startV + 7).getStorona()==1
             )
             {
-                System.out.println("stolknovenie to igrok!!!");
-                System.out.println("blok "+(startV+7)+" storona "+Blok.BlokList.get(startV + 7).getStorona()+" index " + Blok.BlokList.get(startV + 7).getIndex());
-                Stolknovenie.StolknoveniePole(startV);
+               System.out.println("stolknovenie!!!");
+               Stolknovenie.StolknoveniePole(startV);
             }
 
             // esli vperedi pusto
@@ -47,10 +46,10 @@ public class Dvigatel {
                     && Blok.BlokList.get(startV).getEffect() == 0
                     && Blok.BlokList.get(startV).getIndex() > 0
                     && Blok.BlokList.get(startV).getStorona() == 2
-            ) {
+            )
+            {
                 WorkBlok.Peremeshenie(startV, startV + 7);
             }
-
         }
         StartCiclPoleVrag();
 
@@ -73,8 +72,7 @@ public class Dvigatel {
             //esli vperedi effect
             if(Blok.BlokList.get(startI-7).getIndex()>0
                     &&Blok.BlokList.get(startI-7).getEffect()>0
-            )
-            {
+            ){
                 System.out.println("effect!!!");
             }
 
@@ -97,9 +95,8 @@ public class Dvigatel {
             {
                              WorkBlok.Peremeshenie(startI, startI-7);
             }
-            StartCiclPoleIgrok();
         }
-
-    }
+            StartCiclPoleIgrok();
+         }
 
 }

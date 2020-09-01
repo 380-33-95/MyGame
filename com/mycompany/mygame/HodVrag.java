@@ -19,7 +19,7 @@ public class HodVrag extends ClickSelector {
             Dvigatel.startV = 70;
             Dvigatel.StartCiclPoleVrag();
             Dvigatel.startCiclVrag=false;
-            Dvigatel.StartCiclIgrok=true;
+            Dvigatel.startCiclIgrok=true;
         }
 
 
