@@ -77,7 +77,7 @@ public class Dvigatel {
         finishI=startI-7;
 
         if ((startI<77)&& (Blok.BlokList.get(startI).getEffect()==0)
-                       && Blok.BlokList.get(startV).getStorona()==1)
+                       && Blok.BlokList.get(startI).getStorona()==1)
         {
 
             //esli vperedi object
