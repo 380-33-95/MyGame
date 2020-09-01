@@ -28,14 +28,7 @@ public class Dvigatel {
         if ((startV>6) && (Blok.BlokList.get(startV).getEffect()==0)
                         && Blok.BlokList.get(startV).getStorona()==2)
             {
-            /*
-            //esli vperedi effect
-            if (Blok.BlokList.get(startV + 7).getIndex() > 0
-                    && Blok.BlokList.get(startV + 7).getEffect() > 0
-            ) {
-                System.out.println("effect!!!");
-            }
-*/
+
             //esli vperedi object
             if (Blok.BlokList.get(finishV).getIndex() > 0
                     && Blok.BlokList.get(startV).getForse()>0
@@ -47,17 +40,12 @@ public class Dvigatel {
 
 
             // esli vperedi pusto ili effect
-            if (Blok.BlokList.get(finishV).getIndex() == 0
+                if (Blok.BlokList.get(finishV).getIndex() == 0
                     ||
-                    (Blok.BlokList.get(finishV).getEffect() > 0
-
-                    )
-              //      (Blok.BlokList.get(startV).getIndex() > 0
-              //      && Blok.BlokList.get(startV).getStorona() == 2)
-            )
+                    (Blok.BlokList.get(finishV).getEffect() > 0)
+               )
             {
                 WorkBlok.Peremeshenie(startV, finishV);
-
             //esli vperedi effect
             if (
                     Blok.BlokList.get(finishV).getIndex() > 0
@@ -88,14 +76,9 @@ public class Dvigatel {
         startI++;
         finishI=startI-7;
 
-        if ((startI<77)&& (Blok.BlokList.get(startI).getEffect()==0)){
-
-            //esli vperedi effect
-            if(Blok.BlokList.get(startI-7).getIndex()>0
-                    &&Blok.BlokList.get(startI-7).getEffect()>0
-            ){
-                System.out.println("effect!!!");
-            }
+        if ((startI<77)&& (Blok.BlokList.get(startI).getEffect()==0)
+                       && Blok.BlokList.get(startV).getStorona()==1)
+        {
 
             //esli vperedi object
             if(Blok.BlokList.get(startI-7).getIndex()>0
@@ -106,17 +89,28 @@ public class Dvigatel {
                Stolknovenie.StolknoveniePole(startI);
             }
 
-            // esli vperedi pusto
-                    if(Blok.BlokList.get(startI-7).getIndex()==0
-                    && Blok.BlokList.get(startI).getEffect()==0
-                    && Blok.BlokList.get(startI).getIndex()>0
-                    && Blok.BlokList.get(startI).getStorona()==1
-            )
+            // esli vperedi pusto ili effect
+                    if(Blok.BlokList.get(finishI).getIndex()==0
+                   ||
+                            (Blok.BlokList.get(finishI).getEffect()>0)
+                    )
             {
-                             WorkBlok.Peremeshenie(startI, startI-7);
-            }
+                WorkBlok.Peremeshenie(startI, finishI);
+                //esli vperedi effect
+                if(
+                        Blok.BlokList.get(finishI).getIndex()>0
+                        && Blok.BlokList.get(startV).getEffect()>0
+                        && Blok.BlokList.get(startV).getStorona()==2
+                ){
+                    System.out.println("*effect!!!*");
+                    Effect.SelectEffect(finishI);
+                }
+                }
+
         }
-            StartCiclPoleIgrok();
+
+                    StartCiclPoleIgrok();
+
          }
 
 }
