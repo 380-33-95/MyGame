@@ -10,8 +10,9 @@ public class WorkBlok extends Blok{
         BlokList.get(vR).setHealth(BlokList.get(isS).getHealth());
         BlokList.get(vR).setForse(BlokList.get(isS).getForse());
         BlokList.get(vR).setStorona(BlokList.get(isS).getStorona());
-        BlokList.get(vR).setEffect(BlokList.get(isS).getEffect());
-
+        if (isS>=78 || isS<=6) {
+            BlokList.get(vR).setEffect(BlokList.get(isS).getEffect());
+        }
         ObnulenieKvadratPole(isS);
     }
 
