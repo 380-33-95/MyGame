@@ -20,7 +20,7 @@ public class GameFirstHod {
 
 	
 	public static void GenerationFirstHod() {
-		int fs=0;
+		int fs;
 		fs=(int)Generator.GenRand(2);
 
 		if(fs>1) {

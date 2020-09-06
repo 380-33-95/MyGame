@@ -5,7 +5,7 @@ public class Rasdacha extends Blok{
 	public static void RasdachaStartVse () {
 
 
-int ii=1;
+int ii;
 
 		
 	for(int i=1; i<=6;i++){

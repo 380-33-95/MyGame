@@ -17,57 +17,40 @@ public class Effect {
         numblok=numbl;
 
       switch (Blok.BlokList.get(numblok).getEffect()){
+case 0:{break;}
 
           case 8:{ //vverh
-              if (Blok.BlokList.get(numblok-7).getIndex()>0
-                      &&Blok.BlokList.get(numblok-7).getEffect()==0
-              )
-              {
-                  Uron(numblok-7);
-              }
-              if (Blok.BlokList.get(numblok-7).getHealth()<=0) {
-                  WorkBlok.Peremeshenie(numblok, numblok - 7);
-              }
+      VerefyNaUron(numblok-7);
+              
+      VerefyNaPeremeshenie(numblok-7);
               break;
           }
+		  
           case 2:{ //vniz
 
-              if (Blok.BlokList.get(numblok+7).getIndex()>0
-                      &&Blok.BlokList.get(numblok+7).getEffect()==0
-              )
-              {
-                  Uron(numblok+7);
-              }
-              if (Blok.BlokList.get(numblok+7).getHealth()<=0) {
-                  WorkBlok.Peremeshenie(numblok, numblok + 7);
-              }
+      VerefyNaUron(numblok+7);
+      
+      VerefyNaPeremeshenie(numblok+7);
               break;
           }
-          case 4:{ //vlevo
-              if (Blok.BlokList.get(numblok-1).getIndex()>0
-              &&Blok.BlokList.get(numblok-1).getEffect()==0
-              )
-              {
-                  Uron(numblok-1);
-              }
-              if (Blok.BlokList.get(numblok-1).getHealth()<=0) {
-                  WorkBlok.Peremeshenie(numblok, numblok - 1);
-              }
+		  
+          case 4:{ //4-vlevo
+          
+          VerefyNaUron(numblok-1);
+              
+          VerefyNaPeremeshenie(numblok-1);
               break;
           }
+		  
           case 6:{ //vpravo
 
-              if (Blok.BlokList.get(numblok+1).getIndex()>0
-                      &&Blok.BlokList.get(numblok+1).getEffect()==0
-              )
-              {
-                  Uron(numblok+1);
-              }
-              if (Blok.BlokList.get(numblok+1).getHealth()<=0) {
-                  WorkBlok.Peremeshenie(numblok, numblok + 1);
-              }
+         VerefyNaUron(numblok+1);
+         
+        VerefyNaPeremeshenie(numblok+1);
+        
               break;
           }
+		  
           case 5:{ //bomba
               Blok.BlokList.get(numblok).setHealth(0);
               break;
@@ -76,6 +59,10 @@ public class Effect {
       }
         Blok.BlokList.get(numblok).setEffect(0);
     }
+
+
+
+
 
 
     public static void Uron( int oboron){
@@ -90,6 +77,28 @@ public class Effect {
                         Blok.BlokList.get(oboron).getForse()
         );
 
+    }
+    
+    public static void VerefyNaUron(int to){
+      
+if(Blok.BlokList.get(to).getIndex()>0
+                      &&Blok.BlokList.get(to).getEffect()==0
+              )
+              {
+                  Uron(to);
+              }
+    }
+    
+    
+    public static void VerefyNaPeremeshenie(int to){
+   //   int bufeffect;
+
+  //bufeffect=Blok.BlokList.get(to).getEffect();
+                  WorkBlok.Peremeshenie2(numblok, to);
+				  numblok=to;
+				Blok.BlokList.get(numblok).setEffect(7);
+                  SelectEffect(to);
+              
     }
 
 } //end class

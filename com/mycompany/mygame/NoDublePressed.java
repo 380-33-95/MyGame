@@ -8,7 +8,7 @@ static int nc1;
 static int nc2;
 
   public static boolean  TouchPressVerify (int nc) {
-    boolean bnc=false;
+    boolean bnc;
 
     nc1=nc;
 

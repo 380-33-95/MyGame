@@ -131,4 +131,27 @@ public class WorkBlok extends Blok{
             }
     }
 
+
+public static void LoadPoleFromBasa(int nb, int  index, int st){
+        //0-index, 1-zdorovie, 2-sila, 3-effect, 4-moov  , 5-storona (1-igrok, 2-vrag), 6-boom,
+//	7-flag sabrosa v pole, 8-flag vistrel 9-*
+
+        
+        BlokList.get(nb).setIndex(Koloda.Basakoloda[index][0]);
+        BlokList.get(nb).setHealth(Koloda.Basakoloda[index][1]);
+        BlokList.get(nb).setForse(Koloda.Basakoloda[index][2]);
+        BlokList.get(nb).setEffect(Koloda.Basakoloda[index][3]);
+        BlokList.get(nb).setStorona(st);
+    }
+
+
+public static void Peremeshenie2 (int isS, int vR){
+
+        BlokList.get(vR).setIndex(BlokList.get(isS).getIndex());
+        BlokList.get(vR).setHealth(BlokList.get(isS).getHealth());
+        BlokList.get(vR).setForse(BlokList.get(isS).getForse());
+        BlokList.get(vR).setStorona(BlokList.get(isS).getStorona());
+       
+        ObnulenieKvadratPole(isS);
+    }
 }
