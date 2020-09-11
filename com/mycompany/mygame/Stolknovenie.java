@@ -31,10 +31,6 @@ break;
 		}
 
 
-	//	System.out.println("blok1 " + b1 + " blok2 " + b2);
-
-
-
 				Blok.BlokList.get(b).setHealth(
 					Blok.BlokList.get(b).getHealth()-
 					Blok.BlokList.get(bb).getForse());

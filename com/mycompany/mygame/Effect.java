@@ -20,32 +20,25 @@ public class Effect {
 case 0:{break;}
 
           case 8:{ //vverh
-              //     VerefyNaUron(numblok-7);
-              
+
       VerefyNaPeremeshenie(numblok-7);
               break;
           }
 		  
           case 2:{ //vniz
 
-              //     VerefyNaUron(numblok+7);
-      
       VerefyNaPeremeshenie(numblok+7);
               break;
           }
 		  
           case 4:{ //4-vlevo
 
-              //         VerefyNaUron(numblok-1);
-              
           VerefyNaPeremeshenie(numblok-1);
               break;
           }
 		  
           case 6:{ //vpravo
 
-              //       VerefyNaUron(numblok+1);
-         
         VerefyNaPeremeshenie(numblok+1);
         
               break;
@@ -53,6 +46,7 @@ case 0:{break;}
 		  
           case 5:{ //bomba
               Blok.BlokList.get(numblok).setHealth(0);
+              WorkBlok.ObnulenieKvadratPole(numblok);
               break;
           }
 
@@ -67,26 +61,30 @@ case 0:{break;}
 
     public static void Uron( int oboron){
 
-        Blok.BlokList.get(oboron).setHealth(
-                Blok.BlokList.get(oboron).getHealth()-
-                        Blok.BlokList.get(numblok).getForse()
-        );
 
-        Blok.BlokList.get(numblok).setHealth(
-                Blok.BlokList.get(numblok).getHealth()-
-                        Blok.BlokList.get(oboron).getForse()
-        );
+
 
     }
     
     public static void VerefyNaUron(int to){
-      
-if(Blok.BlokList.get(to).getIndex()>0
-                      &&Blok.BlokList.get(to).getEffect()==0
-              )
-              {
-                  Uron(to);
-              }
+
+        if (Blok.BlokList.get(to).getIndex() > 0
+                && Blok.BlokList.get(to).getEffect() == 0
+        ) {
+            Blok.BlokList.get(to).setHealth(
+                    Blok.BlokList.get(to).getHealth() -
+                            Blok.BlokList.get(numblok).getForse()
+            );
+
+            Blok.BlokList.get(numblok).setHealth(
+                    Blok.BlokList.get(numblok).getHealth() -
+                            Blok.BlokList.get(to).getForse()
+            );
+
+            ObnulenieAfterUron(numblok);
+            ObnulenieAfterUron(to);
+
+        }
     }
     
     
@@ -102,7 +100,13 @@ if(Blok.BlokList.get(to).getIndex()>0
             VerefyNaUron(to);
         }
 
-
     }
+
+    public static void ObnulenieAfterUron(int nombl) {
+        if (Blok.BlokList.get(nombl).getHealth() <= 0) {
+            WorkBlok.ObnulenieKvadratPole(nombl);
+        }
+    }
+
 
 } //end class

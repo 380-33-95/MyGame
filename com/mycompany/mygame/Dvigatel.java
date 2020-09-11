@@ -74,19 +74,18 @@ public class Dvigatel {
 
     public static void SdvigPoleIgrok(){
         startI++;
-        finishI=startI-7;
+        finishI = startI - 7;
 
-        if ((startI<77)&& (Blok.BlokList.get(startI).getEffect()==0)
-                       && Blok.BlokList.get(startI).getStorona()==1)
-        {
+        if ((startI < 77) && (Blok.BlokList.get(startI).getEffect() == 0)
+                && Blok.BlokList.get(startI).getStorona() == 1
+                && Blok.BlokList.get(startI).getHealth() > 0) {
 
             //esli vperedi object
-            if(Blok.BlokList.get(startI - 7).getIndex() > 0
+            if (Blok.BlokList.get(startI - 7).getIndex() > 0
                     && Blok.BlokList.get(startI).getForse() > 0
                     && Blok.BlokList.get(finishI).getStorona() == 2
-            )
-            {
-               Stolknovenie.StolknoveniePole(startI);
+            ) {
+                Stolknovenie.StolknoveniePole(startI);
             }
 
             // esli vperedi pusto ili effect

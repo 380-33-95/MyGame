@@ -12,8 +12,7 @@ public class DrawPole extends MyGdxGame {
 
         for (int pp=7; pp<=76; pp++) {
 
-       //     if (BlokList.get(pp).getIndex()>0)
-            {
+            if (BlokList.get(pp).getIndex() > 0) {
                 if (BlokList.get(pp).getStorona() == 1) {
                     if (BlokList.get(pp).getHealth() <= 0) {
                         color = 0;
@@ -22,15 +21,15 @@ public class DrawPole extends MyGdxGame {
                     }
                 }
 
-            if (BlokList.get(pp).getStorona() == 2) {
-                if (BlokList.get(pp).getHealth() <= 0) {
-                    color = 1000;
-                } else {
-                    color = 1100;
+                if (BlokList.get(pp).getStorona() == 2) {
+                    if (BlokList.get(pp).getHealth() <= 0) {
+                        color = 1000;
+                    } else {
+                        color = 1100;
+                    }
                 }
-            }
 
-            //idex
+                //idex
             TextureRegion PoleIndex = new TextureRegion(atlas, BlokList.get(pp).getIndex() * 100, color, 100, 100);
             batch.draw(PoleIndex, BlokList.get(pp).getX(), BlokList.get(pp).getY(), 1, 1, WIDTH / 7, HEIGHT / 12, 1, 1, 0);
 
