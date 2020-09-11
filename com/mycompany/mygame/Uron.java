@@ -6,7 +6,7 @@ public class Uron extends Blok{
 	public static void UronBasaVrag() {
 
 		int hli=b00.getHealth();
-		for (int a=0; a<=6;a++) {
+		for (int a=7; a<=13;a++) {
 			if(BlokList.get(a).getStorona()==1) {
 				if((hli-BlokList.get(a).getForse()>=1)) {
 
