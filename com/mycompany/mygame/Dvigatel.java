@@ -50,7 +50,7 @@ public class Dvigatel {
             if (
                     Blok.BlokList.get(finishV).getIndex() > 0
                     && Blok.BlokList.get(finishV).getEffect() > 0
-                    && Blok.BlokList.get(finishV).getStorona() == 2
+                //    && Blok.BlokList.get(startV).getStorona() == 2
             ) {
                 System.out.println("*effect!!!*");
                 Effect.SelectEffect(finishV);
@@ -81,9 +81,9 @@ public class Dvigatel {
         {
 
             //esli vperedi object
-            if(Blok.BlokList.get(startI-7).getIndex()>0
-                    && Blok.BlokList.get(startI).getForse()>0
-                    &&Blok.BlokList.get(startI-7).getStorona()==2
+            if(Blok.BlokList.get(startI - 7).getIndex() > 0
+                    && Blok.BlokList.get(startI).getForse() > 0
+                    && Blok.BlokList.get(finishI).getStorona() == 2
             )
             {
                Stolknovenie.StolknoveniePole(startI);
@@ -97,11 +97,12 @@ public class Dvigatel {
             {
                 WorkBlok.Peremeshenie(startI, finishI);
                 //esli vperedi effect
-                if(
-                        Blok.BlokList.get(finishI).getIndex()>0
-                        && Blok.BlokList.get(startV).getEffect()>0
-                        && Blok.BlokList.get(startV).getStorona()==2
-                ){
+
+                if (
+                        Blok.BlokList.get(finishI).getIndex() > 0
+                                && Blok.BlokList.get(finishI).getEffect() > 0
+                    //  && Blok.BlokList.get(finishI).getStorona()==2
+                ) {
                     System.out.println("*effect!!!*");
                     Effect.SelectEffect(finishI);
                 }

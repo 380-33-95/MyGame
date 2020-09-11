@@ -20,7 +20,7 @@ public class Effect {
 case 0:{break;}
 
           case 8:{ //vverh
-      VerefyNaUron(numblok-7);
+              //     VerefyNaUron(numblok-7);
               
       VerefyNaPeremeshenie(numblok-7);
               break;
@@ -28,15 +28,15 @@ case 0:{break;}
 		  
           case 2:{ //vniz
 
-      VerefyNaUron(numblok+7);
+              //     VerefyNaUron(numblok+7);
       
       VerefyNaPeremeshenie(numblok+7);
               break;
           }
 		  
           case 4:{ //4-vlevo
-          
-          VerefyNaUron(numblok-1);
+
+              //         VerefyNaUron(numblok-1);
               
           VerefyNaPeremeshenie(numblok-1);
               break;
@@ -44,7 +44,7 @@ case 0:{break;}
 		  
           case 6:{ //vpravo
 
-         VerefyNaUron(numblok+1);
+              //       VerefyNaUron(numblok+1);
          
         VerefyNaPeremeshenie(numblok+1);
         
@@ -90,15 +90,19 @@ if(Blok.BlokList.get(to).getIndex()>0
     }
     
     
-    public static void VerefyNaPeremeshenie(int to){
-   //   int bufeffect;
+    public static void VerefyNaPeremeshenie(int to) {
 
-  //bufeffect=Blok.BlokList.get(to).getEffect();
-                  WorkBlok.Peremeshenie2(numblok, to);
-				  numblok=to;
-				Blok.BlokList.get(numblok).setEffect(7);
-                  SelectEffect(to);
-              
+        if (Blok.BlokList.get(to).getForse() == 0) {
+            WorkBlok.Peremeshenie2(numblok, to);
+        }
+        if (Blok.BlokList.get(to).getEffect() > 0) {
+            SelectEffect(to);
+        }
+        if (Blok.BlokList.get(to).getForse() > 0) {
+            VerefyNaUron(to);
+        }
+
+
     }
 
 } //end class
