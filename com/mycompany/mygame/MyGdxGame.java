@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
+import draw.DrawBoom;
 import draw.DrawBossIgrok;
 import draw.DrawBossVrag;
 import draw.DrawGame;
@@ -115,48 +116,53 @@ public class MyGdxGame extends Blok implements ApplicationListener
 					if (Gdx.input.justTouched()) {
 						
 						IfJustTouched();
-						
+
 					}
-                    if(getNC()>=30 && getNC()<=32){
-						setNC(0);
-						ClearStart.NewStart();
-						setStatusMenu(1);
-					}
-					break;
+				if (getNC() >= 30 && getNC() <= 32) {
+					setNC(0);
+					ClearStart.NewStart();
+					setStatusMenu(1);
+				}
+				break;
+			}
+
+			case 1: {
+
+				DrawGame.DrGame();
+				if (GameFirstHod.myTimerTask.isScheduled()) {
+					DrawPervijHod.PervijStartHod();
 				}
 
-			case 1:{
+				DrawBossVrag.BossVrag();
 
-					DrawGame.DrGame();
-					if(GameFirstHod.myTimerTask.isScheduled()){
-						DrawPervijHod.PervijStartHod();
-					}
+				DrawBossIgrok.BossIgrok();
 
-					DrawBossVrag.BossVrag();
+				DrawRamkaBoss.RamkaStartBoss();
 
-					DrawBossIgrok.BossIgrok();
+				DrawZamokVrag.ZamokStartVrag();
 
-					DrawRamkaBoss.RamkaStartBoss();
+				DrawZamokIgrok.ZamokStartIgrok();
 
-					DrawZamokVrag.ZamokStartVrag();
+				DrawPole.DrawStartPole();
 
-					DrawZamokIgrok.ZamokStartIgrok();
+				if (BoomTimer.StepBoom.isRunning()) {
 
-					DrawPole.DrawStartPole();
+					DrawBoom.StartDrawBoom();
+				}
 
 
-					if (Gdx.input.justTouched()) {
+				if (Gdx.input.justTouched()) {
 
 					ClickSelector.TouchPressed(
-						
-						IfJustTouched());
-						
-						GameInfo.InfoKletka();
-					}
 
+							IfJustTouched());
 
-					break;
+					GameInfo.InfoKletka();
 				}
+
+
+				break;
+			}
 
 			case 2:{
 					break;

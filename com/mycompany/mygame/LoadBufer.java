@@ -4,14 +4,14 @@ public class LoadBufer extends Blok {
 	
 
 	public static void LoadVBufer(int kzv){
-		
+
 
 		Blok.bufer.setForse(BlokList.get(kzv).getForse());
 		Blok.bufer.setHealth(BlokList.get(kzv).getHealth());
 		Blok.bufer.setStorona(BlokList.get(kzv).getStorona());
 		Blok.bufer.setIndex(BlokList.get(kzv).getIndex());
 		Blok.bufer.setEffect(BlokList.get(kzv).getEffect());
-		Blok.bufer.setKodBlok(BlokList.get(kzv).getKodBlok());
+		Blok.bufer.setKodBoom(BlokList.get(kzv).getKodBoom());
 		Blok.bufer.setX(BlokList.get(kzv).getX());
 		Blok.bufer.setY(BlokList.get(kzv).getY());
 

@@ -46,6 +46,8 @@ case 0:{break;}
 		  
           case 5:{ //bomba
               Blok.BlokList.get(numblok).setHealth(0);
+              Blok.BlokList.get(numblok).setKodBoom(1);
+              BoomTimer.StepBoom.start();
               WorkBlok.ObnulenieKvadratPole(numblok);
               break;
           }

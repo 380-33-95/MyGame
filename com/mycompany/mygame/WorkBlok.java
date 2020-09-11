@@ -50,7 +50,7 @@ public class WorkBlok extends Blok{
         BlokList.get(pp).setStorona(0);
         BlokList.get(pp).setIndex(0);
         BlokList.get(pp).setEffect(0);
-        BlokList.get(pp).setKodBlok(0);
+      //  BlokList.get(pp).setKodBoom(0);
         BlokList.get(pp).setXl(0);
         BlokList.get(pp).setYl(0);
         }
@@ -63,7 +63,7 @@ public class WorkBlok extends Blok{
         Blok.bufer.setStorona(0);
         Blok.bufer.setIndex(0);
         Blok.bufer.setEffect(0);
-        Blok.bufer.setKodBlok(0);
+        Blok.bufer.setKodBoom(0);
         //	Blok.bufer.setX(0);
         //	Blok.bufer.setY(0);
 
@@ -123,7 +123,7 @@ public class WorkBlok extends Blok{
            BlokList.get(pp).setStorona(0);
            BlokList.get(pp).setIndex(0);
            BlokList.get(pp).setEffect(0);
-           BlokList.get(pp).setKodBlok(0);
+           BlokList.get(pp).setKodBoom(0);
            BlokList.get(pp).setXl(0);
            BlokList.get(pp).setYl(0);
            BlokList.get(pp).setX(0);
