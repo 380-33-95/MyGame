@@ -29,7 +29,7 @@ public class Uron extends Blok{
 	public static void UronBasaIgrok() {
 
 		int hlv=b77.getHealth();
-		for (int a=63; a<=69;a++) {
+		for (int a=70; a<=76;a++) {
 
 			if(BlokList.get(a).getStorona()==2) {
 				if (hlv-BlokList.get(a).getForse()>=1) {

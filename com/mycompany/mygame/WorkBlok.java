@@ -27,7 +27,7 @@ public class WorkBlok extends Blok{
 
     public static void ObnulenieFinishV() {
         Uron.UronBasaIgrok();
-        for(int ofv=63; ofv<=69; ofv++) {
+        for(int ofv=70; ofv<=76; ofv++) {
             if(BlokList.get(ofv).getStorona()==2) {
                 ObnulenieKvadratPole(ofv);
             }
