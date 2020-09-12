@@ -1,5 +1,6 @@
 
 package com.mycompany.mygame;
+
 import java.util.ArrayList;
 
 
@@ -9,9 +10,12 @@ public class Blok {
   public static ArrayList<Blok> BlokList = new ArrayList<>(83);
   private static int kodBoom;
 
+
   public Blok() {
     BlokList.add(this);
+
   }
+
 
   public static Blok getBlok(Blok bk) {
     return bk;
@@ -231,16 +235,16 @@ public class Blok {
 
     }
 
-    public Blok (int Index, int x, int y){
+  public Blok(int Index, int x, int y) {
 
-    }
+  }
 
-    public Blok (int Index, int health, int x, int y){
+  public Blok(int Index, int health, int x, int y) {
 
-    }
+  }
 
 
-
+  //TODO BOOMANIMATION
 
 
 }
