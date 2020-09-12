@@ -8,28 +8,26 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-public class DrawBoomAnimatiom {
+public class DrawBoomAnimatiom implements ApplicationListener {
 
-    public class Animator implements ApplicationListener {
+    private static final int FRAME_COLS = 2; // #1
+    private static final int FRAME_ROWS = 2; // #2
 
-        private static final int FRAME_COLS = 2; // #1
-        private static final int FRAME_ROWS = 2; // #2
+    Animation walkAnimation; // #3
+    Texture walkSheet; // #4
+    TextureRegion[] walkFrames; // #5
+    SpriteBatch spriteBatch; // #6
+    TextureRegion currentFrame; // #7
 
-        Animation walkAnimation; // #3
-        Texture walkSheet; // #4
-        TextureRegion[] walkFrames; // #5
-        SpriteBatch spriteBatch; // #6
-        TextureRegion currentFrame; // #7
+    float stateTime; // #8
 
-        float stateTime; // #8
-
-        @Override
-        public void create() {
-            walkSheet = new Texture(Gdx.files.internal("boom.png")); // #9
-            TextureRegion[][] tmp = TextureRegion.split(walkSheet, walkSheet.getWidth() / FRAME_COLS, walkSheet.getHeight() / FRAME_ROWS); // #10
-            walkFrames = new TextureRegion[FRAME_COLS * FRAME_ROWS];
-            int index = 0;
-            for (int i = 0; i < FRAME_ROWS; i++) {
+    @Override
+    public void create() {
+        walkSheet = new Texture(Gdx.files.internal("boom.png")); // #9
+        TextureRegion[][] tmp = TextureRegion.split(walkSheet, walkSheet.getWidth() / FRAME_COLS, walkSheet.getHeight() / FRAME_ROWS); // #10
+        walkFrames = new TextureRegion[FRAME_COLS * FRAME_ROWS];
+        int index = 0;
+        for (int i = 0; i < FRAME_ROWS; i++) {
                 for (int j = 0; j < FRAME_COLS; j++) {
                     walkFrames[index++] = tmp[i][j];
                 }
@@ -69,4 +67,4 @@ public class DrawBoomAnimatiom {
 
         }
     }
-}
+
