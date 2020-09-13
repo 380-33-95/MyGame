@@ -55,12 +55,17 @@ public class DrawPole extends MyGdxGame {
             y = ((kp - 7) / 7) % 10;
             x = (kp - 7) - (y * 7);
 
-            BlokList.get(kp).setX(x*(WIDTH/7));
-            BlokList.get(kp).setY(HEIGHT-(y*(HEIGHT/12)+(HEIGHT/12)*2));
+            BlokList.get(kp).setX(x * (WIDTH / 7));
+            BlokList.get(kp).setY(HEIGHT - (y * (HEIGHT / 12) + (HEIGHT / 12) * 2));
 
-            BlokList.get(kp).setXl(x*(WIDTH/7));
-            BlokList.get(kp).setYl(HEIGHT-(y*(HEIGHT/12)+(HEIGHT/12)*2));
+            BlokList.get(kp).setXl(x * (WIDTH / 7));
+            BlokList.get(kp).setYl(HEIGHT - (y * (HEIGHT / 12) + (HEIGHT / 12) * 2));
 
         }
+    }
+
+
+    public static void InitiBoomBoks() {
+        BlokList.get(40).create();
     }
 }

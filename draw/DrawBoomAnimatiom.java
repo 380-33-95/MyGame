@@ -10,8 +10,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class DrawBoomAnimatiom implements ApplicationListener {
 
-    private static final int FRAME_COLS = 2; // #1
-    private static final int FRAME_ROWS = 2; // #2
+    private static final int FRAME_COLS = 6; // #1
+    private static final int FRAME_ROWS = 5; // #2
 
     Animation walkAnimation; // #3
     Texture walkSheet; // #4
@@ -23,7 +23,7 @@ public class DrawBoomAnimatiom implements ApplicationListener {
 
     @Override
     public void create() {
-        walkSheet = new Texture(Gdx.files.internal("boom.png")); // #9
+        walkSheet = new Texture(Gdx.files.internal("sprite-animation4.png")); // #9
         TextureRegion[][] tmp = TextureRegion.split(walkSheet, walkSheet.getWidth() / FRAME_COLS, walkSheet.getHeight() / FRAME_ROWS); // #10
         walkFrames = new TextureRegion[FRAME_COLS * FRAME_ROWS];
         int index = 0;
