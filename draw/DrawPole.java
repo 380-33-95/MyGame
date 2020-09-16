@@ -65,7 +65,4 @@ public class DrawPole extends MyGdxGame {
     }
 
 
-    public static void InitiBoomBoks() {
-        BlokList.get(40).create();
-    }
 }

@@ -46,8 +46,6 @@ case 0:{break;}
 		  
           case 5:{ //bomba
               Blok.BlokList.get(numblok).setHealth(0);
-              //       Blok.BlokList.get(numblok).setKodBoom(1);
-              //       Blok.BlokList.get(numbl).render();
               WorkBlok.ObnulenieKvadratPole(numblok);
               break;
           }
@@ -58,15 +56,6 @@ case 0:{break;}
 
 
 
-
-
-
-    public static void Uron( int oboron){
-
-
-
-
-    }
     
     public static void VerefyNaUron(int to){
 
@@ -106,6 +95,7 @@ case 0:{break;}
 
     public static void ObnulenieAfterUron(int nombl) {
         if (Blok.BlokList.get(nombl).getHealth() <= 0) {
+
             WorkBlok.ObnulenieKvadratPole(nombl);
         }
     }
