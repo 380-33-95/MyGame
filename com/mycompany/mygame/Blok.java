@@ -130,7 +130,7 @@ public class Blok {
     return KadrBoom;
   }
 
-  public void setKadrBoom(int kadr) {
+  public static void setKadrBoom(int kadr) {
     KadrBoom = kadr;
   }
 
@@ -232,5 +232,10 @@ public class Blok {
   public static Blok b83 = new Blok(); //zamok igrok
   public static Blok bufer = new Blok(); // blok bufer; (84)
 
+  public static void StartBopom(int nb){
+    BlokList.get(nb).setKodBoom();
+    BlokList.get(nb).setKadrBoom(1);
+
+  }
 
 }
