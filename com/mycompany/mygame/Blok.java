@@ -1,7 +1,9 @@
 
 package com.mycompany.mygame;
 
+
 import java.util.ArrayList;
+
 
 
 public class Blok {
@@ -48,14 +50,14 @@ public class Blok {
   }
 
 
-  private static int kodBoom;
+  private static long kodBoom;
 
-  public static int getKodBoom() {
+  public static long getKodBoom() {
     return kodBoom;
   }
 
-  public static void setKodBoom(int kod) {
-    kodBoom = kod;
+  public static void setKodBoom() {
+    kodBoom = com.badlogic.gdx.utils.TimeUtils.millis();
   }
 
 
@@ -120,6 +122,16 @@ public class Blok {
 
   public void setStorona(int stor) {
     storona = stor;
+  }
+
+  private static int KadrBoom;
+
+  public int getKadrBoom() {
+    return KadrBoom;
+  }
+
+  public void setKadrBoom(int kadr) {
+    KadrBoom = kadr;
   }
 
 
@@ -219,27 +231,6 @@ public class Blok {
   public static Blok b82 = new Blok(); //zamok igrok
   public static Blok b83 = new Blok(); //zamok igrok
   public static Blok bufer = new Blok(); // blok bufer; (84)
-
-
-  public Blok(int Index, int health, int forse, int kod, int effect) {
-
-  }
-
-  public Blok(int Index, int health, int forse, int kod, int effect, int x, int y) {
-
-  }
-
-    public Blok(int x, int y){
-
-    }
-
-  public Blok(int Index, int x, int y) {
-
-  }
-
-  public Blok(int Index, int health, int x, int y) {
-
-  }
 
 
 }
