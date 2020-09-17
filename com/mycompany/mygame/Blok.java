@@ -50,14 +50,14 @@ public class Blok {
   }
 
 
-  private static long kodBoom;
+  private static long timerBoom;
 
-  public static long getKodBoom() {
-    return kodBoom;
+  public static long getTimerBoom() {
+    return timerBoom;
   }
 
-  public static void setKodBoom() {
-    kodBoom = com.badlogic.gdx.utils.TimeUtils.millis();
+  public static void setTimerBoom(long tb) {
+    timerBoom = tb;
   }
 
 
@@ -232,10 +232,6 @@ public class Blok {
   public static Blok b83 = new Blok(); //zamok igrok
   public static Blok bufer = new Blok(); // blok bufer; (84)
 
-  public static void StartBopom(int nb){
-    BlokList.get(nb).setKodBoom();
-    BlokList.get(nb).setKadrBoom(1);
 
-  }
 
 }
