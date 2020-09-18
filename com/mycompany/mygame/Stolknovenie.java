@@ -6,8 +6,6 @@ static 	int b, bb;
 
 	public static void StolknoveniePole(int pp) {
 
-		System.out.println("----------------------");
-
 		switch (Blok.BlokList.get(pp).getStorona()) {
 
 			case 1: {
@@ -15,8 +13,7 @@ static 	int b, bb;
 				b = pp;
 				bb = b - 7;
 
-				System.out.println("ataka blok" + b + " na blok" + bb);
-break;
+				break;
 			}
 
 			case 2: {
@@ -24,33 +21,31 @@ break;
 				b = pp;
 				bb = b + 7;
 
-				System.out.println("ataka blok" + b + " na blok" + bb);
-break;
+				break;
 			}
 
 		}
 
+		Blok.BlokList.get(b).setHealth(
+				Blok.BlokList.get(b).getHealth() -
+						Blok.BlokList.get(bb).getForse());
 
-				Blok.BlokList.get(b).setHealth(
-					Blok.BlokList.get(b).getHealth()-
-					Blok.BlokList.get(bb).getForse());
-
-				Blok.BlokList.get(bb).setHealth(
-						Blok.BlokList.get(bb).getHealth()-
+		Blok.BlokList.get(bb).setHealth(
+				Blok.BlokList.get(bb).getHealth() -
 						Blok.BlokList.get(b).getForse()
-				);
+		);
 
-				if (Blok.BlokList.get(b).getHealth()<=0){
-					WorkBlok.ObnulenieKvadratPole(b);
-				}
-
-				if (Blok.BlokList.get(bb).getHealth()<=0){
-				 WorkBlok.ObnulenieKvadratPole( bb);
-				}
-
-
+		if (Blok.BlokList.get(b).getHealth() <= 0) {
+			BoomBlok.StartBoomBlok(b);
 
 		}
+
+		if (Blok.BlokList.get(bb).getHealth() <= 0) {
+			BoomBlok.StartBoomBlok(bb);
+		}
+
+
+	}
 
 
 	

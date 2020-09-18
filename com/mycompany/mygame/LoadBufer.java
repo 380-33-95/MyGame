@@ -11,7 +11,6 @@ public class LoadBufer extends Blok {
 		Blok.bufer.setStorona(BlokList.get(kzv).getStorona());
 		Blok.bufer.setIndex(BlokList.get(kzv).getIndex());
 		Blok.bufer.setEffect(BlokList.get(kzv).getEffect());
-		Blok.bufer.setKodBoom(BlokList.get(kzv).getKodBoom());
 		Blok.bufer.setX(BlokList.get(kzv).getX());
 		Blok.bufer.setY(BlokList.get(kzv).getY());
 

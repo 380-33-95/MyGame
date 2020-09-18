@@ -11,15 +11,15 @@ static  int ii;
         ii=ik+77;
             //index
             TextureRegion ZamokIgrokIndex = new TextureRegion(atlas, (BlokList.get(ii).getIndex() * 100), 100, 100, 100);
-            batch.draw(ZamokIgrokIndex, (ik * (WIDTH / 7)), (HEIGHT / 12)-(HEIGHT / 12), 1, 1, 100, 100, 1, 1, 0);
+            batch.draw(ZamokIgrokIndex, (ik * (WIDTH / 7)), 0, 1, 1, 100, 100, 1, 1, 0);
 
             //sila
             TextureRegion ZamokIgrokSila = new TextureRegion(atlas, 1000+(BlokList.get(ii).getForse()*100), 2700,  100, 100);
-            batch.draw(ZamokIgrokSila, (ik*(WIDTH/7))+10,(HEIGHT / 12)-(HEIGHT / 12), 1, 1, 30 ,30, 1, 1,0);
+            batch.draw(ZamokIgrokSila, (ik * (WIDTH / 7)) + 10, 0, 1, 1, 30, 30, 1, 1, 0);
 
             //sdorov
             TextureRegion ZamokIgrokSdorov = new TextureRegion(atlas, (BlokList.get(ii).getHealth()*100), 2700,  100, 100);
-            batch.draw(ZamokIgrokSdorov, (ik*(WIDTH/7))+60,(HEIGHT / 12)-(HEIGHT / 12), 1, 1, 30 ,30, 1, 1,0);
+            batch.draw(ZamokIgrokSdorov, (ik * (WIDTH / 7)) + 60, 0, 1, 1, 30, 30, 1, 1, 0);
 
         }
     }

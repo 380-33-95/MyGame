@@ -18,10 +18,10 @@ public class DrawRamkaBoss extends MyGdxGame {
             TextureRegion RamkaBoss = new TextureRegion(atlas, 0, Peremen.HodVrag,
                     100, 100);
 
-            batch.draw(RamkaBoss, 0, HEIGHT-HEIGHT,
+            batch.draw(RamkaBoss, 0, 0,
                     1, 1,
-                    WIDTH/7,
-                    HEIGHT/12,
+                    WIDTH / 7,
+                    HEIGHT / 12,
                     1, 1, 0);
         }
 

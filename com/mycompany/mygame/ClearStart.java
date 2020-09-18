@@ -30,7 +30,7 @@ public class ClearStart {
         */
 
 
-        Blok.b00.setHealth(19);
+        Blok.b00.setHealth(35);
         Blok.b77.setHealth(35);
 
 

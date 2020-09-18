@@ -51,7 +51,7 @@ public class DrawBossVrag extends MyGdxGame {
         if  (b00.getHealth() <= -1 && b00.getHealth() >= -9)
         {
 
-            TextureRegion BossVragMinus = new TextureRegion(atlas, 0 - b00.getHealth() * 100, 2800, 100, 100);
+            TextureRegion BossVragMinus = new TextureRegion(atlas, -b00.getHealth() * 100, 2800, 100, 100);
 
             batch.draw(BossVragMinus, 5,
                     HEIGHT - (HEIGHT / 12),

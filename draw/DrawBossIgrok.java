@@ -46,7 +46,7 @@ public class DrawBossIgrok extends MyGdxGame {
 
         if (b77.getHealth() <= -1 && b77.getHealth() >= -9) {
 
-            TextureRegion BossIgrokMinus = new TextureRegion(atlas, 0-b77.getHealth() * 100, 2800, 100, 100);
+            TextureRegion BossIgrokMinus = new TextureRegion(atlas, -b77.getHealth() * 100, 2800, 100, 100);
 
             batch.draw(BossIgrokMinus,
                     5,

@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
+import draw.DrawBoom;
 import draw.DrawBossIgrok;
 import draw.DrawBossVrag;
 import draw.DrawGame;
@@ -21,6 +22,7 @@ import draw.DrawZamokIgrok;
 import draw.DrawZamokVrag;
 
 import static com.mycompany.mygame.JustTouched.IfJustTouched;
+
 
 
 public class MyGdxGame extends Blok implements ApplicationListener
@@ -144,7 +146,7 @@ public class MyGdxGame extends Blok implements ApplicationListener
 
 				DrawPole.DrawStartPole();
 
-
+				DrawBoom.DrawCiclBoom();
 
 
 				if (Gdx.input.justTouched()) {

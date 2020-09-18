@@ -12,7 +12,8 @@ public class DrawPole extends MyGdxGame {
 
         for (int pp=7; pp<=76; pp++) {
 
-            if (BlokList.get(pp).getIndex() > 0) {
+            //     if (BlokList.get(pp).getIndex()>0)
+            {
                 if (BlokList.get(pp).getStorona() == 1) {
                     if (BlokList.get(pp).getHealth() <= 0) {
                         color = 0;
@@ -30,18 +31,18 @@ public class DrawPole extends MyGdxGame {
                 }
 
                 //idex
-            TextureRegion PoleIndex = new TextureRegion(atlas, BlokList.get(pp).getIndex() * 100, color, 100, 100);
-            batch.draw(PoleIndex, BlokList.get(pp).getX(), BlokList.get(pp).getY(), 1, 1, WIDTH / 7, HEIGHT / 12, 1, 1, 0);
+                TextureRegion PoleIndex = new TextureRegion(atlas, BlokList.get(pp).getIndex() * 100, color, 100, 100);
+                batch.draw(PoleIndex, BlokList.get(pp).getX(), BlokList.get(pp).getY(), 1, 1, WIDTH / 7, HEIGHT / 12, 1, 1, 0);
 
-            //sila
-            TextureRegion PoleForse = new TextureRegion(atlas, 1000 + ((BlokList.get(pp).getForse()) * 100), 2700, 100, 100);
-            batch.draw(PoleForse, BlokList.get(pp).getX() + 10, BlokList.get(pp).getY(), 1, 1, 30, 30, 1, 1, 0);
+                //sila
+                TextureRegion PoleForse = new TextureRegion(atlas, 1000 + ((BlokList.get(pp).getForse()) * 100), 2700, 100, 100);
+                batch.draw(PoleForse, BlokList.get(pp).getX() + 10, BlokList.get(pp).getY(), 1, 1, 30, 30, 1, 1, 0);
 
-            //sdorov
-            TextureRegion PoleHealth = new TextureRegion(atlas, ((BlokList.get(pp).getHealth()) * 100), 2700, 100, 100);
-            batch.draw(PoleHealth, BlokList.get(pp).getX() + 60, BlokList.get(pp).getY(), 1, 1, 30, 30, 1, 1, 0);
+                //sdorov
+                TextureRegion PoleHealth = new TextureRegion(atlas, ((BlokList.get(pp).getHealth()) * 100), 2700, 100, 100);
+                batch.draw(PoleHealth, BlokList.get(pp).getX() + 60, BlokList.get(pp).getY(), 1, 1, 30, 30, 1, 1, 0);
 
-        }
+            }
 
         }
 
@@ -63,6 +64,4 @@ public class DrawPole extends MyGdxGame {
 
         }
     }
-
-
 }

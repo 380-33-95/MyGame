@@ -17,36 +17,39 @@ public class Effect {
         numblok=numbl;
 
       switch (Blok.BlokList.get(numblok).getEffect()){
-case 0:{break;}
 
-          case 8:{ //vverh
-
-      VerefyNaPeremeshenie(numblok-7);
+          case 0: {
               break;
           }
-		  
-          case 2:{ //vniz
 
-      VerefyNaPeremeshenie(numblok+7);
+          case 8: { //vverh
+
+              VerefyNaPeremeshenie(numblok - 7);
               break;
           }
-		  
-          case 4:{ //4-vlevo
 
-          VerefyNaPeremeshenie(numblok-1);
+          case 2: { //vniz
+
+              VerefyNaPeremeshenie(numblok + 7);
               break;
           }
-		  
-          case 6:{ //vpravo
 
-        VerefyNaPeremeshenie(numblok+1);
-        
+          case 4: { //4-vlevo
+
+              VerefyNaPeremeshenie(numblok - 1);
+              break;
+          }
+
+          case 6: { //vpravo
+
+              VerefyNaPeremeshenie(numblok + 1);
+
               break;
           }
 		  
           case 5:{ //bomba
+              BoomBlok.StartBoomBlok(numblok);
               Blok.BlokList.get(numblok).setHealth(0);
-              WorkBlok.ObnulenieKvadratPole(numblok);
               break;
           }
 
@@ -94,8 +97,8 @@ case 0:{break;}
     }
 
     public static void ObnulenieAfterUron(int nombl) {
-        if (Blok.BlokList.get(nombl).getHealth() <= 0) {
-
+        if (Blok.BlokList.get(nombl).getHealth() <= 0 && Blok.BlokList.get(nombl).getForse() > 0) {
+            BoomBlok.StartBoomBlok(nombl);
             WorkBlok.ObnulenieKvadratPole(nombl);
         }
     }

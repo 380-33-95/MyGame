@@ -50,14 +50,14 @@ public class Blok {
   }
 
 
-  private static long timerBoom;
+  private long timerBoom;
 
-  public static long getTimerBoom() {
+  public long getTimerBoom() {
     return timerBoom;
   }
 
-  public static void setTimerBoom(long tb) {
-    timerBoom = tb;
+  public void setTimerBoom(long tb) {
+    this.timerBoom = tb;
   }
 
 
@@ -124,13 +124,13 @@ public class Blok {
     storona = stor;
   }
 
-  private static int KadrBoom;
+  private int KadrBoom;
 
   public int getKadrBoom() {
     return KadrBoom;
   }
 
-  public static void setKadrBoom(int kadr) {
+  public void setKadrBoom(int kadr) {
     KadrBoom = kadr;
   }
 

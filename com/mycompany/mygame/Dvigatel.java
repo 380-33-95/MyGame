@@ -97,15 +97,14 @@ public class Dvigatel {
                 WorkBlok.Peremeshenie(startI, finishI);
                 //esli vperedi effect
 
-                if (
-                        Blok.BlokList.get(finishI).getIndex() > 0
-                                && Blok.BlokList.get(finishI).getEffect() > 0
+                if (Blok.BlokList.get(finishI).getIndex() > 0
+                        && Blok.BlokList.get(finishI).getEffect() > 0
                     //  && Blok.BlokList.get(finishI).getStorona()==2
                 ) {
                     System.out.println("*effect!!!*");
                     Effect.SelectEffect(finishI);
                 }
-                }
+            }
 
         }
 
