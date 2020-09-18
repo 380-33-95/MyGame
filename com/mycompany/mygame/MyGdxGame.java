@@ -130,9 +130,6 @@ public class MyGdxGame extends Blok implements ApplicationListener
 			case 1: {
 
 				DrawGame.DrGame();
-				if (GameFirstHod.myTimerTask.isScheduled()) {
-					DrawPervijHod.PervijStartHod();
-				}
 
 				DrawBossVrag.BossVrag();
 
@@ -148,6 +145,9 @@ public class MyGdxGame extends Blok implements ApplicationListener
 
 				DrawBoom.DrawCiclBoom();
 
+				if (GameFirstHod.myTimerTask.isScheduled()) {
+					DrawPervijHod.PervijStartHod();
+				}
 
 				if (Gdx.input.justTouched()) {
 
@@ -155,19 +155,25 @@ public class MyGdxGame extends Blok implements ApplicationListener
 
 							IfJustTouched());
 
-					GameInfo.InfoKletka();
+					//	GameInfo.InfoKletka();
 				}
 
 
 				break;
 			}
 
-			case 2:{
-					break;
-				}
+			case 2: {
 
+				//TODO pausa effect konec igri
+				GameEnd.CircleEnd();
+				//TODO smena sastavki
+				//	DrawEnd.RrawEndGame();
+				break;
+			}
+/*
 			default:
 				throw new IllegalStateException("Unexpected value: " + getStatusMenu());
+*/
 		}
 
 

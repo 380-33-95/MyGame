@@ -30,17 +30,16 @@ public class ClearStart {
         */
 
 
-        Blok.b00.setHealth(35);
-        Blok.b77.setHealth(35);
+        Blok.b00.setHealth(1);
+        Blok.b77.setHealth(1);
 
 
         DrawPole.InitialisationCoordinatPole();
-       GameFirstHod.GenerationFirstHod();
-       Rasdacha.RasdachaStartVse();
+        GameFirstHod.GenerationFirstHod();
+        Rasdacha.RasdachaStartVse();
 
 
-
-          Test.TestTest();
+        Test.TestTest();
     }
        
   

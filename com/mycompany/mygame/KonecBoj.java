@@ -3,28 +3,35 @@ package com.mycompany.mygame;
 public class KonecBoj {
 	
 	public static void KonecBojI() {
-
-	/*
-	if(Peremen.getHealtsV()<=0) {
-
-		Test4.setStatusMenu(2);
-
 		Peremen.setWin(0);
+		ClearEnemy();
+
 	}
-	*/
-	}
-	
+
+
 	public static void KonecBojV() {
-		/*
-		if(Peremen.getHealtsI()<=0) {
+		Peremen.setWin(200);
+		ClearEnemy();
 
-			Test4.setStatusMenu(2);
-
-			Peremen.setWin(200);
 	}
 
-		 */
+	public static void ClearEnemy() {
+		int nv;
+		if (Peremen.getWin() > 0) {
+			nv = 1;
+		} else {
+			nv = 2;
+		}
+		for (int nk = 7; nk <= 76; nk++) {
+			if (Blok.BlokList.get(nk).getStorona() == nv) {
+				BoomBlok.StartBoomBlok(nk);
+
+			}
+		}
+
+		//	MyGdxGame.setStatusMenu(2);
+		GameEnd.StartEndGame();
 	}
-	
+
 
 }
