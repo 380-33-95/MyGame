@@ -5,14 +5,12 @@ public class KonecBoj {
 	public static void KonecBojI() {
 		Peremen.setWin(0);
 		ClearEnemy();
-
 	}
 
 
 	public static void KonecBojV() {
 		Peremen.setWin(200);
 		ClearEnemy();
-
 	}
 
 	public static void ClearEnemy() {
@@ -30,7 +28,7 @@ public class KonecBoj {
 		}
 
 		//	MyGdxGame.setStatusMenu(2);
-		GameEnd.StartEndGame();
+		GameEnd.StartPausaEnd();
 	}
 
 

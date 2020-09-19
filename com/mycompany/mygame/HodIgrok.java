@@ -16,22 +16,16 @@ public class HodIgrok extends ClickSelector {
 
 	   Peremen.setKodZamok(getNC());
 
-	   /*
-	   if (Dvigatel.StartCiclIgrok) {
-		   Dvigatel.startI = 13;
-		   Dvigatel.StartCiclPoleIgrok();
-		   Dvigatel.StartCiclIgrok=false;
-		   Dvigatel.startCiclVrag=true;
-*/
+
 	   if (Dvigatel.startCiclIgrok) {
 		   Dvigatel.startI = 13;
 		   Dvigatel.StartCiclPoleIgrok();
-		   Dvigatel.startCiclIgrok=false;
-		   Dvigatel.startCiclVrag=true;
+		   Dvigatel.startCiclIgrok = false;
+		   Dvigatel.startCiclVrag = true;
 
 	   }
 
-	   }
+   }
 
 
 
@@ -40,8 +34,6 @@ public class HodIgrok extends ClickSelector {
 
    public static void HodIgrokPole(){
 
-        System.out.println("------------------------HodIgrokPole()");
-     
 	    WorkBlok.LoadPoleBlok();
 
 	    WorkBlok.ObnulenieBufer();

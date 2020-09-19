@@ -10,9 +10,11 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
+import draw.DrawBoolet;
 import draw.DrawBoom;
 import draw.DrawBossIgrok;
 import draw.DrawBossVrag;
+import draw.DrawEnd;
 import draw.DrawGame;
 import draw.DrawPervijHod;
 import draw.DrawPole;
@@ -145,6 +147,8 @@ public class MyGdxGame extends Blok implements ApplicationListener
 
 				DrawBoom.DrawCiclBoom();
 
+				DrawBoolet.DrawCiclBoolet();
+
 				if (GameFirstHod.myTimerTask.isScheduled()) {
 					DrawPervijHod.PervijStartHod();
 				}
@@ -163,11 +167,16 @@ public class MyGdxGame extends Blok implements ApplicationListener
 			}
 
 			case 2: {
+				if (!GameEnd.pausaEnd.isScheduled()) {
 
-				//TODO pausa effect konec igri
-				GameEnd.CircleEnd();
-				//TODO smena sastavki
-				//	DrawEnd.RrawEndGame();
+					//TODO smena sastavki
+					DrawEnd.DrawEndGame();
+				}
+				if (!GameEnd.noviStart.isScheduled()) {
+					if (getNC() > 0) {
+						setStatusMenu(0);
+					}
+				}
 				break;
 			}
 /*

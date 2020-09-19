@@ -57,15 +57,12 @@ public class WorkBlok extends Blok{
 
     public static void ObnulenieBufer() {
 
-
         Blok.bufer.setForse(0);
         Blok.bufer.setHealth(0);
         Blok.bufer.setStorona(0);
         Blok.bufer.setIndex(0);
         Blok.bufer.setEffect(0);
 
-        //	Blok.bufer.setX(0);
-        //	Blok.bufer.setY(0);
 
     }
 
@@ -73,14 +70,13 @@ public class WorkBlok extends Blok{
 
         for (int sdi=-1; sdi<=3; sdi++) {
             int sdii=5-sdi;
-
             if(BlokList.get(sdii).getIndex()==0) {
                  WorkBlok.Peremeshenie(sdii-1, sdii);
             }
         }
 
         if(b01.getIndex()==0) {
-           LoadBlokFromBasa(1,2);
+            LoadZamokFromBasa(1, 2);
         }
     }
 
@@ -91,23 +87,31 @@ public class WorkBlok extends Blok{
         for (int sdi=-1; sdi<=3; sdi++) {
             int sdii=82-sdi;
 	            if(BlokList.get(sdii).getIndex()==0) {
-				System.out.println("sdvig I2="+sdii);
                 WorkBlok.Peremeshenie(sdii-1, sdii);
             }
         }
 
         if(b78.getIndex()==0) {
-			LoadBlokFromBasa(78, 1);
+            LoadZamokFromBasa(78, 1);
         }
 
     }
-	
 
-    public static void LoadBlokFromBasa(int nb, int st){
+
+    public static void LoadZamokFromBasa(int nb, int st) {
         //0-index, 1-zdorovie, 2-sila, 3-effect, 4-moov  , 5-storona (1-igrok, 2-vrag), 6-boom,
 //	7-flag sabrosa v pole, 8-flag vistrel 9-*
 
-        int nv=(int) Generator.GenRand(Koloda.Basakoloda.length-1);
+        int nv = (int) Generator.GenRand(Koloda.Basakoloda.length - 1);
+
+        while (st == 1 && nv == 8) {
+            nv = (int) Generator.GenRand(Koloda.Basakoloda.length - 1);
+        }
+
+        while (st == 2 && nv == 7) {
+            nv = (int) Generator.GenRand(Koloda.Basakoloda.length - 1);
+        }
+
         BlokList.get(nb).setIndex(Koloda.Basakoloda[nv][0]);
         BlokList.get(nb).setHealth(Koloda.Basakoloda[nv][1]);
         BlokList.get(nb).setForse(Koloda.Basakoloda[nv][2]);

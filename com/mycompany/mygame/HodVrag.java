@@ -29,8 +29,6 @@ public class HodVrag extends ClickSelector {
 
     public static void HodVragPole(){
 
-        System.out.println("------------------------HodVragPole()");
-
         WorkBlok.LoadPoleBlok();
 
         WorkBlok.ObnulenieBufer();

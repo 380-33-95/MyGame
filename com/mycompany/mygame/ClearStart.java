@@ -30,8 +30,8 @@ public class ClearStart {
         */
 
 
-        Blok.b00.setHealth(1);
-        Blok.b77.setHealth(1);
+        Blok.b00.setHealth(30);
+        Blok.b77.setHealth(30);
 
 
         DrawPole.InitialisationCoordinatPole();
@@ -39,7 +39,7 @@ public class ClearStart {
         Rasdacha.RasdachaStartVse();
 
 
-        Test.TestTest();
+        //  Test.TestTest();
     }
        
   

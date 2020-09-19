@@ -1,26 +1,39 @@
 package com.mycompany.mygame;
 
-import draw.DrawEnd;
+import com.badlogic.gdx.utils.Timer;
 
-public class GameEnd extends Blok {
-    static long timend1, timend2;
-
-    //TODO START BOOM
-    public static void StartEndGame() {
-        timend1 = com.badlogic.gdx.utils.TimeUtils.millis() + 500;
-
-        CircleEnd();
-    }
+public class GameEnd {
 
 
-    //TODO cicl
-    public static void CircleEnd() {
-        timend2 = com.badlogic.gdx.utils.TimeUtils.millis();
+	public static Timer.Task pausaEnd = new Timer.Task() {
+
+		@Override
+		public void run() {
+			Peremen.setStatusMenu(2);
+			StartNoviStart();
+		}
+	};
+
+	public static void StartPausaEnd() {
+
+		Timer.schedule(pausaEnd, 3f, 0f, 0);
+
+	}
+
+	public static Timer.Task noviStart = new Timer.Task() {
+
+		@Override
+		public void run() {
+			// TODO: Implement this method
+			ClearAll.StartClearAll();
 
 
-        if (timend1 <= timend2) {
-            MyGdxGame.setStatusMenu(2);
-            DrawEnd.RrawEndGame();
-        }
-    }
+		}
+	};
+
+
+	public static void StartNoviStart() {
+		Timer.schedule(noviStart, 5f);
+	}
+
 }

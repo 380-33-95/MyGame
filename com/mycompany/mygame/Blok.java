@@ -2,6 +2,8 @@
 package com.mycompany.mygame;
 
 
+import com.badlogic.gdx.utils.Timer;
+
 import java.util.ArrayList;
 
 
@@ -134,6 +136,62 @@ public class Blok {
     KadrBoom = kadr;
   }
 
+  /////////boolet////peremen///
+  private int booletX = x;
+
+  public void setBooletX(int x) {
+    booletX = x;
+  }
+
+  public int getBooletX() {
+    return booletX;
+  }
+
+
+  private int booletY = y;
+
+  public void setBooletY(int y) {
+    booletY = y;
+  }
+
+  public int getBooletY() {
+    return booletY;
+  }
+
+  int countTimer;
+  ///////////boolet/////go////
+  public Timer.Task booletKadr = new Timer.Task() {
+
+    @Override
+    public void run() {
+      // TODO: Implement this method
+      if (getStorona() == 1) {
+
+        booletY -= 100;
+      }
+      if (getStorona() == 2) {
+
+        booletY += 100;
+
+      }
+    }
+  };
+
+  public void BooletGo(int nbk) {
+    if (getStorona() == 1) {
+      countTimer = (nbk / 7);
+    }
+    if (getStorona() == 2) {
+      countTimer = 10 - (nbk / 7);
+    }
+
+    Timer.schedule(booletKadr, 0.25f, 0.25f,
+            2
+            //  countTimer
+    );
+
+  }
+  ////////////////
 
   //TODO BLOKS
   public static Blok b00 = new Blok();   //boss vrag
@@ -223,7 +281,7 @@ public class Blok {
   public static Blok b74 = new Blok();
   public static Blok b75 = new Blok();
   public static Blok b76 = new Blok();
-  public static Blok b77 = new Blok();   //boss igrok
+  public static Blok b77 = new Blok(); //boss igrok
   public static Blok b78 = new Blok(); //zamok igrok
   public static Blok b79 = new Blok(); //zamok igrok
   public static Blok b80 = new Blok(); //zamok igrok
@@ -231,7 +289,6 @@ public class Blok {
   public static Blok b82 = new Blok(); //zamok igrok
   public static Blok b83 = new Blok(); //zamok igrok
   public static Blok bufer = new Blok(); // blok bufer; (84)
-
 
 
 }

@@ -7,7 +7,7 @@ import com.mycompany.mygame.Peremen;
 
 public class DrawEnd extends MyGdxGame {
 
-    public static void RrawEndGame() {
+    public static void DrawEndGame() {
         {
 
             TextureRegion ZastavkaEnd = new TextureRegion(atlas, 0, Peremen.KonecBoj, WIDTH, HEIGHT);
