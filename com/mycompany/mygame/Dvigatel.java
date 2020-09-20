@@ -27,7 +27,6 @@ public class Dvigatel {
 
     public static void StartCiclPoleVrag() {
         if (startV > 6) {
-
             SdvigPoleVrag();
         }
     }
@@ -37,10 +36,10 @@ public class Dvigatel {
         finishV = startV + 7;
 
         //TODO
-        Blok.BlokList.get(startV).BooletGo(startV);
-        while (!Blok.BlokList.get(startV).booletKadr.isScheduled()) {
+        //Blok.BlokList.get(startV).BooletGo();
+        //	while(!Blok.BlokList.get(startV).booletKadr.isScheduled()){
 
-        }
+        //	}
 
 
         ////
@@ -70,7 +69,7 @@ public class Dvigatel {
                     && Blok.BlokList.get(finishV).getEffect() > 0
 
             ) {
-                System.out.println("*effect!!!*");
+
                 Effect.SelectEffect(finishV);
             }
             }
@@ -98,6 +97,11 @@ public class Dvigatel {
                 && Blok.BlokList.get(startI).getStorona() == 1
                 && Blok.BlokList.get(startI).getHealth() > 0) {
 
+
+            //	while(Blok.BlokList.get(startI).booletKadr.isScheduled()){
+
+            //	}
+
             //esli vperedi object
             if (Blok.BlokList.get(startI - 7).getIndex() > 0
                     && Blok.BlokList.get(startI).getForse() > 0
@@ -119,15 +123,19 @@ public class Dvigatel {
                         && Blok.BlokList.get(finishI).getEffect() > 0
 
                 ) {
-                    System.out.println("*effect!!!*");
+
                     Effect.SelectEffect(finishI);
                 }
             }
 
         }
 
-                    StartCiclPoleIgrok();
+        StartCiclPoleIgrok();
 
-         }
+    }
 
+    /////***
+
+
+////**///*
 }

@@ -1,16 +1,16 @@
 package com.mycompany.mygame;
 
-public class Rasdacha extends Blok{
-	
-	public static void RasdachaStartVse () {
+public class Rasdacha extends Blok {
+
+    public static void RasdachaStartVse() {
 
 
-int ii;
+        int ii;
 
-		
-	for(int i=1; i<=6;i++){
-		BlokList.get(i).setIndex((int) Generator.GenRand(Koloda.Basakoloda.length-1));
-		Sagruska(i);
+
+        for (int i = 1; i <= 6; i++) {
+            BlokList.get(i).setIndex((int) Generator.GenRand(Koloda.Basakoloda.length - 1));
+            Sagruska(i);
 		{
 		BlokList.get(i).setStorona(2);
 		}

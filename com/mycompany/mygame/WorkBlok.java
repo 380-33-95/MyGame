@@ -2,15 +2,15 @@ package com.mycompany.mygame;
 
 import static com.mycompany.mygame.MyGdxGame.getNC;
 
-public class WorkBlok extends Blok{
+public class WorkBlok extends Blok {
 
-    public static void Peremeshenie (int isS, int vR){
+    public static void Peremeshenie(int isS, int vR) {
 
         BlokList.get(vR).setIndex(BlokList.get(isS).getIndex());
         BlokList.get(vR).setHealth(BlokList.get(isS).getHealth());
         BlokList.get(vR).setForse(BlokList.get(isS).getForse());
         BlokList.get(vR).setStorona(BlokList.get(isS).getStorona());
-        if (isS>=78 || isS<=6) {
+        if (isS >= 78 || isS <= 6) {
             BlokList.get(vR).setEffect(BlokList.get(isS).getEffect());
         }
         ObnulenieKvadratPole(isS);

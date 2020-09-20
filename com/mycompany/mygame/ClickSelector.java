@@ -52,35 +52,35 @@ public class ClickSelector extends MyGdxGame{
 				HodVrag.HodVragZamok();
 			}
 
-			if(getNC()>=7 && getNC()<=13
-					&& bufer.getIndex() > 0
-					&& BlokList.get(getNC()).getIndex() == 0
-					&& bufer.getEffect() == 0
-					&& bufer.getStorona() == 2
-				//		 && !Vistrel.timerVistrelV.isRunning()
-			) { //pered boj vrag
-				HodVrag.HodVragPole();
-			}
+			if (getNC() >= 7 && getNC() <= 13
+                    && bufer.getIndex() > 0
+                    && BlokList.get(getNC()).getIndex() == 0
+                    && bufer.getEffect() == 0
+                    && bufer.getStorona() == 2
+                //		 && !Vistrel.timerVistrelV.isRunning()
+            ) { //pered boj vrag
+                HodVrag.HodVragPole();
+            }
 
-			if (getNC() >= 14 && getNC() <= 41
-					&& bufer.getIndex() > 0
-					&& BlokList.get(getNC()).getIndex() == 0
-					&& bufer.getEffect() > 0
-					&& bufer.getStorona() == 2) {
-				HodVrag.HodVragPole();
-			}
+            if (getNC() >= 14 && getNC() <= 41
+                    && bufer.getIndex() > 0
+                    && BlokList.get(getNC()).getIndex() == 0
+                    && bufer.getEffect() > 0
+                    && bufer.getStorona() == 2) {
+                HodVrag.HodVragPole();
+            }
 
-		}//end BOJ
+        }//end BOJ
 
-		if (getStatusMenu() == 2) {
-			if (getNC() > 0) {
-				setStatusMenu(0);
-				ClearStart.NewStart();
-			}
-		}
+        if (getStatusMenu() == 2) {
+            if (getNC() > 0) {
+                setStatusMenu(0);
+                ClearStart.NewStart();
+            }
+        }
 
 
-	}
+    }
 
 
 

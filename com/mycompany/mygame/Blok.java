@@ -12,10 +12,13 @@ public class Blok {
 
 
   public static ArrayList<Blok> BlokList = new ArrayList<>(83);
-
+  public static ArrayList<Timer.Task> BlokTimer = new ArrayList<>(83);
 
   public Blok() {
     BlokList.add(this);
+    //  BlokTimer.add(booletKadr);
+    setBooletX(getX());
+    setBooletY(getY());
   }
 
 
@@ -140,7 +143,7 @@ public class Blok {
   private int booletX = x;
 
   public void setBooletX(int x) {
-    booletX = x;
+    this.booletX = x;
   }
 
   public int getBooletX() {
@@ -151,46 +154,16 @@ public class Blok {
   private int booletY = y;
 
   public void setBooletY(int y) {
-    booletY = y;
+    this.booletY = y;
   }
 
   public int getBooletY() {
     return booletY;
   }
 
-  int countTimer;
+
   ///////////boolet/////go////
-  public Timer.Task booletKadr = new Timer.Task() {
 
-    @Override
-    public void run() {
-      // TODO: Implement this method
-      if (getStorona() == 1) {
-
-        booletY -= 100;
-      }
-      if (getStorona() == 2) {
-
-        booletY += 100;
-
-      }
-    }
-  };
-
-  public void BooletGo(int nbk) {
-    if (getStorona() == 1) {
-      countTimer = (nbk / 7);
-    }
-    if (getStorona() == 2) {
-      countTimer = 10 - (nbk / 7);
-    }
-
-    Timer.schedule(booletKadr, 0.25f, 0.25f,
-            2
-            //  countTimer
-    );
-
-  }
   ////////////////
 
   //TODO BLOKS
