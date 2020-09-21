@@ -16,7 +16,6 @@ public class Blok {
 
   public Blok() {
     BlokList.add(this);
-    //  BlokTimer.add(booletKadr);
     setBooletX(getX());
     setBooletY(getY());
   }

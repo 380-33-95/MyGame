@@ -1,19 +1,23 @@
 package draw;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.mycompany.mygame.Dvigatel;
 import com.mycompany.mygame.MyGdxGame;
 
 public class DrawBoolet extends MyGdxGame {
 
-	public static void DrawCiclBoolet() {
+	public static void DrawCiclBoolet(int nc) {
 
-		for (int nc = 7; nc <= 76; nc++) {
-			if (BlokList.get(nc).getEffect() == 0 && BlokList.get(nc).getIndex() > 0) {
-				System.out.println("boolet x=" + BlokList.get(nc).getX() + " y=" + BlokList.get(nc).getY());
+
+		if (BlokList.get(nc).getEffect() == 0
+				//&& BlokList.get(nc).getIndex() > 0
+				&& BlokList.get(nc).getStorona() == 2
+		) {
+			for (int by = BlokList.get(nc).getX(); by <= HEIGHT - 100; by = by + 100) {
 				TextureRegion BooletV = new TextureRegion(atlas, 0, 2000, 100, 100);
 				batch.draw(BooletV,
 						BlokList.get(nc).getX(),
-						BlokList.get(nc).getY(),
+						by,
 						1,
 						1,
 						WIDTH / 7,
@@ -22,6 +26,9 @@ public class DrawBoolet extends MyGdxGame {
 						1,
 						0);
 			}
+			Dvigatel.myTimerDraw.cancel();
+
 		}
 	}
+
 }
