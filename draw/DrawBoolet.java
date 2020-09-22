@@ -1,7 +1,6 @@
 package draw;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.mycompany.mygame.Dvigatel;
 import com.mycompany.mygame.MyGdxGame;
 
 public class DrawBoolet extends MyGdxGame {
@@ -13,11 +12,11 @@ public class DrawBoolet extends MyGdxGame {
 				//&& BlokList.get(nc).getIndex() > 0
 				&& BlokList.get(nc).getStorona() == 2
 		) {
-			for (int by = BlokList.get(nc).getX(); by <= HEIGHT - 100; by = by + 100) {
+System.out.println(".");
 				TextureRegion BooletV = new TextureRegion(atlas, 0, 2000, 100, 100);
 				batch.draw(BooletV,
 						BlokList.get(nc).getX(),
-						by,
+						BlokList.get(nc).getBooletY(),
 						1,
 						1,
 						WIDTH / 7,
@@ -25,8 +24,6 @@ public class DrawBoolet extends MyGdxGame {
 						1,
 						1,
 						0);
-			}
-			Dvigatel.myTimerDraw.cancel();
 
 		}
 	}

@@ -2,8 +2,6 @@
 package com.mycompany.mygame;
 
 
-import com.badlogic.gdx.utils.Timer;
-
 import java.util.ArrayList;
 
 
@@ -12,13 +10,10 @@ public class Blok {
 
 
   public static ArrayList<Blok> BlokList = new ArrayList<>(83);
-  public static ArrayList<Timer.Task> BlokTimer = new ArrayList<>(83);
 
   public Blok() {
     BlokList.add(this);
-    setBooletX(getX());
-    setBooletY(getY());
-  }
+     }
 
 
   private int Index;

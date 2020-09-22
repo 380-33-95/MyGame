@@ -2,10 +2,6 @@ package com.mycompany.mygame;
 
 //import com.badlogic.gdx.utils.Timer;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-
 public class Dvigatel {
 
     public static int startV;
@@ -28,48 +24,7 @@ public class Dvigatel {
 
     public static boolean startCiclIgrok = true;
 
-    public static boolean BooletStart;
 
-    public static Timer myTimerDraw;
-
-    static TimerTask timerTask;
-
-    public static void myTimer(final long MAC, final String ipAddress) {
-
-        timerTask = new TimerTask() {
-
-            @Override
-            public void run() {
-                System.out.println("task1");
-                update();
-            }
-        };
-        System.out.println("task2");
-        myTimerDraw = new Timer();
-        //   myTimerDraw.schedule(timerTask, 1);
-        myTimerDraw.scheduleAtFixedRate(timerTask, 0, 1);
-        BooletStart = false;
-    }
-
-
-    public static void update() {
-        timerTask = new TimerTask() {
-
-            @Override
-            public void run() {
-                //  System.out.println("Updated timer");
-            }
-        };
-        myTimerDraw.cancel();
-        myTimerDraw.purge();
-        myTimerDraw = new Timer();
-
-        myTimerDraw.scheduleAtFixedRate(timerTask, 0, 1);
-        System.out.println("task3");
-    }
-
-
-    /////////
 
 
     //start from 69 for vrag
@@ -88,8 +43,12 @@ public class Dvigatel {
         if ((startV > 6) && (Blok.BlokList.get(startV).getEffect() == 0)
                 && Blok.BlokList.get(startV).getStorona() == 2) {
 
-            BooletStart = true;
-            myTimer(123, "127.0.0.1");
+            ////////////////////
+            System.out.println("* start CircleBoolet");
+            CircleBoolet(startV);
+
+
+            ////////////////////
 
 
             //esli vperedi object
@@ -173,6 +132,24 @@ public class Dvigatel {
 
         StartCiclPoleIgrok();
 
+    }
+
+
+    public static void CircleBoolet(int nb) {
+
+        Blok.BlokList.get(nb).setBooletY(Blok.BlokList.get(nb).getY());
+
+        MyGdxGame.setFlagBoolet(true);
+        System.out.println("*" + MyGdxGame.isFlagBoolet());
+        while ((MyGdxGame.HEIGHT / 12) <= Blok.BlokList.get(nb).getBooletY()) {
+
+            Blok.BlokList.get(nb).setBooletY(Blok.BlokList.get(nb).getBooletY() - 100);
+            System.out.println("* CircleBoolet " + nb + " -> " + Blok.BlokList.get(nb).getBooletY());
+
+        }
+
+        MyGdxGame.setFlagBoolet(false);
+        System.out.println("*" + MyGdxGame.isFlagBoolet());
     }
 
 
