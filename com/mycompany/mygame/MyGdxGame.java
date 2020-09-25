@@ -66,25 +66,29 @@ public class MyGdxGame extends Blok implements ApplicationListener
 	static Vector3 Touch = new Vector3();
 
 	public static int shirKnopki = (WIDTH / 7) * 3;
-    public static int visKnopki = (HEIGHT / 12);
+	public static int visKnopki = (HEIGHT / 12);
 
-    public static int color;
+	public static int color;
 
-    private static long CurrentTime;
+	private static long CurrentTime;
 
-    public static void setCurrentTime() {
-        CurrentTime = com.badlogic.gdx.utils.TimeUtils.millis();
-    }
+	public static void setCurrentTime() {
+		CurrentTime = com.badlogic.gdx.utils.TimeUtils.millis();
+	}
 
-    public static boolean isFlagBoolet() {
-        return FlagBoolet;
-    }
+	public static long getCurrentTime() {
+		return CurrentTime;
+	}
 
-    public static void setFlagBoolet(boolean flaggBoolet) {
-        FlagBoolet = flaggBoolet;
-    }
+	public static boolean isFlagBoolet() {
+		return FlagBoolet;
+	}
 
-    private static boolean FlagBoolet;
+	public static void setFlagBoolet(boolean flaggBoolet) {
+		FlagBoolet = flaggBoolet;
+	}
+
+	private static boolean FlagBoolet;
 
 
     static {  //////////////initialisation
@@ -156,23 +160,29 @@ public class MyGdxGame extends Blok implements ApplicationListener
 
                 DrawZamokVrag.ZamokStartVrag();
 
-                DrawZamokIgrok.ZamokStartIgrok();
+				DrawZamokIgrok.ZamokStartIgrok();
 
-                DrawPole.DrawStartPole();
+				DrawPole.DrawStartPole();
 
-                DrawBoom.DrawCiclBoom();
+				DrawBoom.DrawCiclBoom();
+
+
 /////////////////////////////////////////////////////////////////
 
-                if (isFlagBoolet()) {
-                    System.out.println("2*" + isFlagBoolet());
-                    DrawBoolet.DrawCiclBoolet(Dvigatel.getStartV());
 
-                }
+				while (MyGdxGame.isFlagBoolet()) {
+					Gdx.app.log("getStartV=", "" + Dvigatel.getStartV());
+
+					DrawBoolet.DrawCiclBoolet(Dvigatel.getStartV());
+				}
+
+
+				//  }
 ////////////////////////////////////////////////////////////////////
 
-                if (GameFirstHod.myTimerTask.isScheduled()) {
-                    DrawPervijHod.PervijStartHod();
-                }
+				if (GameFirstHod.myTimerTask.isScheduled()) {
+					DrawPervijHod.PervijStartHod();
+				}
 
 
 				if (Gdx.input.justTouched()) {

@@ -156,6 +156,16 @@ public class Blok {
   }
 
 
+  private long timerBoolet;
+
+  public long getTimerBoolet() {
+    return timerBoolet;
+  }
+
+  public void setTimerBoolet(long tbt) {
+    timerBoolet = tbt;
+  }
+
   ///////////boolet/////go////
 
   ////////////////

@@ -2,6 +2,12 @@ package com.mycompany.mygame;
 
 //import com.badlogic.gdx.utils.Timer;
 
+import com.badlogic.gdx.Gdx;
+
+import draw.DrawBoolet;
+
+import static com.mycompany.mygame.Blok.BlokList;
+
 public class Dvigatel {
 
     public static int startV;
@@ -24,7 +30,7 @@ public class Dvigatel {
 
     public static boolean startCiclIgrok = true;
 
-
+    public static long BooletTimePausa;
 
 
     //start from 69 for vrag
@@ -40,42 +46,43 @@ public class Dvigatel {
         finishV = startV + 7;
 
 
-        if ((startV > 6) && (Blok.BlokList.get(startV).getEffect() == 0)
-                && Blok.BlokList.get(startV).getStorona() == 2) {
+        if ((startV > 6) && (BlokList.get(startV).getEffect() == 0)
+                && BlokList.get(startV).getStorona() == 2) {
 
             ////////////////////
-            System.out.println("* start CircleBoolet");
-            CircleBoolet(startV);
 
+            BlokList.get(startV).setTimerBoolet(com.badlogic.gdx.utils.TimeUtils.millis() + 250);
+            Gdx.app.log("setTimerBoolet", "" + BlokList.get(startV).getTimerBoolet());
+            BlokList.get(startV).setBooletY(BlokList.get(startV).getY());
+            MyGdxGame.setFlagBoolet(true);
 
             ////////////////////
 
 
             //esli vperedi object
-            if (Blok.BlokList.get(finishV).getIndex() > 0
-                    && Blok.BlokList.get(startV).getForse() > 0
-                    && Blok.BlokList.get(finishV).getStorona() == 1
+            if (BlokList.get(finishV).getIndex() > 0
+                    && BlokList.get(startV).getForse() > 0
+                    && BlokList.get(finishV).getStorona() == 1
             ) {
                 Stolknovenie.StolknoveniePole(startV);
             }
 
 
             // esli vperedi pusto ili effect
-                if (Blok.BlokList.get(finishV).getIndex() == 0
+            if (BlokList.get(finishV).getIndex() == 0
                     ||
-                    (Blok.BlokList.get(finishV).getEffect() > 0)
-               )
-            {
-                WorkBlok.Peremeshenie(startV, finishV);
-            //esli vperedi effect
-            if (
-                    Blok.BlokList.get(finishV).getIndex() > 0
-                    && Blok.BlokList.get(finishV).getEffect() > 0
-
+                    (BlokList.get(finishV).getEffect() > 0)
             ) {
+                WorkBlok.Peremeshenie(startV, finishV);
+                //esli vperedi effect
+                if (
+                        BlokList.get(finishV).getIndex() > 0
+                                && BlokList.get(finishV).getEffect() > 0
 
-                Effect.SelectEffect(finishV);
-            }
+                ) {
+
+                    Effect.SelectEffect(finishV);
+                }
             }
 
         }
@@ -93,34 +100,33 @@ public class Dvigatel {
         }
     }
 
-    public static void SdvigPoleIgrok(){
+    public static void SdvigPoleIgrok() {
         startI++;
         finishI = startI - 7;
 
-        if ((startI < 77) && (Blok.BlokList.get(startI).getEffect() == 0)
-                && Blok.BlokList.get(startI).getStorona() == 1
-                && Blok.BlokList.get(startI).getHealth() > 0) {
+        if ((startI < 77) && (BlokList.get(startI).getEffect() == 0)
+                && BlokList.get(startI).getStorona() == 1
+                && BlokList.get(startI).getHealth() > 0) {
 
 
             //esli vperedi object
-            if (Blok.BlokList.get(startI - 7).getIndex() > 0
-                    && Blok.BlokList.get(startI).getForse() > 0
-                    && Blok.BlokList.get(finishI).getStorona() == 2
+            if (BlokList.get(startI - 7).getIndex() > 0
+                    && BlokList.get(startI).getForse() > 0
+                    && BlokList.get(finishI).getStorona() == 2
             ) {
                 Stolknovenie.StolknoveniePole(startI);
             }
 
             // esli vperedi pusto ili effect
-                    if(Blok.BlokList.get(finishI).getIndex()==0
-                   ||
-                            (Blok.BlokList.get(finishI).getEffect()>0)
-                    )
-            {
+            if (BlokList.get(finishI).getIndex() == 0
+                    ||
+                    (BlokList.get(finishI).getEffect() > 0)
+            ) {
                 WorkBlok.Peremeshenie(startI, finishI);
                 //esli vperedi effect
 
-                if (Blok.BlokList.get(finishI).getIndex() > 0
-                        && Blok.BlokList.get(finishI).getEffect() > 0
+                if (BlokList.get(finishI).getIndex() > 0
+                        && BlokList.get(finishI).getEffect() > 0
 
                 ) {
 
@@ -135,23 +141,13 @@ public class Dvigatel {
     }
 
 
-    public static void CircleBoolet(int nb) {
+    public static long raznica() {
+        long delta, timb = com.badlogic.gdx.utils.TimeUtils.millis();
 
-        Blok.BlokList.get(nb).setBooletY(Blok.BlokList.get(nb).getY());
-
-        MyGdxGame.setFlagBoolet(true);
-        System.out.println("*" + MyGdxGame.isFlagBoolet());
-        while ((MyGdxGame.HEIGHT / 12) <= Blok.BlokList.get(nb).getBooletY()) {
-
-            Blok.BlokList.get(nb).setBooletY(Blok.BlokList.get(nb).getBooletY() - 100);
-            System.out.println("* CircleBoolet " + nb + " -> " + Blok.BlokList.get(nb).getBooletY());
-
-        }
-
-        MyGdxGame.setFlagBoolet(false);
-        System.out.println("*" + MyGdxGame.isFlagBoolet());
+        delta = BlokList.get(startV).getTimerBoolet() - DrawBoolet.timb1;
+        Gdx.app.log("delta", "" + (BlokList.get(startV).getTimerBoolet() - timb));
+        return delta;
     }
-
 
     /////////
 }
