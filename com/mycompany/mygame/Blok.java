@@ -268,4 +268,7 @@ public class Blok {
   public static Blok bufer = new Blok(); // blok bufer; (84)
 
 
+  protected long getTimeBoolet() {
+    return timerBoolet;
+  }
 }

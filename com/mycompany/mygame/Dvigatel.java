@@ -35,11 +35,6 @@ public class Dvigatel extends MyGdxGame implements ApplicationListener {
         TimeBoolet = System.currentTimeMillis() + 250;
     }
 
-    public static long getTimeBoolet() {
-        return TimeBoolet;
-    }
-
-
     static Dvigatel dv = new Dvigatel();
 
     //start from 69 for vrag
@@ -63,7 +58,8 @@ public class Dvigatel extends MyGdxGame implements ApplicationListener {
             Gdx.app.log("1) setFlagBoolet", "" + MyGdxGame.isFlagBoolet());
             MyGdxGame.setFlagBoolet(true);
             setTimeBoolet();
-            Gdx.app.log("2 TimeBoolet=", "" + getTimeBoolet());
+            BlokList.get(startV).setTimerBoolet(System.currentTimeMillis());
+            Gdx.app.log("2 TimeBoolet=", "" + BlokList.get(startV).getTimerBoolet());
             while (MyGdxGame.isFlagBoolet()) {
                 dv.render();
             }

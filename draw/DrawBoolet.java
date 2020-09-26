@@ -2,7 +2,6 @@ package draw;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.mycompany.mygame.Dvigatel;
 import com.mycompany.mygame.MyGdxGame;
 
 
@@ -15,9 +14,9 @@ public class DrawBoolet extends MyGdxGame {
 
 		CurrentTimeBoolet = System.currentTimeMillis();
 		Gdx.app.log("current time", "" + CurrentTimeBoolet);
-		Gdx.app.log("delta time", "" + (Dvigatel.getTimeBoolet() - CurrentTimeBoolet));
+		Gdx.app.log("delta time", "" + (BlokList.get(nc).getTimerBoolet() - CurrentTimeBoolet));
 
-		if (CurrentTimeBoolet <= Dvigatel.getTimeBoolet()) {
+		if (CurrentTimeBoolet <= BlokList.get(nc).getTimerBoolet()) {
 
 			Gdx.app.log("render", "" + BlokList.get(nc).getBooletY());
 
@@ -35,7 +34,7 @@ public class DrawBoolet extends MyGdxGame {
 			ink++;
 			//	Gdx.app.log("ink", "" + ink);
 		}
-		if (CurrentTimeBoolet > Dvigatel.getTimeBoolet()) {
+		if (CurrentTimeBoolet > BlokList.get(nc).getTimerBoolet()) {
 			MyGdxGame.setFlagBoolet(false);
 			ink = 0;
 		}
