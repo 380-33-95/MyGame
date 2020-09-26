@@ -1,14 +1,13 @@
 package com.mycompany.mygame;
 
-//import com.badlogic.gdx.utils.Timer;
-
+import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 
-import draw.DrawBoolet;
+import draw.DrawPole;
 
-import static com.mycompany.mygame.Blok.BlokList;
 
-public class Dvigatel {
+public class Dvigatel extends MyGdxGame implements ApplicationListener {
+
 
     public static int startV;
 
@@ -30,8 +29,18 @@ public class Dvigatel {
 
     public static boolean startCiclIgrok = true;
 
-    public static long BooletTimePausa;
+    private static long TimeBoolet;
 
+    public static void setTimeBoolet() {
+        TimeBoolet = System.currentTimeMillis() + 250;
+    }
+
+    public static long getTimeBoolet() {
+        return TimeBoolet;
+    }
+
+
+    static Dvigatel dv = new Dvigatel();
 
     //start from 69 for vrag
 
@@ -51,14 +60,18 @@ public class Dvigatel {
 
             ////////////////////
 
-            BlokList.get(startV).setTimerBoolet(com.badlogic.gdx.utils.TimeUtils.millis() + 250);
-            Gdx.app.log("setTimerBoolet", "" + BlokList.get(startV).getTimerBoolet());
-            BlokList.get(startV).setBooletY(BlokList.get(startV).getY());
+            Gdx.app.log("1) setFlagBoolet", "" + MyGdxGame.isFlagBoolet());
             MyGdxGame.setFlagBoolet(true);
+            setTimeBoolet();
+            Gdx.app.log("2 TimeBoolet=", "" + getTimeBoolet());
+            while (MyGdxGame.isFlagBoolet()) {
+                dv.render();
+            }
+
 
             ////////////////////
 
-
+            Gdx.app.log("programm falow!!!!!!!!!!!", "");
             //esli vperedi object
             if (BlokList.get(finishV).getIndex() > 0
                     && BlokList.get(startV).getForse() > 0
@@ -140,14 +153,19 @@ public class Dvigatel {
 
     }
 
+    @Override
+    public void render() {
 
-    public static long raznica() {
-        long delta, timb = com.badlogic.gdx.utils.TimeUtils.millis();
+        Gdx.app.log("render dvigatel", "");
+        DrawPole.DrawCiclBoolet(startV);
 
-        delta = BlokList.get(startV).getTimerBoolet() - DrawBoolet.timb1;
-        Gdx.app.log("delta", "" + (BlokList.get(startV).getTimerBoolet() - timb));
-        return delta;
     }
 
+/*
+@Override
+public void create(){
+
+}
+*/
     /////////
 }

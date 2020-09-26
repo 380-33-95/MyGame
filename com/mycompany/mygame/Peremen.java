@@ -98,8 +98,8 @@ public class Peremen extends MyGdxGame{
 
 	public static void setSmenaHoda(boolean smenaHoda) {
 		SmenaHoda = smenaHoda;
-		System.out.println("setHod="+SmenaHoda);
-		}
+
+    }
 
 
 	
@@ -126,9 +126,8 @@ private static int KodZamok;
 
 	public static void setKodZamok(int kodZamok) {
 		KodZamok = kodZamok;
-		System.out.println("setKZ="+getKodZamok());
-	
-	}
+
+    }
 	
 	private static int KodPole;
 	    

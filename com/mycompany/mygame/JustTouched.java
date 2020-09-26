@@ -40,7 +40,7 @@ public class JustTouched extends MyGdxGame{
     nc = ((RjadY * 7) + RjadX);
     MyGdxGame.setNC(nc);
 
-            System.out.println(" Touch=> " + nc + " status =" + getStatusMenu());
+            System.out.println(" Touch=> " + nc);
 
         }
 

@@ -10,7 +10,6 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
-import draw.DrawBoolet;
 import draw.DrawBoom;
 import draw.DrawBossIgrok;
 import draw.DrawBossVrag;
@@ -106,13 +105,12 @@ public class MyGdxGame extends Blok implements ApplicationListener
 
 	@Override
 	public void create () {
+
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, WIDTH, HEIGHT);
 
 		batch = new SpriteBatch();
 		atlas = new Texture("atlas.png");
-
-        camera.update();
 
 	}
 
@@ -122,18 +120,20 @@ public class MyGdxGame extends Blok implements ApplicationListener
 	}
 
 	@Override
-	public void render () {
+	public void render() {
 
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		camera.update();
+
 		batch.setProjectionMatrix(camera.combined);
+
 		batch.begin();
 
-		switch (getStatusMenu()){
+		switch (getStatusMenu()) {
 
-			case 0:{
+			case 0: {
 					DrawStart.DrawRunStart();
 					if (Gdx.input.justTouched()) {
 						
@@ -171,9 +171,10 @@ public class MyGdxGame extends Blok implements ApplicationListener
 
 
 				while (MyGdxGame.isFlagBoolet()) {
-					Gdx.app.log("getStartV=", "" + Dvigatel.getStartV());
+					Gdx.app.log("MuGDXGame getStartV=", "" + Dvigatel.getStartV());
 
-					DrawBoolet.DrawCiclBoolet(Dvigatel.getStartV());
+					DrawPole.DrawCiclBoolet(Dvigatel.getStartV());
+
 				}
 
 
@@ -211,10 +212,7 @@ public class MyGdxGame extends Blok implements ApplicationListener
 				}
 				break;
 			}
-/*
-			default:
-				throw new IllegalStateException("Unexpected value: " + getStatusMenu());
-*/
+
 		}
 
 
@@ -234,14 +232,9 @@ public class MyGdxGame extends Blok implements ApplicationListener
 
 	@Override
 	public void dispose () {
-		batch.dispose();
+		//	batch.dispose();
 		atlas.dispose();
 	}
-
-
-
-
-
 
 
 

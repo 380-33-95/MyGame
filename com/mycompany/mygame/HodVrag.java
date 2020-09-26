@@ -1,11 +1,14 @@
 package com.mycompany.mygame;
 
+import static com.mycompany.mygame.Dvigatel.startCiclIgrok;
+import static com.mycompany.mygame.Dvigatel.startCiclVrag;
+import static com.mycompany.mygame.Dvigatel.startV;
 import static com.mycompany.mygame.WorkBlok.ObnulenieKvadratZamok;
 
 public class HodVrag extends ClickSelector {
 
 
-    public static void HodVragZamok(){
+    public static void HodVragZamok() {
 
         WorkBlok.ObnulenieBufer();
 
@@ -15,11 +18,11 @@ public class HodVrag extends ClickSelector {
 
         Peremen.setKodZamok(getNC());
 
-        if(Dvigatel.startCiclVrag) {
-            Dvigatel.startV = 70;
+        if (startCiclVrag) {
+            startV = 70;
             Dvigatel.StartCiclPoleVrag();
-            Dvigatel.startCiclVrag=false;
-            Dvigatel.startCiclIgrok=true;
+            startCiclVrag = false;
+            startCiclIgrok = true;
         }
 
 

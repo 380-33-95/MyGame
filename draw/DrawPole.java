@@ -1,16 +1,20 @@
 package draw;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.mycompany.mygame.Dvigatel;
 import com.mycompany.mygame.MyGdxGame;
 
 public class DrawPole extends MyGdxGame {
 
     static int color;
 
-    public static void DrawStartPole (){
+    static long CurrentTimeBoolet;
+
+    public static void DrawStartPole() {
 
 
-        for (int pp=7; pp<=76; pp++) {
+        for (int pp = 7; pp <= 76; pp++) {
 
             if (BlokList.get(pp).getIndex() > 0)
 
@@ -42,9 +46,55 @@ public class DrawPole extends MyGdxGame {
             TextureRegion PoleHealth = new TextureRegion(atlas, ((BlokList.get(pp).getHealth()) * 100), 2700, 100, 100);
             batch.draw(PoleHealth, BlokList.get(pp).getX() + 60, BlokList.get(pp).getY(), 1, 1, 30, 30, 1, 1, 0);
 
+            if (CurrentTimeBoolet <= Dvigatel.getTimeBoolet() && BlokList.get(pp).getForse() > 0) {
+                TextureRegion BooletV = new TextureRegion(atlas, 0, 2000, 100, 100);
+                batch.draw(BooletV,
+                        BlokList.get(pp).getX(),
+                        BlokList.get(pp).getY(),
+                        1,
+                        1,
+                        WIDTH / 7,
+                        HEIGHT / 12,
+                        1,
+                        1,
+                        0);
+            }
         }
 
 
+    }
+
+
+    public static void DrawCiclBoolet(int nc) {
+
+        CurrentTimeBoolet = System.currentTimeMillis();
+        Gdx.app.log("current time", "" + CurrentTimeBoolet);
+        Gdx.app.log("delta time", "" + (Dvigatel.getTimeBoolet() - CurrentTimeBoolet));
+
+        if (CurrentTimeBoolet <= Dvigatel.getTimeBoolet()) {
+
+            Gdx.app.log("render", "" + BlokList.get(nc).getBooletY());
+
+            DrawPole.DrawStartPole();
+/*
+            TextureRegion BooletV = new TextureRegion(atlas, 0, 2000, 100, 100);
+            batch.draw(BooletV,
+                    0,
+                    1000,
+                    1,
+                    1,
+                    WIDTH / 7,
+                    HEIGHT / 12,
+                    1,
+                    1,
+                    0);
+*/
+            //	Gdx.app.log("ink", "" + ink);
+        }
+        if (CurrentTimeBoolet > Dvigatel.getTimeBoolet()) {
+            MyGdxGame.setFlagBoolet(false);
+
+        }
     }
 
 
