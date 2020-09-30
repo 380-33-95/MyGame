@@ -29,13 +29,8 @@ public class Dvigatel extends MyGdxGame implements ApplicationListener {
 
     public static boolean startCiclIgrok = true;
 
-    private static long TimeBoolet;
+   static Dvigatel dv = new Dvigatel();
 
-    public static void setTimeBoolet() {
-        TimeBoolet = System.currentTimeMillis() + 250;
-    }
-
-    static Dvigatel dv = new Dvigatel();
 
     //start from 69 for vrag
 
@@ -55,11 +50,12 @@ public class Dvigatel extends MyGdxGame implements ApplicationListener {
 
             ////////////////////
 
-            Gdx.app.log("1) setFlagBoolet", "" + MyGdxGame.isFlagBoolet());
             MyGdxGame.setFlagBoolet(true);
-            setTimeBoolet();
-            BlokList.get(startV).setTimerBoolet(System.currentTimeMillis());
-            Gdx.app.log("2 TimeBoolet=", "" + BlokList.get(startV).getTimerBoolet());
+            Gdx.app.log("1) setFlagBoolet", "" + MyGdxGame.isFlagBoolet());
+
+            BlokList.get(startV).setTimeBoolet(com.badlogic.gdx.utils.TimeUtils.millis() + 1000);
+            Gdx.app.log("2) BlokCurrentTime=", "" + BlokList.get(startV).getTimeBoolet());
+
             while (MyGdxGame.isFlagBoolet()) {
                 dv.render();
             }
@@ -152,9 +148,11 @@ public class Dvigatel extends MyGdxGame implements ApplicationListener {
     @Override
     public void render() {
 
-        Gdx.app.log("render dvigatel", "");
-        DrawPole.DrawCiclBoolet(startV);
+        Gdx.app.log("3) render dvigatel", "");
 
+        //    DrawPole.DrawCiclBoolet(startV);
+
+        DrawPole.DrawStartPole();
     }
 
 /*

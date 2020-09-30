@@ -9,7 +9,7 @@ public class BooletBlok extends Blok {
     //TODO START BOOLET
     public static void StartBooletBlok(int nb) {
         timb1 = com.badlogic.gdx.utils.TimeUtils.millis() + 250;
-        BlokList.get(nb).setTimerBoolet(timb1);
+        BlokList.get(nb).setTimeBoolet(timb1);
         BlokList.get(nb).setBooletY(Blok.BlokList.get(nb).getY());
         MyGdxGame.setFlagBoolet(true);
         CircleBoolet(nb);
@@ -23,7 +23,7 @@ public class BooletBlok extends Blok {
         timb2 = com.badlogic.gdx.utils.TimeUtils.millis();
 
 
-        if (BlokList.get(nb).getTimerBoolet() <= timb2) {
+        if (BlokList.get(nb).getTimeBoolet() <= timb2) {
             if (BlokList.get(nb).getBooletY() > 0 && BlokList.get(nb).getBooletY() < 1200) {
 
                 BlokList.get(nb).setBooletY(BlokList.get(nb).getBooletY() - 100);
@@ -34,7 +34,7 @@ public class BooletBlok extends Blok {
 
         if (BlokList.get(nb).getBooletY() >= 1200) {
             BlokList.get(nb).setBooletY(0);
-            BlokList.get(nb).setTimerBoolet(0);
+            BlokList.get(nb).setTimeBoolet(0);
             MyGdxGame.setFlagBoolet(false);
 
         }

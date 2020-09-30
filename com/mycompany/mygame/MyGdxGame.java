@@ -158,7 +158,7 @@ public class MyGdxGame extends Blok implements ApplicationListener
 
 				DrawRamkaBoss.RamkaStartBoss();
 
-                DrawZamokVrag.ZamokStartVrag();
+				DrawZamokVrag.ZamokStartVrag();
 
 				DrawZamokIgrok.ZamokStartIgrok();
 
@@ -166,20 +166,7 @@ public class MyGdxGame extends Blok implements ApplicationListener
 
 				DrawBoom.DrawCiclBoom();
 
-
-/////////////////////////////////////////////////////////////////
-
-
-				while (MyGdxGame.isFlagBoolet()) {
-					Gdx.app.log("MuGDXGame getStartV=", "" + Dvigatel.getStartV());
-
-					DrawPole.DrawCiclBoolet(Dvigatel.getStartV());
-
-				}
-
-
-				//  }
-////////////////////////////////////////////////////////////////////
+				//////////////////////////////////
 
 				if (GameFirstHod.myTimerTask.isScheduled()) {
 					DrawPervijHod.PervijStartHod();
@@ -232,8 +219,10 @@ public class MyGdxGame extends Blok implements ApplicationListener
 
 	@Override
 	public void dispose () {
-		//	batch.dispose();
-		atlas.dispose();
+		if (!isFlagBoolet()) {
+			batch.dispose();
+			atlas.dispose();
+		}
 	}
 
 

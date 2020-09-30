@@ -156,14 +156,14 @@ public class Blok {
   }
 
 
-  private long timerBoolet;
+  private long timeBoolet;
 
-  public long getTimerBoolet() {
-    return timerBoolet;
+  public long getTimeBoolet() {
+    return timeBoolet;
   }
 
-  public void setTimerBoolet(long tbt) {
-    timerBoolet = tbt;
+  public void setTimeBoolet(long tbt) {
+    timeBoolet = tbt;
   }
 
   ///////////boolet/////go////
@@ -268,7 +268,4 @@ public class Blok {
   public static Blok bufer = new Blok(); // blok bufer; (84)
 
 
-  protected long getTimeBoolet() {
-    return timerBoolet;
-  }
 }
