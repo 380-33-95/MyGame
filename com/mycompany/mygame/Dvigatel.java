@@ -53,8 +53,9 @@ public class Dvigatel extends MyGdxGame implements ApplicationListener {
             MyGdxGame.setFlagBoolet(true);
             Gdx.app.log("1) setFlagBoolet", "" + MyGdxGame.isFlagBoolet());
 
-            BlokList.get(startV).setTimeBoolet(com.badlogic.gdx.utils.TimeUtils.millis() + 1000);
+            BlokList.get(startV).setTimeBoolet(com.badlogic.gdx.utils.TimeUtils.millis() + 300);
             Gdx.app.log("2) BlokCurrentTime=", "" + BlokList.get(startV).getTimeBoolet());
+            BlokList.get(startV).setBooletY(BlokList.get(startV).getY());
 
             while (MyGdxGame.isFlagBoolet()) {
                 dv.render();
@@ -113,6 +114,15 @@ public class Dvigatel extends MyGdxGame implements ApplicationListener {
                 && BlokList.get(startI).getStorona() == 1
                 && BlokList.get(startI).getHealth() > 0) {
 
+            MyGdxGame.setFlagBoolet(true);
+            BlokList.get(startI).setTimeBoolet(com.badlogic.gdx.utils.TimeUtils.millis() + 300);
+            BlokList.get(startI).setBooletY(BlokList.get(startI).getY());
+
+            while (MyGdxGame.isFlagBoolet()) {
+                dv.render();
+            }
+
+            Gdx.app.log("programm falow!!!!!!!!!!!", "");
 
             //esli vperedi object
             if (BlokList.get(startI - 7).getIndex() > 0
@@ -150,9 +160,8 @@ public class Dvigatel extends MyGdxGame implements ApplicationListener {
 
         Gdx.app.log("3) render dvigatel", "");
 
-        //    DrawPole.DrawCiclBoolet(startV);
-
         DrawPole.DrawStartPole();
+
     }
 
 /*
