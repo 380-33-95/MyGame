@@ -8,7 +8,16 @@ import com.mycompany.mygame.MyGdxGame;
 public class DrawPole extends MyGdxGame {
 
     static int color;
-    public static long CurrentTime;
+
+    public static long getCurrentTime() {
+        return CurrentTime = com.badlogic.gdx.utils.TimeUtils.millis();
+    }
+
+    public static void setCurrentTime(long currentTime) {
+        CurrentTime = currentTime;
+    }
+
+    private static long CurrentTime;
 
     public static void DrawStartPole() {
 
@@ -48,12 +57,11 @@ public class DrawPole extends MyGdxGame {
 
 
                 /////////////bulet
-                CurrentTime = com.badlogic.gdx.utils.TimeUtils.millis();
+
 
                 //    if (isFlagBoolet()) {
 
-                if (CurrentTime <= BlokList.get(pp).getTimeBoolet()) {
-
+                if (getCurrentTime() <= BlokList.get(pp).getTimeBoolet()) {
 
                     Gdx.app.log("render", "" + BlokList.get(pp).getBooletY());
 
@@ -72,7 +80,7 @@ public class DrawPole extends MyGdxGame {
 
                 }
 
-                if (CurrentTime > BlokList.get(pp).getTimeBoolet()) {
+                if (getCurrentTime() > BlokList.get(pp).getTimeBoolet()) {
 
                     //  BlokList.get(pp).setTimeBoolet(CurrentTime+250);
 
@@ -81,11 +89,12 @@ public class DrawPole extends MyGdxGame {
                     //  MyGdxGame.setFlagBoolet(false);
 
                 }
-                //    }
-
             }
+
+            //  }
         }
     }
+
 
     public static void InitialisationCoordinatPole() {
 

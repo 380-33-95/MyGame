@@ -14,7 +14,7 @@ public class BooletBlok extends Blok {
 
             case 1: {
                 if (nb >= 14) {
-                    BlokList.get(nb).setTimeBoolet(DrawPole.CurrentTime + 250);
+                    BlokList.get(nb).setTimeBoolet(DrawPole.getCurrentTime() + 250);
                     BlokList.get(nb).setBooletY(BlokList.get(nb).getBooletY() - 100);
 
                 } else {
@@ -29,7 +29,7 @@ public class BooletBlok extends Blok {
 
             case 2: {
                 if (nb <= 69) {
-                    BlokList.get(nb).setTimeBoolet(DrawPole.CurrentTime + 250);
+                    BlokList.get(nb).setTimeBoolet(DrawPole.getCurrentTime() + 250);
                     BlokList.get(nb).setBooletY(BlokList.get(nb).getBooletY() + 100);
 
                 } else {

@@ -29,7 +29,7 @@ public class Dvigatel extends MyGdxGame implements ApplicationListener {
 
     public static boolean startCiclIgrok = true;
 
-   static Dvigatel dv = new Dvigatel();
+    static Dvigatel dv = new Dvigatel();
 
 
     //start from 69 for vrag
