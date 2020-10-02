@@ -1,5 +1,7 @@
 package com.mycompany.mygame;
 
+import com.badlogic.gdx.Gdx;
+
 import static com.mycompany.mygame.MyGdxGame.getNC;
 
 public class WorkBlok extends Blok {
@@ -149,13 +151,28 @@ public static void LoadPoleFromBasa(int nb, int  index, int st){
     }
 
 
-public static void Peremeshenie2 (int isS, int vR){
+    public static void Peremeshenie2(int isS, int vR) {
 
         BlokList.get(vR).setIndex(BlokList.get(isS).getIndex());
         BlokList.get(vR).setHealth(BlokList.get(isS).getHealth());
         BlokList.get(vR).setForse(BlokList.get(isS).getForse());
         BlokList.get(vR).setStorona(BlokList.get(isS).getStorona());
-       
+
         ObnulenieKvadratPole(isS);
+    }
+
+
+    public static void LoadFlagBulet(int st) {
+
+        Gdx.app.log("Workblok", "bulet true for " + st);
+        for (int bbu = 7; bbu <= 76; bbu++) {
+            if (BlokList.get(bbu).getForse() > 0 && BlokList.get(bbu).getStorona() == st) {
+                BlokList.get(bbu).setBulet(true);
+                BlokList.get(bbu).setBooletY(BlokList.get(bbu).getY());
+                Gdx.app.log("Workblok", "bulet true for blk" + bbu +
+                        "->" + BlokList.get(bbu).isBulet() + " y=" +
+                        BlokList.get(bbu).getBooletY());
+            }
+        }
     }
 }

@@ -2,22 +2,23 @@ package draw;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.mycompany.mygame.BooletBlok;
+import com.mycompany.mygame.Dvigatel;
 import com.mycompany.mygame.MyGdxGame;
 
 public class DrawPole extends MyGdxGame {
 
     static int color;
 
-    public static long getCurrentTime() {
-        return CurrentTime = com.badlogic.gdx.utils.TimeUtils.millis();
-    }
-
-    public static void setCurrentTime(long currentTime) {
-        CurrentTime = currentTime;
-    }
-
     private static long CurrentTime;
+
+    public static void setCurrentTime(long ct) {
+        CurrentTime = ct;
+    }
+
+    public static long getCurrentTime() {
+        return CurrentTime;
+    }
+
 
     public static void DrawStartPole() {
 
@@ -57,13 +58,14 @@ public class DrawPole extends MyGdxGame {
 
 
                 /////////////bulet
+                //    CurrentTime = com.badlogic.gdx.utils.TimeUtils.millis();
 
+                MyGdxGame.setLog("" + BlokList.get(pp).isBulet());
 
-                //    if (isFlagBoolet()) {
+                if (BlokList.get(pp).isBulet()) {
 
-                if (getCurrentTime() <= BlokList.get(pp).getTimeBoolet()) {
+                    MyGdxGame.setLog("bulet render");
 
-                    Gdx.app.log("render", "" + BlokList.get(pp).getBooletY());
 
                     TextureRegion BooletV = new TextureRegion(atlas, 0, 2000, 100, 100);
                     batch.draw(BooletV,
@@ -78,23 +80,26 @@ public class DrawPole extends MyGdxGame {
                             0);
 
 
+                    while (BlokList.get(pp).getTimeBoolet() > com.badlogic.gdx.utils.TimeUtils.millis()) {
+
+                        Gdx.app.log("* delta=", "" + (BlokList.get(pp).getTimeBoolet() - com.badlogic.gdx.utils.TimeUtils.millis()));
+
+                    }
+
+
+                    BlokList.get(pp).setBooletY(BlokList.get(Dvigatel.startV).getBooletY() - 100);
+                    Gdx.app.log("* bulet y=", "" + BlokList.get(pp).getBooletY());
+
+
+                    BlokList.get(pp).setTimeBoolet(com.badlogic.gdx.utils.TimeUtils.millis() + 1000);
+                    Gdx.app.log("* BlokCurrentTime=", "" + BlokList.get(pp).getTimeBoolet());
+
                 }
 
-                if (getCurrentTime() > BlokList.get(pp).getTimeBoolet()) {
 
-                    //  BlokList.get(pp).setTimeBoolet(CurrentTime+250);
-
-                    BooletBlok.CircleBoolet(pp);
-
-                    //  MyGdxGame.setFlagBoolet(false);
-
-                }
             }
-
-            //  }
         }
     }
-
 
     public static void InitialisationCoordinatPole() {
 
@@ -140,10 +145,7 @@ public class DrawPole extends MyGdxGame {
 
             //	Gdx.app.log("ink", "" + ink);
         }
-        if (CurrentTime > BlokList.get(nc).getTimeBoolet()) {
-            MyGdxGame.setFlagBoolet(false);
 
-        }
     }
 
 

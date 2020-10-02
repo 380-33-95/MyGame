@@ -166,6 +166,16 @@ public class Blok {
     timeBoolet = tbt;
   }
 
+  private boolean Bulet;
+
+  public boolean isBulet() {
+    return Bulet;
+  }
+
+  public void setBulet(boolean bb) {
+    Bulet = bb;
+  }
+
   ///////////boolet/////go////
 
   ////////////////

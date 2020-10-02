@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -25,14 +26,24 @@ import draw.DrawZamokVrag;
 import static com.mycompany.mygame.JustTouched.IfJustTouched;
 
 
-
-public class MyGdxGame extends Blok implements ApplicationListener
-{
+public class MyGdxGame extends Blok implements ApplicationListener {
 	static OrthographicCamera camera;
 	public static SpriteBatch batch;
 	protected Label label;
 	protected Stage stage;
 	public static Texture atlas;
+
+	public static BitmapFont TextLog;
+
+	private static String Log;
+
+	public static void setLog(String str) {
+		Log = "" + str;
+	}
+
+	public static String getLog() {
+		return Log;
+	}
 
 	static int TouchX2;
 	static int TouchY2;
@@ -42,7 +53,7 @@ public class MyGdxGame extends Blok implements ApplicationListener
 	protected final static int WIDTH = 700;
 
 
-    public static int getStatusMenu() {
+	public static int getStatusMenu() {
 		return StatusMenu;
 	}
 
@@ -69,26 +80,6 @@ public class MyGdxGame extends Blok implements ApplicationListener
 
 	public static int color;
 
-	private static long CurrentTime;
-
-	public static void setCurrentTime() {
-		CurrentTime = com.badlogic.gdx.utils.TimeUtils.millis();
-	}
-
-	public static long getCurrentTime() {
-		return CurrentTime;
-	}
-
-	public static boolean isFlagBoolet() {
-		return FlagBoolet;
-	}
-
-	public static void setFlagBoolet(boolean flaggBoolet) {
-		FlagBoolet = flaggBoolet;
-	}
-
-	private static boolean FlagBoolet;
-
 
     static {  //////////////initialisation
 
@@ -97,7 +88,6 @@ public class MyGdxGame extends Blok implements ApplicationListener
 
         TouchX2 = 0;
         TouchY2 = 0;
-
 
 
 	}
@@ -111,6 +101,9 @@ public class MyGdxGame extends Blok implements ApplicationListener
 
 		batch = new SpriteBatch();
 		atlas = new Texture("atlas.png");
+
+		TextLog = new BitmapFont();
+		TextLog.setColor(50, 50, 50, 2);
 
 	}
 
@@ -179,10 +172,15 @@ public class MyGdxGame extends Blok implements ApplicationListener
 
 							IfJustTouched());
 
-					//	GameInfo.InfoKletka();
+					GameInfo.InfoKletka();
 				}
 
+//////**
 
+				TextLog.draw(batch, "" + Log, 10, 1000);
+
+
+//////******
 				break;
 			}
 
@@ -219,10 +217,10 @@ public class MyGdxGame extends Blok implements ApplicationListener
 
 	@Override
 	public void dispose () {
-		if (!isFlagBoolet()) {
-			batch.dispose();
-			atlas.dispose();
-		}
+
+		batch.dispose();
+		atlas.dispose();
+		TextLog.dispose();
 	}
 
 

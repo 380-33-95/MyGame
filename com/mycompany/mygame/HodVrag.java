@@ -23,6 +23,7 @@ public class HodVrag extends ClickSelector {
             Dvigatel.StartCiclPoleVrag();
             startCiclVrag = false;
             startCiclIgrok = true;
+
         }
 
 
@@ -41,6 +42,8 @@ public class HodVrag extends ClickSelector {
         WorkBlok.SdvigZamokV();
 
         Peremen.setSmenaHoda(true);
+
+        WorkBlok.LoadFlagBulet(1);
 
     }
 

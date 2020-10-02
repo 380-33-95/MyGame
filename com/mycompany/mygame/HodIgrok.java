@@ -34,16 +34,17 @@ public class HodIgrok extends ClickSelector {
 
    public static void HodIgrokPole(){
 
-	    WorkBlok.LoadPoleBlok();
+       WorkBlok.LoadPoleBlok();
 
-	    WorkBlok.ObnulenieBufer();
+       WorkBlok.ObnulenieBufer();
 
-		ObnulenieKvadratZamok(Peremen.getKodZamok());
+       ObnulenieKvadratZamok(Peremen.getKodZamok());
 
-		WorkBlok.SdvigZamokI();
+       WorkBlok.SdvigZamokI();
 
-		Peremen.setSmenaHoda(false);
+       Peremen.setSmenaHoda(false);
 
+       WorkBlok.LoadFlagBulet(2);
 
    }
 

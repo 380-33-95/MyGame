@@ -12,13 +12,21 @@ static int nc;
             if (nc >= 7 && nc <= 76) {
                 System.out.println();
 
-                System.out.printf("KLETKA POLE# %d -> index=%d health=%d forse=%d effect=%d storona=%d",
+                System.out.printf("KLETKA POLE# %d -> index=%d" +
+                                " health=%d" +
+                                " forse=%d" +
+                                " effect=%d" +
+                                " storona=%d" +
+                                " bulet=%S" +
+                                " bulet y=%d",
                         getNC(),
                         BlokList.get(nc).getIndex(),
                         BlokList.get(nc).getHealth(),
                         BlokList.get(nc).getForse(),
                         BlokList.get(nc).getEffect(),
-                        BlokList.get(nc).getStorona()
+                        BlokList.get(nc).getStorona(),
+                        BlokList.get(nc).isBulet(),
+                        BlokList.get(nc).getBooletY()
                 );
 
                 System.out.println();
