@@ -2,7 +2,6 @@ package draw;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.mycompany.mygame.Dvigatel;
 import com.mycompany.mygame.MyGdxGame;
 
 public class DrawPole extends MyGdxGame {
@@ -78,21 +77,6 @@ public class DrawPole extends MyGdxGame {
                             1,
                             1,
                             0);
-
-
-                    while (BlokList.get(pp).getTimeBoolet() > com.badlogic.gdx.utils.TimeUtils.millis()) {
-
-                        Gdx.app.log("* delta=", "" + (BlokList.get(pp).getTimeBoolet() - com.badlogic.gdx.utils.TimeUtils.millis()));
-
-                    }
-
-
-                    BlokList.get(pp).setBooletY(BlokList.get(Dvigatel.startV).getBooletY() - 100);
-                    Gdx.app.log("* bulet y=", "" + BlokList.get(pp).getBooletY());
-
-
-                    BlokList.get(pp).setTimeBoolet(com.badlogic.gdx.utils.TimeUtils.millis() + 1000);
-                    Gdx.app.log("* BlokCurrentTime=", "" + BlokList.get(pp).getTimeBoolet());
 
                 }
 

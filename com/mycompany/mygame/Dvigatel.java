@@ -52,7 +52,7 @@ public class Dvigatel extends MyGdxGame implements ApplicationListener {
             ////////////////////bulet
 
 
-            BlokList.get(startV).setTimeBoolet(com.badlogic.gdx.utils.TimeUtils.millis() + 1000);
+            BlokList.get(startV).setTimeBoolet(com.badlogic.gdx.utils.TimeUtils.millis() + 300);
             Gdx.app.log("2) BlokCurrentTime=", "" + BlokList.get(startV).getTimeBoolet());
 
 
@@ -64,24 +64,29 @@ public class Dvigatel extends MyGdxGame implements ApplicationListener {
                 //     dv.render();
 
 
-                //     BlokList.get(startV).setBooletY(BlokList.get(startV).getBooletY() - 100);
-                //      Gdx.app.log("* bulet y=", "" + BlokList.get(startV).getBooletY());
+                //    dv.render();
+
+                DrawPole.DrawStartPole();
+
+                BlokList.get(startV).setBooletY(BlokList.get(startV).getBooletY() - 100);
+                Gdx.app.log("* bulet y=", "" + BlokList.get(startV).getBooletY());
 
 
-                //     Gdx.app.log("* Current time", ""+com.badlogic.gdx.utils.TimeUtils.millis());
+                Gdx.app.log("* Current time", "" + com.badlogic.gdx.utils.TimeUtils.millis());
 
-                //      BlokList.get(startV).setTimeBoolet(com.badlogic.gdx.utils.TimeUtils.millis() + 1000);
-                //      Gdx.app.log("* BlokCurrentTime=", "" + BlokList.get(startV).getTimeBoolet());
+                BlokList.get(startV).setTimeBoolet(com.badlogic.gdx.utils.TimeUtils.millis() + 1000);
+                Gdx.app.log("* BlokCurrentTime=", "" + BlokList.get(startV).getTimeBoolet());
+
 
                 //
 
-                /*
+/*
                     try
                     {
                         Thread.sleep(300);
                      } catch (InterruptedException ex) {   }
                     Gdx.graphics.requestRendering();
-                */
+  */
 
 
                 if (BlokList.get(startV).getBooletY() <= 100) {
@@ -187,7 +192,7 @@ public class Dvigatel extends MyGdxGame implements ApplicationListener {
 
         MyGdxGame.setLog("render dvigatel");
 
-        DrawPole.DrawStartPole();
+        //  DrawPole.DrawStartPole();
 
     }
 
