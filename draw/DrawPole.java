@@ -63,9 +63,7 @@ public class DrawPole extends MyGdxGame {
 
                 if (BlokList.get(pp).isBulet()) {
 
-                    MyGdxGame.setLog("bulet render");
-
-
+                if (BlokList.get(pp).getBooletY() != BlokList.get(pp).getY()) {
                     TextureRegion BooletV = new TextureRegion(atlas, 0, 2000, 100, 100);
                     batch.draw(BooletV,
                             BlokList.get(pp).getX(),
@@ -77,7 +75,7 @@ public class DrawPole extends MyGdxGame {
                             1,
                             1,
                             0);
-
+                }
                 }
 
 
