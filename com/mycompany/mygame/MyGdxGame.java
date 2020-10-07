@@ -5,7 +5,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -27,58 +26,66 @@ import static com.mycompany.mygame.JustTouched.IfJustTouched;
 
 
 public class MyGdxGame extends Blok implements ApplicationListener {
-	static OrthographicCamera camera;
-	public static SpriteBatch batch;
-	protected Label label;
-	protected Stage stage;
-	public static Texture atlas;
+    static OrthographicCamera camera;
+    public static SpriteBatch batch;
+    protected Label label;
+    protected Stage stage;
+    public static Texture atlas;
 
-	public static BitmapFont TextLog;
-
-	private static String Log;
-
-	public static void setLog(String str) {
-		Log = "" + str;
-	}
-
-	public static String getLog() {
-		return Log;
-	}
-
-	static int TouchX2;
-	static int TouchY2;
+    static int TouchX2;
+    static int TouchY2;
 
 
-	protected final static int HEIGHT = 1200;
-	protected final static int WIDTH = 700;
+    protected final static int HEIGHT = 1200;
+    protected final static int WIDTH = 700;
 
 
-	public static int getStatusMenu() {
-		return StatusMenu;
-	}
+    public static int getStatusMenu() {
+        return StatusMenu;
+    }
 
-	public static void setStatusMenu(int statusMenu) {
-		StatusMenu = statusMenu;
-	}
+    public static void setStatusMenu(int statusMenu) {
+        StatusMenu = statusMenu;
+    }
 
-	private static int StatusMenu; //0-start; 1-game; 2- finish;
+    private static int StatusMenu; //0-start; 1-game; 2- finish;
 
-	public static int getNC() {
-		return NC;
-	}
+    public static int getNC() {
+        return NC;
+    }
 
-	public static void setNC(int nc) {
-		NC = nc;
-	}
+    public static void setNC(int nc) {
+        NC = nc;
+    }
 
-	private static int NC;
+    private static int NC;
 
-	static Vector3 Touch = new Vector3();
+    static Vector3 Touch = new Vector3();
 
-	public static int shirKnopki = (WIDTH / 7) * 3;
-	public static int visKnopki = (HEIGHT / 12);
+    public static int shirKnopki = (WIDTH / 7) * 3;
+    public static int visKnopki = (HEIGHT / 12);
 
-	public static int color;
+    public static int color;
+
+    private static long CurrentTime;
+
+    public static void setCurrentTime() {
+        CurrentTime = com.badlogic.gdx.utils.TimeUtils.millis();
+    }
+
+    public static long getCurrentTime() {
+        return CurrentTime;
+    }
+
+    public static boolean isFlagBoolet() {
+        return FlagBoolet;
+    }
+
+    public static void setFlagBoolet(boolean flaggBoolet) {
+        FlagBoolet = flaggBoolet;
+    }
+
+    private static boolean FlagBoolet;
 
 
     static {  //////////////initialisation
@@ -90,138 +97,130 @@ public class MyGdxGame extends Blok implements ApplicationListener {
         TouchY2 = 0;
 
 
-	}
+    }
 
 
-	@Override
-	public void create () {
+    @Override
+    public void create() {
 
-		camera = new OrthographicCamera();
-		camera.setToOrtho(false, WIDTH, HEIGHT);
+        camera = new OrthographicCamera();
+        camera.setToOrtho(false, WIDTH, HEIGHT);
 
-		batch = new SpriteBatch();
-		atlas = new Texture("atlas.png");
+        batch = new SpriteBatch();
+        atlas = new Texture("atlas.png");
 
-		TextLog = new BitmapFont();
-		TextLog.setColor(50, 50, 50, 2);
+    }
 
-	}
+    @Override
+    public void resize(int width, int height) {
 
-	@Override
-	public void resize(int width, int height) {
+    }
 
-	}
+    @Override
+    public void render() {
 
-	@Override
-	public void render() {
+        Gdx.gl.glClearColor(1, 1, 1, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		Gdx.gl.glClearColor(1, 1, 1, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        camera.update();
 
-		camera.update();
+        batch.setProjectionMatrix(camera.combined);
 
-		batch.setProjectionMatrix(camera.combined);
+        batch.begin();
 
-		batch.begin();
+        switch (getStatusMenu()) {
 
-		switch (getStatusMenu()) {
+            case 0: {
+                DrawStart.DrawRunStart();
+                if (Gdx.input.justTouched()) {
 
-			case 0: {
-					DrawStart.DrawRunStart();
-					if (Gdx.input.justTouched()) {
-						
-						IfJustTouched();
+                    IfJustTouched();
 
-					}
-				if (getNC() >= 30 && getNC() <= 32) {
-					setNC(0);
-					ClearStart.NewStart();
-					setStatusMenu(1);
-				}
-				break;
-			}
+                }
+                if (getNC() >= 30 && getNC() <= 32) {
+                    setNC(0);
+                    ClearStart.NewStart();
+                    setStatusMenu(1);
+                }
+                break;
+            }
 
-			case 1: {
+            case 1: {
 
-				DrawGame.DrGame();
+                DrawGame.DrGame();
 
-				DrawBossVrag.BossVrag();
+                DrawBossVrag.BossVrag();
 
-				DrawBossIgrok.BossIgrok();
+                DrawBossIgrok.BossIgrok();
 
-				DrawRamkaBoss.RamkaStartBoss();
+                DrawRamkaBoss.RamkaStartBoss();
 
-				DrawZamokVrag.ZamokStartVrag();
+                DrawZamokVrag.ZamokStartVrag();
 
-				DrawZamokIgrok.ZamokStartIgrok();
+                DrawZamokIgrok.ZamokStartIgrok();
 
-				DrawPole.DrawStartPole();
+                DrawPole.DrawStartPole();
 
-				DrawBoom.DrawCiclBoom();
+                DrawBoom.DrawCiclBoom();
 
-				//////////////////////////////////
+                //////////////////////////////////
 
-				if (GameFirstHod.myTimerTask.isScheduled()) {
-					DrawPervijHod.PervijStartHod();
-				}
+                if (GameFirstHod.myTimerTask.isScheduled()) {
+                    DrawPervijHod.PervijStartHod();
+                }
 
 
-				if (Gdx.input.justTouched()) {
+                if (Gdx.input.justTouched()) {
 
-					ClickSelector.TouchPressed(
+                    ClickSelector.TouchPressed(
 
-							IfJustTouched());
+                            IfJustTouched());
 
-					GameInfo.InfoKletka();
-				}
-
-//////**
-
-				TextLog.draw(batch, "" + Log, 10, 1000);
+                    //	GameInfo.InfoKletka();
+                }
 
 
-//////******
-				break;
-			}
+                break;
+            }
 
-			case 2: {
-				if (!GameEnd.pausaEnd.isScheduled()) {
+            case 2: {
+                if (!GameEnd.pausaEnd.isScheduled()) {
 
-					//TODO smena sastavki
-					DrawEnd.DrawEndGame();
-				}
-				if (!GameEnd.noviStart.isScheduled()) {
-					if (getNC() > 0) {
-						setStatusMenu(0);
-					}
-				}
-				break;
-			}
+                    //TODO smena sastavki
+                    DrawEnd.DrawEndGame();
+                }
+                if (!GameEnd.noviStart.isScheduled()) {
+                    if (getNC() > 0) {
+                        setStatusMenu(0);
+                    }
+                }
+                break;
+            }
 
-		}
-
-
-		batch.end();
-	}
-
-	@Override
-	public void pause() {
-
-	}
-
-	@Override
-	public void resume() {
-
-	}
+        }
 
 
-	@Override
-	public void dispose () {
+        batch.end();
+    }
 
-		batch.dispose();
-		atlas.dispose();
-		TextLog.dispose();
-	}
+    @Override
+    public void pause() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+
+    @Override
+    public void dispose() {
+        if (!isFlagBoolet()) {
+            batch.dispose();
+            atlas.dispose();
+        }
+    }
 
 
 

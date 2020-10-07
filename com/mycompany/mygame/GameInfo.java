@@ -25,7 +25,7 @@ static int nc;
                         BlokList.get(nc).getForse(),
                         BlokList.get(nc).getEffect(),
                         BlokList.get(nc).getStorona(),
-                        BlokList.get(nc).isBulet(),
+                //        BlokList.get(nc).isBulet(),
                         BlokList.get(nc).getBooletY()
                 );
 

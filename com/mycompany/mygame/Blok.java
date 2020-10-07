@@ -13,7 +13,7 @@ public class Blok {
 
   public Blok() {
     BlokList.add(this);
-     }
+  }
 
 
   private int Index;
@@ -164,16 +164,6 @@ public class Blok {
 
   public void setTimeBoolet(long tbt) {
     timeBoolet = tbt;
-  }
-
-  private boolean Bulet;
-
-  public boolean isBulet() {
-    return Bulet;
-  }
-
-  public void setBulet(boolean bb) {
-    Bulet = bb;
   }
 
   ///////////boolet/////go////
