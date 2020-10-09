@@ -176,7 +176,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
                             IfJustTouched());
 
-                    //	GameInfo.InfoKletka();
+                    GameInfo.InfoKletka();
                 }
 
 

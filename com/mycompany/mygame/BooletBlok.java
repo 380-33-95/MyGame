@@ -1,5 +1,7 @@
 package com.mycompany.mygame;
 
+import com.badlogic.gdx.Gdx;
+
 import draw.DrawPole;
 
 
@@ -13,14 +15,14 @@ public class BooletBlok extends Blok {
 
 
 			case 1: {
-				if (nb >= 14) {
+				if (nb >= 14 && BlokList.get(nb).getBooletY() > 100) {
 					BlokList.get(nb).setTimeBoolet(DrawPole.CurrentTime + 100);
 					BlokList.get(nb).setBooletY(BlokList.get(nb).getBooletY() - 100);
 
 				} else {
 					BlokList.get(nb).setBooletY(0);
 					BlokList.get(nb).setTimeBoolet(0);
-					MyGdxGame.setFlagBoolet(false);
+					//	MyGdxGame.setFlagBoolet(false);
 				}
 
 				break;
@@ -28,14 +30,16 @@ public class BooletBlok extends Blok {
 
 
 			case 2: {
-				if (nb <= 69) {
+				if (nb <= 69 && BlokList.get(nb).getBooletY() < 1100) {
 					BlokList.get(nb).setTimeBoolet(DrawPole.CurrentTime + 100);
 					BlokList.get(nb).setBooletY(BlokList.get(nb).getBooletY() + 100);
 
-				} else {
+				}
+				if (BlokList.get(nb).getBooletY() >= 1100) {
 					BlokList.get(nb).setBooletY(0);
 					BlokList.get(nb).setTimeBoolet(0);
-					MyGdxGame.setFlagBoolet(false);
+					//	MyGdxGame.setFlagBoolet(false);
+					Gdx.app.log("stop", "");
 				}
 
 				break;

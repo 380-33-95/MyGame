@@ -168,6 +168,17 @@ public class Blok {
 
   ///////////boolet/////go////
 
+  private boolean FlagBulet;
+
+  public void setFlagBulet(boolean FlagBulet) {
+    this.FlagBulet = FlagBulet;
+  }
+
+  public boolean isFlagBulet() {
+    return this.FlagBulet;
+  }
+
+
   ////////////////
 
   //TODO BLOKS

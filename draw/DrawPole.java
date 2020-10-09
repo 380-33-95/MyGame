@@ -1,8 +1,6 @@
 package draw;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.mycompany.mygame.BooletBlok;
 import com.mycompany.mygame.MyGdxGame;
 
 public class DrawPole extends MyGdxGame {
@@ -48,40 +46,47 @@ public class DrawPole extends MyGdxGame {
 
 
                 /////////////bulet
-                CurrentTime = com.badlogic.gdx.utils.TimeUtils.millis();
 
-                //    if (isFlagBoolet()) {
-
-                if (CurrentTime <= BlokList.get(pp).getTimeBoolet()) {
+                BlokList.get(pp).setTimeBoolet(com.badlogic.gdx.utils.TimeUtils.millis() + 10);
+                if (BlokList.get(pp).isFlagBulet()) {
 
 
-                    Gdx.app.log("render", "" + BlokList.get(pp).getBooletY());
+                    //       Gdx.app.log("------>",""+BlokList.get(pp).getTimeBoolet());
 
-                    TextureRegion BooletV = new TextureRegion(atlas, 0, 2000, 100, 100);
-                    batch.draw(BooletV,
-                            BlokList.get(pp).getX(),
-                            BlokList.get(pp).getBooletY(),
-                            1,
-                            1,
-                            WIDTH / 7,
-                            HEIGHT / 12,
-                            1,
-                            1,
-                            0);
 
-                    BooletBlok.CircleBoolet(pp);
+                    while (BlokList.get(pp).getTimeBoolet() > com.badlogic.gdx.utils.TimeUtils.millis()) {
+
+                        //          Gdx.app.log("","+");
+
+                        TextureRegion BooletV = new TextureRegion(atlas, 0, 2000, 100, 100);
+                        batch.draw(BooletV,
+                                BlokList.get(pp).getX(),
+                                BlokList.get(pp).getBooletY(),
+                                1,
+                                1,
+                                WIDTH / 7,
+                                HEIGHT / 12,
+                                1,
+                                1,
+                                0);
+
+
+                        if (com.badlogic.gdx.utils.TimeUtils.millis() > BlokList.get(pp).getTimeBoolet()) {
+
+                            if (BlokList.get(pp).getBooletY() >= 100) {
+                                BlokList.get(pp).setBooletY(BlokList.get(pp).getBooletY() - 100);
+                                BlokList.get(pp).setTimeBoolet(com.badlogic.gdx.utils.TimeUtils.millis() + 10);
+                            } else {
+                                BlokList.get(pp).setFlagBulet(false);
+                            }
+
+                        }
+
+
+                    }
 
                 }
 
-                if (CurrentTime > BlokList.get(pp).getTimeBoolet()) {
-
-                    //  BlokList.get(pp).setTimeBoolet(CurrentTime+250);
-
-
-                    //  MyGdxGame.setFlagBoolet(false);
-
-                }
-                //    }
 
             }
         }
