@@ -12,8 +12,6 @@ public class WorkBlok extends Blok {
         BlokList.get(vR).setHealth(BlokList.get(isS).getHealth());
         BlokList.get(vR).setForse(BlokList.get(isS).getForse());
         BlokList.get(vR).setStorona(BlokList.get(isS).getStorona());
-        BlokList.get(isS).setFlagBulet(false);
-        BlokList.get(vR).setBooletY(BlokList.get(isS).getY());
         if (isS >= 78 || isS <= 6) {
             BlokList.get(vR).setEffect(BlokList.get(isS).getEffect());
         }
@@ -54,11 +52,10 @@ public class WorkBlok extends Blok {
         BlokList.get(pp).setStorona(0);
         BlokList.get(pp).setIndex(0);
         BlokList.get(pp).setEffect(0);
+      //  BlokList.get(pp).setKodBoom(0);
         BlokList.get(pp).setXl(0);
         BlokList.get(pp).setYl(0);
-        BlokList.get(pp).setBooletY(BlokList.get(pp).getBooletY());
-        BlokList.get(pp).setFlagBulet(false);
-    }
+        }
 
     public static void ObnulenieBufer() {
 
@@ -170,11 +167,11 @@ public static void LoadPoleFromBasa(int nb, int  index, int st){
         Gdx.app.log("Workblok", "bulet true for " + st);
         for (int bbu = 7; bbu <= 76; bbu++) {
             if (BlokList.get(bbu).getForse() > 0 && BlokList.get(bbu).getStorona() == st) {
-                BlokList.get(bbu).setFlagBulet(true);
+                BlokList.get(bbu).setBulet(true);
                 BlokList.get(bbu).setBooletY(BlokList.get(bbu).getY());
-                //    Gdx.app.log("Workblok", "bulet true for blk" + bbu +
-                //            "->" + BlokList.get(bbu).isBulet() + " y=" +
-                //            BlokList.get(bbu).getBooletY());
+                Gdx.app.log("Workblok", "bulet true for blk" + bbu +
+                        "->" + BlokList.get(bbu).isBulet() + " y=" +
+                        BlokList.get(bbu).getBooletY());
             }
         }
     }

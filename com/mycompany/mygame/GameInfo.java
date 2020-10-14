@@ -18,17 +18,15 @@ static int nc;
                                 " effect=%d" +
                                 " storona=%d" +
                                 " bulet=%S" +
-                                " bulet y=%d" +
-                                " y=%d",
+                                " bulet y=%d",
                         getNC(),
                         BlokList.get(nc).getIndex(),
                         BlokList.get(nc).getHealth(),
                         BlokList.get(nc).getForse(),
                         BlokList.get(nc).getEffect(),
                         BlokList.get(nc).getStorona(),
-                        BlokList.get(nc).isFlagBulet(),
-                        BlokList.get(nc).getBooletY(),
-                        BlokList.get(nc).getY()
+                        BlokList.get(nc).isBulet(),
+                        BlokList.get(nc).getBooletY()
                 );
 
                 System.out.println();
