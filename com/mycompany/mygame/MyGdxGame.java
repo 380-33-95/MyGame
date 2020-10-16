@@ -11,17 +11,17 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
-import draw.DrawBoom;
-import draw.DrawBossIgrok;
-import draw.DrawBossVrag;
-import draw.DrawEnd;
-import draw.DrawGame;
-import draw.DrawPervijHod;
-import draw.DrawPole;
-import draw.DrawRamkaBoss;
-import draw.DrawStart;
-import draw.DrawZamokIgrok;
-import draw.DrawZamokVrag;
+import com.mycompany.draw.DrawBoom;
+import com.mycompany.draw.DrawBossIgrok;
+import com.mycompany.draw.DrawBossVrag;
+import com.mycompany.draw.DrawEnd;
+import com.mycompany.draw.DrawGame;
+import com.mycompany.draw.DrawPervijHod;
+import com.mycompany.draw.DrawPole;
+import com.mycompany.draw.DrawRamkaBoss;
+import com.mycompany.draw.DrawStart;
+import com.mycompany.draw.DrawZamokIgrok;
+import com.mycompany.draw.DrawZamokVrag;
 
 import static com.mycompany.mygame.JustTouched.IfJustTouched;
 
@@ -80,14 +80,26 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
 	public static int color;
 
+	public static Long CurrentTimeRender;
 
-    static {  //////////////initialisation
+	public static boolean isStartBulet() {
+		return StartBulet;
+	}
 
-        Test.TestTest();
-        setStatusMenu(0);
+	public static void setStartBulet(boolean startBulet) {
+		StartBulet = startBulet;
+	}
 
-        TouchX2 = 0;
-        TouchY2 = 0;
+	private static boolean StartBulet;
+
+
+	static {  //////////////initialisation
+
+		Test.TestTest();
+		setStatusMenu(0);
+
+		TouchX2 = 0;
+		TouchY2 = 0;
 
 
 	}
@@ -133,6 +145,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 						IfJustTouched();
 
 					}
+
 				if (getNC() >= 30 && getNC() <= 32) {
 					setNC(0);
 					ClearStart.NewStart();
@@ -155,7 +168,10 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
 				DrawZamokIgrok.ZamokStartIgrok();
 
-				DrawPole.DrawStartPole();
+
+				if (!isStartBulet()) {
+					DrawPole.DrawStartPole();
+				}
 
 				DrawBoom.DrawCiclBoom();
 

@@ -1,7 +1,7 @@
 package com.mycompany.mygame;
 
 
-import draw.DrawPole;
+import com.mycompany.draw.DrawPole;
 
 public class ClearStart {
 

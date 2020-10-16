@@ -167,10 +167,10 @@ public static void LoadPoleFromBasa(int nb, int  index, int st){
         Gdx.app.log("Workblok", "bulet true for " + st);
         for (int bbu = 7; bbu <= 76; bbu++) {
             if (BlokList.get(bbu).getForse() > 0 && BlokList.get(bbu).getStorona() == st) {
-                BlokList.get(bbu).setBulet(true);
+                BlokList.get(bbu).setFlagBulet(true);
                 BlokList.get(bbu).setBooletY(BlokList.get(bbu).getY());
                 Gdx.app.log("Workblok", "bulet true for blk" + bbu +
-                        "->" + BlokList.get(bbu).isBulet() + " y=" +
+                        "->" + BlokList.get(bbu).isFlagBulet() + " y=" +
                         BlokList.get(bbu).getBooletY());
             }
         }

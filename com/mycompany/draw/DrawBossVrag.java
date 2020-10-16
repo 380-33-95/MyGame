@@ -1,5 +1,5 @@
 
-package draw;
+package com.mycompany.draw;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.mycompany.mygame.MyGdxGame;
