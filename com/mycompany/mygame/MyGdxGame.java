@@ -132,7 +132,9 @@ public class MyGdxGame extends Blok implements ApplicationListener {
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+
         camera.update();
+
 
         batch.setProjectionMatrix(camera.combined);
 
@@ -173,10 +175,12 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                 DrawZamokIgrok.ZamokStartIgrok();
 
 
-                if (!isStartBulet()) {
-                    DrawPole.DrawStartPole();
-                }
+                DrawPole.DrawStartPole();
 
+
+                if (isStartBulet()) {
+                    Gdx.graphics.setContinuousRendering(false);
+                }
 
                 DrawBoom.DrawCiclBoom();
 
@@ -198,7 +202,6 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
 //////**
 
-                TextLog.draw(batch, "" + Log, 10, 1000);
 
 
 //////******
