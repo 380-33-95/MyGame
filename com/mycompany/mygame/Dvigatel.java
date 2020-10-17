@@ -78,7 +78,7 @@ public class Dvigatel extends MyGdxGame {
 
 
                 while (BlokList.get(startV).getTimeBoolet() > com.badlogic.gdx.utils.TimeUtils.millis()) {
-
+                    Gdx.graphics.setContinuousRendering(false);
                 }
 
 
