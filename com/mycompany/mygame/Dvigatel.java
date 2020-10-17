@@ -1,11 +1,12 @@
 package com.mycompany.mygame;
 
-
+import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+
+import draw.DrawPole;
 
 
-public class Dvigatel extends MyGdxGame {
+public class Dvigatel extends MyGdxGame implements ApplicationListener {
 
 
     public static int startV;
@@ -28,6 +29,8 @@ public class Dvigatel extends MyGdxGame {
 
     public static boolean startCiclIgrok = true;
 
+    static Dvigatel dv = new Dvigatel();
+
 
     //start from 69 for vrag
 
@@ -45,61 +48,20 @@ public class Dvigatel extends MyGdxGame {
         if ((startV > 6) && (BlokList.get(startV).getEffect() == 0)
                 && BlokList.get(startV).getStorona() == 2) {
 
-            ////////////////////bulet
-
-
-            BlokList.get(startV).setTimeBoolet(com.badlogic.gdx.utils.TimeUtils.millis() + 300);
-
-
+            ////////////////////
             BlokList.get(startV).setBooletY(BlokList.get(startV).getY());
 
+            DrawPole.DrawStartPole();
 
-            while (BlokList.get(startV).isFlagBulet()) {
-
-
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        long time = System.currentTimeMillis();
-                        while (System.currentTimeMillis() < time + 500) {
-
-                            Gdx.app.postRunnable(new Runnable() {
-                                @Override
-                                public void run() {
-                                    //      Gdx.app.log("blok=", ""+startV);
-                                }
-                            });
-                        }
-                    }
-                }).start();
-
-
-                TextureRegion BooletV = new TextureRegion(atlas, 0, 2000, 100, 100);
-                batch.draw(BooletV,
-                        BlokList.get(startV).getX(),
-                        BlokList.get(startV).getBooletY(),
-                        1,
-                        1,
-                        WIDTH / 7,
-                        HEIGHT / 12,
-                        1,
-                        1,
-                        0);
-
-
-                BlokList.get(startV).setBooletY(BlokList.get(startV).getBooletY() - 50);
-
-
-                if (BlokList.get(startV).getBooletY() <= 100) {
-                    BlokList.get(startV).setFlagBulet(false);
-                }
-
-            }
-
+//            while (BlokList.get(startV).isFlagBulet()){
+//
+//            }
 
             ////////////////////
 
             Gdx.app.log("programm falow!!!!!!!!!!!", "");
+
+
             //esli vperedi object
             if (BlokList.get(finishV).getIndex() > 0
                     && BlokList.get(startV).getForse() > 0
@@ -149,10 +111,10 @@ public class Dvigatel extends MyGdxGame {
                 && BlokList.get(startI).getStorona() == 1
                 && BlokList.get(startI).getHealth() > 0) {
 
-
-            BlokList.get(startI).setTimeBoolet(com.badlogic.gdx.utils.TimeUtils.millis() + 300);
+            ////////////////////////////////////
             BlokList.get(startI).setBooletY(BlokList.get(startI).getY());
 
+            ////////////////////////////////////
 
             Gdx.app.log("programm falow!!!!!!!!!!!", "");
 
@@ -187,5 +149,22 @@ public class Dvigatel extends MyGdxGame {
 
     }
 
+    @Override
+    public void render() {
 
+        Gdx.app.log("3) render dvigatel", "");
+
+        //     DrawPole.DrawStartPole();
+
+    }
+
+
+
+/*
+@Override
+public void create(){
+
+}
+*/
+    /////////
 }
