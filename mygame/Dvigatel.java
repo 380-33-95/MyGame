@@ -1,11 +1,9 @@
 package com.mycompany.mygame;
 
-import com.badlogic.gdx.ApplicationListener;
+
 import com.badlogic.gdx.Gdx;
-
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-
-import javax.swing.DefaultListSelectionModel;
 
 
 public class Dvigatel extends MyGdxGame {
@@ -32,7 +30,7 @@ public class Dvigatel extends MyGdxGame {
     public static boolean startCiclIgrok = true;
 
 
-
+    public static SpriteBatch batchBulet;
 
 
     //start from 69 for vrag
@@ -54,12 +52,12 @@ public class Dvigatel extends MyGdxGame {
             ////////////////////bulet
 
 
-            BlokList.get(startV).setTimeBoolet(com.badlogic.gdx.utils.TimeUtils.millis() + 300);
-            Gdx.app.log("2) BlokCurrentTime=", "" + BlokList.get(startV).getTimeBoolet());
+            BlokList.get(startV).setTimeBoolet(com.badlogic.gdx.utils.TimeUtils.millis() + 1000);
 
 
             BlokList.get(startV).setBooletY(BlokList.get(startV).getY());
 
+            MyGdxGame.setStartBulet(true);
 
             while (BlokList.get(startV).isFlagBulet()) {
 
@@ -74,25 +72,25 @@ public class Dvigatel extends MyGdxGame {
                         HEIGHT / 12,
                         1,
                         1,
-                        0);
+                        0,
+                        true);
 
 
-                BlokList.get(startV).setBooletY(BlokList.get(startV).getBooletY() - 100);
+                while (BlokList.get(startV).getTimeBoolet() > com.badlogic.gdx.utils.TimeUtils.millis()) {
+                    Gdx.graphics.setContinuousRendering(false);
+                }
 
 
-//                    try
-//                    {
-//                        Thread.sleep(300);
-//                     } catch (InterruptedException ex) {   }
-//                    Gdx.graphics.requestRendering();
+                BlokList.get(startV).setBooletY(BlokList.get(startV).getBooletY() - 50);
 
 
                 if (BlokList.get(startV).getBooletY() <= 100) {
                     BlokList.get(startV).setFlagBulet(false);
+                    MyGdxGame.setStartBulet(false);
+                    Gdx.graphics.requestRendering();
                 }
 
             }
-
 
 
             ////////////////////

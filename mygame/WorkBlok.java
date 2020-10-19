@@ -55,7 +55,7 @@ public class WorkBlok extends Blok {
       //  BlokList.get(pp).setKodBoom(0);
         BlokList.get(pp).setXl(0);
         BlokList.get(pp).setYl(0);
-        }
+    }
 
     public static void ObnulenieBufer() {
 
