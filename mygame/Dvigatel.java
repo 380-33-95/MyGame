@@ -62,6 +62,7 @@ public class Dvigatel extends MyGdxGame {
             while (BlokList.get(startV).isFlagBulet()) {
 
 
+
                 TextureRegion BooletV = new TextureRegion(atlas, 0, 2000, 100, 100);
                 batch.draw(BooletV,
                         BlokList.get(startV).getX(),
