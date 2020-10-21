@@ -10,34 +10,38 @@ public class DrawBoolet extends MyGdxGame {
 	static int ink = 0;
 	static long CurrentTimeBoolet;
 
-	public static void DrawCiclBoolet(int nc) {
+	public static void DrawCiclBoolet() {
 
-		CurrentTimeBoolet = System.currentTimeMillis();
-		Gdx.app.log("current time", "" + CurrentTimeBoolet);
-		Gdx.app.log("delta time", "" + (BlokList.get(nc).getTimeBoolet() - CurrentTimeBoolet));
+		//	while (BlokList.get(getCurrentBlok()).getTimeBoolet()>com.badlogic.gdx.utils.TimeUtils.millis()) {
 
-		if (CurrentTimeBoolet <= BlokList.get(nc).getTimeBoolet()) {
-
-			Gdx.app.log("render", "" + BlokList.get(nc).getBooletY());
+		while (BlokList.get(MyGdxGame.getCurrentBlok()).isFlagBulet()) {
+			System.out.print("+");
 
 			TextureRegion BooletV = new TextureRegion(atlas, 0, 2000, 100, 100);
 			batch.draw(BooletV,
-					BlokList.get(nc).getX(),
-					BlokList.get(nc).getBooletY(),
+					BlokList.get(MyGdxGame.getCurrentBlok()).getX(),
+					BlokList.get(MyGdxGame.getCurrentBlok()).getBooletY(),
 					1,
 					1,
 					WIDTH / 7,
 					HEIGHT / 12,
 					1,
 					1,
-					0);
-			ink++;
-			//	Gdx.app.log("ink", "" + ink);
+					0
+			);
+
+			BlokList.get(MyGdxGame.getCurrentBlok()).setBooletY(
+					(int) ((BlokList.get(MyGdxGame.getCurrentBlok()).getBooletY() - 100)
+							* Gdx.graphics.getDeltaTime()));
+			if (BlokList.get(MyGdxGame.getCurrentBlok()).getBooletY() <= 100) {
+				BlokList.get(getCurrentBlok()).setFlagBulet(false);
+			}
+
 		}
-		if (CurrentTimeBoolet > BlokList.get(nc).getTimeBoolet()) {
-			//	MyGdxGame.setFlagBoolet(false);
-			ink = 0;
-		}
+
+		//	}
+
+
 	}
 
 

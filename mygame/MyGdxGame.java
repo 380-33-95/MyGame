@@ -93,6 +93,16 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
     private static boolean StartBulet;
 
+    public static int getCurrentBlok() {
+        return CurrentBlok;
+    }
+
+    public static void setCurrentBlok(int currentBlok) {
+        CurrentBlok = currentBlok;
+    }
+
+    private static int CurrentBlok;
+
 
     static {  //////////////initialisation
 
@@ -119,6 +129,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
         TextLog = new BitmapFont();
         TextLog.setColor(50, 50, 50, 2);
 
+
     }
 
     @Override
@@ -132,9 +143,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-
         camera.update();
-
 
         batch.setProjectionMatrix(camera.combined);
 
@@ -174,13 +183,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
                 DrawZamokIgrok.ZamokStartIgrok();
 
-
                 DrawPole.DrawStartPole();
-
-
-                if (isStartBulet()) {
-                    Gdx.graphics.setContinuousRendering(false);
-                }
 
                 DrawBoom.DrawCiclBoom();
 
@@ -200,10 +203,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                     GameInfo.InfoKletka();
                 }
 
-//////**
 
-
-//////******
                 break;
             }
 
@@ -225,6 +225,36 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
 
         batch.end();
+
+
+        //////**
+
+
+//
+//
+//
+//
+//
+//            while (BlokList.get(getCurrentBlok()).getTimeBoolet() > com.badlogic.gdx.utils.TimeUtils.millis()) {
+//                Gdx.graphics.setContinuousRendering(false);
+//            }
+//
+//
+//            BlokList.get(getCurrentBlok()).setBooletY(BlokList.get(getCurrentBlok()).getBooletY() - 50);
+//
+//
+//            if (BlokList.get(getCurrentBlok()).getBooletY() <= 100) {
+//                BlokList.get(getCurrentBlok()).setFlagBulet(false);
+//                MyGdxGame.setStartBulet(false);
+//                Gdx.graphics.requestRendering();
+//            }
+//
+//        }
+
+
+//////******
+
+
     }
 
     @Override
