@@ -50,6 +50,7 @@ public class ClickSelector extends MyGdxGame{
             )
 			{
 				HodVrag.HodVragZamok();
+				//VistrelVrag.StartVistrelVrag(6);
 			}
 
 			if (getNC() >= 7 && getNC() <= 13

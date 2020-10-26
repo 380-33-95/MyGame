@@ -8,7 +8,8 @@ public class HodIgrok extends ClickSelector {
 
    public static void HodIgrokZamok() {
 
-	   WorkBlok.ObnulenieBufer();
+
+       WorkBlok.ObnulenieBufer();
 
 	   LoadBufer.LoadVBufer(getNC());
 

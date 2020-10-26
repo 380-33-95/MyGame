@@ -79,29 +79,15 @@ public class MyGdxGame extends Blok implements ApplicationListener {
     public static int shirKnopki = (WIDTH / 7) * 3;
     public static int visKnopki = (HEIGHT / 12);
 
-    public static int color;
+    private static int NextBlok;
 
-    public static Long CurrentTimeRender;
-
-    public static boolean isStartBulet() {
-        return StartBulet;
+    public static int getNextBlok() {
+        return NextBlok;
     }
 
-    public static void setStartBulet(boolean startBulet) {
-        StartBulet = startBulet;
+    public static void setNextBlok(int nextBlok) {
+        NextBlok = nextBlok;
     }
-
-    private static boolean StartBulet;
-
-    public static int getCurrentBlok() {
-        return CurrentBlok;
-    }
-
-    public static void setCurrentBlok(int currentBlok) {
-        CurrentBlok = currentBlok;
-    }
-
-    private static int CurrentBlok;
 
 
     static {  //////////////initialisation
@@ -193,16 +179,22 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                     DrawPervijHod.PervijStartHod();
                 }
 
-
-                if (Gdx.input.justTouched()) {
-
-                    ClickSelector.TouchPressed(
-
-                            IfJustTouched());
-
-                    GameInfo.InfoKletka();
+                if (Peremen.isSmenaHoda() && getNextBlok() == 0) {
+                    VistrelVrag.CiclVistrelVrag(6);
                 }
 
+                if ((getNextBlok() == 77) || (getNextBlok() == 6)) {
+
+                    if (Gdx.input.justTouched()) {
+
+                        ClickSelector.TouchPressed(
+
+                                IfJustTouched()
+                        );
+
+                        GameInfo.InfoKletka();
+                    }
+                }
 
                 break;
             }
@@ -225,34 +217,6 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
 
         batch.end();
-
-
-        //////**
-
-
-//
-//
-//
-//
-//
-//            while (BlokList.get(getCurrentBlok()).getTimeBoolet() > com.badlogic.gdx.utils.TimeUtils.millis()) {
-//                Gdx.graphics.setContinuousRendering(false);
-//            }
-//
-//
-//            BlokList.get(getCurrentBlok()).setBooletY(BlokList.get(getCurrentBlok()).getBooletY() - 50);
-//
-//
-//            if (BlokList.get(getCurrentBlok()).getBooletY() <= 100) {
-//                BlokList.get(getCurrentBlok()).setFlagBulet(false);
-//                MyGdxGame.setStartBulet(false);
-//                Gdx.graphics.requestRendering();
-//            }
-//
-//        }
-
-
-//////******
 
 
     }
