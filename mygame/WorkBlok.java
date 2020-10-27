@@ -167,6 +167,7 @@ public static void LoadPoleFromBasa(int nb, int  index, int st){
             if (BlokList.get(bbu).getForse() > 0 && BlokList.get(bbu).getStorona() == st) {
                 BlokList.get(bbu).setFlagBulet(true);
                 BlokList.get(bbu).setBooletY(BlokList.get(bbu).getY());
+             //   MyGdxGame.setBulet(true);
             }
         }
     }

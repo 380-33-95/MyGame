@@ -1,16 +1,22 @@
 package com.mycompany.mygame;
 
-import com.mycompany.draw.DrawBoolet;
-
 public class VistrelVrag extends Blok {
 
     public static void StartVistrelVrag(int nc) {
 
         nc++;
-        System.out.println("->" + nc);
 
-        if (BlokList.get(nc).isFlagBulet()) {
-            DrawBoolet.DrawCiclBoolet(nc);
+
+        if (BlokList.get(nc).getStorona() == 2 && BlokList.get(nc).isFlagBulet()) {
+
+            System.out.println("->" + nc);
+            MyGdxGame.setNextBlok(nc);
+
+//            while (BlokList.get(nc).isFlagBulet()) {
+//
+//
+//
+//            }
         }
 
         CiclVistrelVrag(nc);
@@ -23,7 +29,7 @@ public class VistrelVrag extends Blok {
 
             StartVistrelVrag(nc);
         } else {
-            MyGdxGame.setNextBlok(0);
+            HodVrag.HodVragZamok();
         }
 
     }

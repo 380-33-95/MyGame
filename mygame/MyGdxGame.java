@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -88,6 +89,11 @@ public class MyGdxGame extends Blok implements ApplicationListener {
     public static void setNextBlok(int nextBlok) {
         NextBlok = nextBlok;
     }
+
+
+    public static int massivBulet[][] = new int[83][2];
+
+    public static int ciclMassivBulet = 0;
 
 
     static {  //////////////initialisation
@@ -179,21 +185,55 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                     DrawPervijHod.PervijStartHod();
                 }
 
-                if (Peremen.isSmenaHoda() && getNextBlok() == 0) {
-                    VistrelVrag.CiclVistrelVrag(6);
+                if (ciclMassivBulet < 0) {
+                    for (int ib = 7; ib <= 76; ib++) {
+
+                        if (BlokList.get(ib).isFlagBulet()) {
+                            ciclMassivBulet++;
+                            massivBulet[ciclMassivBulet][0] = BlokList.get(ib).getX();
+                            massivBulet[ciclMassivBulet][1] = BlokList.get(ib).getBooletY();
+                            BlokList.get(ib).setFlagBulet(false);
+                        }
+                    }
+                    ciclMassivBulet = 0;
                 }
 
-                if ((getNextBlok() == 77) || (getNextBlok() == 6)) {
+                if (massivBulet[ciclMassivBulet][0] > 0 && massivBulet[ciclMassivBulet][1] > 0) {
+                    TextureRegion BooletV = new TextureRegion(atlas, 0, 2000, 100, 100);
+                    batch.draw(BooletV,
+                            massivBulet[ciclMassivBulet][0],
+                            massivBulet[ciclMassivBulet][1],
+                            1,
+                            1,
+                            WIDTH / 7,
+                            HEIGHT / 12,
+                            1,
+                            1,
+                            0
+                    );
+                }
+                massivBulet[ciclMassivBulet][1] = (int) (massivBulet[ciclMassivBulet][1] - (50 + Gdx.graphics.getDeltaTime()));
 
-                    if (Gdx.input.justTouched()) {
 
-                        ClickSelector.TouchPressed(
-
-                                IfJustTouched()
-                        );
-
-                        GameInfo.InfoKletka();
+                if (massivBulet[ciclMassivBulet][1] <= 100) {
+                    if (ciclMassivBulet < 77) {
+                        ciclMassivBulet++;
+                        massivBulet[ciclMassivBulet - 1][0] = 0;
+                        massivBulet[ciclMassivBulet - 1][1] = 0;
+                    } else {
+                        ciclMassivBulet = -1;
                     }
+
+                }
+
+                if (Gdx.input.justTouched()) {
+
+                    ClickSelector.TouchPressed(
+
+                            IfJustTouched()
+                    );
+
+                    GameInfo.InfoKletka();
                 }
 
                 break;
