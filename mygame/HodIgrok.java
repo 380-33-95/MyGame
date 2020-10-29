@@ -35,6 +35,8 @@ public class HodIgrok extends ClickSelector {
 
    public static void HodIgrokPole(){
 
+       WorkBlok.LoadFlagBulet(2);
+
        WorkBlok.LoadPoleBlok();
 
        WorkBlok.ObnulenieBufer();
@@ -45,7 +47,6 @@ public class HodIgrok extends ClickSelector {
 
        Peremen.setSmenaHoda(false);
 
-       WorkBlok.LoadFlagBulet(2);
 
    }
 

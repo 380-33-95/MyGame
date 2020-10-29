@@ -33,6 +33,8 @@ public class HodVrag extends ClickSelector {
 
     public static void HodVragPole(){
 
+        WorkBlok.LoadFlagBulet(1);
+
         WorkBlok.LoadPoleBlok();
 
         WorkBlok.ObnulenieBufer();
@@ -43,7 +45,6 @@ public class HodVrag extends ClickSelector {
 
         Peremen.setSmenaHoda(true);
 
-        WorkBlok.LoadFlagBulet(1);
 
     }
 

@@ -121,18 +121,18 @@ public class WorkBlok extends Blok {
 
 
     public static void ObnulenieKvadratZamok (int pp) {
-       if(pp>0) {
-           BlokList.get(pp).setForse(0);
-           BlokList.get(pp).setHealth(0);
-           BlokList.get(pp).setStorona(0);
-           BlokList.get(pp).setIndex(0);
-           BlokList.get(pp).setEffect(0);
-           BlokList.get(pp).setKadrBoom(0);
-           BlokList.get(pp).setXl(0);
-           BlokList.get(pp).setYl(0);
-           BlokList.get(pp).setX(0);
-           BlokList.get(pp).setY(0);
-            }
+        if (pp > 0) {
+            BlokList.get(pp).setForse(0);
+            BlokList.get(pp).setHealth(0);
+            BlokList.get(pp).setStorona(0);
+            BlokList.get(pp).setIndex(0);
+            BlokList.get(pp).setEffect(0);
+            BlokList.get(pp).setKadrBoom(0);
+            BlokList.get(pp).setXl(0);
+            BlokList.get(pp).setYl(0);
+            BlokList.get(pp).setX(0);
+            BlokList.get(pp).setY(0);
+        }
     }
 
 
@@ -162,13 +162,14 @@ public static void LoadPoleFromBasa(int nb, int  index, int st){
 
     public static void LoadFlagBulet(int st) {
 
-
         for (int bbu = 7; bbu <= 76; bbu++) {
             if (BlokList.get(bbu).getForse() > 0 && BlokList.get(bbu).getStorona() == st) {
                 BlokList.get(bbu).setFlagBulet(true);
                 BlokList.get(bbu).setBooletY(BlokList.get(bbu).getY());
-             //   MyGdxGame.setBulet(true);
+
             }
         }
+        MyGdxGame.setScanerBulet(true);
+        //  MyGdxGame.setVistrel(true);
     }
 }
