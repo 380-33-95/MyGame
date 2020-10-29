@@ -206,11 +206,11 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                 if (isScanerBulet()) {
 
                     ciclScaner = -1;
-                    System.out.println("2");
+
 
                     for (int ib = 7; ib <= 76; ib++) {
 
-                        if (BlokList.get(ib).getStorona() == 1 && BlokList.get(ib).isFlagBulet()) {
+                        if (BlokList.get(ib).getStorona() == (Peremen.isSmenaHoda() ? 1 : 2) && BlokList.get(ib).isFlagBulet()) {
                             ciclScaner++;
                             massivBulet[ciclScaner][0] = BlokList.get(ib).getX();
                             massivBulet[ciclScaner][1] = BlokList.get(ib).getY();
@@ -230,7 +230,8 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
                     if (ciclMassivBulet > -1 && ciclMassivBulet < 77) {
 
-                        massivBulet[ciclMassivBulet][1] = (int) (massivBulet[ciclMassivBulet][1] + (50 + Gdx.graphics.getDeltaTime()));
+
+                        massivBulet[ciclMassivBulet][1] = (Peremen.isSmenaHoda()) ? (int) (massivBulet[ciclMassivBulet][1] + (50 + Gdx.graphics.getDeltaTime())) : (int) (massivBulet[ciclMassivBulet][1] - (50 + Gdx.graphics.getDeltaTime()));
                         TextureRegion BooletV = new TextureRegion(atlas, 0, 2000, 100, 100);
                         batch.draw(BooletV,
                                 massivBulet[ciclMassivBulet][0],
@@ -244,7 +245,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                                 0
                         );
                         System.out.println("y=" + massivBulet[ciclMassivBulet][1]);
-                        if (massivBulet[ciclMassivBulet][1] >= 1000) {
+                        if ((Peremen.isSmenaHoda()) ? massivBulet[ciclMassivBulet][1] >= 1000 : massivBulet[ciclMassivBulet][1] <= 100) {
                             ciclMassivBulet--;
                             System.out.println("->" + ciclMassivBulet);
                         }
