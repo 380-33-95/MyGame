@@ -7,8 +7,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector3;
+import com.mycompany.draw.DrawBoolet;
 import com.mycompany.draw.DrawBoom;
 import com.mycompany.draw.DrawBossIgrok;
 import com.mycompany.draw.DrawBossVrag;
@@ -76,43 +76,6 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
     public static int shirKnopki = (WIDTH / 7) * 3;
     public static int visKnopki = (HEIGHT / 12);
-
-    private static int NextBlok;
-
-    public static int getNextBlok() {
-        return NextBlok;
-    }
-
-    public static void setNextBlok(int nextBlok) {
-        NextBlok = nextBlok;
-    }
-
-
-    public static int massivBulet[][] = new int[83][2];
-
-    public static int ciclMassivBulet = -1;
-
-    public static boolean isVistrel() {
-        return vistrel;
-    }
-
-    public static void setVistrel(boolean vistrel) {
-        MyGdxGame.vistrel = vistrel;
-    }
-
-    private static boolean vistrel;
-
-    public static boolean isScanerBulet() {
-        return ScanerBulet;
-    }
-
-    public static void setScanerBulet(boolean scanerBulet) {
-        ScanerBulet = scanerBulet;
-    }
-
-    private static boolean ScanerBulet;
-
-    public static int ciclScaner;
 
 
     static {  //////////////initialisation
@@ -201,64 +164,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                 }
 
                 //////////////////////////////////////////////////////
-
-
-                if (isScanerBulet()) {
-
-                    ciclScaner = -1;
-
-
-                    for (int ib = 7; ib <= 76; ib++) {
-
-                        if (BlokList.get(ib).getStorona() == (Peremen.isSmenaHoda() ? 1 : 2) && BlokList.get(ib).isFlagBulet()) {
-                            ciclScaner++;
-                            massivBulet[ciclScaner][0] = BlokList.get(ib).getX();
-                            massivBulet[ciclScaner][1] = BlokList.get(ib).getY();
-                            BlokList.get(ib).setFlagBulet(false);
-
-                            setVistrel(true);
-                            System.out.println(ciclScaner + " [0]=" + massivBulet[ciclScaner][0] + " [1]=" + massivBulet[ciclScaner][1]);
-                        }
-                        ciclMassivBulet = ciclScaner;
-                    }
-                    setScanerBulet(false);
-                }
-
-                //  System.out.println(isVistrel());
-
-                if (isVistrel()) {
-
-                    if (ciclMassivBulet > -1 && ciclMassivBulet < 77) {
-
-
-                        massivBulet[ciclMassivBulet][1] = (Peremen.isSmenaHoda()) ? (int) (massivBulet[ciclMassivBulet][1] + (50 + Gdx.graphics.getDeltaTime())) : (int) (massivBulet[ciclMassivBulet][1] - (50 + Gdx.graphics.getDeltaTime()));
-                        TextureRegion BooletV = new TextureRegion(atlas, 0, 2000, 100, 100);
-                        batch.draw(BooletV,
-                                massivBulet[ciclMassivBulet][0],
-                                massivBulet[ciclMassivBulet][1],
-                                1,
-                                1,
-                                WIDTH / 7,
-                                HEIGHT / 12,
-                                1,
-                                1,
-                                0
-                        );
-                        System.out.println("y=" + massivBulet[ciclMassivBulet][1]);
-                        if ((Peremen.isSmenaHoda()) ? massivBulet[ciclMassivBulet][1] >= 1000 : massivBulet[ciclMassivBulet][1] <= 100) {
-                            ciclMassivBulet--;
-                            System.out.println("->" + ciclMassivBulet);
-                        }
-                    }
-
-
-                    if (ciclMassivBulet < 0) {
-                        System.out.println("->");
-                        setVistrel(false);
-                    }
-                }
-
-
+                DrawBoolet.StartDrawBulet();
                 ////////////////////////////////////////////////////////////////////////////
 
                 if (Gdx.input.justTouched()) {

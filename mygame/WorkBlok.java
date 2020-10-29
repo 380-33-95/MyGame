@@ -1,5 +1,7 @@
 package com.mycompany.mygame;
 
+import com.mycompany.draw.DrawBoolet;
+
 import static com.mycompany.mygame.MyGdxGame.getNC;
 
 public class WorkBlok extends Blok {
@@ -169,7 +171,7 @@ public static void LoadPoleFromBasa(int nb, int  index, int st){
 
             }
         }
-        MyGdxGame.setScanerBulet(true);
-        //  MyGdxGame.setVistrel(true);
+        DrawBoolet.setScanerBulet(true);
+
     }
 }
