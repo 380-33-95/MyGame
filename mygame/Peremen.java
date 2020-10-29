@@ -70,25 +70,8 @@ public class Peremen extends MyGdxGame{
     private static boolean flagStrelkaIgrok;
     private static boolean flagStrelkaVrag;
    
-    public static boolean getFlagStrelkaIgrok(){
-	return  flagStrelkaIgrok;  
-   }
-   public static boolean getFlagStrelkaVrag(){
-	   return  flagStrelkaVrag;    
-   }
 
-	public static int getDrawStrelka() {
-		return DrawStrelka;
-	}
-	public static void setDrawStrelka(int drawStrelka) {
-		DrawStrelka = drawStrelka;
-	}
 
-	
-	
-
-	private static int DrawStrelka;
-	
 	private static boolean SmenaHoda; //true - igrok; false - vrag;
 	
 	public static boolean isSmenaHoda() {
@@ -140,12 +123,9 @@ private static int KodZamok;
 			Peremen.KodPole = KodPole;
 		//	System.out.println("*********KP="+KodPole);
 		}
-	
-		
 
 
-		
-		private static int BannerChejHod=0;
+	private static int BannerChejHod=0;
 		public static int getBannerChejHod() {
 			return BannerChejHod;
 		}
@@ -154,11 +134,6 @@ private static int KodZamok;
 			BannerChejHod = bannerChejHod;
 		}
 		
-		
-
-
-		
-
 
 		
 		private static int Win=0;
@@ -170,28 +145,8 @@ private static int KodZamok;
 		public static void setWin(int win) {
 			Win = win;
 		}
-		
-		private static int KodBoom;
-		
-		public static int getKodBoom() {
-		return KodBoom;
-	}
 
-	public static void setKodBoom(int kodBoom) {
-		KodBoom = kodBoom;
-	}
-		
-		private static int Kadr;
-	
-	public static int getKadr() {
-		return Kadr;
-	}
 
-	public static void setKadr(int kadr) {
-		Kadr = kadr;
-	}
-
-	
 	private static int maska;
 	public static void setMaska(int msk){
 		maska=msk;
@@ -199,41 +154,8 @@ private static int KodZamok;
 	public static int getMaska(){
 		return maska;
 	}
-	
-	private static int Pulja=0;
-	public static int getPulja(){
-		return Pulja;
-	}
-	public static void setPulja(int pl){
-		Pulja=pl;
-	}
-	
-	private static int PuljaX;
-	public static int getPuljaX() {
-		return PuljaX;
-	}
 
-	public static void setPuljaX(int puljaX) {
-		PuljaX = puljaX;
-	}
 
-	
-	private static int PuljaY;
-	public static int getPuljaY() {
-		return PuljaY;
-	}
-
-	public static void setPuljaY(int puljaY) {
-		PuljaY = puljaY;
-	}
-
-	
-
-	
-	
-	
-	
-	
 	///////////////////
 
 	
