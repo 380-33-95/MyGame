@@ -2,13 +2,14 @@ package com.mycompany.draw;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.mycompany.mygame.FindBuletUron;
 import com.mycompany.mygame.MyGdxGame;
 import com.mycompany.mygame.Peremen;
 
 
 public class DrawBoolet extends MyGdxGame {
 
-	public static int massivBulet[][] = new int[83][2];
+	public static int massivBulet[][] = new int[83][3];
 
 	public static int ciclMassivBulet = -1;
 
@@ -47,8 +48,10 @@ public class DrawBoolet extends MyGdxGame {
 					ciclScaner++;
 					massivBulet[ciclScaner][0] = BlokList.get(ib).getX();
 					massivBulet[ciclScaner][1] = BlokList.get(ib).getY();
+					massivBulet[ciclScaner][2] = ib;
 					BlokList.get(ib).setFlagBulet(false);
 					setVistrel(true);
+
 				}
 				ciclMassivBulet = ciclScaner;
 			}
@@ -78,6 +81,7 @@ public class DrawBoolet extends MyGdxGame {
 
 				if ((Peremen.isSmenaHoda()) ? massivBulet[ciclMassivBulet][1] >= 1000 : massivBulet[ciclMassivBulet][1] <= 100) {
 					ciclMassivBulet--;
+					FindBuletUron.StartScaner(massivBulet[ciclScaner][2]);
 
 				}
 			}
@@ -86,6 +90,8 @@ public class DrawBoolet extends MyGdxGame {
 			if (ciclMassivBulet < 0) {
 
 				setVistrel(false);
+
+
 			}
 		}
 
