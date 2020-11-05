@@ -56,10 +56,19 @@ public class DrawBoolet extends MyGdxGame {
 					if (BlokList.get(ib).getStorona() == 2) {
 
 						for (int aq = ib; aq <= 77; aq += 7) {
+							System.out.println(".." + aq);
 							if (BlokList.get(aq).getStorona() == 1
 									&& BlokList.get(aq).getEffect() == 0) {
 								massivBulet[ciclScaner][3] = aq;
+
 								System.out.println(massivBulet[ciclScaner][3]);
+								BlokList.get(aq).setHealth(
+										BlokList.get(aq).getHealth() -
+												BlokList.get(ib).getForse()
+								);
+								if (BlokList.get(aq).getHealth() <= 0) {
+									BoomBlok.StartBoomBlok(aq);
+								}
 							}
 						}
 
@@ -111,17 +120,19 @@ public class DrawBoolet extends MyGdxGame {
 
 					//FindBuletUron.StartScaner(massivBulet[ciclScaner][2]);
 
-				} else {
-
-					BlokList.get(massivBulet[ciclMassivBulet][3]).setHealth(
-							BlokList.get(massivBulet[ciclMassivBulet][3]).getHealth() -
-									BlokList.get(massivBulet[ciclMassivBulet][2]).getForse());
-
-					if (BlokList.get(massivBulet[ciclMassivBulet][3]).getHealth() <= 0) {
-						BoomBlok.StartBoomBlok(massivBulet[ciclMassivBulet][3]);
-					}
-
 				}
+
+//				else {
+//
+//					BlokList.get(massivBulet[ciclMassivBulet][3]).setHealth(
+//							BlokList.get(massivBulet[ciclMassivBulet][3]).getHealth() -
+//									BlokList.get(massivBulet[ciclMassivBulet][2]).getForse());
+//
+//					if (BlokList.get(massivBulet[ciclMassivBulet][3]).getHealth() <= 0) {
+//						BoomBlok.StartBoomBlok(massivBulet[ciclMassivBulet][3]);
+//					}
+//
+//				}
 
 
 				if (ciclMassivBulet < 0) {
