@@ -42,23 +42,41 @@ public class DrawBoolet extends MyGdxGame {
 
 			ciclScaner = -1;
 
-			for (int ns = 7; ns <= 76; ns++) {
+			for (int ib = 7; ib <= 76; ib++) {
 
-				if (BlokList.get(ns).getStorona() == (Peremen.isSmenaHoda() ? 1 : 2) && BlokList.get(ns).isFlagBulet()) {
+				if (BlokList.get(ib).getStorona() == (Peremen.isSmenaHoda()
+						? 1 : 2) && BlokList.get(ib).isFlagBulet()) {
 					ciclScaner++;
-					massivBulet[ciclScaner][0] = BlokList.get(ns).getX();
-					massivBulet[ciclScaner][1] = BlokList.get(ns).getY();
-					massivBulet[ciclScaner][2] = ns;
-					BlokList.get(ns).setFlagBulet(false);
+					massivBulet[ciclScaner][0] = BlokList.get(ib).getX();
+					massivBulet[ciclScaner][1] = BlokList.get(ib).getY();
+					massivBulet[ciclScaner][2] = ib;
+					BlokList.get(ib).setFlagBulet(false);
 					setVistrel(true);
 
-					for(int nsv=ns;nsv<=77;nsv+=7){
-				if(BlokList.get(nsv).getStorona()==1 && BlokList.get(nsv).getEffect()==0){
-					massivBulet[ciclScaner][3]=nsv;
-					System.out.println("Enemy"+nsv);
-				}
+					if (BlokList.get(ib).getStorona() == 2) {
+
+						for (int aq = ib; aq <= 77; aq += 7) {
+							if (BlokList.get(aq).getStorona() == 1
+									&& BlokList.get(aq).getEffect() == 0) {
+								massivBulet[ciclScaner][3] = aq;
+								System.out.println(massivBulet[ciclScaner][3]);
+							}
+						}
+
 					}
 
+//							if(BlokList.get(ib).getStorona()==1)
+//								{
+//
+//								for(int aq=ib; aq>=7; aq-=7){
+//									if(BlokList.get(aq).getStorona()==2
+//									   && BlokList.get(aq).getEffect()==0)
+//									{
+//										massivBulet[ciclScaner][3]=aq;
+//									}
+//								}
+//
+//							}
 				}
 				ciclMassivBulet = ciclScaner;
 			}
@@ -66,14 +84,13 @@ public class DrawBoolet extends MyGdxGame {
 		}
 
 
-
 		if (isVistrel()) {
 
 			if (ciclMassivBulet > -1 && ciclMassivBulet < 77) {
 
-
-
-				massivBulet[ciclMassivBulet][1] = (Peremen.isSmenaHoda()) ? (int) (massivBulet[ciclMassivBulet][1] + (50 + Gdx.graphics.getDeltaTime())) : (int) (massivBulet[ciclMassivBulet][1] - (50 + Gdx.graphics.getDeltaTime()));
+				massivBulet[ciclMassivBulet][1] = (Peremen.isSmenaHoda())
+						? (int) (massivBulet[ciclMassivBulet][1] + (50 + Gdx.graphics.getDeltaTime()))
+						: (int) (massivBulet[ciclMassivBulet][1] - (50 + Gdx.graphics.getDeltaTime()));
 				TextureRegion BooletV = new TextureRegion(atlas, 0, 2000, 100, 100);
 				batch.draw(BooletV,
 						(Peremen.isSmenaHoda()) ? massivBulet[ciclMassivBulet][0] : massivBulet[ciclMassivBulet][0] + 100,
@@ -85,43 +102,36 @@ public class DrawBoolet extends MyGdxGame {
 						1,
 						1,
 						(Peremen.isSmenaHoda()) ? 0 : 180
-
 				);
 
-
-
-				if ((Peremen.isSmenaHoda()) ? massivBulet[ciclMassivBulet][1] >= 900 : massivBulet[ciclMassivBulet][1] <= 200) {
+				if ((Peremen.isSmenaHoda()) ?
+						massivBulet[ciclMassivBulet][1] >= BlokList.get(massivBulet[ciclMassivBulet][3]).getY() :
+						massivBulet[ciclMassivBulet][1] <= BlokList.get(massivBulet[ciclMassivBulet][3]).getY()) {
 					ciclMassivBulet--;
 
-					if (massivBulet[ciclScaner][3]>0){
-						BlokList.get(massivBulet[ciclScaner][3]).setHealth(
-								BlokList.get(massivBulet[ciclScaner][3]).getHealth()-1
-						);
+					//FindBuletUron.StartScaner(massivBulet[ciclScaner][2]);
+
+				} else {
+
+					BlokList.get(massivBulet[ciclMassivBulet][3]).setHealth(
+							BlokList.get(massivBulet[ciclMassivBulet][3]).getHealth() -
+									BlokList.get(massivBulet[ciclMassivBulet][2]).getForse());
+
+					if (BlokList.get(massivBulet[ciclMassivBulet][3]).getHealth() <= 0) {
+						BoomBlok.StartBoomBlok(massivBulet[ciclMassivBulet][3]);
 					}
 
-					if (BlokList.get(massivBulet[ciclScaner][3]).getHealth()<=0){
-						BoomBlok.StartBoomBlok(massivBulet[ciclScaner][3]);
-					}
+				}
 
 
-				//	FindBuletUron.StartScaner(massivBulet[ciclScaner][2]);
-
+				if (ciclMassivBulet < 0) {
+					setVistrel(false);
 				}
 			}
 
 
-			if (ciclMassivBulet < 0) {
-
-				setVistrel(false);
-
-
-
-
-			}
 		}
 
 
 	}
-
-
 }
