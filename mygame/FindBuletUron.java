@@ -1,57 +1,64 @@
 package com.mycompany.mygame;
 
-public class FindBuletUron extends Blok {
+import com.mycompany.draw.DrawBoolet;
+
+public class FindBuletUron extends DrawBoolet {
 
 
-	public static void StartScaner(int nx) {
+	public static void StartScaner(int ib) {
 
-		int ur = BlokList.get(nx).getForse();
-		
-		/*
-		
-		if(BlokList.get(nx).getStorona()==1) {
-			
-	
-			while(!(BlokList.get(nx).getStorona()==2) && nx>14)
-				{
-					nx=nx-7;
-				}
-				
-				if(BlokList.get(nx).getStorona()==2
-				&& BlokList.get(nx).getEffect()==0)
-				{
-					BlokList.get(nx).setHealth(
-					BlokList.get(nx).getHealth()-ur);
-					
-					if(BlokList.get(nx).getHealth()<=0)
-					{
-						BoomBlok.StartBoomBlok(nx);
+		if (BlokList.get(ib).getStorona() == 2) {
+
+			fv = true;
+
+			for (int aq = ib; aq <= 77; aq += 7) {
+
+				if (BlokList.get(aq).getStorona() == 1 && fv
+						&& BlokList.get(aq).getEffect() == 0) {
+					massivBulet[ciclScaner][3] = aq;
+
+					BlokList.get(aq).setHealth(
+							BlokList.get(aq).getHealth() -
+									BlokList.get(ib).getForse()
+					);
+
+					fv = false;
+
+					if (BlokList.get(aq).getHealth() <= 0) {
+						BoomBlok.StartBoomBlok(aq);
 					}
-					
 				}
 			}
-			*/
 
-		if (BlokList.get(nx).getStorona() == 2) {
+		}
 
-			while (!(BlokList.get(nx).getStorona() == 1) && nx < 71) {
-				nx = nx + 7;
-			}
 
-			if (BlokList.get(nx).getStorona() == 1
-					&& BlokList.get(nx).getEffect() == 0) {
-				BlokList.get(nx).setHealth(
-						BlokList.get(nx).getHealth() - ur);
+		if (BlokList.get(ib).getStorona() == 1) {
 
-				if (BlokList.get(nx).getHealth() <= 0) {
-					BoomBlok.StartBoomBlok(nx);
+			fi = true;
+
+			for (int aq = ib; aq >= 8; aq -= 7) {
+
+				if (BlokList.get(aq).getStorona() == 2 && fi
+						&& BlokList.get(aq).getEffect() == 0) {
+					massivBulet[ciclScaner][3] = aq;
+
+					BlokList.get(aq).setHealth(
+							BlokList.get(aq).getHealth() -
+									BlokList.get(ib).getForse()
+					);
+
+					fi = false;
+
+					if (BlokList.get(aq).getHealth() <= 0) {
+						BoomBlok.StartBoomBlok(aq);
+					}
 				}
-
 			}
+
 		}
 
 
 	}
-
 
 }

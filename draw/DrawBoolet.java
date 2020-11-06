@@ -2,7 +2,7 @@ package com.mycompany.draw;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.mycompany.mygame.BoomBlok;
+import com.mycompany.mygame.FindBuletUron;
 import com.mycompany.mygame.MyGdxGame;
 import com.mycompany.mygame.Peremen;
 
@@ -35,6 +35,10 @@ public class DrawBoolet extends MyGdxGame {
 
 	public static int ciclScaner;
 
+	public static boolean fv;
+
+	public static boolean fi;
+
 
 	public static void StartDrawBulet() {
 
@@ -53,39 +57,12 @@ public class DrawBoolet extends MyGdxGame {
 					BlokList.get(ib).setFlagBulet(false);
 					setVistrel(true);
 
-					if (BlokList.get(ib).getStorona() == 2) {
+					/////////////////////////////////////////////
 
-						for (int aq = ib; aq <= 77; aq += 7) {
-							System.out.println(".." + aq);
-							if (BlokList.get(aq).getStorona() == 1
-									&& BlokList.get(aq).getEffect() == 0) {
-								massivBulet[ciclScaner][3] = aq;
+					FindBuletUron.StartScaner(massivBulet[ciclScaner][2]);
 
-								System.out.println(massivBulet[ciclScaner][3]);
-								BlokList.get(aq).setHealth(
-										BlokList.get(aq).getHealth() -
-												BlokList.get(ib).getForse()
-								);
-								if (BlokList.get(aq).getHealth() <= 0) {
-									BoomBlok.StartBoomBlok(aq);
-								}
-							}
-						}
+					//////////////////////////////////////////////////////
 
-					}
-
-//							if(BlokList.get(ib).getStorona()==1)
-//								{
-//
-//								for(int aq=ib; aq>=7; aq-=7){
-//									if(BlokList.get(aq).getStorona()==2
-//									   && BlokList.get(aq).getEffect()==0)
-//									{
-//										massivBulet[ciclScaner][3]=aq;
-//									}
-//								}
-//
-//							}
 				}
 				ciclMassivBulet = ciclScaner;
 			}
@@ -98,8 +75,8 @@ public class DrawBoolet extends MyGdxGame {
 			if (ciclMassivBulet > -1 && ciclMassivBulet < 77) {
 
 				massivBulet[ciclMassivBulet][1] = (Peremen.isSmenaHoda())
-						? (int) (massivBulet[ciclMassivBulet][1] + (50 + Gdx.graphics.getDeltaTime()))
-						: (int) (massivBulet[ciclMassivBulet][1] - (50 + Gdx.graphics.getDeltaTime()));
+						? (int) (massivBulet[ciclMassivBulet][1] + (100 + Gdx.graphics.getDeltaTime()))
+						: (int) (massivBulet[ciclMassivBulet][1] - (100 + Gdx.graphics.getDeltaTime()));
 				TextureRegion BooletV = new TextureRegion(atlas, 0, 2000, 100, 100);
 				batch.draw(BooletV,
 						(Peremen.isSmenaHoda()) ? massivBulet[ciclMassivBulet][0] : massivBulet[ciclMassivBulet][0] + 100,
@@ -113,27 +90,12 @@ public class DrawBoolet extends MyGdxGame {
 						(Peremen.isSmenaHoda()) ? 0 : 180
 				);
 
+
 				if ((Peremen.isSmenaHoda()) ?
 						massivBulet[ciclMassivBulet][1] >= BlokList.get(massivBulet[ciclMassivBulet][3]).getY() :
 						massivBulet[ciclMassivBulet][1] <= BlokList.get(massivBulet[ciclMassivBulet][3]).getY()) {
 					ciclMassivBulet--;
-
-					//FindBuletUron.StartScaner(massivBulet[ciclScaner][2]);
-
 				}
-
-//				else {
-//
-//					BlokList.get(massivBulet[ciclMassivBulet][3]).setHealth(
-//							BlokList.get(massivBulet[ciclMassivBulet][3]).getHealth() -
-//									BlokList.get(massivBulet[ciclMassivBulet][2]).getForse());
-//
-//					if (BlokList.get(massivBulet[ciclMassivBulet][3]).getHealth() <= 0) {
-//						BoomBlok.StartBoomBlok(massivBulet[ciclMassivBulet][3]);
-//					}
-//
-//				}
-
 
 				if (ciclMassivBulet < 0) {
 					setVistrel(false);
