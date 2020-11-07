@@ -20,6 +20,9 @@ import com.mycompany.draw.DrawRamkaBoss;
 import com.mycompany.draw.DrawStart;
 import com.mycompany.draw.DrawZamokIgrok;
 import com.mycompany.draw.DrawZamokVrag;
+import com.mycompany.draw.LoadLevel;
+import com.mycompany.mygame.Menu.Buttons;
+import com.mycompany.mygame.Menu.Menu;
 
 import static com.mycompany.mygame.JustTouched.IfJustTouched;
 
@@ -34,15 +37,6 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
     public static BitmapFont TextLog;
 
-    private static String Log;
-
-    public static void setLog(String str) {
-        Log = "" + str;
-    }
-
-    public static String getLog() {
-        return Log;
-    }
 
     static int TouchX2;
     static int TouchY2;
@@ -77,15 +71,24 @@ public class MyGdxGame extends Blok implements ApplicationListener {
     public static int shirKnopki = (WIDTH / 7) * 3;
     public static int visKnopki = (HEIGHT / 12);
 
+    public static String textString;
+
+    public Menu menu;
+
+    Buttons buttons;
+
+    Texture bgImage;
+
 
     static {  //////////////initialisation
 
         Test.TestTest();
         setStatusMenu(0);
 
+        LoadLevel.ReadFile("level1.txt");
+
         TouchX2 = 0;
         TouchY2 = 0;
-
 
 
     }
@@ -100,6 +103,12 @@ public class MyGdxGame extends Blok implements ApplicationListener {
         batch = new SpriteBatch();
         atlas = new Texture("atlas.png");
 
+        textString = Gdx.files.internal("level1.txt").readString();
+
+    }
+
+    private void createBackground() {
+        bgImage = new Texture("background.jpg");
 
     }
 
@@ -125,7 +134,10 @@ public class MyGdxGame extends Blok implements ApplicationListener {
         switch (getStatusMenu()) {
 
             case 0: {
+
+
                 DrawStart.DrawRunStart();
+
                 if (Gdx.input.justTouched()) {
 
                     IfJustTouched();
@@ -135,9 +147,27 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                 if (getNC() >= 30 && getNC() <= 32) {
                     setNC(0);
                     ClearStart.NewStart();
+
+                    ///////
+                    LoadLevel.ReadFile(textString);
+                    LoadLevel.StartLoadLevel(textString);
+                    ///////
+
                     setStatusMenu(1);
                 }
+
+                if (getNC() >= 51 && getNC() <= 53) {
+
+                    ///////
+                    setNC(100);
+                    LoadLevel.ReadFile(textString);
+                    LoadLevel.StartLoadLevel(textString);
+                    ///////
+
+                }
                 break;
+
+
             }
 
             case 1: {
