@@ -24,6 +24,8 @@ import com.mycompany.draw.LoadLevel;
 import com.mycompany.mygame.Menu.Buttons;
 import com.mycompany.mygame.Menu.Menu;
 
+import java.io.FileReader;
+
 import static com.mycompany.mygame.JustTouched.IfJustTouched;
 
 
@@ -79,13 +81,13 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
     Texture bgImage;
 
+    FileReader fileReader;
+
 
     static {  //////////////initialisation
 
         Test.TestTest();
         setStatusMenu(0);
-
-        LoadLevel.ReadFile("level1.txt");
 
         TouchX2 = 0;
         TouchY2 = 0;
@@ -148,11 +150,6 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                     setNC(0);
                     ClearStart.NewStart();
 
-                    ///////
-                    LoadLevel.ReadFile(textString);
-                    LoadLevel.StartLoadLevel(textString);
-                    ///////
-
                     setStatusMenu(1);
                 }
 
@@ -161,7 +158,6 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                     ///////
                     setNC(100);
                     LoadLevel.ReadFile(textString);
-                    LoadLevel.StartLoadLevel(textString);
                     ///////
 
                 }
