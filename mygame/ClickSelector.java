@@ -7,16 +7,14 @@ public class ClickSelector extends MyGdxGame{
 	public static void TouchPressed(int nc) {
 
 
+		if (getStatusMenu() == 2) { //BOJ
 
-		if (getStatusMenu() == 1) { //BOJ
-
-		//////////////////////////////////////////////////////////////////////////////////////hod igroka
+			//////////////////////////////////////////////////////////////////////////////////////hod igroka
 
 			if ((getNC() >= 78 && getNC() <= 83)
 					&& Peremen.isSmenaHoda()
 
-            )
-			{
+			) {
 				HodIgrok.HodIgrokZamok();
 			}
 
@@ -73,12 +71,12 @@ public class ClickSelector extends MyGdxGame{
 
         }//end BOJ
 
-        if (getStatusMenu() == 2) {
-            if (getNC() > 0) {
-                setStatusMenu(0);
-                ClearStart.NewStart();
-            }
-        }
+		if (getStatusMenu() == 3) {
+			if (getNC() > 0) {
+				setStatusMenu(0);
+				ClearStart.NewStart();
+			}
+		}
 
 
     }

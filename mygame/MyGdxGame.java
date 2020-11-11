@@ -17,14 +17,11 @@ import com.mycompany.draw.DrawGame;
 import com.mycompany.draw.DrawPervijHod;
 import com.mycompany.draw.DrawPole;
 import com.mycompany.draw.DrawRamkaBoss;
+import com.mycompany.draw.DrawSelectLevel;
 import com.mycompany.draw.DrawStart;
 import com.mycompany.draw.DrawZamokIgrok;
 import com.mycompany.draw.DrawZamokVrag;
 import com.mycompany.draw.LoadLevel;
-import com.mycompany.mygame.Menu.Buttons;
-import com.mycompany.mygame.Menu.Menu;
-
-import java.io.FileReader;
 
 import static com.mycompany.mygame.JustTouched.IfJustTouched;
 
@@ -56,7 +53,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
         StatusMenu = statusMenu;
     }
 
-    private static int StatusMenu; //0-start; 1-game; 2- finish;
+    private static int StatusMenu; //0-start; 1-select level; 2-game; 3- finish;
 
     public static int getNC() {
         return NC;
@@ -75,14 +72,15 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
     public static String textString;
 
-    public Menu menu;
+    private static String NameLevel;
 
-    Buttons buttons;
+    public static String getNameLevel() {
+        return NameLevel;
+    }
 
-    Texture bgImage;
-
-    FileReader fileReader;
-
+    public static void setNameLevel(String nameLevel) {
+        NameLevel = nameLevel;
+    }
 
     static {  //////////////initialisation
 
@@ -105,14 +103,10 @@ public class MyGdxGame extends Blok implements ApplicationListener {
         batch = new SpriteBatch();
         atlas = new Texture("atlas.png");
 
-        textString = Gdx.files.internal("level1.txt").readString();
+        //     textString = Gdx.files.internal(getNameLevel()).readString();
 
     }
 
-    private void createBackground() {
-        bgImage = new Texture("background.jpg");
-
-    }
 
     @Override
     public void resize(int width, int height) {
@@ -148,25 +142,137 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
                 if (getNC() >= 30 && getNC() <= 32) {
                     setNC(0);
-                    ClearStart.NewStart();
-
                     setStatusMenu(1);
                 }
 
-                if (getNC() >= 51 && getNC() <= 53) {
-
-                    ///////
-                    setNC(100);
-                    LoadLevel.ReadFile(textString);
-                    ///////
-
-                }
                 break;
 
 
             }
 
+
             case 1: {
+
+                DrawSelectLevel.DrawRunSelectLevel();
+
+                if (Gdx.input.justTouched()) {
+
+                    IfJustTouched();
+
+                }
+
+                //level 1
+                if (getNC() == 8 || getNC() == 9 ||
+                        getNC() == 15 || getNC() == 16 ||
+                        getNC() == 22 || getNC() == 23
+                ) {
+                    ClearStart.NewStart();
+                    setStatusMenu(2);
+                    setNameLevel("level1.txt");
+
+                    try {
+                        try {
+
+                            LoadLevel.ReadFile(getNameLevel());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } finally {
+
+                    }
+
+
+                }
+
+
+                //level 2
+                if (getNC() == 11 || getNC() == 12 ||
+                        getNC() == 18 || getNC() == 19 ||
+                        getNC() == 25 || getNC() == 26
+                ) {
+                    ClearStart.NewStart();
+                    setStatusMenu(2);
+                    setNameLevel("level2.txt");
+
+                    try {
+                        LoadLevel.ReadFile(getNameLevel());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
+                //level 3
+                if (getNC() == 36 || getNC() == 37 ||
+                        getNC() == 43 || getNC() == 44 ||
+                        getNC() == 50 || getNC() == 51
+                ) {
+                    ClearStart.NewStart();
+                    setStatusMenu(2);
+                    setNameLevel("level3.txt");
+
+                    try {
+                        LoadLevel.ReadFile(getNameLevel());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                //level 4
+                if (getNC() == 39 || getNC() == 40 ||
+                        getNC() == 46 || getNC() == 47 ||
+                        getNC() == 53 || getNC() == 54
+                ) {
+                    ClearStart.NewStart();
+                    setStatusMenu(2);
+                    setNameLevel("level4.txt");
+
+                    try {
+                        LoadLevel.ReadFile(getNameLevel());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
+                //level 5
+                if (getNC() == 64 || getNC() == 65 ||
+                        getNC() == 71 || getNC() == 72 ||
+                        getNC() == 77 || getNC() == 78
+                ) {
+                    ClearStart.NewStart();
+                    setStatusMenu(2);
+                    setNameLevel("level5.txt");
+
+                    try {
+                        LoadLevel.ReadFile(getNameLevel());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
+                //level 6
+                if (getNC() == 67 || getNC() == 68 ||
+                        getNC() == 74 || getNC() == 75 ||
+                        getNC() == 83 || getNC() == 84
+                ) {
+                    ClearStart.NewStart();
+                    setStatusMenu(2);
+                    setNameLevel("level6.txt");
+
+                    try {
+                        LoadLevel.ReadFile(getNameLevel());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                break;
+            }
+
+
+            case 2: {
 
                 DrawGame.DrGame();
 
@@ -189,9 +295,8 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                     DrawPervijHod.PervijStartHod();
                 }
 
-                //////////////////////////////////////////////////////
                 DrawBoolet.StartDrawBulet();
-                ////////////////////////////////////////////////////////////////////////////
+
 
                 if (Gdx.input.justTouched()) {
 
@@ -206,7 +311,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                 break;
             }
 
-            case 2: {
+            case 3: {
                 if (!GameEnd.pausaEnd.isScheduled()) {
 
                     //TODO smena sastavki
@@ -244,7 +349,6 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
         batch.dispose();
         atlas.dispose();
-
 
     }
 

@@ -9,7 +9,7 @@ public class GameEnd {
 
         @Override
         public void run() {
-            Peremen.setStatusMenu(2);
+            Peremen.setStatusMenu(3);
             StartNoviStart();
         }
     };

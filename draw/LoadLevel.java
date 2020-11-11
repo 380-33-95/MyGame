@@ -1,33 +1,28 @@
 package com.mycompany.draw;
 
+import com.badlogic.gdx.Gdx;
 import com.mycompany.mygame.WorkBlok;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LoadLevel {
 
 
     public static ArrayList<Integer> AD = new ArrayList<Integer>();
-
+    private static List<Character> chars = new ArrayList<>();
 
     static int i = 0;
 
-    public static void ReadFile(String NameFile) {
+    public static void ReadFile(String NameFile) throws Exception {
 
-        System.out.println("1 " + NameFile);
+        String gh = Gdx.files.internal(NameFile).readString();
 
-        for (int ifi = 0; ifi <= NameFile.length() - 1; ifi++
+        for (int ifi = 0; ifi <= gh.length() - 1; ifi++
         ) {
-
-            char nf = NameFile.charAt(ifi);
-            String zx = "" + nf;
-            int xc = Integer.parseInt(zx);
-            AD.add(xc);
-
-            System.out.println(AD.get(ifi));
+            char arr = gh.charAt(ifi);
+            AD.add(Integer.parseInt(String.valueOf(arr)));
         }
-
-        System.out.println("2 " + AD.size());
 
         int vb = 6;
         for (int nff = 0; nff <= AD.size(); nff += 2) {
