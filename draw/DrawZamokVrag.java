@@ -21,6 +21,13 @@ public class DrawZamokVrag extends MyGdxGame {
             TextureRegion ZamokVragSdorov = new TextureRegion(atlas, (BlokList.get(iv).getHealth() * 100), 2700, 100, 100);
             batch.draw(ZamokVragSdorov, (iv * (WIDTH / 7)) + 60, HEIGHT - (HEIGHT / 12), 1, 1, 30, 30, 1, 1, 0);
 
+            if (getNC() == iv) {
+                TextureRegion PodsvetkaBloka = new TextureRegion(atlas, 200, 2900, 100, 100);
+
+                batch.draw(PodsvetkaBloka, (iv * (WIDTH / 7)), HEIGHT - (HEIGHT / 12), 1, 1, WIDTH / 7, HEIGHT / 12, 1, 1, 0);
+
+            }
+
         }
 
     }

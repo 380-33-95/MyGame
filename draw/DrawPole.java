@@ -44,7 +44,6 @@ public class DrawPole extends MyGdxGame {
                 TextureRegion PoleHealth = new TextureRegion(atlas, ((BlokList.get(pp).getHealth()) * 100), 2700, 100, 100);
                 batch.draw(PoleHealth, BlokList.get(pp).getX() + 60, BlokList.get(pp).getY(), 1, 1, 30, 30, 1, 1, 0);
 
-
             }
         }
 

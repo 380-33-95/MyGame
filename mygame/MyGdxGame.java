@@ -82,6 +82,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
         NameLevel = nameLevel;
     }
 
+
     static {  //////////////initialisation
 
         Test.TestTest();

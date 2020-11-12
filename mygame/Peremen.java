@@ -87,20 +87,6 @@ public class Peremen extends MyGdxGame{
     }
 
 
-	
-
-  
-    private static int KodZamokI;
-    
-    public static int getKodZamokI() {
-    //	System.out.println("getKZI="+KodZamokI);
-		return KodZamokI;
-	}
-
-	public static void setKodZamokI(int kodZamokIi) {
-		KodZamokI = kodZamokIi;
-		System.out.println("setKZI="+KodZamokI);
-	}
 
 private static int KodZamok;
     
