@@ -19,9 +19,9 @@ import com.mycompany.draw.DrawPole;
 import com.mycompany.draw.DrawRamkaBoss;
 import com.mycompany.draw.DrawSelectLevel;
 import com.mycompany.draw.DrawStart;
+import com.mycompany.draw.DrawTutorials;
 import com.mycompany.draw.DrawZamokIgrok;
 import com.mycompany.draw.DrawZamokVrag;
-import com.mycompany.draw.LoadLevel;
 
 import static com.mycompany.mygame.JustTouched.IfJustTouched;
 
@@ -53,7 +53,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
         StatusMenu = statusMenu;
     }
 
-    private static int StatusMenu; //0-start; 1-select level; 2-game; 3- finish;
+    private static int StatusMenu; //0-start; 1-select level; 2-game; 3- finish; 4 - tutorials;
 
     public static int getNC() {
         return NC;
@@ -145,8 +145,13 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                     setStatusMenu(1);
                 }
 
-                break;
+                if (getNC() >= 44 && getNC() <= 46) {
+                    setNC(0);
+                    setStatusMenu(4);
+                }
 
+
+                break;
 
             }
 
@@ -170,20 +175,9 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                     setStatusMenu(2);
                     setNameLevel("level1.txt");
 
-                    try {
-                        try {
-
                             LoadLevel.ReadFile(getNameLevel());
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    } finally {
 
                     }
-
-
-                }
-
 
                 //level 2
                 if (getNC() == 11 || getNC() == 12 ||
@@ -194,11 +188,8 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                     setStatusMenu(2);
                     setNameLevel("level2.txt");
 
-                    try {
                         LoadLevel.ReadFile(getNameLevel());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+
                 }
 
 
@@ -211,11 +202,8 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                     setStatusMenu(2);
                     setNameLevel("level3.txt");
 
-                    try {
                         LoadLevel.ReadFile(getNameLevel());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+
                 }
 
                 //level 4
@@ -227,11 +215,8 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                     setStatusMenu(2);
                     setNameLevel("level4.txt");
 
-                    try {
                         LoadLevel.ReadFile(getNameLevel());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+
                 }
 
 
@@ -244,11 +229,8 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                     setStatusMenu(2);
                     setNameLevel("level5.txt");
 
-                    try {
                         LoadLevel.ReadFile(getNameLevel());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+
                 }
 
 
@@ -261,11 +243,8 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                     setStatusMenu(2);
                     setNameLevel("level6.txt");
 
-                    try {
                         LoadLevel.ReadFile(getNameLevel());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+
                 }
 
                 break;
@@ -322,6 +301,23 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                         setStatusMenu(0);
                     }
                 }
+                break;
+            }
+
+            case 4: {
+                DrawTutorials.StartDrawTutorials();
+
+                if (Gdx.input.justTouched()) {
+
+                    IfJustTouched();
+
+                }
+
+                if (getNC() >= 72 && getNC() <= 74) {
+                    setNC(0);
+                    setStatusMenu(0);
+                }
+
                 break;
             }
 

@@ -19,35 +19,37 @@ public class Peremen extends MyGdxGame{
 
 	private static int KnopkaStart=3000;
 
-										public static int getKnopkaStart() {
-											return KnopkaStart;
-										}
+	public static int getKnopkaStart() {
+		return KnopkaStart;
+	}
 
-										public static void setKnopkaStart(int knopkaStart) {
-											KnopkaStart = knopkaStart;
-										}
+	public static void setKnopkaStart(int knopkaStart) {
+		KnopkaStart = knopkaStart;
+	}
 
 
-	public static int Boj=4400;
+	public static int Boj = 3100;
 
-										public static int getBoj() {
-											return Boj;
-										}
-	public static int HodIgrok=2900;
+	public static int getBoj() {
+		return Boj;
+	}
 
-	public static int HodVrag=2900;
+	public static int HodIgrok = 2900;
 
-	public static int KonecBoj=3100;
+	public static int HodVrag = 2900;
 
-	public static int ChejHod=2200;
+	public static int KonecBoj = 4400;
+
+	public static int ChejHod = 2200;
 
 	private static int Step;
 
-										public static int getStep(){
-											return Step;
-										}
-										public static void setStep(int a){
-											Step=a;
+	public static int getStep() {
+		return Step;
+	}
+
+	public static void setStep(int a) {
+		Step = a;
 										}
 	
 

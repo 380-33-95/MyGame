@@ -14,7 +14,7 @@ public class DrawStart extends MyGdxGame {
 
         TextureRegion ZastavkaStart = new TextureRegion(atlas, 0, Peremen.getMenuSt(), WIDTH, HEIGHT);
         TextureRegion ButtonStart = new TextureRegion(atlas, 0, Peremen.getKnopkaStart(), 300, 100);
-
+        TextureRegion ButtonTutorials = new TextureRegion(atlas, 400, 3000, 300, 100);
 
         batch.draw(ZastavkaStart,
                 0,
@@ -27,6 +27,8 @@ public class DrawStart extends MyGdxGame {
                 1,
                 0);
         batch.draw(ButtonStart, (WIDTH / 7) * 2, (HEIGHT / 12) * 7, 1, 1, shirKnopki, visKnopki, 1, 1, 0);
+
+        batch.draw(ButtonTutorials, (WIDTH / 7) * 2, (HEIGHT / 12) * 5, 1, 1, shirKnopki, visKnopki, 1, 1, 0);
 
 
     }
