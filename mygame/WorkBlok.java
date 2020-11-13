@@ -108,6 +108,7 @@ public class WorkBlok extends Blok {
 
         while (st == 1 && nv == 8) {
             nv = (int) Generator.GenRand(Koloda.Basakoloda.length - 1);
+
         }
 
         while (st == 2 && nv == 7) {
