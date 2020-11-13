@@ -46,10 +46,15 @@ public class Effect {
 
               break;
           }
-		  
-          case 5:{ //bomba
+
+          case 5: { //bomba
               BoomBlok.StartBoomBlok(numblok);
               Blok.BlokList.get(numblok).setHealth(0);
+              break;
+          }
+
+          case 7: {
+
               break;
           }
 

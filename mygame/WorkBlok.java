@@ -114,6 +114,35 @@ public class WorkBlok extends Blok {
             nv = (int) Generator.GenRand(Koloda.Basakoloda.length - 1);
         }
 
+        if (st == 1) {
+            int io = 0;
+            for (int iu = 78; iu <= 83; iu++) {
+
+                if (BlokList.get(iu).getEffect() > 0) {
+                    io++;
+                }
+            }
+            if (io >= 5) {
+                nv = (int) Generator.GenRand(5);
+            }
+
+        }
+
+        if (st == 2) {
+
+            int ip = 0;
+            for (int iu = 1; iu <= 6; iu++) {
+
+                if (BlokList.get(iu).getEffect() > 0) {
+                    ip++;
+                }
+            }
+            if (ip >= 5) {
+                nv = (int) Generator.GenRand(5);
+            }
+
+        }
+
         BlokList.get(nb).setIndex(Koloda.Basakoloda[nv][0]);
         BlokList.get(nb).setHealth(Koloda.Basakoloda[nv][1]);
         BlokList.get(nb).setForse(Koloda.Basakoloda[nv][2]);
@@ -168,10 +197,17 @@ public static void LoadPoleFromBasa(int nb, int  index, int st){
             if (BlokList.get(bbu).getForse() > 0 && BlokList.get(bbu).getStorona() == st) {
                 BlokList.get(bbu).setFlagBulet(true);
                 BlokList.get(bbu).setBooletY(BlokList.get(bbu).getY());
-
             }
         }
         DrawBoolet.setScanerBulet(true);
 
+    }
+
+    public static void ChangeStoun() {
+        for (int bbu = 7; bbu <= 76; bbu++) {
+            if (BlokList.get(bbu).getEffect() == 7) {
+                BlokList.get(bbu).setStorona(Peremen.isSmenaHoda() ? 1 : 2);
+            }
+        }
     }
 }

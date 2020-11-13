@@ -13,8 +13,10 @@ public class FindBuletUron extends DrawBoolet {
 
 			for (int aq = ib; aq <= 77; aq += 7) {
 
-				if (BlokList.get(aq).getStorona() == 1 && fv
-						&& BlokList.get(aq).getEffect() == 0) {
+				if (BlokList.get(aq).getStorona() == 1
+						&& fv
+						&& (BlokList.get(aq).getEffect() == 0
+						|| BlokList.get(aq).getEffect() == 7)) {
 					massivBulet[ciclScaner][3] = aq;
 
 					BlokList.get(aq).setHealth(
@@ -39,8 +41,10 @@ public class FindBuletUron extends DrawBoolet {
 
 			for (int aq = ib; aq >= 8; aq -= 7) {
 
-				if (BlokList.get(aq).getStorona() == 2 && fi
-						&& BlokList.get(aq).getEffect() == 0) {
+				if (BlokList.get(aq).getStorona() == 2
+						&& fi
+						&& (BlokList.get(aq).getEffect() == 0
+						|| BlokList.get(aq).getEffect() == 7)) {
 					massivBulet[ciclScaner][3] = aq;
 
 					BlokList.get(aq).setHealth(

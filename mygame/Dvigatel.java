@@ -45,18 +45,20 @@ public class Dvigatel extends MyGdxGame {
 
 
             //esli vperedi object
-            if (BlokList.get(finishV).getIndex() > 0
+            if ((BlokList.get(finishV).getIndex() > 0
                     && BlokList.get(startV).getForse() > 0
-                    && BlokList.get(finishV).getStorona() == 1
+                    && BlokList.get(finishV).getStorona() == 1)
+                    || BlokList.get(finishV).getEffect() == 7
             ) {
                 Stolknovenie.StolknoveniePole(startV);
             }
 
 
+
             // esli vperedi pusto ili effect
             if (BlokList.get(finishV).getIndex() == 0
                     ||
-                    (BlokList.get(finishV).getEffect() > 0)
+                    (BlokList.get(finishV).getEffect() > 0 && BlokList.get(finishV).getEffect() != 7)
             ) {
                 WorkBlok.Peremeshenie(startV, finishV);
                 //esli vperedi effect
@@ -65,7 +67,6 @@ public class Dvigatel extends MyGdxGame {
                                 && BlokList.get(finishV).getEffect() > 0
 
                 ) {
-
                     Effect.SelectEffect(finishV);
                 }
             }
@@ -94,9 +95,10 @@ public class Dvigatel extends MyGdxGame {
                 && BlokList.get(startI).getHealth() > 0) {
 
             //esli vperedi object
-            if (BlokList.get(startI - 7).getIndex() > 0
+            if ((BlokList.get(startI - 7).getIndex() > 0
                     && BlokList.get(startI).getForse() > 0
-                    && BlokList.get(finishI).getStorona() == 2
+                    && BlokList.get(finishI).getStorona() == 2)
+                    || BlokList.get(finishV).getEffect() == 7
             ) {
                 Stolknovenie.StolknoveniePole(startI);
             }
@@ -104,16 +106,15 @@ public class Dvigatel extends MyGdxGame {
             // esli vperedi pusto ili effect
             if (BlokList.get(finishI).getIndex() == 0
                     ||
-                    (BlokList.get(finishI).getEffect() > 0)
+                    (BlokList.get(finishI).getEffect() > 0 && BlokList.get(finishI).getEffect() != 7)
             ) {
                 WorkBlok.Peremeshenie(startI, finishI);
                 //esli vperedi effect
 
                 if (BlokList.get(finishI).getIndex() > 0
                         && BlokList.get(finishI).getEffect() > 0
-
+                        && BlokList.get(finishI).getForse() == 0
                 ) {
-
                     Effect.SelectEffect(finishI);
                 }
             }

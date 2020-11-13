@@ -15,12 +15,28 @@ public class LoadLevel {
     public static void ReadFile(String NameFile) {
 
         String gh = Gdx.files.internal(NameFile).readString();
+        char arr = 0;
+        char arr2 = 0;
+        int yu = 0;
+
+        for (int ifi = 0; ifi <= gh.length() - 1; ifi += 2) {
+
+            arr = gh.charAt(ifi);
+            arr2 = gh.charAt(ifi + 1);
 
 
-        for (int ifi = 0; ifi <= gh.length() - 1; ifi++
-        ) {
-            char arr = gh.charAt(ifi);
-            AD.add(Integer.parseInt(String.valueOf(arr)));
+            int irr = Integer.parseInt(String.valueOf(arr)) * 10;
+            int irr2 = Integer.parseInt(String.valueOf(arr2));
+            irr += irr2;
+
+            if (irr < 99) {
+
+                AD.add(irr);
+                yu++;
+            } else {
+                ifi += 2;
+            }
+
         }
 
             int vb = 6;
@@ -28,7 +44,7 @@ public class LoadLevel {
                 vb++;
                 if (AD.size() > nff) {
                     WorkBlok.LoadPoleFromBasa(vb, AD.get(nff), AD.get(nff + 1));
-                    //    System.out.println("-> " + vb + " index " + AD.get(nff) + " storona " + AD.get(nff + 1));
+                    //
                 }
             }
 

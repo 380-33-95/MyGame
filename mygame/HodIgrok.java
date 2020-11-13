@@ -37,6 +37,8 @@ public class HodIgrok extends ClickSelector {
 
        WorkBlok.LoadFlagBulet(2);
 
+       WorkBlok.ChangeStoun();
+
        WorkBlok.LoadPoleBlok();
 
        WorkBlok.ObnulenieBufer();

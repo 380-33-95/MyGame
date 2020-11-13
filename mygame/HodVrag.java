@@ -35,6 +35,8 @@ public class HodVrag extends ClickSelector {
 
         WorkBlok.LoadFlagBulet(1);
 
+        WorkBlok.ChangeStoun();
+
         WorkBlok.LoadPoleBlok();
 
         WorkBlok.ObnulenieBufer();
