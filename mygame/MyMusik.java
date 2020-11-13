@@ -36,7 +36,11 @@ public class MyMusik {
     ///////////// sound stolknovenie
     public static Music stolknovenieSound;
     public static Music uronSamok;
-    /////////////
+    ///////////// sound moovUnit
+    public static Music moovTank;
+    public static Music moovStrelok;
+    public static Music moovRaket;
+    public static Music moovMinomet;
 
     {
         start = Gdx.audio.newMusic(Gdx.files.internal("data/jump.wav"));
