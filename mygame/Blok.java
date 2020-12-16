@@ -5,11 +5,11 @@ package com.mycompany.mygame;
 import java.util.ArrayList;
 
 
-
 public class Blok {
 
 
   public static ArrayList<Blok> BlokList = new ArrayList<>(83);
+
 
   public Blok() {
     BlokList.add(this);

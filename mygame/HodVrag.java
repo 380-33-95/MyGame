@@ -45,6 +45,8 @@ public class HodVrag extends ClickSelector {
 
         WorkBlok.SdvigZamokV();
 
+        //  MyMusik.MapSound.get(3).play();
+
         Peremen.setSmenaHoda(true);
 
 

@@ -10,8 +10,8 @@ public class Uron extends Blok{
 			if(BlokList.get(a).getStorona()==1) {
 				if((hli-BlokList.get(a).getForse()>=1)) {
 
-					b00.setHealth(hli-BlokList.get(a).getForse());
-
+					b00.setHealth(hli - BlokList.get(a).getForse());
+					MyMusik.MapSound.get(12).play();
 				}
 		else
 				{
@@ -33,8 +33,8 @@ public class Uron extends Blok{
 
 			if(BlokList.get(a).getStorona()==2) {
 				if (hlv-BlokList.get(a).getForse()>=1) {
-					b77.setHealth(hlv-BlokList.get(a).getForse());
-
+					b77.setHealth(hlv - BlokList.get(a).getForse());
+					MyMusik.MapSound.get(12).play();
 				}
 				else
 				{

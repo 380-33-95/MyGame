@@ -8,6 +8,8 @@ public class WorkBlok extends Blok {
 
     public static void Peremeshenie(int isS, int vR) {
 
+        MyMusik.MapSound.get(12).play();
+
         BlokList.get(vR).setIndex(BlokList.get(isS).getIndex());
         BlokList.get(vR).setHealth(BlokList.get(isS).getHealth());
         BlokList.get(vR).setForse(BlokList.get(isS).getForse());
@@ -18,12 +20,28 @@ public class WorkBlok extends Blok {
         ObnulenieKvadratPole(isS);
     }
 
-    public static void LoadPoleBlok(){
+    public static void LoadPoleBlok() {
         BlokList.get(getNC()).setIndex(bufer.getIndex());
         BlokList.get(getNC()).setHealth(bufer.getHealth());
         BlokList.get(getNC()).setForse(bufer.getForse());
         BlokList.get(getNC()).setStorona(bufer.getStorona());
         BlokList.get(getNC()).setEffect(bufer.getEffect());
+
+        if (BlokList.get(getNC()).getIndex() == 6) {
+            MyMusik.MapSound.get(6).play();
+        }
+
+        if (BlokList.get(getNC()).getIndex() >= 7 && BlokList.get(getNC()).getIndex() <= 11) {
+            MyMusik.MapSound.get(7).play();
+        }
+
+//        if (BlokList.get(getNC()).getIndex()==11) {
+//            MyMusik.MapSound.get(7).play();
+//        }
+
+        if (BlokList.get(getNC()).getIndex() >= 1 && BlokList.get(getNC()).getIndex() <= 5) {
+            MyMusik.MapSound.get(5).play();
+        }
 
     }
 
@@ -31,6 +49,7 @@ public class WorkBlok extends Blok {
         Uron.UronBasaIgrok();
         for(int ofv=70; ofv<=76; ofv++) {
             if(BlokList.get(ofv).getStorona()==2) {
+
                 ObnulenieKvadratPole(ofv);
             }
         }

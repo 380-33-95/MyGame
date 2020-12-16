@@ -47,6 +47,8 @@ public class HodIgrok extends ClickSelector {
 
        WorkBlok.SdvigZamokI();
 
+       //   MyMusik.MapSound.get(3).play();
+
        Peremen.setSmenaHoda(false);
 
 

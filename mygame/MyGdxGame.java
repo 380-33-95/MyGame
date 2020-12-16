@@ -24,6 +24,7 @@ import com.mycompany.draw.DrawZamokIgrok;
 import com.mycompany.draw.DrawZamokVrag;
 
 import static com.mycompany.mygame.JustTouched.IfJustTouched;
+import static com.mycompany.mygame.MyMusik.MapSound;
 
 
 public class MyGdxGame extends Blok implements ApplicationListener {
@@ -132,8 +133,12 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
             case 0: {
 
+                MapSound.get(2).stop();
+                MapSound.get(0).play();
+                MapSound.get(0).setLooping(true);
 
                 DrawStart.DrawRunStart();
+
 
                 if (Gdx.input.justTouched()) {
 
@@ -158,6 +163,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
 
             case 1: {
+
 
                 DrawSelectLevel.DrawRunSelectLevel();
 
@@ -254,6 +260,12 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
             case 2: {
 
+                MapSound.get(0).stop();
+
+                MapSound.get(2).play();
+                MapSound.get(2).setVolume(0.25f);
+                MapSound.get(2).setLooping(true);
+
                 DrawGame.DrGame();
 
                 DrawBossVrag.BossVrag();
@@ -292,6 +304,11 @@ public class MyGdxGame extends Blok implements ApplicationListener {
             }
 
             case 3: {
+
+                MapSound.get(1).stop();
+                MapSound.get(2).play();
+                MapSound.get(2).setLooping(true);
+
                 if (!GameEnd.pausaEnd.isScheduled()) {
 
                     //TODO smena sastavki
@@ -337,6 +354,9 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
     @Override
     public void resume() {
+
+        ClearStart.NewStart();
+
 
     }
 

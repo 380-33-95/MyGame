@@ -6,6 +6,8 @@ static 	int b, bb;
 
 	public static void StolknoveniePole(int pp) {
 
+		MyMusik.MapSound.get(11).play();
+
 		switch (Blok.BlokList.get(pp).getStorona()) {
 
 			case 1: {
