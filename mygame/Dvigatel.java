@@ -14,6 +14,7 @@ public class Dvigatel extends MyGdxGame {
 
     public static int finishV;
 
+
     public static int startI;
 
     public static int getStartI() {
@@ -21,6 +22,7 @@ public class Dvigatel extends MyGdxGame {
     }
 
     public static int finishI;
+
 
     public static boolean startCiclVrag = true;
 
@@ -53,12 +55,11 @@ public class Dvigatel extends MyGdxGame {
                 Stolknovenie.StolknoveniePole(startV);
             }
 
-
-
             // esli vperedi pusto ili effect
             if (BlokList.get(finishV).getIndex() == 0
                     ||
-                    (BlokList.get(finishV).getEffect() > 0 && BlokList.get(finishV).getEffect() != 7)
+                    (BlokList.get(finishV).getEffect() > 0
+                            && BlokList.get(finishV).getEffect() != 7)
             ) {
                 WorkBlok.Peremeshenie(startV, finishV);
                 //esli vperedi effect
@@ -92,7 +93,8 @@ public class Dvigatel extends MyGdxGame {
 
         if ((startI < 77) && (BlokList.get(startI).getEffect() == 0)
                 && BlokList.get(startI).getStorona() == 1
-                && BlokList.get(startI).getHealth() > 0) {
+            //        && BlokList.get(startI).getHealth() > 0
+        ) {
 
             //esli vperedi object
             if ((BlokList.get(startI - 7).getIndex() > 0
@@ -106,14 +108,15 @@ public class Dvigatel extends MyGdxGame {
             // esli vperedi pusto ili effect
             if (BlokList.get(finishI).getIndex() == 0
                     ||
-                    (BlokList.get(finishI).getEffect() > 0 && BlokList.get(finishI).getEffect() != 7)
+                    (BlokList.get(finishI).getEffect() > 0
+                            && BlokList.get(finishI).getEffect() != 7)
             ) {
                 WorkBlok.Peremeshenie(startI, finishI);
                 //esli vperedi effect
-
-                if (BlokList.get(finishI).getIndex() > 0
-                        && BlokList.get(finishI).getEffect() > 0
-                        && BlokList.get(finishI).getForse() == 0
+                if (
+                        BlokList.get(finishI).getIndex() > 0
+                                && BlokList.get(finishI).getEffect() > 0
+                    //     && BlokList.get(finishI).getForse() == 0
                 ) {
                     Effect.SelectEffect(finishI);
                 }
