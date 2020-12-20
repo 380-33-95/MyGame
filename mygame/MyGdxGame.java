@@ -355,8 +355,8 @@ public class MyGdxGame extends Blok implements ApplicationListener {
     @Override
     public void resume() {
 
-        ClearStart.NewStart();
-
+        //    ClearStart.NewStart();
+        Gdx.app.exit();
 
     }
 
