@@ -10,7 +10,7 @@ public class Stolknovenie {
 
         //MyMusik.MapSound.get(11).play();
 
-        BlokList.get(pp).PlayMusik(11);
+        BlokList.get(pp).PlayMusik(11, 0.8f);
 
         switch (BlokList.get(pp).getStorona()) {
 

@@ -51,12 +51,9 @@ public class DrawBoolet extends MyGdxGame {
 				if (BlokList.get(ib).getStorona() == (Peremen.isSmenaHoda()
 						? 1 : 2) && BlokList.get(ib).isFlagBulet()) {
 
-
 					//    MyMusik.MapSound.get(4).play();
 
-					//	StekMusik.PlayListAdd(4);
-
-					BlokList.get(ib).PlayMusik(4);
+					BlokList.get(ib).PlayMusik(4, 1f);
 
 					ciclScaner++;
 					massivBulet[ciclScaner][0] = BlokList.get(ib).getX();

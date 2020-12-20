@@ -14,7 +14,7 @@ public class Uron extends Blok{
 
                     b00.setHealth(hli - BlokList.get(a).getForse());
 
-                    BlokList.get(a).PlayMusik(12);
+                    BlokList.get(a).PlayMusik(12, 0.5f);
 
 
                 }
@@ -40,7 +40,7 @@ public class Uron extends Blok{
 				if (hlv-BlokList.get(a).getForse()>=1) {
                     b77.setHealth(hlv - BlokList.get(a).getForse());
 
-                    BlokList.get(a).PlayMusik(12);
+					BlokList.get(a).PlayMusik(12, 0.5f);
 
                 }
 				else

@@ -173,8 +173,9 @@ public class Blok {
 
   ////////Musik Blok////////
 
-  public void PlayMusik(int nomMusic) {
+  public void PlayMusik(int nomMusic, float valMusic) {
 
+    MapSound.get(nomMusic).setVolume(valMusic);
     MapSound.get(nomMusic).play();
 
   }

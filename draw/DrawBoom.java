@@ -13,7 +13,7 @@ public class DrawBoom extends MyGdxGame {
 		for (int pp = 7; pp <= 76; pp++) {
 			if (BlokList.get(pp).getKadrBoom() > 0) {
 
-                BlokList.get(pp).PlayMusik(8);
+                BlokList.get(pp).PlayMusik(8, 0.5f);
 
 
                 TextureRegion PoleBoom = new TextureRegion(atlas, BlokList.get(pp).getKadrBoom() * 100, 2300, 100, 100);

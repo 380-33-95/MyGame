@@ -10,7 +10,7 @@ public class WorkBlok extends Blok {
 
         //   MyMusik.MapSound.get(12).play();
 
-        BlokList.get(vR).PlayMusik(12);
+        BlokList.get(vR).PlayMusik(12, 0.75f);
 
         BlokList.get(vR).setIndex(BlokList.get(isS).getIndex());
         BlokList.get(vR).setHealth(BlokList.get(isS).getHealth());
@@ -33,13 +33,13 @@ public class WorkBlok extends Blok {
 
             //  MyMusik.MapSound.get(6).play();
 
-            BlokList.get(getNC()).PlayMusik(6);
+            BlokList.get(getNC()).PlayMusik(6, 0.5f);
         }
 
         if (BlokList.get(getNC()).getIndex() >= 7 && BlokList.get(getNC()).getIndex() <= 11) {
 
             //   MyMusik.MapSound.get(7).play();
-            BlokList.get(getNC()).PlayMusik(7);
+            BlokList.get(getNC()).PlayMusik(7, 0.5f);
 
         }
 
@@ -51,7 +51,7 @@ public class WorkBlok extends Blok {
 
             //    MyMusik.MapSound.get(5).play();
 
-            BlokList.get(getNC()).PlayMusik(5);
+            BlokList.get(getNC()).PlayMusik(5, 0.5f);
         }
 
     }
