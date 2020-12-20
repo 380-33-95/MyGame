@@ -1,53 +1,57 @@
 package com.mycompany.mygame;
 
+import static com.mycompany.mygame.Blok.BlokList;
+
 public class Stolknovenie {
 
-static 	int b, bb;
+    static int b, bb;
 
-	public static void StolknoveniePole(int pp) {
+    public static void StolknoveniePole(int pp) {
 
-		MyMusik.MapSound.get(11).play();
+        //MyMusik.MapSound.get(11).play();
 
-		switch (Blok.BlokList.get(pp).getStorona()) {
+        BlokList.get(pp).PlayMusik(11);
 
-			case 1: {
+        switch (BlokList.get(pp).getStorona()) {
 
-				b = pp;
-				bb = b - 7;
+            case 1: {
 
-				break;
-			}
+                b = pp;
+                bb = b - 7;
 
-			case 2: {
+                break;
+            }
 
-				b = pp;
-				bb = b + 7;
+            case 2: {
 
-				break;
-			}
+                b = pp;
+                bb = b + 7;
 
-		}
+                break;
+            }
 
-		Blok.BlokList.get(b).setHealth(
-				Blok.BlokList.get(b).getHealth() -
-						Blok.BlokList.get(bb).getForse());
+        }
 
-		Blok.BlokList.get(bb).setHealth(
-				Blok.BlokList.get(bb).getHealth() -
-						Blok.BlokList.get(b).getForse()
-		);
+        BlokList.get(b).setHealth(
+                BlokList.get(b).getHealth() -
+                        BlokList.get(bb).getForse());
 
-		if (Blok.BlokList.get(b).getHealth() <= 0) {
-			BoomBlok.StartBoomBlok(b);
+        BlokList.get(bb).setHealth(
+                BlokList.get(bb).getHealth() -
+                        BlokList.get(b).getForse()
+        );
 
-		}
+        if (BlokList.get(b).getHealth() <= 0) {
+            BoomBlok.StartBoomBlok(b);
 
-		if (Blok.BlokList.get(bb).getHealth() <= 0) {
-			BoomBlok.StartBoomBlok(bb);
-		}
+        }
+
+        if (BlokList.get(bb).getHealth() <= 0) {
+            BoomBlok.StartBoomBlok(bb);
+        }
 
 
-	}
+    }
 
 
 	

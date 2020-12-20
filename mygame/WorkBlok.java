@@ -8,7 +8,9 @@ public class WorkBlok extends Blok {
 
     public static void Peremeshenie(int isS, int vR) {
 
-        MyMusik.MapSound.get(12).play();
+        //   MyMusik.MapSound.get(12).play();
+
+        BlokList.get(vR).PlayMusik(12);
 
         BlokList.get(vR).setIndex(BlokList.get(isS).getIndex());
         BlokList.get(vR).setHealth(BlokList.get(isS).getHealth());
@@ -28,11 +30,17 @@ public class WorkBlok extends Blok {
         BlokList.get(getNC()).setEffect(bufer.getEffect());
 
         if (BlokList.get(getNC()).getIndex() == 6) {
-            MyMusik.MapSound.get(6).play();
+
+            //  MyMusik.MapSound.get(6).play();
+
+            BlokList.get(getNC()).PlayMusik(6);
         }
 
         if (BlokList.get(getNC()).getIndex() >= 7 && BlokList.get(getNC()).getIndex() <= 11) {
-            MyMusik.MapSound.get(7).play();
+
+            //   MyMusik.MapSound.get(7).play();
+            BlokList.get(getNC()).PlayMusik(7);
+
         }
 
 //        if (BlokList.get(getNC()).getIndex()==11) {
@@ -40,7 +48,10 @@ public class WorkBlok extends Blok {
 //        }
 
         if (BlokList.get(getNC()).getIndex() >= 1 && BlokList.get(getNC()).getIndex() <= 5) {
-            MyMusik.MapSound.get(5).play();
+
+            //    MyMusik.MapSound.get(5).play();
+
+            BlokList.get(getNC()).PlayMusik(5);
         }
 
     }

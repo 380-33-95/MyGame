@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.mycompany.mygame.FindBuletUron;
 import com.mycompany.mygame.MyGdxGame;
-import com.mycompany.mygame.MyMusik;
 import com.mycompany.mygame.Peremen;
 
 
@@ -53,16 +52,20 @@ public class DrawBoolet extends MyGdxGame {
 						? 1 : 2) && BlokList.get(ib).isFlagBulet()) {
 
 
-                    MyMusik.MapSound.get(4).play();
+					//    MyMusik.MapSound.get(4).play();
 
-                    ciclScaner++;
-                    massivBulet[ciclScaner][0] = BlokList.get(ib).getX();
-                    massivBulet[ciclScaner][1] = BlokList.get(ib).getY();
-                    massivBulet[ciclScaner][2] = ib;
-                    BlokList.get(ib).setFlagBulet(false);
-                    setVistrel(true);
+					//	StekMusik.PlayListAdd(4);
 
-                    /////////////////////////////////////////////
+					BlokList.get(ib).PlayMusik(4);
+
+					ciclScaner++;
+					massivBulet[ciclScaner][0] = BlokList.get(ib).getX();
+					massivBulet[ciclScaner][1] = BlokList.get(ib).getY();
+					massivBulet[ciclScaner][2] = ib;
+					BlokList.get(ib).setFlagBulet(false);
+					setVistrel(true);
+
+					/////////////////////////////////////////////
 
 					FindBuletUron.StartScaner(massivBulet[ciclScaner][2]);
 

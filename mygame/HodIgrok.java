@@ -8,14 +8,13 @@ public class HodIgrok extends ClickSelector {
 
    public static void HodIgrokZamok() {
 
-
        WorkBlok.ObnulenieBufer();
 
-	   LoadBufer.LoadVBufer(getNC());
+       LoadBufer.LoadVBufer(getNC());
 
-	   WorkBlok.ObnulenieFinishI();
+       WorkBlok.ObnulenieFinishI();
 
-	   Peremen.setKodZamok(getNC());
+       Peremen.setKodZamok(getNC());
 
 
        if (Dvigatel.startCiclIgrok) {

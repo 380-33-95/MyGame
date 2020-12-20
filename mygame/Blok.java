@@ -4,6 +4,8 @@ package com.mycompany.mygame;
 
 import java.util.ArrayList;
 
+import static com.mycompany.mygame.MyMusik.MapSound;
+
 
 public class Blok {
 
@@ -169,10 +171,17 @@ public class Blok {
     return this.FlagBulet;
   }
 
+  ////////Musik Blok////////
+
+  public void PlayMusik(int nomMusic) {
+
+    MapSound.get(nomMusic).play();
+
+  }
 
   ////////////////
 
-  //TODO BLOKS
+
   public static Blok b00 = new Blok();   //boss vrag
 
   public static Blok b01 = new Blok();   //zamok vrag

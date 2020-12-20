@@ -222,7 +222,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                     setStatusMenu(2);
                     setNameLevel("level4.txt");
 
-                        LoadLevel.ReadFile(getNameLevel());
+                   LoadLevel.ReadFile(getNameLevel());
 
                 }
 
