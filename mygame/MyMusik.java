@@ -23,7 +23,7 @@ public class MyMusik {
         MapSound.put(2, finishBoj);
 
         Music smenaHoda = Gdx.audio.newMusic(Gdx.files.internal("data/sound sea/sound service/smenaHoda.mp3"));
-        //   MapSound.put(3,smenaHoda);
+         MapSound.put(3, smenaHoda);
 
         Music bulletBoth = Gdx.audio.newMusic(Gdx.files.internal("data/sound sea/sound bullet/bulletBoth.mp3"));
         MapSound.put(4, bulletBoth);

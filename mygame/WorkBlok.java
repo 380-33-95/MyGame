@@ -51,7 +51,7 @@ public class WorkBlok extends Blok {
 
             //    MyMusik.MapSound.get(5).play();
 
-            BlokList.get(getNC()).PlayMusik(5, 0.5f);
+            BlokList.get(getNC()).PlayMusik(5, 0.25f);
         }
 
     }

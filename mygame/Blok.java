@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import static com.mycompany.mygame.MyMusik.MapSound;
 
+import com.badlogic.gdx.audio.Music;
 
 public class Blok {
 
@@ -163,24 +164,27 @@ public class Blok {
 
   private boolean FlagBulet;
 
-  public void setFlagBulet(boolean FlagBulet) {
-    this.FlagBulet = FlagBulet;
-  }
+    public void setFlagBulet(boolean FlagBulet) {
+        this.FlagBulet = FlagBulet;
+    }
 
-  public boolean isFlagBulet() {
-    return this.FlagBulet;
-  }
+    public boolean isFlagBulet() {
+        return this.FlagBulet;
+    }
 
-  ////////Musik Blok////////
+    ////////Musik Blok////////
 
-  public void PlayMusik(int nomMusic, float valMusic) {
+    public Music musicBlok;
 
-    MapSound.get(nomMusic).setVolume(valMusic);
-    MapSound.get(nomMusic).play();
+    public void PlayMusik(int nomMusic, float valMusic) {
 
-  }
+        musicBlok = MapSound.get(nomMusic);
+        musicBlok.setVolume(valMusic);
+        musicBlok.play();
 
-  ////////////////
+    }
+
+    ////////////////
 
 
   public static Blok b00 = new Blok();   //boss vrag

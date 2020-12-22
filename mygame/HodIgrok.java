@@ -1,6 +1,8 @@
 
 package com.mycompany.mygame;
 
+import com.mycompany.draw.DrawSmenaHoda;
+
 import static com.mycompany.mygame.WorkBlok.ObnulenieKvadratZamok;
 
 public class HodIgrok extends ClickSelector {
@@ -49,6 +51,8 @@ public class HodIgrok extends ClickSelector {
        //   MyMusik.MapSound.get(3).play();
 
        Peremen.setSmenaHoda(false);
+       DrawSmenaHoda.sun = false;
+       DrawSmenaHoda.CircleSun = WIDTH - WIDTH / 7;
 
 
    }

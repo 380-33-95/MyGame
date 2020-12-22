@@ -14,10 +14,12 @@ import com.mycompany.draw.DrawBossIgrok;
 import com.mycompany.draw.DrawBossVrag;
 import com.mycompany.draw.DrawEnd;
 import com.mycompany.draw.DrawGame;
+import com.mycompany.draw.DrawOblako;
 import com.mycompany.draw.DrawPervijHod;
 import com.mycompany.draw.DrawPole;
 import com.mycompany.draw.DrawRamkaBoss;
 import com.mycompany.draw.DrawSelectLevel;
+import com.mycompany.draw.DrawSmenaHoda;
 import com.mycompany.draw.DrawStart;
 import com.mycompany.draw.DrawTutorials;
 import com.mycompany.draw.DrawZamokIgrok;
@@ -263,7 +265,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                 MapSound.get(0).stop();
 
                 MapSound.get(2).play();
-                MapSound.get(2).setVolume(0.25f);
+                MapSound.get(2).setVolume(0.10f);
                 MapSound.get(2).setLooping(true);
 
                 DrawGame.DrGame();
@@ -281,6 +283,10 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                 DrawPole.DrawStartPole();
 
                 DrawBoom.DrawCiclBoom();
+
+                DrawSmenaHoda.StartDrawSmenaHoda();
+
+                DrawOblako.StartDrawOblako();
 
 
                 if (GameFirstHod.myTimerTask.isScheduled()) {

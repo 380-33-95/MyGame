@@ -1,5 +1,7 @@
 package com.mycompany.mygame;
 
+import com.mycompany.draw.DrawSmenaHoda;
+
 import static com.mycompany.mygame.Dvigatel.startCiclIgrok;
 import static com.mycompany.mygame.Dvigatel.startCiclVrag;
 import static com.mycompany.mygame.Dvigatel.startV;
@@ -48,6 +50,8 @@ public class HodVrag extends ClickSelector {
         //  MyMusik.MapSound.get(3).play();
 
         Peremen.setSmenaHoda(true);
+        DrawSmenaHoda.sun = true;
+        DrawSmenaHoda.CircleSun = 0;
 
 
     }
