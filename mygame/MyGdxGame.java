@@ -8,11 +8,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.TimeUtils;
 import com.mycompany.draw.DrawBoolet;
 import com.mycompany.draw.DrawBoom;
 import com.mycompany.draw.DrawBossIgrok;
@@ -29,8 +27,6 @@ import com.mycompany.draw.DrawStart;
 import com.mycompany.draw.DrawTutorials;
 import com.mycompany.draw.DrawZamokIgrok;
 import com.mycompany.draw.DrawZamokVrag;
-
-import java.util.Iterator;
 
 import static com.mycompany.mygame.JustTouched.IfJustTouched;
 import static com.mycompany.mygame.MyMusik.MapSound;
@@ -89,9 +85,9 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
     ///////////////////////////
 
-    public Array<Rectangle> clouddrops;
-    public long lastDropTime;
-    TextureRegion dropImage;
+    public static Array<Rectangle> clouddrops;
+    public static long lastDropTime;
+    public static TextureRegion dropImage;
 
     ////////////////////////////
 
@@ -120,21 +116,21 @@ public class MyGdxGame extends Blok implements ApplicationListener {
         dropImage = new TextureRegion(atlas, 700, 2900, 100, 100);
 
         clouddrops = new Array<Rectangle>();
-        spawnRaindrop();
+        DrawOblako.spawnCloud();
 ////////////////////////////
 
 
     }
 
-    private void spawnRaindrop() {
-        Rectangle raindrop = new Rectangle();
-        raindrop.x = MathUtils.random(0, WIDTH - 64);
-        raindrop.y = HEIGHT - 100;
-        raindrop.width = 64;
-        raindrop.height = 64;
-        clouddrops.add(raindrop);
-        lastDropTime = TimeUtils.nanoTime();
-    }
+//    private void spawnRaindrop() {
+//        Rectangle raindrop = new Rectangle();
+//        raindrop.x = MathUtils.random(0, WIDTH - 64);
+//        raindrop.y = HEIGHT - 100;
+//        raindrop.width = 64;
+//        raindrop.height = 64;
+//        clouddrops.add(raindrop);
+//        lastDropTime = TimeUtils.nanoTime();
+//    }
 
 //////////////////////////
 
@@ -317,21 +313,21 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
                 //////////////////////////////////////
 
-                for (Rectangle raindrop : clouddrops) {
-                    batch.draw(dropImage, raindrop.x, raindrop.y);
-                }
-
-                if (TimeUtils.nanoTime() - lastDropTime > 1000000000) spawnRaindrop();
-
-                // движение капли, удаляем все капли выходящие за границы экрана
-                // или те, что попали в ведро. Воспроизведение звукового эффекта
-                // при попадании.
-                Iterator<Rectangle> iter = clouddrops.iterator();
-                while (iter.hasNext()) {
-                    Rectangle raindrop = iter.next();
-                    raindrop.y -= 200 * Gdx.graphics.getDeltaTime();
-                    if (raindrop.y + 64 < 0) iter.remove();
-                }
+//                for (Rectangle raindrop : clouddrops) {
+//                    batch.draw(dropImage, raindrop.x, raindrop.y);
+//                }
+//
+//                if (TimeUtils.nanoTime() - lastDropTime > 1000000000) spawnRaindrop();
+//
+//                // движение капли, удаляем все капли выходящие за границы экрана
+//                // или те, что попали в ведро. Воспроизведение звукового эффекта
+//                // при попадании.
+//                Iterator<Rectangle> iter = clouddrops.iterator();
+//                while (iter.hasNext()) {
+//                    Rectangle raindrop = iter.next();
+//                    raindrop.y -= 200 * Gdx.graphics.getDeltaTime();
+//                    if (raindrop.y + 64 < 0) iter.remove();
+//                }
 
                 ///////////////////////////////////////
 
