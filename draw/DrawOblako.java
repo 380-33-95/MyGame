@@ -10,8 +10,8 @@ public class DrawOblako extends MyGdxGame {
 
 	private void spawnCloud() {
 		Rectangle clouddrop = new Rectangle();
-		clouddrop.x = MathUtils.random(0, 1280 - 64);
-		clouddrop.y = 480;
+		clouddrop.x = MathUtils.random(0, WIDTH - 64);
+		clouddrop.y = HEIGHT - 100;
 		clouddrop.width = 64;
 		clouddrop.height = 64;
 		clouddrops.add(clouddrop);

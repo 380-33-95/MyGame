@@ -128,8 +128,8 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
     private void spawnRaindrop() {
         Rectangle raindrop = new Rectangle();
-        raindrop.x = MathUtils.random(0, 800 - 64);
-        raindrop.y = 480;
+        raindrop.x = MathUtils.random(0, WIDTH - 64);
+        raindrop.y = HEIGHT - 100;
         raindrop.width = 64;
         raindrop.height = 64;
         clouddrops.add(raindrop);
