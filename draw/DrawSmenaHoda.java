@@ -44,7 +44,7 @@ public class DrawSmenaHoda extends MyGdxGame {
 				sun = false;
 
 
-				Peremen.setSmenaHoda(!Peremen.isSmenaHoda());
+				//	Peremen.setSmenaHoda(!Peremen.isSmenaHoda());
 
 				if (Peremen.isSmenaHoda()) {
 					Dvigatel.StartCiclPoleIgrok();
@@ -68,7 +68,7 @@ public class DrawSmenaHoda extends MyGdxGame {
 
 			if (CircleSun <= 0) {
 				sun = true;
-				Peremen.setSmenaHoda(!Peremen.isSmenaHoda());
+				//		Peremen.setSmenaHoda(!Peremen.isSmenaHoda());
 				CircleSun = 0;
 			}
 

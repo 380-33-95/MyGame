@@ -113,7 +113,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
         batch = new SpriteBatch();
         atlas = new Texture("atlas.png");
 ///////////////////////
-        dropImage = new TextureRegion(atlas, 700, 2900, 100, 100);
+        dropImage = new TextureRegion(atlas, 703, 2903, 90, 90);
 
         clouddrops = new Array<Rectangle>();
         DrawOblako.spawnCloud();
@@ -121,18 +121,6 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
 
     }
-
-//    private void spawnRaindrop() {
-//        Rectangle raindrop = new Rectangle();
-//        raindrop.x = MathUtils.random(0, WIDTH - 64);
-//        raindrop.y = HEIGHT - 100;
-//        raindrop.width = 64;
-//        raindrop.height = 64;
-//        clouddrops.add(raindrop);
-//        lastDropTime = TimeUtils.nanoTime();
-//    }
-
-//////////////////////////
 
     ////////////////////////////
     @Override
@@ -311,26 +299,6 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
                 DrawOblako.StartDrawOblako();
 
-                //////////////////////////////////////
-
-//                for (Rectangle raindrop : clouddrops) {
-//                    batch.draw(dropImage, raindrop.x, raindrop.y);
-//                }
-//
-//                if (TimeUtils.nanoTime() - lastDropTime > 1000000000) spawnRaindrop();
-//
-//                // движение капли, удаляем все капли выходящие за границы экрана
-//                // или те, что попали в ведро. Воспроизведение звукового эффекта
-//                // при попадании.
-//                Iterator<Rectangle> iter = clouddrops.iterator();
-//                while (iter.hasNext()) {
-//                    Rectangle raindrop = iter.next();
-//                    raindrop.y -= 200 * Gdx.graphics.getDeltaTime();
-//                    if (raindrop.y + 64 < 0) iter.remove();
-//                }
-
-                ///////////////////////////////////////
-
 
                 if (GameFirstHod.myTimerTask.isScheduled()) {
                     DrawPervijHod.PervijStartHod();
@@ -413,9 +381,6 @@ public class MyGdxGame extends Blok implements ApplicationListener {
     @Override
     public void dispose() {
 
-        ////////////////////
-
-        ///////////////////
         batch.dispose();
         atlas.dispose();
 

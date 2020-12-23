@@ -11,38 +11,37 @@ import java.util.Iterator;
 public class DrawOblako extends MyGdxGame {
 
 	public static void spawnCloud() {
+
 		Rectangle clouddrop = new Rectangle();
 
 		clouddrop.y = MathUtils.random(HEIGHT / 12, HEIGHT - (HEIGHT / 12));
 		clouddrop.x = WIDTH - (WIDTH / 7);
 
-		clouddrop.width = 64;
-		clouddrop.height = 64;
+		clouddrop.width = MathUtils.random(10, 100);
+		clouddrop.height = MathUtils.random(10, 100);
 		clouddrops.add(clouddrop);
-		lastDropTime = TimeUtils.nanoTime();
+		lastDropTime = TimeUtils.millis();
+
 	}
 
 	public static void StartDrawOblako() {
 
-		//////////////////////////////////////
-
 		for (Rectangle raindrop : clouddrops) {
-			batch.draw(dropImage, raindrop.x, raindrop.y);
+			batch.draw(dropImage, raindrop.x, raindrop.y, raindrop.width, raindrop.height);
 		}
 
-		if (TimeUtils.nanoTime() - lastDropTime > 2000000000) spawnCloud();
+		if (TimeUtils.millis() - lastDropTime > 2000) spawnCloud();
 
-		// движение капли, удаляем все капли выходящие за границы экрана
-		// или те, что попали в ведро. Воспроизведение звукового эффекта
-		// при попадании.
 		Iterator<Rectangle> iter = clouddrops.iterator();
 		while (iter.hasNext()) {
 			Rectangle raindrop = iter.next();
 			raindrop.x -= 50 * Gdx.graphics.getDeltaTime();
-			if (raindrop.x + 64 < 0) iter.remove();
+
+			if (raindrop.x + raindrop.width < 0) {
+				iter.remove();
+			}
 		}
 
-		///////////////////////////////////////
 
 	}
 
