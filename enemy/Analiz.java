@@ -45,7 +45,7 @@ public class Analiz extends Blok {
 	}
 
 
-	public static int FindVeryShortEnemy() {
+	public static int SamijBlizkijEnemy() {
 
 		int shortEnemy = 76;
 
@@ -78,6 +78,21 @@ public class Analiz extends Blok {
 
 		return nomMine;
 	}
+
+
+	public static boolean FindBoth() {
+		boolean kl = false;
+		int bv = 1;
+
+		while (bv <= 6) {
+			if (BlokList.get(bv).getEffect() == 0) {
+				kl = true;
+				bv++;
+			}
+		}
+		return kl;
+	}
+
 
 	///
 }
