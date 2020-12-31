@@ -119,7 +119,6 @@ public class MyGdxGame extends Blok implements ApplicationListener {
         DrawOblako.spawnCloud();
 ////////////////////////////
 
-
     }
 
     ////////////////////////////
@@ -309,10 +308,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
                 if (Gdx.input.justTouched()) {
 
-                    ClickSelector.TouchPressed(
-
-                            IfJustTouched()
-                    );
+                    ClickSelector.TouchPressed(IfJustTouched());
 
                     GameInfo.InfoKletka();
                 }

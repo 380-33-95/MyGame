@@ -6,6 +6,7 @@ public class ClickSelector extends MyGdxGame{
 
 	public static void TouchPressed(int nc) {
 
+setNC(nc);
 
 		if (getStatusMenu() == 2) { //BOJ
 
@@ -42,14 +43,14 @@ public class ClickSelector extends MyGdxGame{
 
 			/////////////////////////////////////////////////////////////////////hod vrag
 
+
 			if ((getNC() >= 1 && getNC() <= 6)
 					&& (!Peremen.isSmenaHoda())
 
-            )
-			{
-
-				HodVrag.HodVragZamok();
-			}
+            ) {
+                System.out.println("HodVrag.HodVragZamok();");
+                HodVrag.HodVragZamok();
+            }
 
 			if (getNC() >= 7 && getNC() <= 13
                     && bufer.getIndex() > 0

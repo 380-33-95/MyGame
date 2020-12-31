@@ -2,12 +2,29 @@ package com.mycompany.enemy;
 
 public class StrategijaSamijBlizkij {
 
-    public static void StartSamijBlizkij() {
+    public static boolean StartSamijBlizkij() {
 
-        if (Analiz.SamijBlizkijEnemy() > 0) {
-            
+        boolean result = false;
+
+        if (Analiz.ProverkaPole()) {
+
+            if (Analiz.FindVeryForseBlok() > 0) {
+
+//
+                if (Analiz.SamijBlizkijEnemy(13)) {
+
+                    result = true;
+
+                } else {
+                    result = false;
+                    System.out.println("false");
+                }
+
+            }
 
         }
+        System.out.println(result);
+        return result;
 
 
     }

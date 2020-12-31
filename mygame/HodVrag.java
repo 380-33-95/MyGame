@@ -32,7 +32,6 @@ public class HodVrag extends ClickSelector {
     }
 
 
-
     public static void HodVragPole(){
 
         WorkBlok.LoadFlagBulet(1);
@@ -50,9 +49,16 @@ public class HodVrag extends ClickSelector {
         //  MyMusik.MapSound.get(3).play();
 
         Peremen.setSmenaHoda(true);
-        DrawSmenaHoda.sun = true;
+        //  DrawSmenaHoda.sun = true;
         DrawSmenaHoda.CircleSun = 0;
 
+    }
+
+    public static void HodII(int otkuda, int kuda) {
+
+        System.out.println("is " + otkuda + " cuda " + kuda);
+        ClickSelector.TouchPressed(otkuda);
+        ClickSelector.TouchPressed(kuda);
 
     }
 

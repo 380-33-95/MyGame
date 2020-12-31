@@ -20,22 +20,22 @@ public class GameFirstHod {
 
 	
 	public static void GenerationFirstHod() {
-		int fs;
-		fs=(int)Generator.GenRand(2);
+        int fs = 2;
+//		fs=(int)Generator.GenRand(2);
 
-		if(fs>1) {
-			Peremen.setSmenaHoda(true);
+        if (fs > 1) {
+            Peremen.setSmenaHoda(true);
             Peremen.setBannerChejHod(0);
-			StartTimer();
-		
-		}
-		else {
-			Peremen.setSmenaHoda(false);
-            Peremen.setBannerChejHod(200);
-			StartTimer();
-		}
+            StartTimer();
 
-	}
+        }
+//		else {
+//			Peremen.setSmenaHoda(false);
+//            Peremen.setBannerChejHod(200);
+//			StartTimer();
+//		}
+
+    }
 
 	
 	

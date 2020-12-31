@@ -2,6 +2,7 @@
 package com.mycompany.mygame;
 
 import com.mycompany.draw.DrawSmenaHoda;
+import com.mycompany.enemy.StartEnemy;
 
 import static com.mycompany.mygame.WorkBlok.ObnulenieKvadratZamok;
 
@@ -54,6 +55,7 @@ public class HodIgrok extends ClickSelector {
        DrawSmenaHoda.sun = false;
        DrawSmenaHoda.CircleSun = WIDTH - WIDTH / 7;
 
+       StartEnemy.StartEnemyStrategy();
 
    }
 
