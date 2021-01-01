@@ -1,6 +1,7 @@
 
 package com.mycompany.mygame;
 
+import com.mycompany.draw.DrawBoolet;
 import com.mycompany.draw.DrawSmenaHoda;
 import com.mycompany.enemy.StartEnemy;
 
@@ -25,7 +26,6 @@ public class HodIgrok extends ClickSelector {
            Dvigatel.StartCiclPoleIgrok();
            Dvigatel.startCiclIgrok = false;
            Dvigatel.startCiclVrag = true;
-
        }
 
    }
@@ -54,7 +54,7 @@ public class HodIgrok extends ClickSelector {
        Peremen.setSmenaHoda(false);
        DrawSmenaHoda.sun = false;
        DrawSmenaHoda.CircleSun = WIDTH - WIDTH / 7;
-
+       DrawBoolet.StartDrawBulet();
        StartEnemy.StartEnemyStrategy();
 
    }

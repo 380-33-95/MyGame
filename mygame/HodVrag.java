@@ -54,12 +54,5 @@ public class HodVrag extends ClickSelector {
 
     }
 
-    public static void HodII(int otkuda, int kuda) {
-
-        System.out.println("is " + otkuda + " cuda " + kuda);
-        ClickSelector.TouchPressed(otkuda);
-        ClickSelector.TouchPressed(kuda);
-
-    }
 
 }

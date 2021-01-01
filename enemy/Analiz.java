@@ -7,11 +7,19 @@ import com.mycompany.mygame.ClickSelector;
 public class Analiz extends Blok {
 
 
+	public static Blok BlokListGet(int kj) {
+		Blok df = null;
+		df = BlokList.get(kj);
+		return df;
+	}
+
+
 	public static boolean ProverkaPole() {
 		boolean lk = false;
 
 		for (int dc = 14; dc <= 76; dc++) {
-			if (BlokList.get(dc).getStorona() == 1) {
+
+			if (BlokListGet(dc).getStorona() == 1) {
 				lk = true;
 				System.out.println("enemy =" + dc);
 			}
@@ -28,9 +36,9 @@ public class Analiz extends Blok {
 		int VeryForse = 0;
 
 		for (int gh = 1; gh <= 6; gh++) {
-			if (BlokList.get(gh).getEffect() == 0
-					&& BlokList.get(gh).getForse() > VeryForse) {
-				VeryForse = BlokList.get(gh).getForse();
+			if (BlokListGet(gh).getEffect() == 0
+					&& BlokListGet(gh).getForse() > VeryForse) {
+				VeryForse = BlokListGet(gh).getForse();
 				gv = gh;
 			}
 		}
@@ -43,40 +51,46 @@ public class Analiz extends Blok {
 	}
 
 
-	public static boolean SamijBlizkijEnemy(int hud) {
+	public static int SamijBlizkijEnemy(int hud) {
 
 
 		boolean sm = false;
 
-		int hu = hud;
-		int hup = 0;
+		while (hud <= 76 && !sm) {
 
-		while (hu <= 76 && !sm) {
-
-			hu++;
-			if (BlokList.get(hu).getStorona() == 1
-					&& BlokList.get(hu).getEffect() == 0) {
+			hud++;
+			if (BlokListGet(hud).getStorona() == 1
+					&& BlokListGet(hud).getEffect() == 0) {
 				sm = true;
-				System.out.println("find enemy =" + hu);
 			}
 		}
-		if (hu > 13 && hu <= 76) {
-			hup = hu;
-			while (hup >= 13) {
-				hup = hup - 7;
-				System.out.println("next>>" + hup);
+		return hud;
+	}
+
+
+	public static boolean PererbrosVpole(int hu) {
+
+		boolean sm = false;
+
+		int hup = 0;
+
+		if (hu >= 14 && hu <= 76) { //ishem kuda stavit naprotiv
+
+			while (hu >= 14) {
+				hu = hu - 7;
 			}
 
-			if (BlokList.get(hup).getIndex() == 0) {
-				ClickSelector.TouchPressed(hup);
+			if (BlokListGet(hu).getIndex() == 0) //proverjem ne sanjat li kvadrat
+			{
+				ClickSelector.TouchPressed(hu);
 			} else {
-				if (SamijBlizkijEnemy(hu - 1)) {
-					SamijBlizkijEnemy(hu - 1);
+				if (SamijBlizkijEnemy(hu + 1) > 0) {
+					SamijBlizkijEnemy(hu + 1);
 				} else {
 
 					if (HodEffect()) {
-
 					}
+
 				}
 			}
 
@@ -85,23 +99,58 @@ public class Analiz extends Blok {
 	}
 
 
-	public static int FindZamokMine() {
+	public static boolean FindZamokMine() {
+
+		boolean estmina = false;
 
 		int nomMine = 0;
 		for (int ds = 1; ds <= 6; ds++) {
 
-			if (BlokList.get(ds).getIndex() == 6) {
+			if (BlokListGet(ds).getIndex() == 6) {
 				nomMine = ds;
+				System.out.println("find mina " + nomMine);
 			}
 
 		}
+
 		if (nomMine > 0 && nomMine <= 6) {
 			ClickSelector.TouchPressed(nomMine);
+			estmina = true;
 		}
 
-		return nomMine;
+
+		return estmina;
 	}
 
+
+	public static boolean PerebrosMina(int ft) {
+
+		System.out.println("Perebros mina");
+		boolean sp = false;
+
+		if (ft >= 42 && ft <= 76) {
+			while (ft <= 41 && ft >= 35) {
+				ft = ft - 7;
+			}
+			if (BlokListGet(ft).getIndex() == 0) {
+				ClickSelector.TouchPressed(ft);
+				sp = true;
+			}
+		}
+
+
+		if (ft >= 14 && ft <= 41) { //ishem kuda stavit naprotiv
+
+			ft = ft - 7;
+
+			if (BlokListGet(ft).getIndex() == 0) {
+				ClickSelector.TouchPressed(ft);
+				sp = true;
+			}
+
+		}
+		return sp;
+	}
 
 	public static boolean HodEffect() {
 		boolean he = false;
@@ -112,7 +161,7 @@ public class Analiz extends Blok {
 
 		while (!he) {
 			le++;
-			if (BlokList.get(le).getEffect() >= 6 && BlokList.get(le).getEffect() <= 11) {
+			if (BlokListGet(le).getEffect() >= 6 && BlokListGet(le).getEffect() <= 11) {
 				he = true;
 				ClickSelector.TouchPressed(le);
 
@@ -121,7 +170,7 @@ public class Analiz extends Blok {
 		}
 		while (!hv) {
 			lv = MathUtils.random(14, 41);
-			if (BlokList.get(lv).getIndex() == 0) {
+			if (BlokListGet(lv).getIndex() == 0) {
 				ClickSelector.TouchPressed(lv);
 				hv = true;
 			}
