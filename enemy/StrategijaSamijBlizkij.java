@@ -8,49 +8,41 @@ public class StrategijaSamijBlizkij {
 
         boolean mina = false;
 
-        if (Analiz.ProverkaPole()) {
 
-            if (Analiz.FindZamokMine()) { // esli est mina
+        if (Analiz.SamijBlizkijEnemy(13) > 0) {
 
-                mina = true;
+            if (Analiz.FindZamokMine()
+                    && Analiz.VerefyMinaOfKurs(Analiz.SamijBlizkijEnemy(13))
+            ) { // esli est mina
 
-                if (Analiz.SamijBlizkijEnemy(13) > 0) {
-
-                    if (Analiz.PerebrosMina(Analiz.SamijBlizkijEnemy(13))) {
-                        result = true;
-                    }
-
-
-                }
-
-            }
-//            else {
-//                result = false;
-//                System.out.println("false");
-//            }
-
-            if (Analiz.FindVeryForseBlok() > 0 && !mina) {
-
-//
-                if (Analiz.SamijBlizkijEnemy(13) > 0) {
-
-                    Analiz.PererbrosVpole(Analiz.SamijBlizkijEnemy(13));
-
+                if (Analiz.PerebrosMina(Analiz.SamijBlizkijEnemy(13))) {
                     result = true;
-
-
-                } else {
-                    result = false;
-                    System.out.println("false");
+                    mina = true;
                 }
 
+            } else {
+                mina = false;
+                System.out.println("mina false");
             }
+
+
+            if (!mina && Analiz.FindVeryForseBlok() > 0) {
+
+                System.out.println("Perebros both");
+//
+                Analiz.PererbrosVpole(Analiz.SamijBlizkijEnemy(13));
+
+                result = true;
+
+            } else {
+                result = false;
+                System.out.println("false");
+                }
 
         }
+
         System.out.println(result);
         return result;
-
-
     }
 
 

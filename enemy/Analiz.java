@@ -6,6 +6,16 @@ import com.mycompany.mygame.ClickSelector;
 
 public class Analiz extends Blok {
 
+	public static int getRealyBlok() {
+		return realyBlok;
+	}
+
+	public static void setRealyBlok(int realyBlok1) {
+		realyBlok = realyBlok1;
+	}
+
+	private static int realyBlok;
+
 
 	public static Blok BlokListGet(int kj) {
 		Blok df = null;
@@ -56,14 +66,18 @@ public class Analiz extends Blok {
 
 		boolean sm = false;
 
-		while (hud <= 76 && !sm) {
-
+		while (!sm && hud <= 76) {
 			hud++;
 			if (BlokListGet(hud).getStorona() == 1
 					&& BlokListGet(hud).getEffect() == 0) {
 				sm = true;
 			}
 		}
+
+		if (!sm) {
+			hud = 0;
+		}
+
 		return hud;
 	}
 
@@ -118,8 +132,21 @@ public class Analiz extends Blok {
 			estmina = true;
 		}
 
-
 		return estmina;
+	}
+
+	public static boolean VerefyMinaOfKurs(int le) {
+		boolean gr = true;
+
+		while (gr && le >= 14) {
+			le = le - 7;
+			if (BlokListGet(le).getIndex() == 6) {
+				gr = false;
+			}
+		}
+
+		return gr;
+
 	}
 
 
@@ -129,7 +156,7 @@ public class Analiz extends Blok {
 		boolean sp = false;
 
 		if (ft >= 42 && ft <= 76) {
-			while (ft <= 41 && ft >= 35) {
+			while (ft >= 42) {
 				ft = ft - 7;
 			}
 			if (BlokListGet(ft).getIndex() == 0) {
@@ -152,7 +179,9 @@ public class Analiz extends Blok {
 		return sp;
 	}
 
+
 	public static boolean HodEffect() {
+		System.out.println("hod effect");
 		boolean he = false;
 		boolean hv = false;
 
@@ -164,7 +193,6 @@ public class Analiz extends Blok {
 			if (BlokListGet(le).getEffect() >= 6 && BlokListGet(le).getEffect() <= 11) {
 				he = true;
 				ClickSelector.TouchPressed(le);
-
 			}
 
 		}
