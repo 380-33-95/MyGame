@@ -62,7 +62,7 @@ public class Analiz extends Blok {
 			gv++;
 			if (yu.getForse() > VeryForse && yu.getEffect() == 0) {
 				VeryForse = yu.getForse();
-				gv1 = gv;
+				gv1 = ZamokListVrag.indexOf(yu);
 			}
 		}
 
