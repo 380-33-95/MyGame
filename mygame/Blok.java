@@ -13,10 +13,7 @@ public class Blok {
 
   public static ArrayList<Blok> BlokList = new ArrayList<>(83);
 
-  /////////////////////
-  public static ArrayList<Blok> ZamokListVrag = new ArrayList<>(7);
 
-  /////////////////////
 
 
   public Blok() {

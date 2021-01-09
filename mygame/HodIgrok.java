@@ -35,10 +35,6 @@ public class HodIgrok extends ClickSelector {
        DrawSmenaHoda.sun = false;
        DrawSmenaHoda.CircleSun = WIDTH - WIDTH / 7;
 
-       /////////////////
-       WorkBlok.LoadArrayListZamokVrag();
-       /////////////////
-
        DrawBoolet.StartDrawBulet();
        StartEnemy.StartEnemyStrategy();
    }

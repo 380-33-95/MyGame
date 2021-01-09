@@ -243,12 +243,6 @@ public static void LoadPoleFromBasa(int nb, int  index, int st){
     }
 
 
-    public static void LoadArrayListZamokVrag() {
-        ZamokListVrag.clear();
-        for (int gm = 0, gn = 1; gm <= 6; gm++, gn++) {
-            ZamokListVrag.add(gm, BlokList.get(gn));
-        }
-    }
 
     /////////////////////end class
 }

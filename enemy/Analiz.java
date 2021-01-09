@@ -6,6 +6,16 @@ import com.mycompany.mygame.ClickSelector;
 
 public class Analiz extends Blok {
 
+	public static int getRealyBlok() {
+		return realyBlok;
+	}
+
+	public static void setRealyBlok(int realyBlok1) {
+		realyBlok = realyBlok1;
+	}
+
+	private static int realyBlok;
+
 
 	public static Blok BlokListGet(int kj) {
 		Blok df = null;
@@ -13,26 +23,13 @@ public class Analiz extends Blok {
 		return df;
 	}
 
-	private static int SledBlok;
-
-	public static int getSledBlok() {
-		return SledBlok;
-	}
-
-	public static void setSledBlok(int sb) {
-		SledBlok = sb;
-	}
-
-
+	//////////////////////////////////////////////////
 	public static boolean ProverkaPole() {
 		boolean lk = false;
-		int zs = 12;
 
-		while (!lk || zs <= 76) {
-			zs++;
-			if (BlokListGet(zs).getStorona() == 1) {
+		for (Blok dc : BlokList.subList(14, 67)) {
+			if (dc.getStorona() == 1) {
 				lk = true;
-				System.out.println("enemy =" + zs);
 			}
 		}
 
@@ -41,59 +38,50 @@ public class Analiz extends Blok {
 	}
 
 
+	/////////////////////////////////////////////////////
 	public static int FindVeryForseBlok() {
 
 		int gv = 0;
-		int gv1 = 0;
+
 		int VeryForse = 0;
 
-//		for (int gh = 1; gh <= 6; gh++)
-//		{
-//			if (BlokListGet(gh).getEffect() == 0
-//			&& BlokListGet(gh).getForse() > VeryForse)
-//			{
-//				VeryForse = BlokListGet(gh).getForse();
-//				gv = gh;
-//			}
-//		}
-
-
-		for (Blok yu : ZamokListVrag) {
-			gv++;
-			if (yu.getForse() > VeryForse && yu.getEffect() == 0) {
-				VeryForse = yu.getForse();
-				gv1 = ZamokListVrag.indexOf(yu);
+		for (Blok gh : BlokList.subList(1, 6)) {
+			if (gh.getEffect() == 0
+					&& gh.getForse() > VeryForse) {
+				VeryForse = gh.getForse();
+				gv = BlokList.indexOf(gh);
 			}
-		}
 
-		System.out.println("very forse= " + gv);
-		if (gv1 > 0 && gv1 <= 6) {
-			ClickSelector.TouchPressed(gv);
+			System.out.println("very forse= " + gv);
+			if (VeryForse > 0) {
+				ClickSelector.TouchPressed(gv);
+			}
+
 		}
 		return gv;
 	}
 
-
-	public static int SamijBlizkijEnemy(int hud) {
-
-		setSledBlok(hud);
+	////////////////////////////////////////////////////////
+	public static int Enemy(int hud) {
 
 		boolean sm = false;
 
-		while (getSledBlok() <= 76 && !sm) {
-
-			//hud++;
-			setSledBlok(getSledBlok() + 1);
-
-			if (BlokListGet(getSledBlok()).getStorona() == 1
-					&& BlokListGet(getSledBlok()).getEffect() == 0) {
+		while (!sm && hud <= 76) {
+			hud++;
+			if (BlokListGet(hud).getStorona() == 1
+					&& BlokListGet(hud).getEffect() == 0) {
 				sm = true;
 			}
 		}
-		return getSledBlok();
+
+		if (!sm) {
+			hud = 0;
+		}
+
+		return hud;
 	}
 
-
+	//////////////////////////////////////////////////////
 	public static boolean PererbrosVpole(int hu) {
 
 		boolean sm = false;
@@ -110,8 +98,8 @@ public class Analiz extends Blok {
 			{
 				ClickSelector.TouchPressed(hu);
 			} else {
-				if (SamijBlizkijEnemy(hu + 1) > 0) {
-					SamijBlizkijEnemy(hu + 1);
+				if (Enemy(hu + 1) > 0) {
+					Enemy(hu + 1);
 				} else {
 
 					if (HodEffect()) {
@@ -124,40 +112,47 @@ public class Analiz extends Blok {
 		return sm;
 	}
 
-
+	//////////////////////////////////////////////////////////
 	public static boolean FindZamokMine() {
 
 		boolean estmina = false;
 
 		int nomMine = 0;
 
-
-		for (Blok we : ZamokListVrag) {
-			if (we.getIndex() == 6) {
-				nomMine = ZamokListVrag.indexOf(we.getIndex());
+		for (Blok hj : BlokList.subList(1, 6)) {
+			if (hj.getIndex() == 6) {
+				nomMine = BlokList.indexOf(hj);
+				System.out.println("find mina " + nomMine);
 			}
-
 		}
 
-//		for (int ds = 1; ds <= 6; ds++) {
-//
-//			if (BlokListGet(ds).getIndex() == 6) {
-//				nomMine = ds;
-//				System.out.println("find mina " + nomMine);
-//			}
-//
-//		}
 
 		if (nomMine > 0 && nomMine <= 6) {
 			ClickSelector.TouchPressed(nomMine);
 			estmina = true;
 		}
 
-
 		return estmina;
 	}
 
 
+	///////////////////////////////////////////////////////////
+	public static boolean VerefyMinaOfKurs(int le) {
+		boolean gr = true;
+
+		while (gr && le >= 14) {
+			le = le - 7;
+			if (BlokListGet(le).getIndex() == 6) {
+				gr = false;
+			}
+		}
+
+		return gr;
+
+	}
+
+
+	////////////////////////////////////////////////////
 	public static boolean PerebrosMina(int ft) {
 
 		System.out.println("Perebros mina");
@@ -188,25 +183,9 @@ public class Analiz extends Blok {
 	}
 
 
-	public static boolean VerefyMinaOffLine(int ki) {
-		boolean sd = true;
-		int po = ki;
-
-		while (!sd || ki >= 14) {
-			ki = ki - 7;
-			if (BlokListGet(ki).getIndex() == 6) {
-				sd = false;
-			}
-		}
-
-		System.out.println("not min on line? =" + sd);
-		PerebrosMina(po);
-		return sd;
-
-	}
-
-
+	////////////////////////////////////////////
 	public static boolean HodEffect() {
+		System.out.println("hod effect");
 		boolean he = false;
 		boolean hv = false;
 
@@ -218,7 +197,6 @@ public class Analiz extends Blok {
 			if (BlokListGet(le).getEffect() >= 6 && BlokListGet(le).getEffect() <= 11) {
 				he = true;
 				ClickSelector.TouchPressed(le);
-
 			}
 
 		}
