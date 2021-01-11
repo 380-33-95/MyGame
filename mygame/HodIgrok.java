@@ -12,6 +12,7 @@ public class HodIgrok extends ClickSelector {
        WorkBlok.ObnulenieBufer();
        LoadBufer.LoadVBufer(getNC());
        WorkBlok.ObnulenieFinishI();
+   //    WorkBlok.ObnulenieFinish();
        Peremen.setKodZamok(getNC());
 
        if (Dvigatel.startCiclIgrok) {

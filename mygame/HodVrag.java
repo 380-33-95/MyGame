@@ -17,6 +17,7 @@ public class HodVrag extends ClickSelector {
         LoadBufer.LoadVBufer(getNC());
 
         WorkBlok.ObnulenieFinishV();
+    //   WorkBlok.ObnulenieFinish();
 
         Peremen.setKodZamok(getNC());
 

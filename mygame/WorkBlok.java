@@ -3,8 +3,11 @@ package com.mycompany.mygame;
 import com.mycompany.draw.DrawBoolet;
 
 import static com.mycompany.mygame.MyGdxGame.getNC;
+import static com.mycompany.mygame.Peremen.isSmenaHoda;
 
 public class WorkBlok extends Blok {
+
+    private Blok blok;
 
     public static void Peremeshenie(int isS, int vR) {
 
@@ -58,31 +61,69 @@ public class WorkBlok extends Blok {
 
     public static void ObnulenieFinishV() {
         Uron.UronBasaIgrok();
-        for(int ofv=70; ofv<=76; ofv++) {
-            if(BlokList.get(ofv).getStorona()==2) {
 
-                ObnulenieKvadratPole(ofv);
+        for (Blok nj : BlokList.subList(70, 76)) {
+            if (nj.getStorona() == 2) {
+                ObnulenieKvadratPole(BlokList.indexOf(nj));
             }
         }
+
     }
 
-	
-	public static void ObnulenieFinishI() {
+
+    public static void ObnulenieFinishI() {
         Uron.UronBasaVrag();
-        for(int ofv=7; ofv<=13; ofv++) {
-            if(BlokList.get(ofv).getStorona()==1) {
-                ObnulenieKvadratPole(ofv);
+        for (Blok nj : BlokList.subList(7, 13)) {
+            if (nj.getStorona() == 1) {
+                ObnulenieKvadratPole(BlokList.indexOf(nj));
             }
         }
     }
-	
-    public static void ObnulenieKvadratPole (int pp) {
+
+
+    public static void ObnulenieFinish() {
+        int a1, a2;
+
+
+        a1 = (isSmenaHoda() ? 7 : 70);
+        a2 = (isSmenaHoda() ? 13 : 76);
+
+        if (!isSmenaHoda()) {
+            Uron.UronBasaVrag();
+        } else {
+            Uron.UronBasaIgrok();
+        }
+
+
+        for (Blok xd : BlokList.subList(a1, a2)) {
+            ObnulenieKvadratPole(BlokList.indexOf(xd));
+        }
+
+
+//        if(isSmenaHoda())
+//        {Uron.UronBasaVrag();
+//            for (Blok xd:BlokList.subList(a1, a2=a1+6))
+//                  {
+//              ObnulenieKvadratPole(BlokList.indexOf(xd));
+//            }
+//        }
+//        else{Uron.UronBasaIgrok();
+//            for (Blok xd:BlokList.subList(a1, a2=a1+6))
+//            {
+//                ObnulenieKvadratPole(BlokList.indexOf(xd));
+//            }
+//        };
+
+    }
+
+
+    public static void ObnulenieKvadratPole(int pp) {
         BlokList.get(pp).setForse(0);
         BlokList.get(pp).setHealth(0);
         BlokList.get(pp).setStorona(0);
         BlokList.get(pp).setIndex(0);
         BlokList.get(pp).setEffect(0);
-      //  BlokList.get(pp).setKodBoom(0);
+        //  BlokList.get(pp).setKodBoom(0);
         BlokList.get(pp).setXl(0);
         BlokList.get(pp).setYl(0);
     }
@@ -194,6 +235,7 @@ public class WorkBlok extends Blok {
             BlokList.get(pp).setYl(0);
             BlokList.get(pp).setX(0);
             BlokList.get(pp).setY(0);
+
         }
     }
 
@@ -224,22 +266,23 @@ public static void LoadPoleFromBasa(int nb, int  index, int st){
 
     public static void LoadFlagBulet(int st) {
 
-        for (int bbu = 7; bbu <= 76; bbu++) {
-            if (BlokList.get(bbu).getForse() > 0 && BlokList.get(bbu).getStorona() == st) {
-                BlokList.get(bbu).setFlagBulet(true);
-                BlokList.get(bbu).setBooletY(BlokList.get(bbu).getY());
+        for (Blok js : BlokList.subList(7, 76)) {
+            if (js.getForse() > 0 && js.getStorona() == st) {
+                js.setFlagBulet(true);
+                js.setBooletY(js.getY());
             }
         }
         DrawBoolet.setScanerBulet(true);
-
     }
 
     public static void ChangeStoun() {
-        for (int bbu = 7; bbu <= 76; bbu++) {
-            if (BlokList.get(bbu).getEffect() == 7) {
-                BlokList.get(bbu).setStorona(Peremen.isSmenaHoda() ? 1 : 2);
+
+        for (Blok qw : BlokList.subList(7, 76)) {
+            if (qw.getEffect() == 7) {
+                qw.setStorona(isSmenaHoda() ? 1 : 2);
             }
         }
+
     }
 
 
