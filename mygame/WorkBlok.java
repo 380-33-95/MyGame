@@ -62,6 +62,7 @@ public class WorkBlok extends Blok {
     public static void ObnulenieFinishV() {
         Uron.UronBasaIgrok();
 
+
         for (Blok nj : BlokList.subList(70, 76)) {
             if (nj.getStorona() == 2) {
                 ObnulenieKvadratPole(BlokList.indexOf(nj));
@@ -73,6 +74,7 @@ public class WorkBlok extends Blok {
 
     public static void ObnulenieFinishI() {
         Uron.UronBasaVrag();
+
         for (Blok nj : BlokList.subList(7, 13)) {
             if (nj.getStorona() == 1) {
                 ObnulenieKvadratPole(BlokList.indexOf(nj));
@@ -90,8 +92,10 @@ public class WorkBlok extends Blok {
 
         if (!isSmenaHoda()) {
             Uron.UronBasaVrag();
+
         } else {
             Uron.UronBasaIgrok();
+
         }
 
 

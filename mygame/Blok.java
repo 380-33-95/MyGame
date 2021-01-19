@@ -14,10 +14,14 @@ public class Blok {
   public static ArrayList<Blok> BlokList = new ArrayList<>(83);
 
 
-
-
   public Blok() {
     BlokList.add(this);
+  }
+
+  public static Blok BlokListGet(int kj) {
+    Blok df = null;
+    df = BlokList.get(kj);
+    return df;
   }
 
 

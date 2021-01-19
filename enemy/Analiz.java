@@ -17,11 +17,11 @@ public class Analiz extends Blok {
 	private static int realyBlok;
 
 
-	public static Blok BlokListGet(int kj) {
-		Blok df = null;
-		df = BlokList.get(kj);
-		return df;
-	}
+//	public static Blok BlokListGet(int kj) {
+//		Blok df = null;
+//		df = BlokList.get(kj);
+//		return df;
+//	}
 
 	//////////////////////////////////////////////////
 	public static boolean ProverkaPole() {
