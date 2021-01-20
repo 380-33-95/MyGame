@@ -37,9 +37,9 @@ public class KonecBoj {
 //				BoomBlok.StartBoomBlok(nk);
 //			}
 //		}
-
+		nv = Peremen.getWin() > 0 ? 1 : 2;
 		for (Blok df : BlokList.subList(7, 76)) {
-			nv = Peremen.getWin() > 0 ? 1 : 2;
+
 			if (df.getStorona() == nv) {
 				BoomBlok.StartBoomBlok(BlokList.indexOf(df));
 			}
