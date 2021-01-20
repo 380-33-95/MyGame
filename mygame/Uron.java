@@ -14,7 +14,7 @@ public class Uron extends Blok {
 					//		MetodObject();
 				} else {
 					b00.setHealth(0);
-					KonecBoj.KonecBojI();//??:::
+					KonecBoj.KonecBoj(0);//??:::
 				}
 			}
 		}
@@ -36,7 +36,7 @@ public class Uron extends Blok {
 
 				} else {
 					b77.setHealth(0);
-					KonecBoj.KonecBojV();
+					KonecBoj.KonecBoj(1);
 
 				}
 			}
