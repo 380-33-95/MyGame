@@ -1,52 +1,52 @@
 package com.mycompany.enemy;
 
-public class StrategijaSamijBlizkij {
 
-    public static boolean StartSamijBlizkij() {
+import com.mycompany.mygame.ClickSelector;
+
+public class StrategijaSamijBlizkij extends Analiz {
+
+    public static int getTouchKletka() {
+        return TouchKletka;
+    }
+
+    public static void setTouchKletka(int touchKletka) {
+        TouchKletka = touchKletka;
+    }
+
+    private static int TouchKletka;
+
+
+    public static boolean StartPerviEnemy() {
 
         boolean result = false;
 
-        boolean mina = false;
+        setTargetEnemy(PoiskEnemy(20));
 
+        if (getTargetEnemy() >= 14) {
 
-        if (Analiz.Enemy(13) > 0) {
-
-//            if (Analiz.FindZamokMine()
-//                    && Analiz.VerefyMinaOfKurs(Analiz.Enemy(13))
-//            ) { // esli est mina
-//
-//                if (Analiz.PerebrosMina(Analiz.Enemy(13))) {
-//                    result = true;
-//                    mina = true;
-//                }
-//
-//            } else {
-//                mina = false;
-//                System.out.println("mina false");
-//            }
-
-
-            if (
-//                    !mina
-//                    &&
-                    Analiz.FindVeryForseBlok() > 0) {
-
-                System.out.println("Perebros both");
-//
-                Analiz.PererbrosVpole(Analiz.Enemy(13));
-
-                result = true;
-
-            } else {
-                result = false;
-                System.out.println("false");
-            }
-
+            VerefyMinaOfKurs(getTargetEnemy());
         }
 
-        System.out.println(result);
-        return result;
+        if (!isMinaNaLine()) {
+            FindZamokMine();
+        }
+        if (isMinaNaLine()) {
+            ClickSelector.TouchPressed(FindVeryForseBlok());
+            PererbrosVpole(getTargetEnemy());
+        }
+
+        if (isMinaVZamke() > 0) {
+            ClickSelector.TouchPressed(isMinaVZamke());
+            PerebrosMina(getTargetEnemy());
+        }
+
+        if (isMinaVZamke() == 0) {
+            ClickSelector.TouchPressed(FindVeryForseBlok());
+            PererbrosVpole(getTargetEnemy());
+        }
+        return true;
     }
+
 
 
     //////****

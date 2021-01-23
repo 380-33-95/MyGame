@@ -6,22 +6,41 @@ import com.mycompany.mygame.ClickSelector;
 
 public class Analiz extends Blok {
 
-	public static int getRealyBlok() {
-		return realyBlok;
+	////////////////////////////////////////
+	public static int getTargetEnemy() {
+		return TargetEnemy;
 	}
 
-	public static void setRealyBlok(int realyBlok1) {
-		realyBlok = realyBlok1;
+	public static void setTargetEnemy(int targetEnemy) {
+		TargetEnemy = targetEnemy;
 	}
 
-	private static int realyBlok;
+	private static int TargetEnemy;
 
+	///////////////////////////////////////////
+	public static boolean isMinaNaLine() {
+		return MinaNaLine;
+	}
 
-//	public static Blok BlokListGet(int kj) {
-//		Blok df = null;
-//		df = BlokList.get(kj);
-//		return df;
-//	}
+	public static void setMinaNaLine(boolean minaNaLine) {
+		MinaNaLine = minaNaLine;
+	}
+
+	private static boolean MinaNaLine;
+
+	////////////////////////////////////////////
+
+	public static int isMinaVZamke() {
+		return MinaVZamke;
+	}
+
+	public static void setMinaVZamke(int minaVZamke) {
+		MinaVZamke = minaVZamke;
+	}
+
+	private static int MinaVZamke;
+	////////////////////////////////////////////////////////
+
 
 	//////////////////////////////////////////////////
 	public static boolean ProverkaPole() {
@@ -62,7 +81,7 @@ public class Analiz extends Blok {
 	}
 
 	////////////////////////////////////////////////////////
-	public static int Enemy(int hud) {
+	public static int PoiskEnemy(int hud) {
 
 		boolean sm = false;
 
@@ -78,43 +97,40 @@ public class Analiz extends Blok {
 			hud = 0;
 		}
 
+		System.out.println("Enemy " + hud);
 		return hud;
 	}
 
 	//////////////////////////////////////////////////////
-	public static boolean PererbrosVpole(int hu) {
+	public static boolean PererbrosVpole(int enemy) {
 
 		boolean sm = false;
 
 		int hup = 0;
 
-		if (hu >= 14 && hu <= 76) { //ishem kuda stavit naprotiv
+		if (enemy >= 14 && enemy <= 76) { //ishem kuda stavit naprotiv
 
-			while (hu >= 14) {
-				hu = hu - 7;
+			while (enemy >= 14) {
+				enemy = enemy - 7;
 			}
 
-			if (BlokListGet(hu).getIndex() == 0) //proverjem ne sanjat li kvadrat
+			if (BlokListGet(enemy).getIndex() == 0) //proverjem ne sanjat li kvadrat
 			{
-				ClickSelector.TouchPressed(hu);
+				ClickSelector.TouchPressed(enemy);
+				System.out.println("perebros both v " + enemy);
 			} else {
-				if (Enemy(hu + 1) > 0) {
-					Enemy(hu + 1);
-				} else {
+				System.out.println("kletka zanjata " + enemy);
+				HodEffect();
 
-					if (HodEffect()) {
-					}
-
-				}
 			}
-
 		}
 		return sm;
 	}
 
 	//////////////////////////////////////////////////////////
-	public static boolean FindZamokMine() {
+	public static void FindZamokMine() {
 
+		setMinaVZamke(0);
 		boolean estmina = false;
 
 		int nomMine = 0;
@@ -122,60 +138,64 @@ public class Analiz extends Blok {
 		for (Blok hj : BlokList.subList(1, 6)) {
 			if (hj.getIndex() == 6) {
 				nomMine = BlokList.indexOf(hj);
-				System.out.println("find mina " + nomMine);
+				setMinaVZamke(nomMine);
 			}
 		}
 
+		System.out.println("find mina " + nomMine);
 
-		if (nomMine > 0 && nomMine <= 6) {
-			ClickSelector.TouchPressed(nomMine);
-			estmina = true;
-		}
-
-		return estmina;
 	}
 
 
 	///////////////////////////////////////////////////////////
-	public static boolean VerefyMinaOfKurs(int le) {
-		boolean gr = true;
+	public static void VerefyMinaOfKurs(int le) {
 
-		while (gr && le >= 14) {
+		setMinaNaLine(false);
+
+		boolean gr = false;
+
+		while (!gr && le >= 14) {
 			le = le - 7;
 			if (BlokListGet(le).getIndex() == 6) {
-				gr = false;
+				gr = true;
+				setMinaNaLine(true);
 			}
 		}
 
-		return gr;
+		System.out.println("Mina na line " + isMinaNaLine());
 
 	}
 
 
 	////////////////////////////////////////////////////
-	public static boolean PerebrosMina(int ft) {
+	public static boolean PerebrosMina(int enemy) {
 
 		System.out.println("Perebros mina");
 		boolean sp = false;
 
-		if (ft >= 42 && ft <= 76) {
-			while (ft >= 42) {
-				ft = ft - 7;
+
+		if (enemy >= 42 && enemy <= 76) {
+			while (enemy >= 42) {
+				enemy = enemy - 7;
 			}
-			if (BlokListGet(ft).getIndex() == 0) {
-				ClickSelector.TouchPressed(ft);
+			if (BlokListGet(enemy).getIndex() == 0) {
+				ClickSelector.TouchPressed(enemy);
 				sp = true;
+			} else {
+				FindVeryForseBlok();
 			}
 		}
 
 
-		if (ft >= 14 && ft <= 41) { //ishem kuda stavit naprotiv
+		if (enemy >= 14 && enemy <= 41) { //ishem kuda stavit naprotiv
 
-			ft = ft - 7;
+			enemy = enemy - 7;
 
-			if (BlokListGet(ft).getIndex() == 0) {
-				ClickSelector.TouchPressed(ft);
+			if (BlokListGet(enemy).getIndex() == 0) {
+				ClickSelector.TouchPressed(enemy);
 				sp = true;
+			} else {
+				FindVeryForseBlok();
 			}
 
 		}

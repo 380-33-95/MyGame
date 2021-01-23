@@ -48,7 +48,7 @@ setNC(nc);
 					&& (!Peremen.isSmenaHoda())
 
             ) {
-                System.out.println("HodVrag.HodVragZamok();");
+           //     System.out.println("HodVrag.HodVragZamok();");
                 HodVrag.HodVragZamok();
             }
 
