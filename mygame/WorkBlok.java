@@ -3,11 +3,25 @@ package com.mycompany.mygame;
 import com.mycompany.draw.DrawBoolet;
 
 import static com.mycompany.mygame.MyGdxGame.getNC;
-import static com.mycompany.mygame.Peremen.isSmenaHoda;
+import static com.mycompany.mygame.MyGdxGame.isSmenaHoda;
 
 public class WorkBlok extends Blok {
 
     private Blok blok;
+
+
+    ////////////////////////////////////
+    public boolean isFg() {
+        return fg;
+    }
+
+    public void setFg(boolean fg) {
+        this.fg = fg;
+    }
+
+    private boolean fg;
+    ////////////////////////////////////
+
 
     public static void Peremeshenie(int isS, int vR) {
 

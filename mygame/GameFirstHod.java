@@ -3,6 +3,8 @@ package com.mycompany.mygame;
 
 import com.badlogic.gdx.utils.Timer;
 
+import static com.mycompany.mygame.MyGdxGame.setSmenaHoda;
+
 public class GameFirstHod {
 
 
@@ -24,7 +26,7 @@ public class GameFirstHod {
 //		fs=(int)Generator.GenRand(2);
 
         if (fs > 1) {
-            Peremen.setSmenaHoda(true);
+            setSmenaHoda(true);
             Peremen.setBannerChejHod(0);
             StartTimer();
 

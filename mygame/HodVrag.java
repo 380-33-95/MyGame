@@ -1,6 +1,7 @@
 package com.mycompany.mygame;
 
 import com.mycompany.draw.DrawSmenaHoda;
+import com.mycompany.tower.CalculateUgol;
 
 import static com.mycompany.mygame.Dvigatel.startCiclIgrok;
 import static com.mycompany.mygame.Dvigatel.startCiclVrag;
@@ -12,12 +13,14 @@ public class HodVrag extends ClickSelector {
 
     public static void HodVragZamok() {
 
+        CalculateUgol.MatricaEnemy();
+
         WorkBlok.ObnulenieBufer();
 
         LoadBufer.LoadVBufer(getNC());
 
         WorkBlok.ObnulenieFinishV();
-    //   WorkBlok.ObnulenieFinish();
+        //   WorkBlok.ObnulenieFinish();
 
         Peremen.setKodZamok(getNC());
 
@@ -49,7 +52,7 @@ public class HodVrag extends ClickSelector {
 
         //  MyMusik.MapSound.get(3).play();
 
-        Peremen.setSmenaHoda(true);
+        setSmenaHoda(true);
         //  DrawSmenaHoda.sun = true;
         DrawSmenaHoda.CircleSun = 0;
 

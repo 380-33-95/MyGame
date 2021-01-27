@@ -63,37 +63,35 @@ public class Peremen extends MyGdxGame{
     }
     
     public static void setStepX(int a){
-    stepX=a;	
+    stepX=a;
     }
-    
 
-	////////////////////////////////////////////////////////
-	
+
+    ////////////////////////////////////////////////////////
+
     private static boolean flagStrelkaIgrok;
     private static boolean flagStrelkaVrag;
-   
 
 
-	private static boolean SmenaHoda; //true - igrok; false - vrag;
-	
-	public static boolean isSmenaHoda() {
-		//System.out.println("isHod="+SmenaHoda);
-		return SmenaHoda;
-	}
+//	private static boolean SmenaHoda; //true - igrok; false - vrag;
+//
+//	public static boolean isSmenaHoda() {
+//		//System.out.println("isHod="+SmenaHoda);
+//		return SmenaHoda;
+//	}
+//
+//	public static void setSmenaHoda(boolean smenaHoda) {
+//		SmenaHoda = smenaHoda;
+//
+//    }
 
-	public static void setSmenaHoda(boolean smenaHoda) {
-		SmenaHoda = smenaHoda;
 
-    }
+    private static int KodZamok;
 
-
-
-private static int KodZamok;
-    
     public static int getKodZamok() {
-    	//System.out.println("getKZV="+KodZamokV);
-		return KodZamok;
-	}
+        //System.out.println("getKZV="+KodZamokV);
+        return KodZamok;
+    }
 
 	public static void setKodZamok(int kodZamok) {
 		KodZamok = kodZamok;

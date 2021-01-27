@@ -1,12 +1,14 @@
 
 package com.mycompany.mygame;
 
+import static com.mycompany.mygame.MyGdxGame.setSmenaHoda;
 
-public class Test extends WorkBlok{
-	
-	public static void TestTest() {
 
-        Peremen.setSmenaHoda(true);
+public class Test extends WorkBlok {
+
+    public static void TestTest() {
+
+        setSmenaHoda(true);
 
 
         WorkBlok.LoadPoleFromBasa(47, 4, 1);

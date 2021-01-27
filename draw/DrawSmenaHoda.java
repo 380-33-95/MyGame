@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.mycompany.mygame.Dvigatel;
 import com.mycompany.mygame.MyGdxGame;
-import com.mycompany.mygame.Peremen;
+
 
 public class DrawSmenaHoda extends MyGdxGame {
 
@@ -41,21 +41,21 @@ public class DrawSmenaHoda extends MyGdxGame {
 			}
 
 			if (CircleSun >= WIDTH - WIDTH / 7) {
-				sun = false;
+                sun = false;
 
 
-				//	Peremen.setSmenaHoda(!Peremen.isSmenaHoda());
+                //	Peremen.setSmenaHoda(!Peremen.isSmenaHoda());
 
-				if (Peremen.isSmenaHoda()) {
-					Dvigatel.StartCiclPoleIgrok();
-				}
-				if (!Peremen.isSmenaHoda()) {
-					Dvigatel.StartCiclPoleVrag();
-				}
+                if (isSmenaHoda()) {
+                    Dvigatel.StartCiclPoleIgrok();
+                }
+                if (!isSmenaHoda()) {
+                    Dvigatel.StartCiclPoleVrag();
+                }
 
 
-				CircleSun = WIDTH - WIDTH / 7;
-			}
+                CircleSun = WIDTH - WIDTH / 7;
+            }
 		}
 
 
