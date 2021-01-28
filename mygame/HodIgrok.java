@@ -3,7 +3,7 @@ package com.mycompany.mygame;
 import com.mycompany.draw.DrawBoolet;
 import com.mycompany.draw.DrawSmenaHoda;
 import com.mycompany.enemy.StartEnemy;
-import com.mycompany.tower.CalculateUgol;
+import com.mycompany.tower.TowerCanon;
 
 import static com.mycompany.mygame.WorkBlok.ObnulenieKvadratZamok;
 
@@ -11,7 +11,7 @@ public class HodIgrok extends ClickSelector {
 
    public static void HodIgrokZamok() {
 
-       CalculateUgol.MatricaEnemy();
+       //
 
        WorkBlok.ObnulenieBufer();
        LoadBufer.LoadVBufer(getNC());
@@ -28,7 +28,7 @@ public class HodIgrok extends ClickSelector {
    }
 
 
-   public static void HodIgrokPole(){
+   public static void HodIgrokPole() {
        WorkBlok.LoadFlagBulet(2);
        WorkBlok.ChangeStoun();
        WorkBlok.LoadPoleBlok();
@@ -36,6 +36,8 @@ public class HodIgrok extends ClickSelector {
        ObnulenieKvadratZamok(Peremen.getKodZamok());
        WorkBlok.SdvigZamokI();
        //   MyMusik.MapSound.get(3).play();
+       TowerCanon.MatricaEnemy();
+
        setSmenaHoda(false);
        DrawSmenaHoda.sun = false;
        DrawSmenaHoda.CircleSun = WIDTH - WIDTH / 7;

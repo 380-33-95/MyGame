@@ -28,6 +28,7 @@ import com.mycompany.draw.DrawTower;
 import com.mycompany.draw.DrawTutorials;
 import com.mycompany.draw.DrawZamokIgrok;
 import com.mycompany.draw.DrawZamokVrag;
+import com.mycompany.tower.TowerCanon;
 
 import static com.mycompany.mygame.JustTouched.IfJustTouched;
 import static com.mycompany.mygame.MyMusik.MapSound;
@@ -300,8 +301,8 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
                 DrawBossIgrok.BossIgrok();
 
-                DrawTower.StartDrawTowerI(45);
-                DrawTower.StartDrawTowerV(135);
+                DrawTower.StartDrawTowerI(TowerCanon.getAlfa());
+                DrawTower.StartDrawTowerV(TowerCanon.getAlfa());
 
                 DrawRamkaBoss.RamkaStartBoss();
 

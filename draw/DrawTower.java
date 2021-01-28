@@ -5,7 +5,7 @@ import com.mycompany.mygame.MyGdxGame;
 
 public class DrawTower extends MyGdxGame {
 
-    public static void StartDrawTowerI(int rotI) {
+    public static void StartDrawTowerI(float rotI) {
 
         TextureRegion IgrokCanon = new TextureRegion(atlas, 0, 2400, 100, 100);
 
@@ -18,7 +18,7 @@ public class DrawTower extends MyGdxGame {
                 HEIGHT / 12,
                 0.5f,
                 0.5f,
-                rotI,
+                rotI - 45,
                 true// УГОЛ
 
         );
@@ -27,7 +27,7 @@ public class DrawTower extends MyGdxGame {
     }
 
 
-    public static void StartDrawTowerV(int rotV) {
+    public static void StartDrawTowerV(float rotV) {
 
         TextureRegion VragCanon = new TextureRegion(atlas, 0, 2400, 100, 100);
 
@@ -40,7 +40,7 @@ public class DrawTower extends MyGdxGame {
                 HEIGHT / 12,
                 0.5f,
                 0.5f,
-                rotV,
+                rotV + 45,
                 false);// УГОЛ
 
     }
