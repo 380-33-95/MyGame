@@ -24,9 +24,11 @@ import com.mycompany.draw.DrawRamkaBoss;
 import com.mycompany.draw.DrawSelectLevel;
 import com.mycompany.draw.DrawSmenaHoda;
 import com.mycompany.draw.DrawStart;
+import com.mycompany.draw.DrawTower;
 import com.mycompany.draw.DrawTutorials;
 import com.mycompany.draw.DrawZamokIgrok;
 import com.mycompany.draw.DrawZamokVrag;
+import com.mycompany.tower.TowerCanon;
 
 import static com.mycompany.mygame.JustTouched.IfJustTouched;
 import static com.mycompany.mygame.MyMusik.MapSound;
@@ -90,6 +92,21 @@ public class MyGdxGame extends Blok implements ApplicationListener {
     public static TextureRegion dropImage;
 
     ////////////////////////////
+
+
+    private static boolean SmenaHoda; //true - igrok; false - vrag;
+
+    public static boolean isSmenaHoda() {
+        //System.out.println("isHod="+SmenaHoda);
+        return SmenaHoda;
+    }
+
+    public static void setSmenaHoda(boolean smenaHoda) {
+        SmenaHoda = smenaHoda;
+
+    }
+
+    ///////////////////////////////////////////////
 
 
     static {  //////////////initialisation
@@ -283,6 +300,9 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                 DrawBossVrag.BossVrag();
 
                 DrawBossIgrok.BossIgrok();
+
+                DrawTower.StartDrawTowerI(TowerCanon.getAlfa());
+                DrawTower.StartDrawTowerV(TowerCanon.getAlfa());
 
                 DrawRamkaBoss.RamkaStartBoss();
 

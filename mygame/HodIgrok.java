@@ -3,16 +3,20 @@ package com.mycompany.mygame;
 import com.mycompany.draw.DrawBoolet;
 import com.mycompany.draw.DrawSmenaHoda;
 import com.mycompany.enemy.StartEnemy;
+import com.mycompany.tower.TowerCanon;
 
 import static com.mycompany.mygame.WorkBlok.ObnulenieKvadratZamok;
 
 public class HodIgrok extends ClickSelector {
 
    public static void HodIgrokZamok() {
+
+       //
+
        WorkBlok.ObnulenieBufer();
        LoadBufer.LoadVBufer(getNC());
        WorkBlok.ObnulenieFinishI();
-   //    WorkBlok.ObnulenieFinish();
+       //    WorkBlok.ObnulenieFinish();
        Peremen.setKodZamok(getNC());
 
        if (Dvigatel.startCiclIgrok) {
@@ -24,7 +28,7 @@ public class HodIgrok extends ClickSelector {
    }
 
 
-   public static void HodIgrokPole(){
+   public static void HodIgrokPole() {
        WorkBlok.LoadFlagBulet(2);
        WorkBlok.ChangeStoun();
        WorkBlok.LoadPoleBlok();
@@ -32,7 +36,9 @@ public class HodIgrok extends ClickSelector {
        ObnulenieKvadratZamok(Peremen.getKodZamok());
        WorkBlok.SdvigZamokI();
        //   MyMusik.MapSound.get(3).play();
-       Peremen.setSmenaHoda(false);
+       TowerCanon.MatricaEnemy();
+
+       setSmenaHoda(false);
        DrawSmenaHoda.sun = false;
        DrawSmenaHoda.CircleSun = WIDTH - WIDTH / 7;
 

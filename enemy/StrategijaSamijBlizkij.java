@@ -32,6 +32,7 @@ public class StrategijaSamijBlizkij extends Analiz {
         }
         if (isMinaNaLine()) {
             ClickSelector.TouchPressed(FindVeryForseBlok());
+         //   setTargetEnemy(getTargetEnemy()+1);
             PererbrosVpole(getTargetEnemy());
         }
 

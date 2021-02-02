@@ -13,7 +13,7 @@ setNC(nc);
 			//////////////////////////////////////////////////////////////////////////////////////hod igroka
 
 			if ((getNC() >= 78 && getNC() <= 83)
-					&& Peremen.isSmenaHoda()
+                    && isSmenaHoda()
 
 			) {
 				HodIgrok.HodIgrokZamok();
@@ -45,7 +45,7 @@ setNC(nc);
 
 
 			if ((getNC() >= 1 && getNC() <= 6)
-					&& (!Peremen.isSmenaHoda())
+                    && (!isSmenaHoda())
 
             ) {
            //     System.out.println("HodVrag.HodVragZamok();");
