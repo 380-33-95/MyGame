@@ -123,10 +123,10 @@ public class TowerCanon extends MyGdxGame {
         System.out.println("UgolA = " + Alfa);
 
         if (isSmenaHoda()) {
-            DrawTower.StartDrawTowerV((float) Alfa);
+       //     DrawTower.StartDrawTowerV((float) Alfa);
         }
         if (!isSmenaHoda()) {
-            DrawTower.StartDrawTowerI((float) Alfa);
+            DrawTower.StartDrawTowerI((float) Alfa+180);
         }
 
 

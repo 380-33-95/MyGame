@@ -301,8 +301,11 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
                 DrawBossIgrok.BossIgrok();
 
-                DrawTower.StartDrawTowerI(TowerCanon.getAlfa());
-                DrawTower.StartDrawTowerV(TowerCanon.getAlfa());
+               DrawTower.StartDrawTowerI(TowerCanon.getAlfa());
+
+
+
+           //     DrawTower.StartDrawTowerV(TowerCanon.getAlfa());
 
                 DrawRamkaBoss.RamkaStartBoss();
 

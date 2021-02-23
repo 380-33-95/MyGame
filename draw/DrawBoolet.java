@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.mycompany.mygame.FindBuletUron;
 import com.mycompany.mygame.MyGdxGame;
-//import com.mycompany.mygame.Peremen;
+//import com.mycompany.com.mycompany.mygame.Peremen;
 
 
 public class DrawBoolet extends MyGdxGame {
