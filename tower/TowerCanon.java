@@ -1,6 +1,7 @@
 package com.mycompany.tower;
 
 import com.badlogic.gdx.math.MathUtils;
+import com.mycompany.draw.DrawTarget;
 import com.mycompany.draw.DrawTower;
 import com.mycompany.mygame.Blok;
 import com.mycompany.mygame.MyGdxGame;
@@ -70,6 +71,32 @@ public class TowerCanon extends MyGdxGame {
     public static ArrayList<Integer> HashListEnemy = new ArrayList<>();
 
 
+
+    ///////////////////
+
+    public static int getXtarget() {
+        return Xtarget;
+    }
+
+    public static void setXtarget(int xtarget) {
+        Xtarget = xtarget;
+    }
+
+    private static int Xtarget;
+
+    public static int getYTareget() {
+        return YTareget;
+    }
+
+    public static void setYTareget(int YTareget) {
+        TowerCanon.YTareget = YTareget;
+    }
+
+    private static int YTareget;
+
+    ////////////////////
+
+
     public static void MatricaEnemy() {
 
         int kl;
@@ -111,6 +138,11 @@ public class TowerCanon extends MyGdxGame {
         setVert(ListEnemy.get(kl).getY());
         setHoriz(ListEnemy.get(kl).getX());
 
+        setXtarget(getHoriz());
+        setYTareget(getVert());
+
+
+
         ListEnemy.clear();
 
         setGipotenusa(sqrt(pow(getVert(), 2) + pow(getHoriz(), 2)));
@@ -123,10 +155,10 @@ public class TowerCanon extends MyGdxGame {
         System.out.println("UgolA = " + Alfa);
 
         if (isSmenaHoda()) {
-            DrawTower.StartDrawTowerV((float) Alfa);
+       //     DrawTower.StartDrawTowerV((float) Alfa);
         }
         if (!isSmenaHoda()) {
-            DrawTower.StartDrawTowerI((float) Alfa);
+            DrawTower.StartDrawTowerI((float) Alfa+180);
         }
 
 
