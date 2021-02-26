@@ -29,6 +29,7 @@ import com.mycompany.draw.DrawTower;
 import com.mycompany.draw.DrawTutorials;
 import com.mycompany.draw.DrawZamokIgrok;
 import com.mycompany.draw.DrawZamokVrag;
+import com.mycompany.tower.SinusV;
 import com.mycompany.tower.TowerCanon;
 
 import static com.mycompany.mygame.JustTouched.IfJustTouched;
@@ -306,12 +307,12 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
                 DrawBossIgrok.BossIgrok();
 
-               DrawTower.StartDrawTowerI(TowerCanon.getAlfa());
+           //    DrawTower.StartDrawTowerI(TowerCanon.getAlfa());
 
 
-
-           //     DrawTower.StartDrawTowerV(TowerCanon.getAlfa());
-
+/////////////////////////
+                DrawTower.StartDrawTowerV(SinusV.getSin());
+//////////////////////////
                 DrawRamkaBoss.RamkaStartBoss();
 
                 DrawZamokVrag.ZamokStartVrag();
@@ -334,7 +335,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                 DrawBoolet.StartDrawBulet();
 
                 //TODO ramka target
-                DrawTarget.StartTarget(getXtarget(),getYTareget());
+            //    DrawTarget.StartTarget(getXtarget(),getYTareget());
 
 
                 if (Gdx.input.justTouched()) {

@@ -127,7 +127,8 @@ public class TowerCanon extends MyGdxGame {
                     " x=" + ListEnemy.get(kl).getX() + " y=" + ListEnemy.get(kl).getY());
 
 
-            CalculateU(kl);
+        //    CalculateU(kl);
+            SinusV.Calculate(kl);
         } else {
             ListEnemy.clear();
         }
@@ -154,14 +155,8 @@ public class TowerCanon extends MyGdxGame {
         //   setAlfa(toDegrees(getAlfa()));
         System.out.println("UgolA = " + Alfa);
 
-        if (isSmenaHoda()) {
-       //     DrawTower.StartDrawTowerV((float) Alfa);
-        }
-        if (!isSmenaHoda()) {
-            DrawTower.StartDrawTowerI((float) Alfa+180);
-        }
 
-
+      //      DrawTower.StartDrawTowerI((float) Alfa+180);
 
     }
 
