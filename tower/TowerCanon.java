@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import static java.lang.Math.asin;
 import static java.lang.Math.pow;
+import static java.lang.Math.sin;
 import static java.lang.Math.sqrt;
 import static java.lang.Math.toDegrees;
 
@@ -26,53 +27,31 @@ public class TowerCanon extends MyGdxGame {
         TowerCanon.Tb = tb;
     }
 
-
-    public static int getVert() {
-        return Vert;
+    public static int getCatetX() {
+        return catetX;
     }
 
-    public static void setVert(int vert) {
-        Vert = vert;
+    private static int catetX;
+
+    public static int getCatetY() {
+        return catetY;
     }
 
-    private static int Vert;
+    private static int catetY;
 
-    public static int getHoriz() {
-        return Horiz;
+    static double gippotenusaV;
+
+    public static double getUgolSin() {
+        return ugolsin;
     }
 
-    public static void setHoriz(int horiz) {
-        Horiz = horiz;
-    }
-
-    private static int Horiz;
-
-    public static double getGippotenusa() {
-        return Gippotenusa;
-    }
-
-    public static void setGipotenusa(double gippotenusa) {
-        Gippotenusa = gippotenusa;
-    }
-
-    private static double Gippotenusa;
-
-    public static float getAlfa() {
-        return (float) Alfa;
-    }
-
-    public static void setAlfa(double alfa) {
-        Alfa = alfa;
-    }
-
-    private static double Alfa;
+    private static double ugolsin;
 
     public static ArrayList<Blok> ListEnemy = new ArrayList<>();
     public static ArrayList<Integer> HashListEnemy = new ArrayList<>();
 
 
-
-    ///////////////////
+    /////////////////////
 
     public static int getXtarget() {
         return Xtarget;
@@ -84,17 +63,19 @@ public class TowerCanon extends MyGdxGame {
 
     private static int Xtarget;
 
-    public static int getYTareget() {
-        return YTareget;
+    public static int getYtarget() {
+        return Ytarget;
     }
 
-    public static void setYTareget(int YTareget) {
-        TowerCanon.YTareget = YTareget;
+    public static void setYtarget(int ytarget) {
+        Ytarget = ytarget;
     }
 
-    private static int YTareget;
+    private static int Ytarget;
+
 
     ////////////////////
+
 
 
     public static void MatricaEnemy() {
@@ -105,7 +86,7 @@ public class TowerCanon extends MyGdxGame {
         System.out.println("Scanning...");
 
         for (Blok en : BlokList.subList(7, 76)) {
-            if (en.getStorona() == (isSmenaHoda() ? 2 : 1) && en.getEffect() == 0) {
+            if (en.getStorona() == (isSmenaHoda() ? 1 : 2) && en.getEffect() == 0) {
                 ListEnemy.add(po, en);
                 HashListEnemy.add(po, en.hashCode());
                 ListEnemy.get(po).setX(en.getX());
@@ -114,52 +95,47 @@ public class TowerCanon extends MyGdxGame {
             }
         }
 
-        po = 0;
-
         if (ListEnemy.size() > 0) {
             System.out.println("List Enemy size = " + ListEnemy.size() + (isSmenaHoda() ? " vrag" : " igrok"));
 
             kl = (MathUtils.random(0, ListEnemy.size() - 1));
-            System.out.println("******" + kl);
+            System.out.println("****** " + kl);
 
 
             System.out.println("Target boat " + ListEnemy.get(kl) +
                     " x=" + ListEnemy.get(kl).getX() + " y=" + ListEnemy.get(kl).getY());
 
 
-        //    CalculateU(kl);
-            SinusV.Calculate(kl);
+
+            Calculate(kl);
         } else {
             ListEnemy.clear();
         }
     }
 
-    public static void CalculateU(int kl) {
-        Alfa = 0;
-        setVert(ListEnemy.get(kl).getY());
-        setHoriz(ListEnemy.get(kl).getX());
-
-        setXtarget(getHoriz());
-        setYTareget(getVert());
 
 
 
+    public static void Calculate(int kl){
+
+        catetX= 50+ListEnemy.get(kl).getX();
+        catetY= 50+ListEnemy.get(kl).getY();
+        gippotenusaV= (sqrt(pow(catetX, 2) + (pow(catetY, 2))));
+
+        setXtarget(catetX);
+        setYtarget(catetY);
+
+
+        if (catetY > 0) {
+            ugolsin = toDegrees(asin(catetY/ gippotenusaV));
+        }
+
+        System.out.printf("x= %d y=%d gipotenusa= %f sinus=%f",
+                getCatetX(),getCatetY(), gippotenusaV, ugolsin);
+        System.out.println();
         ListEnemy.clear();
 
-        setGipotenusa(sqrt(pow(getVert(), 2) + pow(getHoriz(), 2)));
-
-        if (getVert() > 0) {
-            Alfa = (toDegrees(asin(getVert() / getGippotenusa())));
-            System.out.println("alfa=" + Alfa);
-        }
-        //   setAlfa(toDegrees(getAlfa()));
-        System.out.println("UgolA = " + Alfa);
-
-
-      //      DrawTower.StartDrawTowerI((float) Alfa+180);
-
     }
-
 
     /////////////end class
 }
