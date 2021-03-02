@@ -10,7 +10,7 @@ public class DrawTarget extends MyGdxGame {
 
                 TextureRegion PodsvetkaTarget = new TextureRegion(atlas, 200, 2900, 100, 100);
 
-                batch.draw(PodsvetkaTarget, x,  y, 1, 1, WIDTH / 7, HEIGHT / 12, 1, 1, 0);
+                batch.draw(PodsvetkaTarget, x-50,  y-50, 1, 1, WIDTH / 7, HEIGHT / 12, 1, 1, 0);
 
 
     }

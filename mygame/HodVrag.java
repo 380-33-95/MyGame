@@ -7,6 +7,7 @@ import static com.mycompany.mygame.Dvigatel.startCiclIgrok;
 import static com.mycompany.mygame.Dvigatel.startCiclVrag;
 import static com.mycompany.mygame.Dvigatel.startV;
 import static com.mycompany.mygame.WorkBlok.ObnulenieKvadratZamok;
+import com.mycompany.draw.*;
 
 public class HodVrag extends ClickSelector {
 
@@ -46,10 +47,10 @@ public class HodVrag extends ClickSelector {
         WorkBlok.SdvigZamokV();
 
         //  MyMusik.MapSound.get(3).play();
-        TowerCanon.MatricaEnemy();
+       TowerCanon.MatricaEnemyI();
         setSmenaHoda(true);
 
-
+DrawBoolet.StartDrawBulet();
         //  DrawSmenaHoda.sun = true;
         DrawSmenaHoda.CircleSun = 0;
 

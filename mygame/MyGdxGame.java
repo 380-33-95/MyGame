@@ -29,7 +29,6 @@ import com.mycompany.draw.DrawTower;
 import com.mycompany.draw.DrawTutorials;
 import com.mycompany.draw.DrawZamokIgrok;
 import com.mycompany.draw.DrawZamokVrag;
-import com.mycompany.tower.SinusV;
 import com.mycompany.tower.TowerCanon;
 
 import static com.mycompany.mygame.JustTouched.IfJustTouched;
@@ -309,9 +308,9 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
                 //TODO DRAW TOWER
 
-              DrawTower.StartDrawTowerI((float) TowerCanon.getUgolSin());
+              DrawTower.StartDrawTowerI((float) TowerCanon.getUgolSinI());
 
-
+              DrawTower.StartDrawTowerV((float) TowerCanon.getUgolSinV());
 
 
                 ///////////////
