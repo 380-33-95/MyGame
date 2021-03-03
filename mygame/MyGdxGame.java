@@ -15,6 +15,7 @@ import com.mycompany.draw.DrawBoolet;
 import com.mycompany.draw.DrawBoom;
 import com.mycompany.draw.DrawBossIgrok;
 import com.mycompany.draw.DrawBossVrag;
+import com.mycompany.draw.DrawCanonBoolet;
 import com.mycompany.draw.DrawEnd;
 import com.mycompany.draw.DrawGame;
 import com.mycompany.draw.DrawOblako;
@@ -339,6 +340,10 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                 //TODO ramka target
                 DrawTarget.StartTargetI(getXtargetI(), getYtargetI());
                 DrawTarget.StartTargetV(getXtargetV(), getYtargetV());
+
+                //TODO CanonBOOLET
+
+                DrawCanonBoolet.StartCanonBooletI(5);
 
                 if (Gdx.input.justTouched()) {
 

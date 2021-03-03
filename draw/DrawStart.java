@@ -26,6 +26,7 @@ public class DrawStart extends MyGdxGame {
                 1,
                 1,
                 0);
+
         batch.draw(ButtonStart, (WIDTH / 7) * 2, (HEIGHT / 12) * 7, 1, 1, shirKnopki, visKnopki, 1, 1, 0);
 
         batch.draw(ButtonTutorials, (WIDTH / 7) * 2, (HEIGHT / 12) * 5, 1, 1, shirKnopki, visKnopki, 1, 1, 0);
