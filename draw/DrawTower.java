@@ -40,7 +40,7 @@ public class DrawTower extends MyGdxGame {
                 HEIGHT / 12,
                 0.5f,
                 0.5f,
-                rotV,
+                90-rotV,
                true);// УГОЛ
 
     }

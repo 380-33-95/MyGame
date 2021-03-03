@@ -1,5 +1,6 @@
 package com.mycompany.mygame;
 
+import com.mycompany.draw.DrawBoolet;
 import com.mycompany.draw.DrawSmenaHoda;
 import com.mycompany.tower.TowerCanon;
 
@@ -7,7 +8,6 @@ import static com.mycompany.mygame.Dvigatel.startCiclIgrok;
 import static com.mycompany.mygame.Dvigatel.startCiclVrag;
 import static com.mycompany.mygame.Dvigatel.startV;
 import static com.mycompany.mygame.WorkBlok.ObnulenieKvadratZamok;
-import com.mycompany.draw.*;
 
 public class HodVrag extends ClickSelector {
 
@@ -50,7 +50,7 @@ public class HodVrag extends ClickSelector {
        TowerCanon.MatricaEnemyI();
         setSmenaHoda(true);
 
-DrawBoolet.StartDrawBulet();
+        DrawBoolet.StartDrawBulet();
         //  DrawSmenaHoda.sun = true;
         DrawSmenaHoda.CircleSun = 0;
 

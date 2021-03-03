@@ -33,10 +33,10 @@ import com.mycompany.tower.TowerCanon;
 
 import static com.mycompany.mygame.JustTouched.IfJustTouched;
 import static com.mycompany.mygame.MyMusik.MapSound;
-import static com.mycompany.tower.TowerCanon.getCatetX;
-import static com.mycompany.tower.TowerCanon.getCatetY;
-import static com.mycompany.tower.TowerCanon.getXtarget;
-import static com.mycompany.tower.TowerCanon.getYtarget;
+import static com.mycompany.tower.TowerCanon.getXtargetI;
+import static com.mycompany.tower.TowerCanon.getXtargetV;
+import static com.mycompany.tower.TowerCanon.getYtargetI;
+import static com.mycompany.tower.TowerCanon.getYtargetV;
 
 
 public class MyGdxGame extends Blok implements ApplicationListener {
@@ -337,8 +337,8 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                 DrawBoolet.StartDrawBulet();
 
                 //TODO ramka target
-                DrawTarget.StartTarget(getXtarget(),getYtarget());
-
+                DrawTarget.StartTargetI(getXtargetI(), getYtargetI());
+                DrawTarget.StartTargetV(getXtargetV(), getYtargetV());
 
                 if (Gdx.input.justTouched()) {
 
