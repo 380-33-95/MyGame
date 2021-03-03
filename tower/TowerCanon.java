@@ -112,6 +112,8 @@ public class TowerCanon extends MyGdxGame {
         int kl;
         int po = 0;
 
+
+
         System.out.println("Scanning...");
 
         for (Blok en : BlokList.subList(7, 76)) {
@@ -148,17 +150,14 @@ public class TowerCanon extends MyGdxGame {
 
     public static void CalculateV(int kl){
 
-       int catetX= 50+ListEnemyI.get(kl).getX();
-        int catetY= 50+HEIGHT-ListEnemyI.get(kl).getY();
+       int catetX= ListEnemyI.get(kl).getX();
+       int catetY= 1+HEIGHT-ListEnemyI.get(kl).getY();
        double gippotenusa= (sqrt(pow(catetX, 2) + (pow(catetY, 2))));
 
         setXtargetV(catetX);
         setYtargetV(HEIGHT-catetY+50);
 
-
-        if (catetY > 0) {
-            ugolsinV = toDegrees(asin(catetY/ gippotenusa));
-        }
+        ugolsinV = toDegrees(asin(catetY/ gippotenusa));
 
         System.out.printf("vrag x= %d y=%d gipotenusa= %f sinus=%f",
                 catetX,catetY, gippotenusa, ugolsinV);
@@ -172,6 +171,8 @@ public class TowerCanon extends MyGdxGame {
 
         int kl;
         int po = 0;
+
+        ugolsinI=0;
 
         System.out.println("Scanning...");
 
@@ -207,16 +208,16 @@ public class TowerCanon extends MyGdxGame {
 	
 	public static void CalculateI(int kl){
         int catetX= ListEnemyV.get(kl).getX();
-        int catetY= ListEnemyV.get(kl).getY();
-        double gippotenusa= (sqrt(pow(catetX+50, 2) + (pow(catetY+50, 2))));
+        int catetY=1+ ListEnemyV.get(kl).getY();
+        double gippotenusa= (sqrt(pow(catetX, 2) + (pow(catetY, 2))));
 
         setXtargetI(catetX);
         setYtargetI(catetY);
 
 
-        if (catetY > 0) {
+
             ugolsinI = toDegrees(asin(catetY/ gippotenusa));
-        }
+
 
         System.out.printf("igrok x= %d y=%d gipotenusa= %f sinus=%f",
 						  catetX,catetY, gippotenusa, ugolsinI);

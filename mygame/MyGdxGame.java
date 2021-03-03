@@ -34,6 +34,7 @@ import com.mycompany.tower.TowerCanon;
 
 import static com.mycompany.mygame.JustTouched.IfJustTouched;
 import static com.mycompany.mygame.MyMusik.MapSound;
+import static com.mycompany.tower.TowerCanon.getUgolSinI;
 import static com.mycompany.tower.TowerCanon.getXtargetI;
 import static com.mycompany.tower.TowerCanon.getXtargetV;
 import static com.mycompany.tower.TowerCanon.getYtargetI;
@@ -343,7 +344,8 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
                 //TODO CanonBOOLET
 
-                DrawCanonBoolet.StartCanonBooletI(5);
+                DrawCanonBoolet.StartCanonBooletI((float) getUgolSinI(),1200);
+                DrawCanonBoolet.StartCanonBooletV((float) getUgolSinI(),1200);
 
                 if (Gdx.input.justTouched()) {
 
