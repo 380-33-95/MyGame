@@ -34,32 +34,6 @@ public class BoomBlok extends Blok {
         }
     }
 	
-	public static void StartBoomBlokList(Blok nb) {
-        tim1 = com.badlogic.gdx.utils.TimeUtils.millis() + 500;
-        nb.setTimerBoom(tim1);
-        nb.setKadrBoom(1);
-        CircleBoomBlokList(nb);
-    }
-	
-	
-	public static void CircleBoomBlokList(Blok nb) {
-        tim2 = com.badlogic.gdx.utils.TimeUtils.millis();
 
-
-        if (nb.getTimerBoom() <= tim2) {
-            if (nb.getKadrBoom() > 0 && nb.getKadrBoom() < 5) {
-
-                nb.setKadrBoom(nb.getKadrBoom() + 1);
-                nb.setTimerBoom(tim1 + 500);
-
-            }
-        }
-
-        if (nb.getKadrBoom() >= 5) {
-            nb.setKadrBoom(0);
-            nb.setTimerBoom(0);
-            WorkBlok.ObnulenieKvadratBlokList(nb);
-        }
-    }
 	
 }

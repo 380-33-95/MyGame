@@ -2,25 +2,14 @@ package com.mycompany.mygame;
 
 import com.mycompany.draw.DrawBoolet;
 
+import static com.mycompany.mygame.MyGdxGame.HEIGHT;
+import static com.mycompany.mygame.MyGdxGame.WIDTH;
 import static com.mycompany.mygame.MyGdxGame.getNC;
 import static com.mycompany.mygame.MyGdxGame.isSmenaHoda;
 
 public class WorkBlok extends Blok {
 
-    private Blok blok;
-
-
-    ////////////////////////////////////
-    public boolean isFg() {
-        return fg;
-    }
-
-    public void setFg(boolean fg) {
-        this.fg = fg;
-    }
-
     private boolean fg;
-    ////////////////////////////////////
 
 
     public static void Peremeshenie(int isS, int vR) {
@@ -303,16 +292,18 @@ public static void LoadPoleFromBasa(int nb, int  index, int st){
 
     }
 
-	public static void ObnulenieKvadratBlokList(Blok pp) {
-        pp.setForse(0);
-        pp.setHealth(0);
-        pp.setStorona(0);
-        pp.setIndex(0);
-        pp.setEffect(0);
-        //  pp.setKodBoom(0);
-        pp.setXl(0);
-        pp.setYl(0);
-    }
+public static  int RetranslateBlok(int x, int y){
+        int cv=0;// number blok of BlokList
+        int ry;
+        int rx;
+   ry = (y / (HEIGHT / 12));
+
+    rx = (x / (WIDTH / 7));
+
+    cv = ((ry * 7) + rx);
+
+    return cv;
+}
 
     /////////////////////end class
 }

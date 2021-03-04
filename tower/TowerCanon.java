@@ -3,6 +3,7 @@ package com.mycompany.tower;
 import com.badlogic.gdx.math.MathUtils;
 import com.mycompany.mygame.Blok;
 import com.mycompany.mygame.MyGdxGame;
+import com.mycompany.mygame.WorkBlok;
 
 import java.util.ArrayList;
 
@@ -46,10 +47,10 @@ public class TowerCanon extends MyGdxGame {
 	}
 
     public static ArrayList<Blok> ListEnemyI = new ArrayList<>();
-    public static ArrayList<Integer> HashListEnemyI = new ArrayList<>();
+  //  public static ArrayList<Integer> HashListEnemyI = new ArrayList<>();
 
 	public static ArrayList<Blok> ListEnemyV = new ArrayList<>();
-    public static ArrayList<Integer> HashListEnemyV = new ArrayList<>();
+ //   public static ArrayList<Integer> HashListEnemyV = new ArrayList<>();
 	
 	
 	
@@ -105,15 +106,14 @@ public class TowerCanon extends MyGdxGame {
 
         int kl;
 		Blok mk;
-	
-        int po = 0;
+	    int po = 0;
 
         System.out.println("Scanning...");
 
         for (Blok en : BlokList.subList(7, 76)) {
             if (en.getStorona() == 1 && en.getEffect() == 0) {
                 ListEnemyI.add(po, en);
-                HashListEnemyI.add(po, en.hashCode());
+            //    HashListEnemyI.add(po, en.hashCode());
                 ListEnemyI.get(po).setX(en.getX());
                 ListEnemyI.get(po).setY(en.getY());
                 po++;
@@ -125,9 +125,7 @@ public class TowerCanon extends MyGdxGame {
             kl = (MathUtils.random(0, ListEnemyI.size() - 1));
           
 			/////
-			mk=ListEnemyI.get(kl);
-			mk.setHealth(
-			mk.getHealth()-2);
+
 			
 			/////
 			
@@ -166,8 +164,6 @@ public class TowerCanon extends MyGdxGame {
 	public static void MatricaEnemyV() {
 
         int kl;
-		Blok mj;
-		int hs;
 		Blok ms;
         int po = 0;
 
@@ -176,7 +172,6 @@ public class TowerCanon extends MyGdxGame {
         for (Blok en : BlokList.subList(7, 76)) {
             if (en.getStorona() == 2 && en.getEffect() == 0) {
                 ListEnemyV.add(po, en);
-                HashListEnemyV.add(po, en.hashCode());
                 ListEnemyV.get(po).setX(en.getX());
                 ListEnemyV.get(po).setY(en.getY());
                 po++;
@@ -186,18 +181,13 @@ public class TowerCanon extends MyGdxGame {
         if (ListEnemyV.size() > 0) {
 
             kl = (MathUtils.random(0, ListEnemyV.size() - 1));
-        
-//			/////
-//			mj=ListEnemyI.get(kl);
-//
-//			mj.setHealth(
-//				mj.getHealth()-2);
-//
-//			if (mj.getHealth() <= 0) {
-//				BoomBlok.StartBoomBlokList(mj);
-//			}
 
-			/////
+            System.out.println("*"+
+            /////
+            WorkBlok.RetranslateBlok(ListEnemyV.get(kl).getX(),
+                    ListEnemyV.get(kl).getY())
+            +"*");
+            /////
 			
 			CalculateI(kl);
 
