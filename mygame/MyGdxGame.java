@@ -35,10 +35,13 @@ import com.mycompany.tower.TowerCanon;
 import static com.mycompany.mygame.JustTouched.IfJustTouched;
 import static com.mycompany.mygame.MyMusik.MapSound;
 import static com.mycompany.tower.TowerCanon.getUgolSinI;
+import static com.mycompany.tower.TowerCanon.getUgolSinV;
 import static com.mycompany.tower.TowerCanon.getXtargetI;
 import static com.mycompany.tower.TowerCanon.getXtargetV;
 import static com.mycompany.tower.TowerCanon.getYtargetI;
 import static com.mycompany.tower.TowerCanon.getYtargetV;
+import static com.mycompany.tower.TowerCanon.getGippotenV;
+import static com.mycompany.tower.TowerCanon.getGippotenI;
 
 
 public class MyGdxGame extends Blok implements ApplicationListener {
@@ -344,8 +347,8 @@ public class MyGdxGame extends Blok implements ApplicationListener {
 
                 //TODO CanonBOOLET
 
-                DrawCanonBoolet.StartCanonBooletI((float) getUgolSinI(),1200);
-                DrawCanonBoolet.StartCanonBooletV((float) getUgolSinI(),1200);
+                DrawCanonBoolet.StartCanonBooletI((float) getUgolSinI(),(float) getGippotenI());
+                DrawCanonBoolet.StartCanonBooletV((float) getUgolSinV(),(float) getGippotenV());
 
                 if (Gdx.input.justTouched()) {
 

@@ -14,30 +14,7 @@ import static java.lang.Math.toDegrees;
 
 public class TowerCanon extends MyGdxGame {
 
-    private static Blok Tb;
-
-    public static Blok getTb() {
-        return TowerCanon.Tb;
-    }
-
-    public static void setTb(Blok tb) {
-        TowerCanon.Tb = tb;
-    }
-
-//    public static int getCatetX() {
-//        return catetX;
-//    }
-//
-//    private static int catetX;
-//
-//    public static int getCatetY() {
-//        return catetY;
-//    }
-//
-//    private static int catetY;
-//
-//    static double gippotenusa;
-
+   
     public static double getUgolSinI() {
         return ugolsinI;
     }
@@ -50,6 +27,23 @@ public class TowerCanon extends MyGdxGame {
     }
 
     private static double ugolsinV;
+	
+	private static double gippotenI;
+	public static double getGippotenI(){
+		return gippotenI;
+	}
+	public static void setGippotenI(double gh){
+		gippotenI=gh;
+	}
+	
+	
+	private static double gippotenV;
+	public static double getGippotenV(){
+		return gippotenV;
+	}
+	public static void setGippotenV(double fg){
+		gippotenV=fg;
+	}
 
     public static ArrayList<Blok> ListEnemyI = new ArrayList<>();
     public static ArrayList<Integer> HashListEnemyI = new ArrayList<>();
@@ -110,9 +104,9 @@ public class TowerCanon extends MyGdxGame {
     public static void MatricaEnemyI() {
 
         int kl;
+		Blok mk;
+	
         int po = 0;
-
-
 
         System.out.println("Scanning...");
 
@@ -127,19 +121,20 @@ public class TowerCanon extends MyGdxGame {
         }
 
         if (ListEnemyI.size() > 0) {
-            System.out.println("List Enemy size = " + ListEnemyI.size() + (isSmenaHoda() ? " vrag" : " igrok"));
-
+            
             kl = (MathUtils.random(0, ListEnemyI.size() - 1));
-            System.out.println("****** " + kl);
-
-
-            System.out.println("Target boat " + ListEnemyI.get(kl) +
-                    " x=" + ListEnemyI.get(kl).getX() + " y=" + ListEnemyI.get(kl).getY());
-
-
+          
+			/////
+			mk=ListEnemyI.get(kl);
+			mk.setHealth(
+			mk.getHealth()-2);
+			
+			/////
+			
+			
+			
 		 CalculateV(kl);
-		 
-		 
+		  
         } else {
             ListEnemyI.clear();
         }
@@ -150,17 +145,18 @@ public class TowerCanon extends MyGdxGame {
 
     public static void CalculateV(int kl){
 
-       int catetX= ListEnemyI.get(kl).getX();
-       int catetY= 1+HEIGHT-ListEnemyI.get(kl).getY();
-       double gippotenusa= (sqrt(pow(catetX, 2) + (pow(catetY, 2))));
+       int catetX=ListEnemyI.get(kl).getX();
+       int catetY=1+ HEIGHT-ListEnemyI.get(kl).getY()-100;
+       gippotenV= (sqrt(pow(catetX, 2) + (pow(catetY, 2))));
 
-        setXtargetV(catetX);
-        setYtargetV(HEIGHT-catetY+50);
+	   
+        setXtargetV(catetX+50);
+        setYtargetV(HEIGHT-catetY-100);
 
-        ugolsinV = toDegrees(asin(catetY/ gippotenusa));
+        ugolsinV = toDegrees(asin(catetY/ gippotenV));
 
         System.out.printf("vrag x= %d y=%d gipotenusa= %f sinus=%f",
-                catetX,catetY, gippotenusa, ugolsinV);
+                catetX,catetY, gippotenV, ugolsinV);
         System.out.println();
         ListEnemyI.clear();
 
@@ -170,9 +166,10 @@ public class TowerCanon extends MyGdxGame {
 	public static void MatricaEnemyV() {
 
         int kl;
+		Blok mj;
+		int hs;
+		Blok ms;
         int po = 0;
-
-        ugolsinI=0;
 
         System.out.println("Scanning...");
 
@@ -187,17 +184,21 @@ public class TowerCanon extends MyGdxGame {
         }
 
         if (ListEnemyV.size() > 0) {
-            System.out.println("List Enemy size = " + ListEnemyV.size() + (isSmenaHoda() ? " vrag" : " igrok"));
 
             kl = (MathUtils.random(0, ListEnemyV.size() - 1));
-            System.out.println("****** " + kl);
+        
+//			/////
+//			mj=ListEnemyI.get(kl);
+//
+//			mj.setHealth(
+//				mj.getHealth()-2);
+//
+//			if (mj.getHealth() <= 0) {
+//				BoomBlok.StartBoomBlokList(mj);
+//			}
 
-
-            System.out.println("Target boat " + ListEnemyV.get(kl) +
-							   " x=" + ListEnemyV.get(kl).getX() + " y=" + ListEnemyV.get(kl).getY());
-
-
-
+			/////
+			
 			CalculateI(kl);
 
         } else {
@@ -209,21 +210,22 @@ public class TowerCanon extends MyGdxGame {
 	public static void CalculateI(int kl){
         int catetX= ListEnemyV.get(kl).getX();
         int catetY=1+ ListEnemyV.get(kl).getY();
-        double gippotenusa= (sqrt(pow(catetX, 2) + (pow(catetY, 2))));
+        gippotenI= (sqrt(pow(catetX, 2) + (pow(catetY, 2))));
 
         setXtargetI(catetX);
         setYtargetI(catetY);
 
+        ugolsinI = toDegrees(asin(catetY/ gippotenI));
 
-
-            ugolsinI = toDegrees(asin(catetY/ gippotenusa));
-
-
-        System.out.printf("igrok x= %d y=%d gipotenusa= %f sinus=%f",
-						  catetX,catetY, gippotenusa, ugolsinI);
+   System.out.printf("igrok x= %d y=%d gipotenusa= %f sinus=%f",
+						  catetX,catetY, gippotenI, ugolsinI);
         System.out.println();
         ListEnemyV.clear();
 
     }
+	
+	
+	
+	
     /////////////end class
 }

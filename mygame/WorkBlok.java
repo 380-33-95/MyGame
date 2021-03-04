@@ -303,7 +303,16 @@ public static void LoadPoleFromBasa(int nb, int  index, int st){
 
     }
 
-
+	public static void ObnulenieKvadratBlokList(Blok pp) {
+        pp.setForse(0);
+        pp.setHealth(0);
+        pp.setStorona(0);
+        pp.setIndex(0);
+        pp.setEffect(0);
+        //  pp.setKodBoom(0);
+        pp.setXl(0);
+        pp.setYl(0);
+    }
 
     /////////////////////end class
 }

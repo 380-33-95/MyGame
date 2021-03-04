@@ -2,6 +2,8 @@ package com.mycompany.draw;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.mycompany.mygame.MyGdxGame;
+import com.badlogic.gdx.*;
+import com.mycompany.tower.*;
 
 public class DrawCanonBoolet extends MyGdxGame {
 
@@ -10,18 +12,24 @@ public class DrawCanonBoolet extends MyGdxGame {
     static  int width=WIDTH / 7;
     static int height=HEIGHT / 12;
 
+	static float trekI=0;
+	static float trekV=0;
 
     public static void StartCanonBooletI( float rotI, float trek) {
 
-        float trekI=trek;
-
         TextureRegion CanonI = new TextureRegion(atlas, 100, 2400, 600, 100);
 
-        batch.draw(CanonI,
-                0,
-                50,
-               50,//centerRotateX
-                0,//centerRotateY
+      if(trekI<=trek){
+		trekI=trekI+(2000*Gdx.graphics.getDeltaTime());
+		}
+		else{trekI=0;
+		TowerCanon.setGippotenI(0);}
+			
+		batch.draw(CanonI,
+				   0,
+				   50,
+				   50,//centerRotateX
+				   0,//centerRotateY
                 width,
                 trekI,
                 0.5f,
@@ -29,26 +37,30 @@ public class DrawCanonBoolet extends MyGdxGame {
                 rotI-90,
                 false// УГОЛ
         );
-
-
     }
 
-    public static void StartCanonBooletV( float rotI, float trek) {
+    public static void StartCanonBooletV( float rotV, float trek) {
 
-        float trekI=trek;
+        TextureRegion CanonV = new TextureRegion(atlas, 700, 2400, 600, 100);
 
-        TextureRegion CanonV = new TextureRegion(atlas, 100, 2400, 600, 100);
-
-        batch.draw(CanonV,
-                0,
-                HEIGHT - (HEIGHT / 12),
-                0,//centerRotateX
-                HEIGHT - (HEIGHT / 12),//centerRotateY
+      if(trekV<=trek){
+		  trekV=trekV+(2000*Gdx.graphics.getDeltaTime());
+	  }
+	  else{
+		  trekV=0;
+		 TowerCanon.setGippotenV(0); 
+	  }
+		
+		batch.draw(CanonV,
+				   0,
+				   HEIGHT - (HEIGHT / 12),
+				   originX,//centerRotateX
+				   originY,//centerRotateY
                 width,
-                trekI,
+                trekV,
                 0.5f,
                 1,
-                rotI-90,
+              180+ 90- rotV,
                 true// УГОЛ
         );
 
