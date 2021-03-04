@@ -296,6 +296,9 @@ public static  int RetranslateBlok(int x, int y){
         int cv=0;// number blok of BlokList
         int ry;
         int rx;
+
+    y = HEIGHT - y;
+
    ry = (y / (HEIGHT / 12));
 
     rx = (x / (WIDTH / 7));
