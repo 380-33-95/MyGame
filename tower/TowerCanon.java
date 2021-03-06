@@ -11,6 +11,7 @@ import static java.lang.Math.asin;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 import static java.lang.Math.toDegrees;
+import com.mycompany.mygame.*;
 
 
 public class TowerCanon extends MyGdxGame {
@@ -105,7 +106,7 @@ public class TowerCanon extends MyGdxGame {
     public static void MatricaEnemyI() {
 
         int kl;
-		Blok mk;
+		int mk;
 	    int po = 0;
 
         System.out.println("Scanning...");
@@ -126,7 +127,14 @@ public class TowerCanon extends MyGdxGame {
           
 			/////
 
-			
+			mk=  WorkBlok.RetranslateBlok(ListEnemyI.get(kl).getX(),
+										  ListEnemyI.get(kl).getY());
+			BlokListGet(mk).setHealth(
+				BlokListGet(mk).getHealth()-2);
+
+			if(BlokListGet(mk).getHealth()<=0){
+				BoomBlok.StartBoomBlok(mk);
+			}
 			/////
 			
 			
@@ -164,7 +172,7 @@ public class TowerCanon extends MyGdxGame {
 	public static void MatricaEnemyV() {
 
         int kl;
-		Blok ms;
+		int ms;
         int po = 0;
 
         System.out.println("Scanning...");
@@ -182,11 +190,16 @@ public class TowerCanon extends MyGdxGame {
 
             kl = (MathUtils.random(0, ListEnemyV.size() - 1));
 
-            System.out.println("*"+
+            
             /////
-            WorkBlok.RetranslateBlok(ListEnemyV.get(kl).getX(),
-                    ListEnemyV.get(kl).getY())
-            +"*");
+          ms=  WorkBlok.RetranslateBlok(ListEnemyV.get(kl).getX(),
+                    ListEnemyV.get(kl).getY());
+           BlokListGet(ms).setHealth(
+		   BlokListGet(ms).getHealth()-2);
+		   
+		   if(BlokListGet(ms).getHealth()<=0){
+			   BoomBlok.StartBoomBlok(ms);
+		   }
             /////
 			
 			CalculateI(kl);

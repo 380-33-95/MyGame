@@ -2,6 +2,7 @@ package com.mycompany.draw;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.mycompany.mygame.MyGdxGame;
+import com.mycompany.mygame.*;
 
 public class DrawPole extends MyGdxGame {
 
@@ -36,6 +37,12 @@ public class DrawPole extends MyGdxGame {
                 TextureRegion PoleIndex = new TextureRegion(atlas, BlokList.get(pp).getIndex() * 100, color, 100, 100);
                 batch.draw(PoleIndex, BlokList.get(pp).getX(), BlokList.get(pp).getY(), 1, 1, WIDTH / 7, HEIGHT / 12, 1, 1, 0);
 
+				if(color ==0|| color ==1000){
+					WorkBlok.ObnulenieKvadratPole(pp);
+					
+				}
+				
+				
                 //sila
                 TextureRegion PoleForse = new TextureRegion(atlas, 1000 + ((BlokList.get(pp).getForse()) * 100), 2700, 100, 100);
                 batch.draw(PoleForse, BlokList.get(pp).getX() + 10, BlokList.get(pp).getY(), 1, 1, 30, 30, 1, 1, 0);

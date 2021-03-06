@@ -19,7 +19,7 @@ public class BoomBlok extends Blok {
 
 
         if (BlokList.get(nb).getTimerBoom() <= tim2) {
-            if (BlokList.get(nb).getKadrBoom() > 0 && BlokList.get(nb).getKadrBoom() < 5) {
+            if (BlokList.get(nb).getKadrBoom() > 0 && BlokList.get(nb).getKadrBoom() < 6) {
 
                 BlokList.get(nb).setKadrBoom(BlokList.get(nb).getKadrBoom() + 1);
                 BlokList.get(nb).setTimerBoom(tim1 + 500);
@@ -27,7 +27,7 @@ public class BoomBlok extends Blok {
             }
         }
 
-        if (BlokList.get(nb).getKadrBoom() >= 5) {
+        if (BlokList.get(nb).getKadrBoom() >= 6) {
             BlokList.get(nb).setKadrBoom(0);
             BlokList.get(nb).setTimerBoom(0);
             WorkBlok.ObnulenieKvadratPole(nb);

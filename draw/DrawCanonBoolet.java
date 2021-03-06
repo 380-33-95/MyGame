@@ -17,54 +17,58 @@ public class DrawCanonBoolet extends MyGdxGame {
 
     public static void StartCanonBooletI( float rotI, float trek) {
 
-        TextureRegion CanonI = new TextureRegion(atlas, 100, 2400, 600, 100);
+    	if(trek>50) {
+			TextureRegion CanonI = new TextureRegion(atlas, 100, 2400, 600, 100);
 
-      if(trekI<=trek){
-		trekI=trekI+(2000*Gdx.graphics.getDeltaTime());
+			if (trekI <= trek) {
+				trekI = trekI + (2000 * Gdx.graphics.getDeltaTime());
+			} else {
+				trekI = 0;
+				TowerCanon.setGippotenI(0);
+			}
+
+			batch.draw(CanonI,
+					0,
+					50,
+					50,//centerRotateX
+					0,//centerRotateY
+					width,
+					trekI,
+					0.5f,
+					1,
+					rotI - 90,
+					false// УГОЛ
+			);
 		}
-		else{trekI=0;
-		TowerCanon.setGippotenI(0);}
-			
-		batch.draw(CanonI,
-				   0,
-				   50,
-				   50,//centerRotateX
-				   0,//centerRotateY
-                width,
-                trekI,
-                0.5f,
-                1,
-                rotI-90,
-                false// УГОЛ
-        );
     }
+
 
     public static void StartCanonBooletV( float rotV, float trek) {
 
-        TextureRegion CanonV = new TextureRegion(atlas, 700, 2400, 600, 100);
+		if(trek>50) {
+			TextureRegion CanonV = new TextureRegion(atlas, 700, 2400, 600, 100);
 
-      if(trekV<=trek){
-		  trekV=trekV+(2000*Gdx.graphics.getDeltaTime());
-	  }
-	  else{
-		  trekV=0;
-		 TowerCanon.setGippotenV(0); 
-	  }
-		
-		batch.draw(CanonV,
-				   0,
-				   HEIGHT - (HEIGHT / 12),
-				   originX,//centerRotateX
-				   originY,//centerRotateY
-                width,
-                trekV,
-                0.5f,
-                1,
-              180+ 90- rotV,
-                true// УГОЛ
-        );
+			if (trekV <= trek) {
+				trekV = trekV + (2000 * Gdx.graphics.getDeltaTime());
+			} else {
+				trekV = 0;
+				TowerCanon.setGippotenV(0);
+			}
 
+			batch.draw(CanonV,
+					0,
+					HEIGHT - (HEIGHT / 12),
+					originX,//centerRotateX
+					originY,//centerRotateY
+					width,
+					trekV,
+					0.5f,
+					1,
+					180 + 90 - rotV,
+					true// УГОЛ
+			);
 
+		}
     }
 
 }

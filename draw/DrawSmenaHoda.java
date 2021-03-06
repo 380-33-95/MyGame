@@ -31,8 +31,8 @@ public class DrawSmenaHoda extends MyGdxGame {
 				1,
 				WIDTH / 7,
 				HEIGHT / 12,
-				1,
-				1,
+				1f,
+				1f,
 				0);
 
 		if (sun) {

@@ -342,8 +342,8 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                 DrawBoolet.StartDrawBulet();
 
                 //TODO ramka target
-                DrawTarget.StartTargetI(getXtargetI(), getYtargetI());
-                DrawTarget.StartTargetV(getXtargetV(), getYtargetV());
+             //   DrawTarget.StartTargetI(getXtargetI(), getYtargetI());
+            //    DrawTarget.StartTargetV(getXtargetV(), getYtargetV());
 
                 //TODO CanonBOOLET
 

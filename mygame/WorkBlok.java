@@ -9,7 +9,6 @@ import static com.mycompany.mygame.MyGdxGame.isSmenaHoda;
 
 public class WorkBlok extends Blok {
 
-    private boolean fg;
 
 
     public static void Peremeshenie(int isS, int vR) {
@@ -296,6 +295,8 @@ public static  int RetranslateBlok(int x, int y){
         int cv=0;// number blok of BlokList
         int ry;
         int rx;
+x+=50;
+y+=50;
 
     y = HEIGHT - y;
 

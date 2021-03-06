@@ -232,5 +232,26 @@ public class Analiz extends Blok {
 	}
 
 
+	public static int FindEnemy(int start){
+		
+		int target=start-1;
+		boolean tr=false;
+		
+		for(Blok qe:BlokList.subList(start,76)){
+			target++;
+		if(qe.getStorona()==1){
+			tr=true;
+		break;
+		}
+		
+		}
+		
+		if(!tr){
+			target=0;
+		}
+		return target;
+	}
+	
+	
 	///
 }
