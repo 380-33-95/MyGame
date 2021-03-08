@@ -43,19 +43,7 @@ public class Analiz extends Blok {
 
 
 	//////////////////////////////////////////////////
-	public static boolean ProverkaPole() {
-		boolean lk = false;
-
-		for (Blok dc : BlokList.subList(14, 67)) {
-			if (dc.getStorona() == 1) {
-				lk = true;
-			}
-		}
-
-		System.out.println("pole =" + lk);
-		return lk;
-	}
-
+	
 
 	/////////////////////////////////////////////////////
 	public static int FindVeryForseBlok() {
@@ -128,44 +116,10 @@ public class Analiz extends Blok {
 	}
 
 	//////////////////////////////////////////////////////////
-	public static void FindZamokMine() {
-
-		setMinaVZamke(0);
-		boolean estmina = false;
-
-		int nomMine = 0;
-
-		for (Blok hj : BlokList.subList(1, 6)) {
-			if (hj.getIndex() == 6) {
-				nomMine = BlokList.indexOf(hj);
-				setMinaVZamke(nomMine);
-			}
-		}
-
-		System.out.println("find mina " + nomMine);
-
-	}
-
+	
 
 	///////////////////////////////////////////////////////////
-	public static void VerefyMinaOfKurs(int le) {
-
-		setMinaNaLine(false);
-
-		boolean gr = false;
-
-		while (!gr && le >= 14) {
-			le = le - 7;
-			if (BlokListGet(le).getIndex() == 6) {
-				gr = true;
-				setMinaNaLine(true);
-			}
-		}
-
-		System.out.println("Mina na line " + isMinaNaLine());
-
-	}
-
+	
 
 	////////////////////////////////////////////////////
 	public static boolean PerebrosMina(int enemy) {
