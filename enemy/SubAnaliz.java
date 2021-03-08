@@ -1,9 +1,8 @@
 package com.mycompany.enemy;
 
 import com.mycompany.mygame.Blok;
-import com.mycompany.mygame.MyGdxGame;
-import com.badlogic.gdx.math.MathUtils;
 import com.mycompany.mygame.ClickSelector;
+import com.mycompany.mygame.MyGdxGame;
 
 
 public class SubAnaliz extends MyGdxGame {
@@ -69,13 +68,10 @@ public class SubAnaliz extends MyGdxGame {
 
 		setMinaVZamke(0);
 
-		//int nomMine = 0;
-
 		for (Blok hj : BlokList.subList(1, 6)) {
 			if (hj.getIndex() == 6) {
 				setMinaVZamke(BlokList.indexOf(hj));
-				//nomMine = BlokList.indexOf(hj);
-				//setMinaVZamke(nomMine);
+
 			}
 		}
 
@@ -115,10 +111,13 @@ public class SubAnaliz extends MyGdxGame {
 
 
 		if (enemy >= 42 && enemy <= 76) {
+			System.out.println("target from PM"+enemy);
 			while (enemy >= 42) {
 				enemy = enemy - 7;
+				System.out.println("enemy="+enemy);
 			}
 			if (BlokListGet(enemy).getIndex() == 0) {
+				System.out.println("clicselector"+enemy);
 				ClickSelector.TouchPressed(enemy);
 				sp = true;
 			} else {
@@ -142,8 +141,61 @@ public class SubAnaliz extends MyGdxGame {
 		return sp;
 	}
 
-
 	///////////////////////////////////////
-	
+
+
+
+	public static int FindVeryForseBlok() {
+
+		int gv = 0;
+
+		int VeryForse = 0;
+
+		for (Blok gh : BlokList.subList(1, 6)) {
+			if (gh.getEffect() == 0
+					&& gh.getForse() > VeryForse) {
+				VeryForse = gh.getForse();
+				gv = BlokList.indexOf(gh);
+			}
+
+			System.out.println("very forse= " + gv);
+			if (VeryForse > 0) {
+				ClickSelector.TouchPressed(gv);
+			}
+
+		}
+		return gv;
+	}
+
+	////////////////////////////////////////////////////////
+
+	public static boolean PererbrosVpole(int enemy) {
+
+		boolean sm = false;
+
+		int hup = 0;
+
+		if (enemy >= 14 && enemy <= 76) { //ishem kuda stavit naprotiv
+
+			while (enemy >= 14) {
+				enemy = enemy - 7;
+			}
+
+			if (BlokListGet(enemy).getIndex() == 0) //proverjem ne sanjat li kvadrat
+			{
+				ClickSelector.TouchPressed(enemy);
+				System.out.println("perebros both v " + enemy);
+			} else {
+				System.out.println("kletka zanjata " + enemy);
+				StrategijFirstEnemy.Start(getTarget()+1);
+
+
+			}
+		}
+		return sm;
+	}
+
+	//////////////////////////////////////////////////////////
+
 	/////////////
 }

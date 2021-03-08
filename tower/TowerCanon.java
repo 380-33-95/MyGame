@@ -2,6 +2,7 @@ package com.mycompany.tower;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.mycompany.mygame.Blok;
+import com.mycompany.mygame.BoomBlok;
 import com.mycompany.mygame.MyGdxGame;
 import com.mycompany.mygame.WorkBlok;
 
@@ -11,7 +12,6 @@ import static java.lang.Math.asin;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 import static java.lang.Math.toDegrees;
-import com.mycompany.mygame.*;
 
 
 public class TowerCanon extends MyGdxGame {
@@ -109,12 +109,9 @@ public class TowerCanon extends MyGdxGame {
 		int mk;
 	    int po = 0;
 
-        System.out.println("Scanning...");
-
         for (Blok en : BlokList.subList(7, 76)) {
             if (en.getStorona() == 1 && en.getEffect() == 0) {
                 ListEnemyI.add(po, en);
-            //    HashListEnemyI.add(po, en.hashCode());
                 ListEnemyI.get(po).setX(en.getX());
                 ListEnemyI.get(po).setY(en.getY());
                 po++;
@@ -124,8 +121,6 @@ public class TowerCanon extends MyGdxGame {
         if (ListEnemyI.size() > 0) {
             
             kl = (MathUtils.random(0, ListEnemyI.size() - 1));
-          
-			/////
 
 			mk=  WorkBlok.RetranslateBlok(ListEnemyI.get(kl).getX(),
 										  ListEnemyI.get(kl).getY());
@@ -135,10 +130,7 @@ public class TowerCanon extends MyGdxGame {
 			if(BlokListGet(mk).getHealth()<=0){
 				BoomBlok.StartBoomBlok(mk);
 			}
-			/////
-			
-			
-			
+
 		 CalculateV(kl);
 		  
         } else {
@@ -150,22 +142,13 @@ public class TowerCanon extends MyGdxGame {
 
 
     public static void CalculateV(int kl){
-
        int catetX=ListEnemyI.get(kl).getX();
        int catetY=1+ HEIGHT-ListEnemyI.get(kl).getY()-100;
        gippotenV= (sqrt(pow(catetX, 2) + (pow(catetY, 2))));
-
-	   
-        setXtargetV(catetX+50);
-        setYtargetV(HEIGHT-catetY-100);
-
-        ugolsinV = toDegrees(asin(catetY/ gippotenV));
-
-        System.out.printf("vrag x= %d y=%d gipotenusa= %f sinus=%f",
-                catetX,catetY, gippotenV, ugolsinV);
-        System.out.println();
-        ListEnemyI.clear();
-
+       setXtargetV(catetX+50);
+       setYtargetV(HEIGHT-catetY-100);
+       ugolsinV = toDegrees(asin(catetY/ gippotenV));
+       ListEnemyI.clear();
     }
 	
 	
@@ -174,8 +157,6 @@ public class TowerCanon extends MyGdxGame {
         int kl;
 		int ms;
         int po = 0;
-
-        System.out.println("Scanning...");
 
         for (Blok en : BlokList.subList(7, 76)) {
             if (en.getStorona() == 2 && en.getEffect() == 0) {
@@ -190,8 +171,6 @@ public class TowerCanon extends MyGdxGame {
 
             kl = (MathUtils.random(0, ListEnemyV.size() - 1));
 
-            
-            /////
           ms=  WorkBlok.RetranslateBlok(ListEnemyV.get(kl).getX(),
                     ListEnemyV.get(kl).getY());
            BlokListGet(ms).setHealth(
@@ -200,8 +179,7 @@ public class TowerCanon extends MyGdxGame {
 		   if(BlokListGet(ms).getHealth()<=0){
 			   BoomBlok.StartBoomBlok(ms);
 		   }
-            /////
-			
+
 			CalculateI(kl);
 
         } else {
@@ -214,15 +192,9 @@ public class TowerCanon extends MyGdxGame {
         int catetX= ListEnemyV.get(kl).getX();
         int catetY=1+ ListEnemyV.get(kl).getY();
         gippotenI= (sqrt(pow(catetX, 2) + (pow(catetY, 2))));
-
         setXtargetI(catetX);
         setYtargetI(catetY);
-
         ugolsinI = toDegrees(asin(catetY/ gippotenI));
-
-   System.out.printf("igrok x= %d y=%d gipotenusa= %f sinus=%f",
-						  catetX,catetY, gippotenI, ugolsinI);
-        System.out.println();
         ListEnemyV.clear();
 
     }

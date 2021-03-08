@@ -5,8 +5,7 @@ public class StartEnemy {
 
     public static void StartEnemyStrategy() {
 
-     //   StrategijaSamijBlizkij.StartPerviEnemy();
-        StrategijFirstEnemy.Start();
+        StrategijFirstEnemy.Start(14);
 
     }
 
