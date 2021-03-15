@@ -6,15 +6,18 @@ public class Uron extends Blok {
 	public static boolean UronBasaVrag() {
 
 		int hli = b00.getHealth();
-		for (Blok qe : BlokList.subList(7, 13)) {
-			if (qe.getStorona() == 1) {
-				b00.setHealth((hli - qe.getForse()) >= 1 ? (hli - qe.getForse()) : 0);
-				if (b00.getHealth() > 0) {
-					qe.PlayMusik(12, 0.5f);
-					//		MetodObject();
+			
+			for (int a = 7; a <= 13; a++) {
+
+				if (BlokList.get(a).getStorona() == 1) {
+					if (hli- BlokList.get(a).getForse() >= 1) {
+						b00.setHealth(hli - BlokList.get(a).getForse());
+
+						BlokList.get(a).PlayMusik(12, 0.5f);
+					
 				} else {
 					b00.setHealth(0);
-					KonecBoj.KonecBoj(0);//??:::
+					KonecBoj.KonecBoj(0);
 				}
 			}
 		}

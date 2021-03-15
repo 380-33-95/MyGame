@@ -125,7 +125,8 @@ public class TowerCanon extends MyGdxGame {
 			mk=  WorkBlok.RetranslateBlok(ListEnemyI.get(kl).getX(),
 										  ListEnemyI.get(kl).getY());
 			BlokListGet(mk).setHealth(
-				BlokListGet(mk).getHealth()-2);
+				BlokListGet(mk).getHealth()-
+				(int)MathUtils.random(0,3));
 
 			if(BlokListGet(mk).getHealth()<=0){
 				BoomBlok.StartBoomBlok(mk);
@@ -174,7 +175,7 @@ public class TowerCanon extends MyGdxGame {
           ms=  WorkBlok.RetranslateBlok(ListEnemyV.get(kl).getX(),
                     ListEnemyV.get(kl).getY());
            BlokListGet(ms).setHealth(
-		   BlokListGet(ms).getHealth()-2);
+				BlokListGet(ms).getHealth()-(int)MathUtils.random(0,3));
 		   
 		   if(BlokListGet(ms).getHealth()<=0){
 			   BoomBlok.StartBoomBlok(ms);

@@ -21,7 +21,7 @@ public class DrawCanonBoolet extends MyGdxGame {
 			TextureRegion CanonI = new TextureRegion(atlas, 100, 2400, 600, 100);
 
 			if (trekI <= trek) {
-				trekI = trekI + (2000 * Gdx.graphics.getDeltaTime());
+				trekI = trekI + (3000 * Gdx.graphics.getDeltaTime());
 			} else {
 				trekI = 0;
 				TowerCanon.setGippotenI(0);
@@ -49,7 +49,7 @@ public class DrawCanonBoolet extends MyGdxGame {
 			TextureRegion CanonV = new TextureRegion(atlas, 700, 2400, 600, 100);
 
 			if (trekV <= trek) {
-				trekV = trekV + (2000 * Gdx.graphics.getDeltaTime());
+				trekV = trekV + (3000 * Gdx.graphics.getDeltaTime());
 			} else {
 				trekV = 0;
 				TowerCanon.setGippotenV(0);

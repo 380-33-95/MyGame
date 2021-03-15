@@ -42,6 +42,8 @@ import static com.mycompany.tower.TowerCanon.getYtargetI;
 import static com.mycompany.tower.TowerCanon.getYtargetV;
 import static com.mycompany.tower.TowerCanon.getGippotenV;
 import static com.mycompany.tower.TowerCanon.getGippotenI;
+import com.mycompany.enemy.*;
+import static com.mycompany.enemy.SubAnaliz.getBlok;
 
 
 public class MyGdxGame extends Blok implements ApplicationListener {
@@ -344,7 +346,7 @@ public class MyGdxGame extends Blok implements ApplicationListener {
                 //TODO ramka target
              //   DrawTarget.StartTargetI(getXtargetI(), getYtargetI());
             //    DrawTarget.StartTargetV(getXtargetV(), getYtargetV());
-
+				DrawTarget.StartTarget(BlokListGet(getBlok()).getX(),BlokListGet(getBlok()).getY());
                 //TODO CanonBOOLET
 
                 DrawCanonBoolet.StartCanonBooletI((float) getUgolSinI(),(float) getGippotenI());

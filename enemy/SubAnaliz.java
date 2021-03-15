@@ -3,6 +3,7 @@ package com.mycompany.enemy;
 import com.mycompany.mygame.Blok;
 import com.mycompany.mygame.ClickSelector;
 import com.mycompany.mygame.MyGdxGame;
+import com.mycompany.draw.*;
 
 
 public class SubAnaliz extends MyGdxGame {
@@ -39,6 +40,19 @@ public class SubAnaliz extends MyGdxGame {
 	private static boolean MinaNaLine;
 	/////////////////////
 	
+	private static int nj;
+	public static int getBlok(){
+		return nj;
+	}
+	
+	
+	private static int tgfl;
+	public static int getTgfl(){
+		return tgfl;
+	}
+	
+	
+	
 	
     public static int FindEnemy(int start){
 
@@ -65,12 +79,14 @@ public class SubAnaliz extends MyGdxGame {
 	
 	
 	public static int FindZamokMine() {
-
+		int cv=0;
 		setMinaVZamke(0);
 
 		for (Blok hj : BlokList.subList(1, 6)) {
+			cv++;
 			if (hj.getIndex() == 6) {
-				setMinaVZamke(BlokList.indexOf(hj));
+				
+				setMinaVZamke(cv);
 
 			}
 		}
@@ -148,54 +164,79 @@ public class SubAnaliz extends MyGdxGame {
 	public static int FindVeryForseBlok() {
 
 		int gv = 0;
+		int gvw=0;
 
 		int VeryForse = 0;
 
 		for (Blok gh : BlokList.subList(1, 6)) {
+			gv++;
 			if (gh.getEffect() == 0
 					&& gh.getForse() > VeryForse) {
 				VeryForse = gh.getForse();
-				gv = BlokList.indexOf(gh);
+				gvw = gv;
 			}
 
-			System.out.println("very forse= " + gv);
+			System.out.println("very forse= " + gvw);
 			if (VeryForse > 0) {
-				ClickSelector.TouchPressed(gv);
+				ClickSelector.TouchPressed(gvw);
 			}
 
 		}
-		return gv;
+		return gvw;
 	}
 
 	////////////////////////////////////////////////////////
 
-	public static boolean PererbrosVpole(int enemy) {
+	public static void PerebrosVpole(int enemy) {
 
-		boolean sm = false;
-
-		int hup = 0;
-
-		if (enemy >= 14 && enemy <= 76) { //ishem kuda stavit naprotiv
-
-			while (enemy >= 14) {
-				enemy = enemy - 7;
-			}
-
-			if (BlokListGet(enemy).getIndex() == 0) //proverjem ne sanjat li kvadrat
-			{
 				ClickSelector.TouchPressed(enemy);
-				System.out.println("perebros both v " + enemy);
-			} else {
-				System.out.println("kletka zanjata " + enemy);
-				StrategijFirstEnemy.Start(getTarget()+1);
-
-
-			}
-		}
-		return sm;
+			
 	}
 
 	//////////////////////////////////////////////////////////
+	
+	
+
+
+    public static int FindEnemy2(int start){
+
+        int tgt=start-1;
+        boolean tr=false;
+
+        for(Blok qe:BlokList.subList(start,76)){
+            tgt++;
+            if(qe.getStorona()==1){
+				target=tgt;
+                tr=true;
+				nj=target;
+                break;
+            }
+
+        }
+
+        if(!tr){
+            tgt=0;
+			target=0;
+        }
+        return tgt;
+    }
+	
+	
+	public static int VerefyFirstLine(int tgf){
+		tgfl=tgf;
+		if (tgfl>= 14 && tgfl <= 76) { //ishem kuda stavit naprotiv
+
+			while (tgfl >= 14) {
+				tgfl = tgfl - 7;
+			}
+			}
+			if(BlokListGet(tgfl).getIndex()!=0){
+				tgfl=0;
+			}
+			
+			return getTgfl();
+	}
+	
 
 	/////////////
 }
