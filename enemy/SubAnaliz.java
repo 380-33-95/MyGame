@@ -43,12 +43,6 @@ public class SubAnaliz extends MyGdxGame {
 	public static int getBlok(){
 		return nj;
 	}
-	
-	
-	private static int tgfl;
-	public static int getTgfl(){
-		return tgfl;
-	}
 
 	public static int getPerebrosMina() {
 		return PerebrosMina;
@@ -70,6 +64,28 @@ public class SubAnaliz extends MyGdxGame {
 	}
 
 	private static int EnemyBoat;
+
+
+	public static int getRif() {
+		return Rif;
+	}
+
+	public static void setRif(int rif) {
+		Rif = rif;
+	}
+
+	private static int Rif;
+
+
+	public static boolean isRifNaKurse() {
+		return RifNaKurse;
+	}
+
+	public static void setRifNaKurse(boolean rifNaKurse) {
+		RifNaKurse = rifNaKurse;
+	}
+
+	private static boolean RifNaKurse;
 	
 
 	
@@ -82,9 +98,7 @@ public class SubAnaliz extends MyGdxGame {
 		for (Blok hj : BlokList.subList(1, 6)) {
 			cv++;
 			if (hj.getIndex() == 6) {
-				
 				setMinaVZamke(cv);
-
 			}
 		}
 
@@ -110,9 +124,6 @@ public class SubAnaliz extends MyGdxGame {
 				System.out.println("Mina na line " + isMinaNaLine());
 			}
 		}
-
-
-
 	}
 	
 	
@@ -128,7 +139,6 @@ public class SubAnaliz extends MyGdxGame {
 				enemy = enemy - 7;
 				System.out.println("enemy="+enemy);
 			}
-
 		}
 
 
@@ -175,16 +185,7 @@ public class SubAnaliz extends MyGdxGame {
 
 	}
 
-	////////////////////////////////////////////////////////
 
-	public static void PerebrosVpole(int enemy) {
-
-				ClickSelector.TouchPressed(enemy);
-			
-	}
-
-	//////////////////////////////////////////////////////////
-	
 	
 
 
@@ -212,22 +213,53 @@ public class SubAnaliz extends MyGdxGame {
 		System.out.println("target"+getTarget());
 
 	}
-	
-	
-	public static void VerefyFirstLine(int tgf){
-		tgfl=tgf;
-		if (tgfl>= 14 && tgfl <= 76) { //ishem kuda stavit naprotiv
 
-			while (tgfl >= 14) {
-				tgfl = tgfl - 7;
+
+	public static void FindZamokRif() {
+		int cv=0;
+		setRif(0);
+
+		for (Blok hj : BlokList.subList(1, 6)) {
+			cv++;
+			if (hj.getIndex() == 11) {
+				setRif(cv);
 			}
-			}
-			if(BlokListGet(tgfl).getIndex()!=0){
-				tgfl=0;
-			}
+		}
+
+		if(getRif()>0){
+			ClickSelector.TouchPressed(getRif());
+			System.out.println("find rif " + getRif());
+		}
 
 	}
-	
+
+
+	public static  void VerefyRifOfKurs(int le) {
+
+		setRifNaKurse(false);
+
+		boolean gr = false;
+
+		while (!gr && le >= 14) {
+			le = le - 7;
+			if (BlokListGet(le).getIndex() == 11) {
+				gr = true;
+				setRifNaKurse(true);
+				System.out.println("Rif na line " + isRifNaKurse());
+			}
+		}
+	}
+
+
+	////////////////////////////////////////////////////////
+
+	public static void PerebrosVpole(int tgt) {
+
+		ClickSelector.TouchPressed(tgt);
+
+	}
+
+	//////////////////////////////////////////////////////////
 
 	/////////////
 }

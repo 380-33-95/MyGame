@@ -31,13 +31,20 @@ public class StrategijFirstEnemy extends SubAnaliz{
 		}
 		else//если нет мины
 			{
-				FindVeryForseBlok();//ищем корабль
-				if (getEnemyBoat()>0)
-				{//есть корабль
+				FindZamokRif();//ищем риф
+				if (getRif()>0)
+				{//есть риф в замке
+					VerefyRifOfKurs(getTarget());//ищем риф по курсу цели
+					if(!isRifNaKurse())
+					{//если рифа нет на курсе
 
+					}
+					else{//если риф есть на курсе
+
+						}
 				}
-				else{// если корабля нет
-					//ищем блок со эффектом
+				else{// если рифа в замке нет
+					//ищем корабль
 					}
 			}
 	}
