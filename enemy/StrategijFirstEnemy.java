@@ -78,5 +78,9 @@ public class StrategijFirstEnemy extends SubAnaliz{
 		
 
 	}
+
+
+
+
 	
 }// end class

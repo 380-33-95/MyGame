@@ -1,207 +1,213 @@
 package com.mycompany.enemy;
 
-import com.badlogic.gdx.math.MathUtils;
 import com.mycompany.mygame.Blok;
 import com.mycompany.mygame.ClickSelector;
 
 public class Analiz extends Blok {
 
-	////////////////////////////////////////
-	public static int getTargetEnemy() {
-		return TargetEnemy;
+	///////////
+	private static int target;
+	public static void setTarget(int tr){
+		target=tr;
+	}
+	public static int getTarget(){
+		return target;
 	}
 
-	public static void setTargetEnemy(int targetEnemy) {
-		TargetEnemy = targetEnemy;
+
+	private static int nj;
+	public static int getBlok(){
+		return nj;
 	}
 
-	private static int TargetEnemy;
 
-	///////////////////////////////////////////
-	public static boolean isMinaNaLine() {
-		return MinaNaLine;
+
+	////////////////////////////////////////////////
+	public static int getIndexZamok() {
+		return IndexZamok;
 	}
 
-	public static void setMinaNaLine(boolean minaNaLine) {
-		MinaNaLine = minaNaLine;
+	public static void setIndexZamok(int indexZamok) {
+		IndexZamok = indexZamok;
 	}
 
-	private static boolean MinaNaLine;
+	private static int IndexZamok;
 
-	////////////////////////////////////////////
 
-	public static int isMinaVZamke() {
-		return MinaVZamke;
+	public static boolean isIndexToLine() {
+		return IndexToLine;
 	}
 
-	public static void setMinaVZamke(int minaVZamke) {
-		MinaVZamke = minaVZamke;
+	public static void setIndexToLine(boolean indexToLine) {
+		IndexToLine = indexToLine;
 	}
 
-	private static int MinaVZamke;
-	////////////////////////////////////////////////////////
+	private static boolean IndexToLine;
 
 
-	//////////////////////////////////////////////////
-	
+	public static int getTargetForPerebros() {
+		return TargetForPerebros;
+	}
 
-	/////////////////////////////////////////////////////
-	public static int FindVeryForseBlok() {
+	public static void setTargetForPerebros(int targetForPerebros) {
+		TargetForPerebros = targetForPerebros;
+	}
 
-		int gv = 0;
+	private static int TargetForPerebros;
 
-		int VeryForse = 0;
 
-		for (Blok gh : BlokList.subList(1, 6)) {
-			if (gh.getEffect() == 0
-					&& gh.getForse() > VeryForse) {
-				VeryForse = gh.getForse();
-				gv = BlokList.indexOf(gh);
-			}
 
-			System.out.println("very forse= " + gv);
-			if (VeryForse > 0) {
-				ClickSelector.TouchPressed(gv);
+	public static int getEnemyBoat() {
+		return EnemyBoat;
+	}
+
+	public static void setEnemyBoat(int enemyBoat) {
+		EnemyBoat = enemyBoat;
+	}
+
+	private static int EnemyBoat;
+
+
+	//////////////////////////////////////////////////////////////
+
+
+	public static void FindEnemy(int start){
+
+		int tgt=start-1;
+		boolean tr=false;
+
+		for(Blok qe:BlokList.subList(start,76)){
+			tgt++;
+			if(qe.getStorona()==1 && qe.getEffect()==0){
+				target=tgt;
+				tr=true;
+				nj=target;
+				ClickSelector.TouchPressed(target);
+				break;
 			}
 
 		}
-		return gv;
+
+		if(!tr){
+			tgt=0;
+			target=0;
+		}
+		System.out.println("target"+getTarget());
+
 	}
 
-	////////////////////////////////////////////////////////
-	public static int PoiskEnemy(int hud) {
 
-		boolean sm = false;
+	public static void FindZamok(int index) {
 
-		while (!sm && hud <= 76) {
-			hud++;
-			if (BlokListGet(hud).getStorona() == 1
-					&& BlokListGet(hud).getEffect() == 0) {
-				sm = true;
+		int cv=0;
+		setIndexZamok(0);
+
+		for (Blok hj : BlokList.subList(1, 6)) {
+			cv++;
+			if (hj.getIndex() == index) {
+				setIndexZamok(cv);
 			}
 		}
 
-		if (!sm) {
-			hud = 0;
+		if(getIndexZamok()>0){
+			ClickSelector.TouchPressed(getIndexZamok());
+			System.out.println("find index="+index +" kletka #"+ getIndexZamok());
 		}
-
-		System.out.println("Enemy " + hud);
-		return hud;
 	}
 
-	//////////////////////////////////////////////////////
-	public static boolean PererbrosVpole(int enemy) {
 
-		boolean sm = false;
+	public static  void VerefyOfKurs(int le, int index) {
 
-		int hup = enemy;
+		setIndexToLine(false);
 
-		if (enemy >= 14 && enemy <= 76) { //ishem kuda stavit naprotiv
+		boolean gr = false;
 
-			while (enemy >= 14) {
-				enemy = enemy - 7;
-			}
-
-			if (BlokListGet(enemy).getIndex() == 0) //proverjem ne sanjat li kvadrat
-			{
-				ClickSelector.TouchPressed(enemy);
-				System.out.println("perebros both v " + enemy);
-			} else {
-				System.out.println("kletka zanjata " + enemy);
-				PoiskEnemy(hup+1);
-
+		while (!gr && le >= 14) {
+			le = le - 7;
+			if (BlokListGet(le).getIndex() == index) {
+				gr = true;
+				setIndexToLine(true);
+				System.out.println("Index na line " + isIndexToLine());
 			}
 		}
-		return sm;
 	}
 
-	//////////////////////////////////////////////////////////
 
+	public static void VerefyFreeBlokForPerebros(int enemy) {
 
-	public static boolean PerebrosMina(int enemy) {
-
-		System.out.println("Perebros mina");
-		boolean sp = false;
-
+		System.out.println("Perebros index");
 
 		if (enemy >= 42 && enemy <= 76) {
+			System.out.println("target from PM"+enemy);
 			while (enemy >= 42) {
 				enemy = enemy - 7;
-			}
-			if (BlokListGet(enemy).getIndex() == 0) {
-				ClickSelector.TouchPressed(enemy);
-				sp = true;
-			} else {
-				FindVeryForseBlok();
+				System.out.println("enemy="+enemy);
 			}
 		}
-
 
 		if (enemy >= 14 && enemy <= 41) { //ishem kuda stavit naprotiv
 
-			enemy = enemy - 7;
-
-			if (BlokListGet(enemy).getIndex() == 0) {
-				ClickSelector.TouchPressed(enemy);
-				sp = true;
-			} else {
-				FindVeryForseBlok();
+			while (BlokListGet(enemy).getIndex() != 0) {
+				enemy=enemy-7;
+			}
+			if(BlokListGet(enemy).getIndex()==0){
+				setTargetForPerebros(enemy);
+				System.out.println("perebros index redy? "+getTargetForPerebros());
+				setTarget(enemy);
 			}
 
 		}
-		return sp;
+
 	}
 
 
-	////////////////////////////////////////////
-	public static boolean HodEffect() {
-		System.out.println("hod effect");
-		boolean he = false;
-		boolean hv = false;
+	public static void FindVeryForseBlok() {
 
-		int le = 0;
-		int lv = 0;
+		int gv = 0;
+		int VeryForse = 0;
 
-		while (!he) {
-			le++;
-			if (BlokListGet(le).getEffect() >= 6 && BlokListGet(le).getEffect() <= 11) {
-				he = true;
-				ClickSelector.TouchPressed(le);
-			}
-
-		}
-		while (!hv) {
-			lv = MathUtils.random(14, 41);
-			if (BlokListGet(lv).getIndex() == 0) {
-				ClickSelector.TouchPressed(lv);
-				hv = true;
+		for (Blok gh : BlokList.subList(1, 6))
+		{
+			gv++;
+			if (gh.getEffect() == 0
+					&& gh.getForse() > VeryForse)
+			{
+				VeryForse = gh.getForse();
+				setEnemyBoat(gv);
 			}
 		}
 
-		return he;
+		if (getEnemyBoat() > 0)
+		{
+			System.out.println("very forse= " + getEnemyBoat());
+		}
+
 	}
 
 
-	public static int FindEnemy(int start){
-		
-		int target=start-1;
-		boolean tr=false;
-		
-		for(Blok qe:BlokList.subList(start,76)){
-			target++;
-		if(qe.getStorona()==1){
-			tr=true;
-		break;
+	public static void VerefyBlokForLoadEnemyBoat(int mesto){
+
+		while (mesto>13)
+		{
+			mesto=mesto-7;
 		}
-		
+
+		if (BlokListGet(mesto).getIndex()==0)
+		{
+			setTargetForPerebros(mesto);
 		}
-		
-		if(!tr){
-			target=0;
-		}
-		return target;
+		else {
+				setTargetForPerebros(0);
+				}
+
 	}
-	
-	
+
+
+	public static void PerebrosVpole(int tgt) {
+
+		ClickSelector.TouchPressed(tgt);
+
+	}
+
 	///
 }
