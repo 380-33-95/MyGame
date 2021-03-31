@@ -1,34 +1,54 @@
 package com.mycompany.enemy;
 
-import com.mycompany.mygame.ClickSelector;
-
 public class StrategijFirstEnemy extends SubAnaliz{
 
-    public static void Start(int enemy){
+	public static void Start(int enemy){
 
-        if(FindEnemy(enemy)>14){//1
-			System.out.println("Target = "+getTarget());
-			if(FindZamokMine()>0){//2
-				
-				if(!VerefyMinaOfKurs(getTarget())){
-					ClickSelector.TouchPressed(getMinaVZamke());
-					PerebrosMina(getTarget());
+		FindEnemy(enemy);
+
+	if(getTarget()>13 && getTarget()<77)
+	{//если есть цель
+		FindZamokMine(); //ищем мину
+		if(getMinaVZamke()>0)
+		{//если есть мина
+			VerefyMinaOfKurs(getTarget());//ищем мину на курсе
+				if (!isMinaNaLine())
+				{//если мины нет на курсе
+					VerfyFreeBlokForPerebrosMina(getTarget());//ищем пустую клетку
+					if (getPerebrosMina()>13 && getPerebrosMina()<41)
+					{//если есть пустая клетка
+						PerebrosVpole(getPerebrosMina());//загружаем мину
+					}
+					else
+						{//если нет пустой клетки
+							Start(getTarget()-1); //ищем новую цель*
+						}
 				}
-				
-			}//2
-			else{
-				System.out.println("Min net");
-				//TODO find very forse blok from zamok
-				FindVeryForseBlok();
+				else{//если мина есть на курсе
+					 System.out.println("на курсе мина!!!");
+					 Start(getTarget()-1); //ищем новую цель*
+					}
+		}
+		else//если нет мины
+			{
+				FindVeryForseBlok();//ищем корабль
+				if (getEnemyBoat()>0)
+				{//есть корабль
 
-				//TODO load to pole
-				PererbrosVpole(getTarget());
+				}
+				else{// если корабля нет
+					//ищем блок со эффектом
+					}
 			}
-		}//1
-		else{
-			System.out.println("Pole pusto");
+	}
+	else{//если цели нет
+
 		}
 
-    }/// end metod Start
+
+
+		
+
+	}
 	
 }// end class

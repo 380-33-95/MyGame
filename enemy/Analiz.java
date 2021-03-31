@@ -94,7 +94,7 @@ public class Analiz extends Blok {
 
 		boolean sm = false;
 
-		int hup = 0;
+		int hup = enemy;
 
 		if (enemy >= 14 && enemy <= 76) { //ishem kuda stavit naprotiv
 
@@ -108,7 +108,7 @@ public class Analiz extends Blok {
 				System.out.println("perebros both v " + enemy);
 			} else {
 				System.out.println("kletka zanjata " + enemy);
-				HodEffect();
+				PoiskEnemy(hup+1);
 
 			}
 		}
