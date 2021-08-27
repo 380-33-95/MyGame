@@ -35,6 +35,7 @@ public class HodIgrok extends ClickSelector {
        WorkBlok.ObnulenieBufer();
        ObnulenieKvadratZamok(Peremen.getKodZamok());
        WorkBlok.SdvigZamokI();
+
        //   MyMusik.MapSound.get(3).play();
 
        TowerCanon.MatricaEnemyV();

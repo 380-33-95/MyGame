@@ -1,20 +1,40 @@
 package com.mycompany.enemy;
 
+
 public class StrategijFirstEnemy extends SubAnaliz{
 
 	public static void Start(int enemy){
 
+		FindEnemy(enemy);
 
-		if (FindEnemy(enemy)>0){
+		if (getTarget()>13 && getTarget()<77){//если есть цель
 			System.out.println("find enemy "+getTarget());
+			FindZamokMine(); //ищем мину
+			if (getMinaVZamke()>0){
+
+			}
+			else{
+				if (UniversalVerifyBlokPole(getTarget(),0)==0){//проверяем клетку перед ближ враг
+					System.out.println("pusto "+UniversalVerifyBlokPole(getTarget(),0));
+					FindVeryForseBoat();//ищем самый сильный корабль
+					if (getEnemyBoat()>0){
+						System.out.println("#"+getEnemyBoat());
+					}
+				}
+
+
+				//оправляем корабль на поле
+			};
+
+
 		}
 
 
-		FindEnemy(enemy);
 
+/*
 	if(getTarget()>13 && getTarget()<77)
-	{//если есть цель
-		FindZamokMine(); //ищем мину
+	{
+
 		if(getMinaVZamke()>0)
 		{//если есть мина
 			VerefyMinaOfKurs(getTarget());//ищем мину на курсе
@@ -66,6 +86,7 @@ public class StrategijFirstEnemy extends SubAnaliz{
 					}
 			}
 	}
+
 	else{//если цели нет
 
 			////ищем эффект
@@ -80,7 +101,7 @@ public class StrategijFirstEnemy extends SubAnaliz{
 		}
 
 
-
+*/
 		
 
 	}

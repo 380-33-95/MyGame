@@ -162,7 +162,7 @@ public class SubAnaliz extends MyGdxGame {
 
 
 
-	public static void FindVeryForseBlok() {
+	public static void FindVeryForseBoat() {
 
 		int gv = 0;
 		int VeryForse = 0;
@@ -175,13 +175,13 @@ public class SubAnaliz extends MyGdxGame {
 			{
 				VeryForse = gh.getForse();
 				setEnemyBoat(gv);
-
+				System.out.println(gv);
 			}
 		}
 
 			if (getEnemyBoat() > 0)
 			{
-				System.out.println("very forse= " + getEnemyBoat());
+				System.out.println("very forse= #" + getEnemyBoat());
 			}
 
 	}
@@ -236,7 +236,7 @@ public class SubAnaliz extends MyGdxGame {
 	}
 
 
-	public static  void VerefyRifOfKurs(int le) {
+	public static void VerefyRifOfKurs(int le) {
 
 		setRifNaKurse(false);
 
@@ -259,6 +259,30 @@ public class SubAnaliz extends MyGdxGame {
 
 		ClickSelector.TouchPressed(tgt);
 
+	}
+
+	public static int UniversalVerifyBlokPole(int rd, int ikd){
+				boolean gr = false;
+				if (ikd==0){
+					while (rd>13){
+						rd=rd-7;
+					}
+					gr=true;
+				}
+		else {
+					while (!gr && rd > 13) {
+						rd = rd - 7;
+						System.out.println(rd);
+						if (BlokListGet(rd).getIndex() == ikd) {
+							gr = true;
+
+						}
+					}
+				}
+
+
+		System.out.println("Iskomoe "+ikd +" -># " + rd);
+		return rd;
 	}
 
 	//////////////////////////////////////////////////////////
