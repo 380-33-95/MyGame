@@ -4,6 +4,12 @@ public class StrategijFirstEnemy extends SubAnaliz{
 
 	public static void Start(int enemy){
 
+
+		if (FindEnemy(enemy)>0){
+			System.out.println("find enemy "+getTarget());
+		}
+
+
 		FindEnemy(enemy);
 
 	if(getTarget()>13 && getTarget()<77)

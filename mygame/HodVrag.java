@@ -54,6 +54,7 @@ public class HodVrag extends ClickSelector {
         //  DrawSmenaHoda.sun = true;
         DrawSmenaHoda.CircleSun = 0;
 
+
     }
 
 

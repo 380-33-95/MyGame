@@ -175,6 +175,7 @@ public class SubAnaliz extends MyGdxGame {
 			{
 				VeryForse = gh.getForse();
 				setEnemyBoat(gv);
+
 			}
 		}
 
@@ -189,7 +190,7 @@ public class SubAnaliz extends MyGdxGame {
 	
 
 
-    public static void FindEnemy(int start){
+    public static int FindEnemy(int start){
 
         int tgt=start-1;
         boolean tr=false;
@@ -210,7 +211,8 @@ public class SubAnaliz extends MyGdxGame {
             tgt=0;
 			target=0;
         }
-		System.out.println("target"+getTarget());
+		System.out.println("target="+getTarget());
+        return getTarget();
 
 	}
 
