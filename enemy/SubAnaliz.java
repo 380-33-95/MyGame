@@ -1,8 +1,9 @@
 package com.mycompany.enemy;
 
 import com.mycompany.mygame.Blok;
-import com.mycompany.mygame.ClickSelector;
 import com.mycompany.mygame.MyGdxGame;
+
+import static com.mycompany.mygame.ClickSelector.TouchPressed;
 
 
 public class SubAnaliz extends MyGdxGame {
@@ -86,27 +87,41 @@ public class SubAnaliz extends MyGdxGame {
 	}
 
 	private static boolean RifNaKurse;
+
+
+	public static int getResultUFB() {
+		return resultUFB;
+	}
+
+	public static void setResultUFB(int resultUFB) {
+		SubAnaliz.resultUFB = resultUFB;
+	}
+
+	private static int resultUFB;
 	
 
 	
 	
 	
-	public static void FindZamokMine() {
+	public static int FindZamokMine() {
 		int cv=0;
 		setMinaVZamke(0);
 
-		for (Blok hj : BlokList.subList(1, 6)) {
+		for (Blok hj : BlokList.subList(1, 7))
+		{
 			cv++;
 			if (hj.getIndex() == 6) {
 				setMinaVZamke(cv);
 			}
 		}
 
-		if(getMinaVZamke()>0){
-			ClickSelector.TouchPressed(getMinaVZamke());
-			System.out.println("find mina " + getMinaVZamke());
+		if(getMinaVZamke()>0)
+		{
+			TouchPressed(getMinaVZamke());
 		}
-		
+
+		System.out.println("find mina #" + getMinaVZamke());
+		return getMinaVZamke();
 	}
 	
 	
@@ -162,30 +177,6 @@ public class SubAnaliz extends MyGdxGame {
 
 
 
-	public static void FindVeryForseBoat() {
-
-		int gv = 0;
-		int VeryForse = 0;
-
-		for (Blok gh : BlokList.subList(1, 6))
-		{
-			gv++;
-			if (gh.getEffect() == 0
-					&& gh.getForse() > VeryForse)
-			{
-				VeryForse = gh.getForse();
-				setEnemyBoat(gv);
-				System.out.println(gv);
-			}
-		}
-
-			if (getEnemyBoat() > 0)
-			{
-				System.out.println("very forse= #" + getEnemyBoat());
-			}
-
-	}
-
 
 	
 
@@ -195,14 +186,15 @@ public class SubAnaliz extends MyGdxGame {
         int tgt=start-1;
         boolean tr=false;
 
-        for(Blok qe:BlokList.subList(start,76)){
+        for(Blok qe:BlokList.subList(start,77)){
             tgt++;
+
             if(qe.getStorona()==1 && qe.getEffect()==0){
 				target=tgt;
                 tr=true;
 				nj=target;
-				ClickSelector.TouchPressed(target);
-                break;
+				//TouchPressed(target);
+				break;
             }
 
         }
@@ -211,13 +203,14 @@ public class SubAnaliz extends MyGdxGame {
             tgt=0;
 			target=0;
         }
-		System.out.println("target="+getTarget());
+
+		System.out.println("find enemy #"+getTarget());
         return getTarget();
 
 	}
 
 
-	public static void FindZamokRif() {
+	public static int FindZamokRif() {
 		int cv=0;
 		setRif(0);
 
@@ -229,10 +222,11 @@ public class SubAnaliz extends MyGdxGame {
 		}
 
 		if(getRif()>0){
-			ClickSelector.TouchPressed(getRif());
-			System.out.println("find rif " + getRif());
-		}
+			TouchPressed(getRif());
 
+		}
+		System.out.println("find rif #" + getRif());
+		return getRif();
 	}
 
 
@@ -257,17 +251,21 @@ public class SubAnaliz extends MyGdxGame {
 
 	public static void PerebrosVpole(int tgt) {
 
-		ClickSelector.TouchPressed(tgt);
+		TouchPressed(tgt);
+		TouchPressed(UniversalVerifyBlokPole(getTarget(),0));
+		System.out.println("perebros #"+tgt+" -> "+getResultUFB());
 
 	}
 
 	public static int UniversalVerifyBlokPole(int rd, int ikd){
 				boolean gr = false;
-				if (ikd==0){
+				if (ikd==0)
+				{
 					while (rd>13){
 						rd=rd-7;
 					}
 					gr=true;
+					setResultUFB(0);
 				}
 		else {
 					while (!gr && rd > 13) {
@@ -275,6 +273,7 @@ public class SubAnaliz extends MyGdxGame {
 						System.out.println(rd);
 						if (BlokListGet(rd).getIndex() == ikd) {
 							gr = true;
+								setResultUFB(rd);
 
 						}
 					}
@@ -282,8 +281,11 @@ public class SubAnaliz extends MyGdxGame {
 
 
 		System.out.println("Iskomoe "+ikd +" -># " + rd);
-		return rd;
+		return getResultUFB();
 	}
+
+
+
 
 	//////////////////////////////////////////////////////////
 

@@ -34,6 +34,8 @@ public class WorkBlok extends Blok {
         BlokList.get(getNC()).setStorona(bufer.getStorona());
         BlokList.get(getNC()).setEffect(bufer.getEffect());
 
+
+
         if (BlokList.get(getNC()).getIndex() == 6) {
 
             //  MyMusik.MapSound.get(6).play();
@@ -58,6 +60,8 @@ public class WorkBlok extends Blok {
 
             BlokList.get(getNC()).PlayMusik(5, 0.25f);
         }
+
+
 
     }
 
