@@ -3,12 +3,12 @@ package com.mycompany.enemy;
 import com.mycompany.mygame.Blok;
 import com.mycompany.mygame.MyGdxGame;
 
-import static com.mycompany.enemy.SubAnaliz.getTarget;
+import static com.mycompany.enemy.StrategijFirstEnemy.setFreeblok;
 import static com.mycompany.mygame.ClickSelector.TouchPressed;
 
 public class FindVeryForseBoatEnemy extends MyGdxGame {
 
-    public static void FindVeryForseBoat()
+    public static int FindVeryForseBoat()
     {
         int gv = 0;
         int gb = 0;
@@ -28,8 +28,14 @@ public class FindVeryForseBoatEnemy extends MyGdxGame {
             }
         }
 
-        TouchPressed(gb);
-        FreeBlok(getTarget());
+
+        if(gb>0)
+        {
+            TouchPressed(gb);
+         //   FreeBlok(getTarget());
+        }
+
+        return gb;
     }
 
     public static void FreeBlok(int rd)
@@ -40,19 +46,22 @@ public class FindVeryForseBoatEnemy extends MyGdxGame {
         while (!gr && rd>=14)
         {
             rd=rd-7;
-            System.out.println("rd= "+rd);
         }
 
         gr = true;
 
-        if (gr)
+        if (gr && BlokListGet(rd).getIndex()==0)
         {
             //    rd = rd+7;
+            setFreeblok(true);
             TouchPressed(rd);
             System.out.println("free blok #" + rd );
-
             rd = 0;
             gr=false;
+        }
+        else
+        {
+            setFreeblok(false);
         }
 
     }

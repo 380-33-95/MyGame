@@ -2,6 +2,19 @@ package com.mycompany.enemy;
 
 public class StrategijFirstEnemy extends SubAnaliz
 {
+////////////////////////////////////////////////////////
+	private static boolean freeblok;
+
+	public static boolean isFreeblok() {
+		return freeblok;
+	}
+
+	public static void setFreeblok(boolean freeblok) {
+		StrategijFirstEnemy.freeblok = freeblok;
+	}
+/////////////////////////////////////////////////////////
+
+
 
 	public static void Start(int enemy)
 	{
@@ -11,13 +24,29 @@ public class StrategijFirstEnemy extends SubAnaliz
 
 		if(getTarget()>13 && getTarget()<77)
 		{//если есть цель
-			FindVeryForseBoatEnemy.FindVeryForseBoat();
+			{//ищем мину
+
+			}
 
 
 
-			; //ищем мину
+			{//ищем корабль
+				if(FindVeryForseBoatEnemy.FindVeryForseBoat()>0){
+					FindVeryForseBoatEnemy.FreeBlok(getTarget());
+				}
+				else
+				{
+					System.out.println("not boat");
+				}
+			}
 
-					//ищем корабль
+
+
+
+
+
+
+
 					//если есть корабль
 
 					//если корабля нет
@@ -30,9 +59,13 @@ public class StrategijFirstEnemy extends SubAnaliz
 					//если нет пустой клетки
 
 					//если эффекта нет
-				}
+		}
+		else //если цели нет
+		{
 
-		//если цели нет
+		}
+
+
 
 			////ищем эффект
 			//если есть эффект
@@ -44,14 +77,6 @@ public class StrategijFirstEnemy extends SubAnaliz
 			//если эффекта нет
 
 	}
-
-
-
-
-
-
-
-
 
 
 
