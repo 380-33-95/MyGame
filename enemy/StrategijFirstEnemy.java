@@ -1,5 +1,8 @@
 package com.mycompany.enemy;
 
+import static com.mycompany.enemy.Enemy.FindEnemy;
+import static com.mycompany.enemy.Enemy.getTarget;
+
 public class StrategijFirstEnemy extends SubAnaliz
 {
 ////////////////////////////////////////////////////////
@@ -24,9 +27,20 @@ public class StrategijFirstEnemy extends SubAnaliz
 
 		if(getTarget()>13 && getTarget()<77)
 		{//если есть цель
-			{//ищем мину
+			//ищем мину
 
-			}
+				if(Mina.FindZamokMine()>0)
+				{
+					if(!Mina.VerefyMinaOfKurs(getTarget()))
+					{
+						System.out.println("mina #"+Mina.getMina());
+						Mina.VerefyFreeBlokForPerebrosMina(getTarget());
+
+					}
+				}
+
+
+			else
 
 
 

@@ -7,15 +7,7 @@ import static com.mycompany.mygame.ClickSelector.TouchPressed;
 
 
 public class SubAnaliz extends MyGdxGame {
-	////////////
-	private static int target;
-	public static void setTarget(int tr){
-		target=tr;
-	}
-	public static int getTarget(){
-		return target;
-	}
-	/////////
+
 	
 	public static int getMinaVZamke() {
 		return MinaVZamke;
@@ -29,15 +21,7 @@ public class SubAnaliz extends MyGdxGame {
 	
 	
 	///////////////////////////////////////////
-	public static boolean isMinaNaLine() {
-		return MinaNaLine;
-	}
 
-	public static void setMinaNaLine(boolean minaNaLine) {
-		MinaNaLine = minaNaLine;
-	}
-
-	private static boolean MinaNaLine;
 	/////////////////////
 	
 	private static int nj;
@@ -45,15 +29,7 @@ public class SubAnaliz extends MyGdxGame {
 		return nj;
 	}
 
-	public static int getPerebrosMina() {
-		return PerebrosMina;
-	}
 
-	public static void setPerebrosMina(int perebrosMina) {
-		PerebrosMina = perebrosMina;
-	}
-
-	private static int PerebrosMina;
 
 
 	public static int getEnemyBoat() {
@@ -103,75 +79,11 @@ public class SubAnaliz extends MyGdxGame {
 	
 	
 	
-	public static int FindZamokMine() {
-		int cv=0;
-		setMinaVZamke(0);
 
-		for (Blok hj : BlokList.subList(1, 7))
-		{
-			cv++;
-			if (hj.getIndex() == 6) {
-				setMinaVZamke(cv);
-			}
-		}
 
-		if(getMinaVZamke()>0)
-		{
-			TouchPressed(getMinaVZamke());
-		}
-
-		System.out.println("find mina #" + getMinaVZamke());
-		return getMinaVZamke();
-	}
-	
-	
-	public static  void VerefyMinaOfKurs(int le) {
-
-		setMinaNaLine(false);
-
-		boolean gr = false;
-
-		while (!gr && le >= 14) {
-			le = le - 7;
-			if (BlokListGet(le).getIndex() == 6) {
-				gr = true;
-				setMinaNaLine(true);
-				System.out.println("Mina na line " + isMinaNaLine());
-			}
-		}
-	}
-	
-	
 
 	////////////////////////////////////////////////////
-	public static void VerfyFreeBlokForPerebrosMina(int enemy) {
 
-		System.out.println("Perebros mina");
-
-		if (enemy >= 42 && enemy <= 76) {
-			System.out.println("target from PM"+enemy);
-			while (enemy >= 42) {
-				enemy = enemy - 7;
-				System.out.println("enemy="+enemy);
-			}
-		}
-
-
-		if (enemy >= 14 && enemy <= 41) { //ishem kuda stavit naprotiv
-
-			while (BlokListGet(enemy).getIndex() != 0) {
-				enemy=enemy-7;
-			}
-			if(BlokListGet(enemy).getIndex()==0){
-				setPerebrosMina(enemy);
-				System.out.println("perebros mina redy? "+getPerebrosMina());
-				setTarget(enemy);
-			}
-
-
-		}
-
-	}
 
 	///////////////////////////////////////
 
@@ -181,33 +93,7 @@ public class SubAnaliz extends MyGdxGame {
 	
 
 
-    public static int FindEnemy(int start){
 
-        int tgt=start-1;
-        boolean tr=false;
-
-        for(Blok qe:BlokList.subList(start,77)){
-            tgt++;
-
-            if(qe.getStorona()==1 && qe.getEffect()==0){
-				target=tgt;
-                tr=true;
-				nj=target;
-				//TouchPressed(target);
-				break;
-            }
-
-        }
-
-        if(!tr){
-            tgt=0;
-			target=0;
-        }
-
-		System.out.println("find enemy #"+getTarget());
-        return getTarget();
-
-	}
 
 
 	public static int FindZamokRif() {
@@ -249,13 +135,7 @@ public class SubAnaliz extends MyGdxGame {
 
 	////////////////////////////////////////////////////////
 
-	public static void PerebrosVpole(int tgt) {
 
-		TouchPressed(tgt);
-		TouchPressed(UniversalVerifyBlokPole(getTarget(),0));
-		System.out.println("perebros #"+tgt+" -> "+getResultUFB());
-
-	}
 
 	public static int UniversalVerifyBlokPole(int rd, int ikd){
 				boolean gr = false;

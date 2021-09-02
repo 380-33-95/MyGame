@@ -17,22 +17,17 @@ public class FindVeryForseBoatEnemy extends MyGdxGame {
         for (Blok gh : BlokList.subList(1, 7))
         {
             gv++;
-            System.out.println("gv= "+gv);
-
             if (gh.getEffect() == 0
                     && gh.getForse() > VeryForse)
             {
                 VeryForse = gh.getForse();
                 gb=gv;
-                System.out.println("very forse #"+gb);
             }
         }
-
 
         if(gb>0)
         {
             TouchPressed(gb);
-         //   FreeBlok(getTarget());
         }
 
         return gb;
@@ -41,7 +36,6 @@ public class FindVeryForseBoatEnemy extends MyGdxGame {
     public static void FreeBlok(int rd)
     {
         boolean gr = false;
-        System.out.println("enter rd "+rd);
 
         while (!gr && rd>=14)
         {
@@ -52,16 +46,15 @@ public class FindVeryForseBoatEnemy extends MyGdxGame {
 
         if (gr && BlokListGet(rd).getIndex()==0)
         {
-            //    rd = rd+7;
             setFreeblok(true);
             TouchPressed(rd);
-            System.out.println("free blok #" + rd );
             rd = 0;
             gr=false;
         }
         else
         {
             setFreeblok(false);
+            Enemy.FindEnemy(rd-1);
         }
 
     }
