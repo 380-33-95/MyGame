@@ -37,6 +37,12 @@ public class StrategijFirstEnemy extends SubAnaliz
 						Mina.VerefyFreeBlokForPerebrosMina(getTarget());
 
 					}
+					else{
+						Start(getTarget()+1);
+						if(getTarget()>0){
+							FindVeryForseBoatEnemy.FreeBlok(getTarget());
+						}
+					}
 				}
 
 

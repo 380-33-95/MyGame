@@ -95,6 +95,9 @@ public class Mina extends MyGdxGame {
                 enemy = enemy - 7;
                 System.out.println("enemy="+enemy);
             }
+			if(BlokListGet(enemy).getIndex()==0){
+				TouchPressed(enemy);
+			}
         }
 
 

@@ -24,6 +24,7 @@ public class Enemy extends MyGdxGame {
 
 
     public static int FindEnemy(int start){
+        System.out.println("---find enemy");
 
         int tgt=start-1;
         boolean tr=false;
@@ -55,8 +56,14 @@ public class Enemy extends MyGdxGame {
     public static void PerebrosVpole(int tgt) {
 
         TouchPressed(tgt);
-        TouchPressed(SubAnaliz.UniversalVerifyBlokPole(getTarget(),0));
-        System.out.println("perebros #"+tgt+" -> "+SubAnaliz.getResultUFB());
+		if(SubAnaliz.UniversalVerifyBlokPole(getTarget(),0)==0){
+			TouchPressed(SubAnaliz.UniversalVerifyBlokPole(getTarget(),0));
+			System.out.println("perebros #"+tgt+" -> "+SubAnaliz.getResultUFB());
+			
+		}
+		else{
+			StrategijFirstEnemy.Start(getTarget()-1);
+		}
 
     }
 

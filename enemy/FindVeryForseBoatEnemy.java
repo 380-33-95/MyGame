@@ -3,6 +3,7 @@ package com.mycompany.enemy;
 import com.mycompany.mygame.Blok;
 import com.mycompany.mygame.MyGdxGame;
 
+import static com.mycompany.enemy.Enemy.getTarget;
 import static com.mycompany.enemy.StrategijFirstEnemy.setFreeblok;
 import static com.mycompany.mygame.ClickSelector.TouchPressed;
 
@@ -35,26 +36,26 @@ public class FindVeryForseBoatEnemy extends MyGdxGame {
 
     public static void FreeBlok(int rd)
     {
-        boolean gr = false;
-
-        while (!gr && rd>=14)
+       while (rd>=14)
         {
             rd=rd-7;
+            System.out.println("rd= #"+rd);
         }
 
-        gr = true;
+        System.out.println("calculate rd= #"+rd);
 
-        if (gr && BlokListGet(rd).getIndex()==0)
+        if (BlokListGet(rd).getIndex()==0)
         {
             setFreeblok(true);
             TouchPressed(rd);
             rd = 0;
-            gr=false;
+            System.out.println("blok #true");
         }
         else
         {
+            System.out.println("blok #false recall find enemy from #"+(getTarget()+1));
             setFreeblok(false);
-            Enemy.FindEnemy(rd-1);
+            Enemy.FindEnemy(getTarget()+1);
         }
 
     }
