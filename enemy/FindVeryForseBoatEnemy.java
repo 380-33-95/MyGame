@@ -11,6 +11,7 @@ public class FindVeryForseBoatEnemy extends MyGdxGame {
 
     public static int FindVeryForseBoat()
     {
+        System.out.println("---FindVeryForseBoat");
         int gv = 0;
         int gb = 0;
         int VeryForse = 0;
@@ -36,6 +37,7 @@ public class FindVeryForseBoatEnemy extends MyGdxGame {
 
     public static void FreeBlok(int rd)
     {
+        System.out.println("---FreeBlok");
        while (rd>=14)
         {
             rd=rd-7;

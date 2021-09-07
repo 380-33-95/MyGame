@@ -22,7 +22,7 @@ public class StrategijFirstEnemy extends SubAnaliz
 	public static void Start(int enemy)
 	{
 
-
+		System.out.println("-findEnemyFromStart");
 		FindEnemy(enemy);
 
 		if(getTarget()>13 && getTarget()<77)
@@ -51,6 +51,7 @@ public class StrategijFirstEnemy extends SubAnaliz
 
 
 			{//ищем корабль
+				System.out.println("//find boat");
 				if(FindVeryForseBoatEnemy.FindVeryForseBoat()>0){
 					FindVeryForseBoatEnemy.FreeBlok(getTarget());
 				}

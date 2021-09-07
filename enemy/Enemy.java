@@ -1,8 +1,10 @@
 package com.mycompany.enemy;
 
 import com.mycompany.mygame.Blok;
+import com.mycompany.mygame.Generator;
 import com.mycompany.mygame.MyGdxGame;
 
+import static com.mycompany.enemy.FindVeryForseBoatEnemy.FreeBlok;
 import static com.mycompany.mygame.ClickSelector.TouchPressed;
 
 public class Enemy extends MyGdxGame {
@@ -24,6 +26,7 @@ public class Enemy extends MyGdxGame {
 
 
     public static int FindEnemy(int start){
+
         System.out.println("---find enemy");
 
         int tgt=start-1;
@@ -45,6 +48,11 @@ public class Enemy extends MyGdxGame {
         if(!tr){
             tgt=0;
             target=0;
+           if(FindVeryForseBoatEnemy.FindVeryForseBoat()>0){
+               System.out.println("---generator");
+             FreeBlok(7+(int) Generator.GenRand(6));
+           };
+
         }
 
         System.out.println("find enemy #"+getTarget());
